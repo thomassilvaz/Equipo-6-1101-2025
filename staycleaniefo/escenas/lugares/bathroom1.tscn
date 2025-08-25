@@ -1,0 +1,206 @@
+[gd_scene load_steps=19 format=4 uid="uid://by5ahruud74e1"]
+
+[ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_aqnlp"]
+[ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_gnpiq"]
+[ext_resource type="Texture2D" uid="uid://dshrqvrcys17u" path="res://Imagenes/Texturas/cancha.png" id="3_3w7ln"]
+[ext_resource type="PackedScene" uid="uid://do257tduj2rj5" path="res://escenas/puerta.tscn" id="4_hmu5h"]
+[ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="5_6h1du"]
+[ext_resource type="Script" uid="uid://dbkr302kijm6x" path="res://scripts/personajes/vendedor.gd" id="6_6h1du"]
+[ext_resource type="Texture2D" uid="uid://ddlaciyynomvs" path="res://Imagenes/Texturas/baño.png" id="6_p3ha7"]
+[ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="7_p3ha7"]
+[ext_resource type="Resource" uid="uid://bb6h318sq0vrl" path="res://Dialogos/vendedor.dialogue" id="8_buuxf"]
+[ext_resource type="Texture2D" uid="uid://bhy3fjoxbgyql" path="res://Imagenes/Personajes/vendedor.png" id="9_w8ywq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hdsm"]
+texture = ExtResource("2_gnpiq")
+separation = Vector2i(8, 8)
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 15.8053, -32, 15.8053)
+4:1/0 = 0
+6:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+7:1/0 = 0
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:1/0 = 0
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -22.0145, -32, -22.0145, 32, -32, 32)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -22.0145, -32, -22.0145, 32, -32, 32)
+8:2/0 = 0
+9:2/0 = 0
+9:0/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_no1cm"]
+texture = ExtResource("3_3w7ln")
+texture_region_size = Vector2i(64, 64)
+0:0/size_in_atlas = Vector2i(9, 15)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_27yxa"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3hdsm")
+sources/1 = SubResource("TileSetAtlasSource_no1cm")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xp4h7"]
+texture = ExtResource("2_gnpiq")
+separation = Vector2i(8, 8)
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lgqkh"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_xp4h7")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4dq3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vglih"]
+size = Vector2(50, 35.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp4h7"]
+
+[node name="bathroom1" type="Node2D"]
+script = ExtResource("1_aqnlp")
+
+[node name="Mapa" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wAAAAAJAAEAAAD/////AAAKAAEAAAD+////AAAKAAEAAAD+//7/AAAKAAEAAAD9//7/AAAKAAEAAAD///7/AAAKAAEAAAAAAP7/AAAKAAEAAAD9//3/AAAKAAEAAAD9//z/AAAKAAEAAAD+//z/AAAKAAEAAAD///z/AAAKAAEAAAD///3/AAAKAAEAAAAAAP3/AAAKAAEAAAAAAPz/AAAKAAEAAAD+//3/AAAKAAEAAAD9//v/AAAKAAAAAAD+//v/AAAKAAAAAAD///v/AAAKAAAAAAAAAPv/AAAKAAAAAAABAPv/AAAHAAIAAAABAPz/AAAHAAIAAAABAP3/AAAHAAIAAAABAP7/AAAHAAIAAAAAAP//AAAHAAIAAAD8//v/AAAHAAIAABD8//z/AAAHAAIAABD8//3/AAAHAAIAABD8//7/AAAHAAIAABD9////AAAHAAIAABA=")
+tile_set = SubResource("TileSet_27yxa")
+
+[node name="Objetos" type="TileMapLayer" parent="Mapa"]
+tile_set = SubResource("TileSet_lgqkh")
+
+[node name="Puertas" type="Node" parent="."]
+
+[node name="Puerta_salida" parent="Puertas" instance=ExtResource("4_hmu5h")]
+position = Vector2(-63, 47)
+scale = Vector2(3.4455, -1.73294)
+destino_nivel_tag = "piso_2"
+destino_puerta_tag = "b1"
+spawn_direccion = "arriba"
+
+[node name="Spawn" parent="Puertas/Puerta_salida" index="1"]
+position = Vector2(2.63641e-07, 45.0103)
+
+[node name="ysort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="jugador" parent="ysort" instance=ExtResource("5_6h1du")]
+
+[node name="Vendedor" type="CharacterBody2D" parent="ysort"]
+position = Vector2(-130, -480)
+script = ExtResource("6_6h1du")
+
+[node name="Interactuable" parent="ysort/Vendedor" instance=ExtResource("7_p3ha7")]
+dialogue_resource = ExtResource("8_buuxf")
+dialogue_start = "oferta2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor/Interactuable"]
+position = Vector2(0, 28)
+scale = Vector2(3.87988, 3.9482)
+shape = SubResource("CircleShape2D_d4dq3")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor"]
+position = Vector2(0, 37.625)
+shape = SubResource("RectangleShape2D_vglih")
+
+[node name="Sprite2D" type="Sprite2D" parent="ysort/Vendedor"]
+texture = ExtResource("9_w8ywq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-127, -257)
+scale = Vector2(2.28795, 2.06628)
+texture = ExtResource("6_p3ha7")
+
+[node name="Colisiones" type="StaticBody2D" parent="."]
+scale = Vector2(2.01092, 1.99204)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(-168, -30)
+scale = Vector2(-4.062, 3.4252)
+shape = SubResource("RectangleShape2D_xp4h7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(41, -30)
+scale = Vector2(-4.062, 3.4252)
+shape = SubResource("RectangleShape2D_xp4h7")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(-88, 15)
+scale = Vector2(-4.062, 1.5052)
+shape = SubResource("RectangleShape2D_xp4h7")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(-6, 14)
+scale = Vector2(-0.875379, -1.4103)
+shape = SubResource("RectangleShape2D_xp4h7")
+
+[connection signal="body_entered" from="ysort/Vendedor/Interactuable" to="ysort/Vendedor/Sprite2D" method="_on_interactuable_body_entered"]
+[connection signal="body_exited" from="ysort/Vendedor/Interactuable" to="ysort/Vendedor/Sprite2D" method="_on_interactuable_body_exited"]
+
+[editable path="Puertas/Puerta_salida"]

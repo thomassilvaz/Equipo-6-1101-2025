@@ -1,0 +1,12 @@
+~ secretaria
+#Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Esta es la secretaria.
+Parece que no hay nadie adentro.
+# First one
+	#Nathan: You picked the first one.
+#- Second one
+	#Nathan: You picked the second one.
+#- Start again => secretaria
+#- End the conversation => END
+#Nathan: For more information see the online documentation.
+=> END

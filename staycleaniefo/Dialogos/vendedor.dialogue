@@ -1,0 +1,22 @@
+~ oferta1
+Vendedor: [[Hey tú|Que pasa|Hablálo]].
+Vendedor: ¿Quiéres de la buena?
+Alexa: ¿A qué te refieres?
+Vendedor: Tengo... polvitos, o pastillas, lo que ustéd quiera.
+Vendedor: Subímos y te das una.
+Alexa: 
+- Bueno... ya subo a ver.
+	Nathan: Allá te espero.
+	Alexa: Ok...
+	do Estados.mostrar_vendedor()
+- No, la buena.
+	Vendedor: Pff, Mera gallina.
+	Vendedor: Los buenos por acá se quedan solos.
+=> END
+
+
+~ oferta2
+Vendedor: [[Hey tú|Que pasa|Hablálo]].
+Vendedor: Entonces, ¿si vas a meter?
+Vendedor: Tengo varias cositas, tú dime cuál quieres.
+=> END

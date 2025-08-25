@@ -1,0 +1,25 @@
+extends Node
+
+var current_music_path: String = ""
+@onready var player := $MusicPlayer
+@onready var fx_player := $FxPlayer
+
+func play_music(path: String):
+	if path == current_music_path:
+		
+		return
+	var new_stream = load(path)
+	if new_stream:
+		player.stream = new_stream
+		player.play()
+		current_music_path = path
+
+func stop_music():
+	player.stop()
+	current_music_path = ""
+
+func play_fx(path: String):
+	var fx_stream = load(path)
+	if fx_stream:
+		fx_player.stream = fx_stream
+		fx_player.play()

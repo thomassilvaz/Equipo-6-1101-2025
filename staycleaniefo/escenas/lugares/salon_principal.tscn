@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=4 uid="uid://hlwd4oxnlx30"]
+
+[ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_gd4t4"]
+[ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="1_yap3h"]
+[ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="2_3i0r0"]
+[ext_resource type="PackedScene" uid="uid://do257tduj2rj5" path="res://escenas/puerta.tscn" id="3_3i0r0"]
+[ext_resource type="Texture2D" uid="uid://cnxmpflivhljo" path="res://Imagenes/Texturas/objetos.png" id="5_ly02a"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3i0r0"]
+texture = ExtResource("1_yap3h")
+separation = Vector2i(8, 8)
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -43, -64, -43, 64, -64, 64)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -43, -64, -43, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_ly02a"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3i0r0")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ly02a"]
+texture = ExtResource("5_ly02a")
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/y_sort_origin = -10
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.162, -7.32851, 22.3042, -8.2844, 21.9855, 28.3581, -18.162, 27.7209)
+1:0/0 = 0
+1:0/0/y_sort_origin = -10
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.175, -40.0776, 32.175, -40.6421, 32.175, 63.7855, -31.6105, 63.7855)
+2:0/0 = 0
+2:0/0/y_sort_origin = -10
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20.0737, 29.9513, 19.7551, 29.6327, 20.0737, 34.4121, -20.711, 34.0935)
+3:0/0 = 0
+3:0/0/y_sort_origin = -10
+4:0/0 = 0
+4:0/0/y_sort_origin = -10
+5:0/0 = 0
+5:0/0/y_sort_origin = -10
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54.754, -31.6105, 56.4474, -32.175, 56.4474, 33.304, -53.625, 34.4329)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.0461, 31.0461, 32.175, 31.0461, 31.6105, 54.1895, -31.0461, 53.625)
+
+[sub_resource type="TileSet" id="TileSet_5cxnd"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ly02a")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly02a"]
+size = Vector2(33, 20)
+
+[node name="salonprincipal" type="Node2D"]
+script = ExtResource("1_gd4t4")
+
+[node name="Mapa" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAP//AAAHAAIAADABAAAAAAAHAAIAADABAAEAAAAHAAIAADABAAIAAAAHAAIAADACAAIAAAACAAIAAAAEAAIAAAABAAIAAGAEAPz/AAABAAIAAFACAPz/AAACAAIAAFAFAPz/AAACAAIAADAFAAIAAAABAAIAAGACAAEAAAABAAIAAAACAAAAAAABAAIAAAACAP//AAABAAIAAAACAP7/AAABAAIAAAACAP3/AAABAAIAAAADAPz/AAABAAIAAFAFAP3/AAABAAIAADAFAP7/AAABAAIAADAFAP//AAABAAIAADAFAAAAAAABAAIAADAFAAEAAAABAAIAADADAAIAAAABAAIAAGADAP3/AAAAAAEAAAADAP7/AAAAAAEAAAADAP//AAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAAAAAAAAAAEAAAAEAP//AAAAAAEAAAAEAP7/AAAAAAEAAAAEAP3/AAAAAAEAAAAGAAIAAAAGAAIAAGACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAAEAPv/AAAAAAAAAAAFAPv/AAAAAAAAAAAGAPv/AAAHAAIAAAAGAPz/AAAHAAIAAAAGAP3/AAAHAAIAAAAGAP7/AAAHAAIAAAAGAP//AAAHAAIAAAAGAAAAAAAHAAIAAAAGAAEAAAAHAAIAAAABAPv/AAAHAAIAADABAPz/AAAHAAIAADABAP3/AAAHAAIAADABAP7/AAAHAAIAADA=")
+tile_set = SubResource("TileSet_ly02a")
+
+[node name="Puertas" type="Node" parent="."]
+
+[node name="Puerta_salida" parent="Puertas" instance=ExtResource("3_3i0r0")]
+position = Vector2(803, 321)
+scale = Vector2(3.07722, 3.28436)
+destino_nivel_tag = "piso_2"
+destino_puerta_tag = "salonp"
+spawn_direccion = "izquierda"
+
+[node name="Spawn" parent="Puertas/Puerta_salida" index="1"]
+position = Vector2(-20.4813, -2.86102e-06)
+
+[node name="ysort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Objetos" type="TileMapLayer" parent="ysort"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAlANz/AAADAAAAAAAeANz/AAAEAAAAAAApAOD/AAAAAAAAAAApAOP/AAAFAAAAAAAtAAgAAAABAAAAABAtAPj/AAABAAAAABAtAAAAAAABAAAAABAoAOj/AAACAAAAAAAhAOj/AAACAAAAAAAaAOj/AAACAAAAAAATAOj/AAACAAAAAAATAO3/AAACAAAAAAAaAO3/AAACAAAAAAAhAO3/AAACAAAAAAAoAO3/AAACAAAAAAATAPL/AAACAAAAAAAaAPL/AAACAAAAAAAhAPL/AAACAAAAAAAoAPL/AAACAAAAAAAoAPf/AAACAAAAAAAhAPf/AAACAAAAAAAaAPf/AAACAAAAAAATAPf/AAACAAAAAAASAA4AAAAAAAAAAAAWAA4AAAABAAAAAAAXAAIAAAAFAAAAAAAlAAIAAAAFAAAAAAAXAN3/AAAGAAAAAAATAN3/AAAGAAAAAAA=")
+tile_set = SubResource("TileSet_5cxnd")
+
+[node name="jugador" parent="ysort" instance=ExtResource("2_3i0r0")]
+
+[node name="Colisiones" type="StaticBody2D" parent="."]
+scale = Vector2(1.9949, 1.98621)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(401.524, 134.931)
+shape = SubResource("RectangleShape2D_ly02a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(401.524, 187.292)
+shape = SubResource("RectangleShape2D_ly02a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(256.654, 203.403)
+scale = Vector2(7.72001, 1)
+shape = SubResource("RectangleShape2D_ly02a")
+
+[editable path="Puertas/Puerta_salida"]

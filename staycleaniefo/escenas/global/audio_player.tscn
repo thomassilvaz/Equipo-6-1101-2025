@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://w104qm0148ox"]
+
+[ext_resource type="Script" uid="uid://j7rb3kwnw14" path="res://scripts/global/audio_player.gd" id="1_fqpbl"]
+[ext_resource type="AudioStream" uid="uid://ddo1lys6s143u" path="res://Audio/FX/sonido_transicion.wav" id="2_x60cp"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_fqpbl")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 5.0
+autoplay = true
+
+[node name="FxPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x60cp")
+volume_db = 1.0
