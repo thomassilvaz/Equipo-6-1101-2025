@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://hlwd4oxnlx30"]
+[gd_scene load_steps=13 format=4 uid="uid://hlwd4oxnlx30"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_gd4t4"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="1_yap3h"]
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="2_3i0r0"]
 [ext_resource type="PackedScene" uid="uid://do257tduj2rj5" path="res://escenas/puerta.tscn" id="3_3i0r0"]
 [ext_resource type="Texture2D" uid="uid://cnxmpflivhljo" path="res://Imagenes/Texturas/objetos.png" id="5_ly02a"]
+[ext_resource type="Texture2D" uid="uid://bddsen2rg2bem" path="res://Imagenes/Personajes/profesor_andres.png" id="6_n3asq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3i0r0"]
 texture = ExtResource("1_yap3h")
@@ -78,6 +79,9 @@ texture_region_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ly02a")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uesf"]
+size = Vector2(50, 50)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly02a"]
 size = Vector2(33, 20)
 
@@ -109,6 +113,16 @@ tile_map_data = PackedByteArray("AAAlANz/AAADAAAAAAAeANz/AAAEAAAAAAApAOD/AAAAAAA
 tile_set = SubResource("TileSet_5cxnd")
 
 [node name="jugador" parent="ysort" instance=ExtResource("2_3i0r0")]
+
+[node name="ProfesorAndres" type="StaticBody2D" parent="ysort"]
+position = Vector2(524, -514)
+
+[node name="Sprite2D" type="Sprite2D" parent="ysort/ProfesorAndres"]
+texture = ExtResource("6_n3asq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/ProfesorAndres"]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_3uesf")
 
 [node name="Colisiones" type="StaticBody2D" parent="."]
 scale = Vector2(1.9949, 1.98621)

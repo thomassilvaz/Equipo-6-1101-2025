@@ -18,5 +18,5 @@ func _on_animation_finished(anim_name):
 		
 func transition():
 	color_rect.visible = true
-	AudioPlayer.play_fx("res://audio/fx/sonido_transicion.wav")
+	AudioPlayer.play_fx("res://Audio/FX/sonido_transicion.wav")
 	animation_player.play("aparicion")
