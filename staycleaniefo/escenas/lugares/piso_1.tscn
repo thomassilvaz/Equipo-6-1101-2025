@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=4 uid="uid://dibx8uyqs5cmk"]
+[gd_scene load_steps=28 format=4 uid="uid://dibx8uyqs5cmk"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_wjwe5"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_45a53"]
 [ext_resource type="Texture2D" uid="uid://dshrqvrcys17u" path="res://Imagenes/Texturas/cancha.png" id="3_8py4m"]
 [ext_resource type="PackedScene" uid="uid://do257tduj2rj5" path="res://escenas/puerta.tscn" id="4_qddyy"]
+[ext_resource type="Texture2D" uid="uid://y70v4upxt3c3" path="res://Imagenes/Texturas/mesa_cafe.png" id="5_45a53"]
 [ext_resource type="Texture2D" uid="uid://cnxmpflivhljo" path="res://Imagenes/Texturas/objetos.png" id="5_rfmke"]
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="6_sxfv7"]
 [ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="7_nfe2u"]
@@ -74,6 +75,13 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3hdsm")
 sources/1 = SubResource("TileSetAtlasSource_no1cm")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8py4m"]
+texture = ExtResource("5_45a53")
+0:0/size_in_atlas = Vector2i(16, 16)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-87.5, 3.5, 4.5, -29.5, 93.5, 52.5, -85.5, 50.5)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(3.5, -28.5, 96.5, 8.5, 92.5, 51.5)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_axl62"]
 texture = ExtResource("5_rfmke")
 separation = Vector2i(2, 2)
@@ -93,6 +101,7 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSet" id="TileSet_axl62"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_axl62")
+sources/0 = SubResource("TileSetAtlasSource_8py4m")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27yxa"]
 texture = ExtResource("2_45a53")
@@ -199,7 +208,7 @@ y_sort_enabled = true
 
 [node name="Objetos" type="TileMapLayer" parent="ysort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD7//3/AQAAAAEAAABeAP3/AQAAAAEAAAAWAP3/AQAAAAEAAABHAP3/AQAAAAEAAAAOAPz/AQACAAEAAAA/APz/AQACAAEAAABZAPz/AQACAAEAAAD4//z/AQACAAEAAABxAP3/AQAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAD7//3/AQAAAAEAAABeAP3/AQAAAAEAAAAWAP3/AQAAAAEAAABHAP3/AQAAAAEAAAAOAPz/AQACAAEAAAA/APz/AQACAAEAAABZAPz/AQACAAEAAAD4//z/AQACAAEAAABxAP3/AQAAAAEAAADy/0IAAAAAAAAAAADe/z4AAAAAAAAAAADy/08AAAAAAAAAAADf/0sAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_axl62")
 
 [node name="Mallas" type="TileMapLayer" parent="ysort/Objetos"]
