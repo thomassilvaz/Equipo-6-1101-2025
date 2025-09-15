@@ -88,15 +88,19 @@ separation = Vector2i(2, 2)
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.6105, -32.7395, 32.7395, -32.7395, 32.175, 63.7855, -31.6105, 64.35)
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53.625, -29.9171, 56.4474, -29.9171, 56.4474, 33.8684, -54.1895, 34.4329)
 6:0/0 = 0
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64.35, 29.9171, 64.35, 28.7882, 64.35, 64.35, -64.35, 63.2211)
 1:1/0 = 0
 2:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28.2237, 7.90264, 29.9171, 5.64474, 27.0947, 44.5934, -27.6592, 45.7224)
 
 [sub_resource type="TileSet" id="TileSet_axl62"]
 physics_layer_0/collision_layer = 1
@@ -208,7 +212,7 @@ y_sort_enabled = true
 
 [node name="Objetos" type="TileMapLayer" parent="ysort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD7//3/AQAAAAEAAABeAP3/AQAAAAEAAAAWAP3/AQAAAAEAAABHAP3/AQAAAAEAAAAOAPz/AQACAAEAAAA/APz/AQACAAEAAABZAPz/AQACAAEAAAD4//z/AQACAAEAAABxAP3/AQAAAAEAAADy/0IAAAAAAAAAAADe/z4AAAAAAAAAAADy/08AAAAAAAAAAADf/0sAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD7//3/AQAAAAEAAABeAP3/AQAAAAEAAAAWAP3/AQAAAAEAAABHAP3/AQAAAAEAAAAOAPz/AQACAAEAAAA/APz/AQACAAEAAABZAPz/AQACAAEAAAD4//z/AQACAAEAAABxAP3/AQAAAAEAAADy/0IAAAAAAAAAAADe/z4AAAAAAAAAAADy/08AAAAAAAAAAADf/0sAAAAAAAAAAAD2/18AAQABAAAAAAD2/20AAQABAAAAAADe/1sAAQAFAAAAAADd/2gAAQAFAAAAAADq/2gAAQAFAAAAAADo/2QAAQAEAAEAAADy/2gAAQAEAAEAAADy/20AAQAEAAEAAADb/1cAAQAEAAEAAADg/1cAAQAEAAEAABD6/1wAAQAEAAEAABD6/2AAAQAEAAEAABD5/2wAAQAEAAEAABDg/2QAAQAEAAEAABDz/1sAAQAEAAEAAADz/2AAAQAEAAEAAAA=")
 tile_set = SubResource("TileSet_axl62")
 
 [node name="Mallas" type="TileMapLayer" parent="ysort/Objetos"]

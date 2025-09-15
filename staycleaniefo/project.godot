@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="StayCleanIEFO"
-run/main_scene="uid://bdyg28ciuwu2d"
+run/main_scene="uid://bt8yq8kajlct0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

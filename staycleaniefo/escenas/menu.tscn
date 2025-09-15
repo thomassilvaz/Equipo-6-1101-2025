@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt8yq8kajlct0"]
+
+[ext_resource type="Script" uid="uid://cf475e4g4nhp3" path="res://scripts/menu.gd" id="1_d7r87"]
+[ext_resource type="Texture2D" uid="uid://cxa8q2li03xsv" path="res://Imagenes/8bit-pixel-art-school-building-with-green-lawn-in-front-campus-background-for-video-game-setting-vector.jpg" id="1_vdanu"]
+[ext_resource type="AudioStream" uid="uid://bw2ag64s1do84" path="res://Audio/Musica/School Remix.mp3" id="3_2owot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7r87"]
+bg_color = Color(0.259044, 0.46486, 0.721611, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d7r87")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vdanu")
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = 22.0
+offset_right = 195.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="jugar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7r87")
+text = "INICIAR"
+
+[node name="configuracion" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7r87")
+text = "CONFIGURACIÓN"
+
+[node name="salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7r87")
+text = "SALIR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2owot")
+volume_db = 5.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/configuracion" to="." method="_on_configuracion_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]

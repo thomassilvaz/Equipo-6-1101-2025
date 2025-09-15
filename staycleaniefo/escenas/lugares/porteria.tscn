@@ -152,7 +152,7 @@ tile_map_data = PackedByteArray("AAALACMAAQAAAAAAAAALABQAAQAAAAAAAAAvAP3/AgABAAE
 tile_set = SubResource("TileSet_lln2g")
 
 [node name="jugador" parent="ysort" instance=ExtResource("8_lri4x")]
-position = Vector2(473, 164)
+position = Vector2(899, 305)
 
 [node name="Colisiones" type="StaticBody2D" parent="."]
 
