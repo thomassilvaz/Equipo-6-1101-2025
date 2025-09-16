@@ -278,6 +278,30 @@
             right: 20%;
         }
         
+        .admin-pin-field {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .alert-message {
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
         @media (max-width: 768px) {
             .register-container {
                 flex-direction: column;
@@ -316,7 +340,7 @@
             <h2>Registro de Usuario</h2>
             <p>Crea una cuenta para acceder al sistema</p>
             
-            <form action="codigo.php" method="post">
+            <form action="codigo.php" method="post" id="registrationForm">
                 <div class="form-row">
                     <div class="form-group">
                         <label>Tipo de Documento</label>
@@ -399,10 +423,10 @@
                         <label>Rol del Usuario</label>
                         <div class="input-icon">
                             <i class="fas fa-user-tag"></i>
-                            <select name="cmb-rol" class="form-control" required>
+                            <select name="cmb-rol" id="userRole" class="form-control" required>
                                 <option value="">Seleccione un rol</option>
                                 <option value="1">ADMINISTRADOR</option>
-                                <option value="2">OPERARIO</option>
+                                <option value="2">JUGADOR</option>
                             </select>
                         </div>
                     </div>
@@ -424,9 +448,20 @@
                             <input type="password" name="txt-ctc" class="form-control" placeholder="Confirmar contraseña" required>
                         </div>
                     </div>
+                    
+                    <div class="form-group admin-pin-field" id="adminPinField">
+                        <label>PIN de Administrador</label>
+                        <div class="input-icon">
+                            <i class="fas fa-key"></i>
+                            <input type="password" name="admin-pin" id="adminPin" class="form-control" placeholder="Ingresa el PIN de administrador">
+                        </div>
+                        <div class="alert-message alert-error" id="pinError">
+                            PIN incorrecto. Solo los administradores autorizados pueden registrarse con este rol.
+                        </div>
+                    </div>
                 </div>
                 
-                <button type="submit" name="btn_registrar" class="btn-register">
+                <button type="submit" name="btn_registrar" class="btn-register" id="submitButton">
                     <i class="fas fa-user-plus"></i> REGISTRAR USUARIO
                 </button>
                 
@@ -436,5 +471,44 @@
             </form>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const roleSelect = document.getElementById('userRole');
+            const adminPinField = document.getElementById('adminPinField');
+            const adminPinInput = document.getElementById('adminPin');
+            const pinError = document.getElementById('pinError');
+            const registrationForm = document.getElementById('registrationForm');
+            
+            // PIN de administrador (deberías guardarlo de forma segura en un entorno real)
+            const ADMIN_PIN = "2024ADMIN"; // Cambia esto por un PIN seguro
+            
+            // Mostrar u ocultar campo PIN según el rol seleccionado
+            roleSelect.addEventListener('change', function() {
+                if (this.value === '1') { // Valor 1 para ADMINISTRADOR
+                    adminPinField.style.display = 'block';
+                    adminPinInput.setAttribute('required', 'required');
+                } else {
+                    adminPinField.style.display = 'none';
+                    adminPinInput.removeAttribute('required');
+                    pinError.style.display = 'none';
+                }
+            });
+            
+            // Validar el formulario antes de enviar
+            registrationForm.addEventListener('submit', function(e) {
+                // Si el usuario seleccionó administrador, validar el PIN
+                if (roleSelect.value === '1') {
+                    if (adminPinInput.value !== ADMIN_PIN) {
+                        e.preventDefault();
+                        pinError.style.display = 'block';
+                        adminPinInput.focus();
+                    } else {
+                        pinError.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

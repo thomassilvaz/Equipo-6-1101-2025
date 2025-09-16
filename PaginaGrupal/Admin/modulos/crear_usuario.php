@@ -22,7 +22,7 @@
                 
                 <!-- Card Body -->
                 <div class="card-body" style="padding: 2.5rem;">
-                    <form class="user" action="../codigo.php" method="post">
+                    <form class="user" action="../codigo.php" method="post" id="registrationForm">
                         <!-- Tipo de Documento -->
                         <div class="form-group">
                             <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
@@ -31,10 +31,10 @@
                             <select class="form-control form-control-lg" name="cmb-tp" required 
                                     style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
                                         font-family: 'Nunito', sans-serif;">
+                                <option value="">SELECCIONE TIPO DE DOCUMENTO</option>
                                 <option value="TI">TARJETA DE IDENTIDAD</option>
                                 <option value="CC">CÉDULA DE CIUDADANÍA</option>
                                 <option value="CE">CÉDULA DE EXTRANJERÍA</option>
-
                             </select>
                         </div>
 
@@ -120,13 +120,27 @@
                             <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
                                 <i class="fas fa-user-tag mr-2"></i>Rol del Usuario
                             </label>
-                            <select class="form-control form-control-lg" name="cmb-rol" required
+                            <select class="form-control form-control-lg" name="cmb-rol" id="userRole" required
                                     style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
                                            font-family: 'Nunito', sans-serif;">
                                 <option value="">SELECCIONE UN ROL</option>
                                 <option value="1">ADMINISTRADOR</option>
-                                <option value="2">OPERARIO</option>
+                                <option value="2">USUARIO</option>
                             </select>
+                        </div>
+
+                        <!-- Campo de PIN para Administradores (oculto inicialmente) -->
+                        <div class="form-group" id="adminPinField" style="display: none;">
+                            <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                                <i class="fas fa-key mr-2"></i>PIN de Administrador
+                            </label>
+                            <input type="password" class="form-control form-control-lg" name="admin-pin" id="adminPin" 
+                                placeholder="INGRESE EL PIN DE ADMINISTRADOR"
+                                style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
+                                       font-family: 'Nunito', sans-serif;">
+                            <div class="alert alert-danger mt-2" id="pinError" style="display: none; border-radius: 10px;">
+                                <i class="fas fa-exclamation-circle mr-2"></i>PIN incorrecto. Solo los administradores autorizados pueden registrarse con este rol.
+                            </div>
                         </div>
 
                         <!-- Contraseñas -->
@@ -172,3 +186,42 @@
     </div>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const roleSelect = document.getElementById('userRole');
+    const adminPinField = document.getElementById('adminPinField');
+    const adminPinInput = document.getElementById('adminPin');
+    const pinError = document.getElementById('pinError');
+    const registrationForm = document.getElementById('registrationForm');
+    
+    // PIN de administrador
+    const ADMIN_PIN = "2024ADMIN";
+    
+    // Mostrar u ocultar campo PIN según el rol seleccionado
+    roleSelect.addEventListener('change', function() {
+        if (this.value === '1') { // Valor 1 para ADMINISTRADOR
+            adminPinField.style.display = 'block';
+            adminPinInput.setAttribute('required', 'required');
+        } else {
+            adminPinField.style.display = 'none';
+            adminPinInput.removeAttribute('required');
+            pinError.style.display = 'none';
+        }
+    });
+    
+    // Validar el formulario antes de enviar
+    registrationForm.addEventListener('submit', function(e) {
+        // Si el usuario seleccionó administrador, validar el PIN
+        if (roleSelect.value === '1') {
+            if (adminPinInput.value !== ADMIN_PIN) {
+                e.preventDefault();
+                pinError.style.display = 'block';
+                adminPinInput.focus();
+            } else {
+                pinError.style.display = 'none';
+            }
+        }
+    });
+});
+</script>

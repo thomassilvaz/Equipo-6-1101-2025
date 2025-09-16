@@ -25,10 +25,7 @@ session_destroy();
 // Limpiar TODO el buffer de salida
 ob_end_clean();
 
-// Enviar encabezados de control de caché
-header("Cache-Control: no-cache, no-store, must-revalidate");
-header("Pragma: no-cache");
-header("Expires: 0");
+
 ?>
 
 <!DOCTYPE html>
