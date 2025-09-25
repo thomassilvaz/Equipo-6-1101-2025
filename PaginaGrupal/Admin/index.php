@@ -568,13 +568,6 @@ window.onpopstate = function() {
                     <h1>Stay Clean, IEFO</h1>
                     <p>Plataforma de prevención de drogas para la I.E. Federico Ozanam</p>
                 </div>
-                <div class="user-info">
-                    <img src="img/undraw_profile.svg" alt="Usuario">
-                    <div class="user-details">
-                        <span class="user-name">Thomas Silva</span>
-                        <span class="user-role">Administrador</span>
-                    </div>
-                </div>
             </header>
             
             <!-- Área de contenido dinámico -->
@@ -602,10 +595,6 @@ window.onpopstate = function() {
                         <div class="project-stat">
                             <div class="project-stat-number">638+</div>
                             <div class="project-stat-label">Horas de trabajo</div>
-                        </div>
-                        <div class="project-stat">
-                            <div class="project-stat-number">1,200+</div>
-                            <div class="project-stat-label">Estudiantes beneficiados</div>
                         </div>
                     </div>
                 </section>

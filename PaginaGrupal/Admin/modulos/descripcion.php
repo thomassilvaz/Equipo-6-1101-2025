@@ -127,9 +127,7 @@
             <div class="equipo-section">
                 <h2>Desarrollado por estudiantes para estudiantes</h2>
                 <p>El equipo de Stay Clean está formado por 4 estudiantes de grado 11 que han dedicado más de 600 horas a investigar, diseñar y desarrollar esta solución educativa.</p>
-                <div class="equipo-button">
-                    <a href="index.php?mod=comunidad" class="btn-equipo">Conoce al equipo</a>
-                </div>
+
             </div>
         </div>
     </div>
