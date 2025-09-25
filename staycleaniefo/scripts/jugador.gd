@@ -4,7 +4,7 @@ class_name Jugador
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactivo: Area2D = $Direccion/Interactivo
 
-var velocidad = 200
+var velocidad = 700
 var direccion_actual = "abajo"
 var skip_next_anim_update = false
 var walk_speed = 50

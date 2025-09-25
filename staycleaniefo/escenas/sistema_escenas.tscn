@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc22xuj5yn1j1"]
+
+[ext_resource type="Script" uid="uid://dqoigtoppeu8p" path="res://scripts/controlador_escenas.gd" id="1_yisq6"]
+[ext_resource type="Script" uid="uid://beworskerwg2r" path="res://scripts/escena_trigger.gd" id="2_skgcc"]
+
+[node name="SistemaEscenas" type="Node2D"]
+
+[node name="ControladorEscenas" type="Node" parent="."]
+script = ExtResource("1_yisq6")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_skgcc")

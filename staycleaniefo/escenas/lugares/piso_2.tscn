@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://pm1ydtyuxjy"]
+[gd_scene load_steps=20 format=4 uid="uid://pm1ydtyuxjy"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_2mopt"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_yrd7k"]
@@ -124,7 +124,10 @@ sources/1 = SubResource("TileSetAtlasSource_8xujh")
 size = Vector2(20.6918, 39.304)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mopt"]
-size = Vector2(324.957, 20)
+size = Vector2(287.09, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrd7k"]
+size = Vector2(15.9708, 63.5454)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg1pm"]
 size = Vector2(256, 128)
@@ -133,7 +136,7 @@ size = Vector2(256, 128)
 script = ExtResource("1_2mopt")
 
 [node name="Mapa" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAP//AAACAAAAAAD/////AAAEAAAAAAD+////AAABAAAAAAD9////AAAAAAAAAAD8////AAADAAAAAAD7////AAAAAAAAAAABAP//AAABAAAAAAACAP//AAAEAAAAAAADAP//AAACAAAAAAAEAP//AAAGAAAAAAD7/wAAAAAEAAEAAAD8/wAAAAAAAAIAAAD9/wAAAAAAAAIAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAEAAAAAAAAAAIAAAAFAP//AAABAAIAAAAFAP7/AAAEAAIAAAAGAP7/AAAFAAIAAAAFAAAAAAAFAAEAAAAGAAAAAAADAAIAAAAGAP//AAABAAIAADAGAP3/AAADAAEAAAAFAP3/AAADAAEAAAAHAP//AAABAAAAAAAIAP//AAAEAAAAAAAJAP//AAACAAAAAAAKAP//AAABAAAAAAALAP//AAAEAAAAAAAMAP//AAACAAAAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAANAP//AAAGAAAAAAANAAAAAAAAAAIAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAAHAP3/AAADAAEAAAAEAP3/AAADAAEAAAAEAP7/AAAEAAEAAAAHAP7/AAAEAAEAADAOAP//AAAAAAAAAAAPAP//AAADAAAAAAAQAP//AAAAAAAAAAARAP//AAABAAAAAAASAP//AAAEAAAAAAATAP//AAAEAAAAAAAUAP//AAACAAAAAAAVAP//AAAAAAAAAAAOAAAAAAAEAAIAAAAPAAAAAAAFAAIAAAAQAAAAAAAAAAIAAAARAAAAAAAAAAIAAAASAAAAAAAAAAIAAAATAAAAAAAAAAIAAAAUAAAAAAAAAAIAAAAVAAAAAAAEAAEAADAOAAEAAAACAAIAAAAPAAEAAAACAAIAAGAWAP//AAAHAAIAAAAWAAAAAAAHAAIAAAAQAAEAAAAHAAIAAAANAAEAAAAHAAIAADADAP7/AAAHAAIAADADAP3/AAAHAAIAADAIAP3/AAAHAAIAAAAIAP7/AAAHAAIAAAD6////AAAHAAIAADD6/wAAAAAHAAIAADAVAAEAAAAGAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AAACAAAAAAD/////AAAEAAAAAAD+////AAABAAAAAAD9////AAAAAAAAAAD8////AAADAAAAAAD7////AAAAAAAAAAABAP//AAABAAAAAAACAP//AAAEAAAAAAADAP//AAACAAAAAAAEAP//AAAGAAAAAAD7/wAAAAAEAAEAAAD8/wAAAAAAAAIAAAD9/wAAAAAAAAIAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAEAAAAAAAAAAIAAAAFAP//AAABAAIAAAAFAP7/AAAEAAIAAAAGAP7/AAAFAAIAAAAFAAAAAAAFAAEAAAAGAAAAAAADAAIAAAAGAP//AAABAAIAADAGAP3/AAADAAEAAAAFAP3/AAADAAEAAAAHAP//AAABAAAAAAAIAP//AAAEAAAAAAAJAP//AAACAAAAAAAKAP//AAABAAAAAAALAP//AAAEAAAAAAAMAP//AAACAAAAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAANAP//AAAGAAAAAAANAAAAAAAAAAIAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAAHAP3/AAADAAEAAAAEAP3/AAADAAEAAAAEAP7/AAAEAAEAAAAHAP7/AAAEAAEAADAOAP//AAAAAAAAAAAPAP//AAADAAAAAAAQAP//AAAAAAAAAAARAP//AAABAAAAAAASAP//AAAEAAAAAAATAP//AAAEAAAAAAAUAP//AAACAAAAAAAVAP//AAAAAAAAAAAOAAAAAAAEAAIAAAAPAAAAAAAFAAIAAAAQAAAAAAAAAAIAAAARAAAAAAAAAAIAAAASAAAAAAAAAAIAAAATAAAAAAAAAAIAAAAUAAAAAAAAAAIAAAAVAAAAAAAEAAEAADAOAAEAAAACAAIAAAAPAAEAAAACAAIAAGAWAP//AAAHAAIAAAAWAAAAAAAHAAIAAAAQAAEAAAAGAAIAAAANAAEAAAAHAAIAADADAP7/AAAHAAIAADADAP3/AAAHAAIAADAIAP3/AAAHAAIAAAAIAP7/AAAHAAIAAAD6////AAAHAAIAADD6/wAAAAAHAAIAADAVAAEAAAAGAAIAAAA=")
 tile_set = SubResource("TileSet_op38x")
 
 [node name="Puertas" type="Node" parent="."]
@@ -148,17 +151,17 @@ destino_puerta_tag = "e1"
 position = Vector2(-4.85949e-06, 18.3333)
 
 [node name="Puerta_salonp" parent="Puertas" instance=ExtResource("3_vkssr")]
-position = Vector2(2624, 168)
+position = Vector2(2752, 166)
 scale = Vector2(2.99, 2.3929)
 destino_nivel_tag = "salon_principal"
 destino_puerta_tag = "salida"
 spawn_direccion = "arriba"
 
 [node name="CollisionShape2D" parent="Puertas/Puerta_salonp" index="0"]
-position = Vector2(42.8094, -1.25371)
+position = Vector2(-0.0334473, -0.0296718)
 
 [node name="Spawn" parent="Puertas/Puerta_salonp" index="1"]
-position = Vector2(0, -29.6711)
+position = Vector2(-0.668898, -29.2532)
 
 [node name="Puerta_b1" parent="Puertas" instance=ExtResource("3_vkssr")]
 position = Vector2(1984, -39)
@@ -167,6 +170,15 @@ destino_nivel_tag = "bathroom1"
 destino_puerta_tag = "salida"
 
 [node name="Spawn" parent="Puertas/Puerta_b1" index="1"]
+position = Vector2(0, 13.9706)
+
+[node name="Puerta_b2" parent="Puertas" instance=ExtResource("3_vkssr")]
+position = Vector2(-448, -40)
+scale = Vector2(3.60942, 4.28392)
+destino_nivel_tag = "bathroom2"
+destino_puerta_tag = "salida"
+
+[node name="Spawn" parent="Puertas/Puerta_b2" index="1"]
 position = Vector2(0, 13.9706)
 
 [node name="Objetos" type="TileMapLayer" parent="."]
@@ -209,8 +221,12 @@ scale = Vector2(6.42036, 0.55761)
 shape = SubResource("RectangleShape2D_op38x")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Colisiones"]
-position = Vector2(1196.36, 73.377)
+position = Vector2(1215.29, 73.377)
 shape = SubResource("RectangleShape2D_2mopt")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(1031.97, 95.1497)
+shape = SubResource("RectangleShape2D_yrd7k")
 
 [node name="Interactuables" type="Node" parent="."]
 script = ExtResource("6_0ditk")
@@ -233,3 +249,4 @@ debug_color = Color(0.949982, 4.23551e-06, 0.570836, 0.42)
 [editable path="Puertas/Puerta_e2"]
 [editable path="Puertas/Puerta_salonp"]
 [editable path="Puertas/Puerta_b1"]
+[editable path="Puertas/Puerta_b2"]

@@ -1,0 +1,11 @@
+~ start
+do wait(2)
+Profesor Andrés: Bienvenido, Alex. Este es tu nuevo grupo. Espero que encuentres un buen ambiente para aprender.
+Profesor Andrés: Estaré aquí leyendo mis notas, si me necesitas.
+do wait(2)
+Escuchas alguien susurrando
+Estudiante 1: *Aprender... claro. Como si eso importara aquí.*
+Alguien te toca desde atrás.
+Valeria: Ten cuidado con los que te rodean. No todos quieren lo mejor para ti.
+Mateo: Si necesitas hablar, estoy por ahí. No todo es lo que parece.
+=> END

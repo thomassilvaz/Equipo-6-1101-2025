@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://hlwd4oxnlx30"]
+[gd_scene load_steps=19 format=4 uid="uid://hlwd4oxnlx30"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_gd4t4"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="1_yap3h"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://do257tduj2rj5" path="res://escenas/puerta.tscn" id="3_3i0r0"]
 [ext_resource type="Texture2D" uid="uid://cnxmpflivhljo" path="res://Imagenes/Texturas/objetos.png" id="5_ly02a"]
 [ext_resource type="Texture2D" uid="uid://bddsen2rg2bem" path="res://Imagenes/Personajes/profesor_andres.png" id="6_n3asq"]
+[ext_resource type="PackedScene" uid="uid://cc22xuj5yn1j1" path="res://escenas/sistema_escenas.tscn" id="7_3uesf"]
+[ext_resource type="Resource" uid="uid://bscpevly35tlg" path="res://Dialogos/primera_clase.dialogue" id="7_e1vbn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3i0r0"]
 texture = ExtResource("1_yap3h")
@@ -85,6 +87,84 @@ size = Vector2(50, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly02a"]
 size = Vector2(33, 20)
 
+[sub_resource type="Animation" id="Animation_3uesf"]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ysort/jugador/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ysort/ProfesorAndres:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(485, -444)]
+}
+
+[sub_resource type="Animation" id="Animation_n3asq"]
+resource_name = "primera_clase"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ysort/ProfesorAndres:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2, 3.03333, 4.01),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(524, -514), Vector2(485, -444), Vector2(485, -444), Vector2(586, -496)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SistemaEscenas1/ControladorEscenas")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.96667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("7_e1vbn")],
+"method": &"trigger_dialogue"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ysort/jugador/Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.04, 2.44, 3.02),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -6), Vector2(-24, -110), Vector2(-24, -110), Vector2(0, -6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uvkpu"]
+_data = {
+&"RESET": SubResource("Animation_3uesf"),
+&"primera_clase": SubResource("Animation_n3asq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvkpu"]
+size = Vector2(60, 62)
+
 [node name="salonprincipal" type="Node2D"]
 script = ExtResource("1_gd4t4")
 
@@ -104,18 +184,32 @@ spawn_direccion = "izquierda"
 [node name="Spawn" parent="Puertas/Puerta_salida" index="1"]
 position = Vector2(-20.4813, -2.86102e-06)
 
+[node name="Puerta_introduccion" parent="Puertas" instance=ExtResource("3_3i0r0")]
+position = Vector2(803, 321)
+scale = Vector2(3.07722, 3.28436)
+destino_nivel_tag = "piso_2"
+destino_puerta_tag = "salonp"
+spawn_direccion = "arriba"
+
+[node name="CollisionShape2D" parent="Puertas/Puerta_introduccion" index="0"]
+position = Vector2(6.82434, -192.732)
+
+[node name="Spawn" parent="Puertas/Puerta_introduccion" index="1"]
+position = Vector2(-86.7666, -193.645)
+
 [node name="ysort" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="Objetos" type="TileMapLayer" parent="ysort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAlANz/AAADAAAAAAAeANz/AAAEAAAAAAApAOD/AAAAAAAAAAApAOP/AAAFAAAAAAAtAAgAAAABAAAAABAtAPj/AAABAAAAABAtAAAAAAABAAAAABAoAOj/AAACAAAAAAAhAOj/AAACAAAAAAAaAOj/AAACAAAAAAATAOj/AAACAAAAAAATAO3/AAACAAAAAAAaAO3/AAACAAAAAAAhAO3/AAACAAAAAAAoAO3/AAACAAAAAAATAPL/AAACAAAAAAAaAPL/AAACAAAAAAAhAPL/AAACAAAAAAAoAPL/AAACAAAAAAAoAPf/AAACAAAAAAAhAPf/AAACAAAAAAAaAPf/AAACAAAAAAATAPf/AAACAAAAAAASAA4AAAAAAAAAAAAWAA4AAAABAAAAAAAXAAIAAAAFAAAAAAAlAAIAAAAFAAAAAAAXAN3/AAAGAAAAAAATAN3/AAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAAlANz/AAADAAAAAAAeANz/AAAEAAAAAAApAOD/AAAAAAAAAAApAOP/AAAFAAAAAAAtAAgAAAABAAAAABAtAPj/AAABAAAAABAoAOj/AAACAAAAAAAhAOj/AAACAAAAAAAaAOj/AAACAAAAAAATAOj/AAACAAAAAAATAO3/AAACAAAAAAAaAO3/AAACAAAAAAAhAO3/AAACAAAAAAAoAO3/AAACAAAAAAATAPL/AAACAAAAAAAaAPL/AAACAAAAAAAhAPL/AAACAAAAAAAoAPL/AAACAAAAAAAoAPf/AAACAAAAAAAhAPf/AAACAAAAAAAaAPf/AAACAAAAAAATAPf/AAACAAAAAAASAA4AAAAAAAAAAAAWAA4AAAABAAAAAAAXAAIAAAAFAAAAAAAlAAIAAAAFAAAAAAAXAN3/AAAGAAAAAAATAN3/AAAGAAAAAAAtAPH/AAABAAAAAAAtAOr/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_5cxnd")
 
 [node name="jugador" parent="ysort" instance=ExtResource("2_3i0r0")]
+position = Vector2(536, -308)
 
 [node name="ProfesorAndres" type="StaticBody2D" parent="ysort"]
-position = Vector2(524, -514)
+position = Vector2(485, -444)
 
 [node name="Sprite2D" type="Sprite2D" parent="ysort/ProfesorAndres"]
 texture = ExtResource("6_n3asq")
@@ -140,4 +234,28 @@ position = Vector2(256.654, 203.403)
 scale = Vector2(7.72001, 1)
 shape = SubResource("RectangleShape2D_ly02a")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uvkpu")
+}
+
+[node name="SistemaEscenas1" parent="." instance=ExtResource("7_3uesf")]
+
+[node name="ControladorEscenas" parent="SistemaEscenas1" index="0" node_paths=PackedStringArray("animation_player")]
+cutscene_id = "primera_clase"
+animation_player = NodePath("../../AnimationPlayer")
+nombre_escena = "primera_clase"
+
+[node name="Area2D" parent="SistemaEscenas1" index="1"]
+cutscene_controller_path = NodePath("../ControladorEscenas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas1/Area2D" index="0"]
+position = Vector2(536, -303)
+shape = SubResource("RectangleShape2D_uvkpu")
+
+[connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
+
 [editable path="Puertas/Puerta_salida"]
+[editable path="Puertas/Puerta_introduccion"]
+[editable path="ysort/jugador"]
+[editable path="SistemaEscenas1"]

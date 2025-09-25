@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b52k5sh24wse3"
+path="res://.godot/imported/vendedora.dialogue-afbd498551a9e7b0d8a899c899e58f0f.tres"
+
+[deps]
+
+source_file="res://Dialogos/vendedora.dialogue"
+dest_files=["res://.godot/imported/vendedora.dialogue-afbd498551a9e7b0d8a899c899e58f0f.tres"]
+
+[params]
+
+defaults=true

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="StayCleanIEFO"
-run/main_scene="uid://bt8yq8kajlct0"
+run/main_scene="uid://bdyg28ciuwu2d"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ AudioPlayer="*res://escenas/global/audio_player.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Estados="*res://scripts/global/estados.gd"
 Nivel="*res://scripts/nivel.gd"
+Introduccion="*res://scripts/introduccion.gd"
 
 [dialogic]
 
@@ -143,7 +144,7 @@ interactuar={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogos/test_puerta.dialogue", "res://Dialogos/piso3.dialogue", "res://Dialogos/piso1.dialogue", "res://Dialogos/vendedor.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogos/test_puerta.dialogue", "res://Dialogos/piso3.dialogue", "res://Dialogos/piso1.dialogue", "res://Dialogos/vendedor.dialogue", "res://Dialogos/vendedora.dialogue", "res://Dialogos/primera_clase.dialogue")
 
 [layer_names]
 

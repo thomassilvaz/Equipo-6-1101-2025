@@ -8,7 +8,7 @@ Alexa:
 - Bueno... ya subo a ver.
 	Nathan: Allá te espero.
 	Alexa: Ok...
-	do Estados.mostrar_vendedor()
+	set Estados.vendedor_bath1 = true
 - No, la buena.
 	Vendedor: Pff, Mera gallina.
 	Vendedor: Los buenos por acá se quedan solos.

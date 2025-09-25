@@ -11,4 +11,13 @@ class_name Puerta
 
 func _on_body_entered(body):
 	if body is Jugador:
-		NavegacionManager.go_to_level(destino_nivel_tag, destino_puerta_tag)
+		var nodo_puerta = self.name
+		match nodo_puerta:
+			"Puerta_introduccion":
+				if Estados.introduccion == true:
+					Estados.introduccion = false
+					NavegacionManager.go_to_level(destino_nivel_tag, destino_puerta_tag)
+				else:
+					return
+			_:
+				NavegacionManager.go_to_level(destino_nivel_tag, destino_puerta_tag)

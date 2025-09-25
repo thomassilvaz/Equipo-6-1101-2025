@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bdyg28ciuwu2d"]
+[gd_scene load_steps=24 format=4 uid="uid://bdyg28ciuwu2d"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_a455t"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_idsxw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bagc1l7bfvrmw" path="res://scripts/interactuables.gd" id="9_vrns3"]
 [ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="10_lneuw"]
 [ext_resource type="Resource" uid="uid://dm8jl07l08p4c" path="res://Dialogos/test_puerta.dialogue" id="11_x0ttr"]
+[ext_resource type="Script" uid="uid://d3wh2jsvahlev" path="res://scripts/introduccion.gd" id="12_idsxw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1dusw"]
 texture = ExtResource("2_idsxw")
@@ -120,6 +121,9 @@ size = Vector2(54, 262)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtvei"]
 size = Vector2(112, 104)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruxvm"]
+size = Vector2(36, 273.5)
+
 [node name="porteria" type="Node2D"]
 script = ExtResource("1_a455t")
 
@@ -141,6 +145,19 @@ destino_puerta_tag = "cancha"
 spawn_direccion = "derecha"
 
 [node name="Spawn" parent="Puertas/Puerta_entrada" index="1"]
+position = Vector2(21.4891, -0.153243)
+
+[node name="Puerta_introduccion" parent="Puertas" instance=ExtResource("5_8j774")]
+position = Vector2(-13, 257)
+scale = Vector2(2.57005, -12.0251)
+destino_nivel_tag = "salon_principal"
+destino_puerta_tag = "introduccion"
+spawn_direccion = "arriba"
+
+[node name="CollisionShape2D" parent="Puertas/Puerta_introduccion" index="0"]
+position = Vector2(36.9643, 0.0831594)
+
+[node name="Spawn" parent="Puertas/Puerta_introduccion" index="1"]
 position = Vector2(21.4891, -0.153243)
 
 [node name="ysort" type="Node2D" parent="."]
@@ -180,7 +197,20 @@ position = Vector2(320, -40)
 shape = SubResource("RectangleShape2D_gtvei")
 debug_color = Color(0.966744, 0, 0.478621, 0.42)
 
+[node name="Introduccion" type="Node" parent="."]
+script = ExtResource("12_idsxw")
+
+[node name="Area2D" type="Area2D" parent="Introduccion"]
+position = Vector2(29, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Introduccion/Area2D"]
+position = Vector2(-324, 286)
+shape = SubResource("RectangleShape2D_ruxvm")
+debug_color = Color(0.572308, 0.38809, 1, 0.42)
+
 [connection signal="body_entered" from="Interactuables/Secretaria" to="Interactuables" method="_on_secretaria_body_entered"]
 [connection signal="body_exited" from="Interactuables/Secretaria" to="Interactuables" method="_on_secretaria_body_exited"]
+[connection signal="body_entered" from="Introduccion/Area2D" to="Introduccion" method="_on_area_2d_body_entered"]
 
 [editable path="Puertas/Puerta_entrada"]
+[editable path="Puertas/Puerta_introduccion"]

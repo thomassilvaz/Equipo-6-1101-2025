@@ -8,6 +8,7 @@ const escena_piso2 = preload("res://escenas/lugares/piso_2.tscn")
 const escena_salon_principal = preload("res://escenas/lugares/salon_principal.tscn")
 
 const escena_bath1 = preload("res://escenas/lugares/bathroom1.tscn")
+const escena_bath2 = preload("res://escenas/lugares/bathroom2.tscn")
 
 signal on_trigger_player_spawn
 var spawn_puerta_tag
@@ -26,6 +27,8 @@ func go_to_level(nivel_tag, destino_tag):
 			escena_a_cargar = escena_salon_principal
 		"bathroom1":
 			escena_a_cargar = escena_bath1
+		"bathroom2":
+			escena_a_cargar = escena_bath2
 		"salon2_p1":
 			escena_a_cargar = escena_salon2_p1
 	if escena_a_cargar != null:
