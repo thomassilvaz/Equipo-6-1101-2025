@@ -1,7 +1,48 @@
 extends Node
 
+#escenas_vistas
+var primera_clase: bool = false
+
+#decisiones
+var decision_1: String
+var decision_2: String
+var decision_3: String
+var decision_4: String
+var decision_5: String
+
+#eventos
 var introduccion:= true
 var vendedor_bath1 := false
+#var dialogo_activo = false
+
+#sprites
+var profesor_andres: AnimatedSprite2D
+var jugador: AnimatedSprite2D
+var vendedor1: AnimatedSprite2D
+var vendedor3: AnimatedSprite2D
+var vendedora: AnimatedSprite2D
+var mateo: AnimatedSprite2D
+var valeria: AnimatedSprite2D
+
+func _find_sprites():
+	var tree = get_tree()
+	if !tree or tree.current_scene == null:
+		return
+	
+	var escena = tree.current_scene
+	if escena:
+		profesor_andres = _get_sprite(escena, "ProfesorAndres")
+		jugador =_get_sprite(escena, "jugador")
+		vendedor1 = _get_sprite(escena, "Vendedor1")
+		mateo = _get_sprite(escena, "Mateo")
+		valeria = _get_sprite(escena, "Valeria")
+		vendedor3 = _get_sprite(escena, "Vendedor3")
+		vendedora = _get_sprite(escena, "Vendedora")
+
+func _get_sprite(escena, nombre):
+	var nodo_personaje = escena.find_child(nombre, true, false)
+	return nodo_personaje.get_node("AnimatedSprite2D") if nodo_personaje else null
+
 
 var game_data = {
 	"played_cutscenes": {},
@@ -10,6 +51,8 @@ var game_data = {
 
 func _ready():
 	load_game()
+	get_tree().tree_changed.connect(_find_sprites)
+	_find_sprites()
 
 func mark_cutscene_played(cutscene_id):
 	game_data["played_cutscenes"][cutscene_id] = true

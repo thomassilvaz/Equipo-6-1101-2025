@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc22xuj5yn1j1"]
 
 [ext_resource type="Script" uid="uid://dqoigtoppeu8p" path="res://scripts/controlador_escenas.gd" id="1_yisq6"]
-[ext_resource type="Script" uid="uid://beworskerwg2r" path="res://scripts/escena_trigger.gd" id="2_skgcc"]
+[ext_resource type="Script" uid="uid://beworskerwg2r" path="res://scripts/objetos/escena_trigger.gd" id="2_skgcc"]
 
 [node name="SistemaEscenas" type="Node2D"]
 

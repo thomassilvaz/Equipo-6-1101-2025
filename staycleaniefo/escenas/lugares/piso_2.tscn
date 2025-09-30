@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://pm1ydtyuxjy"]
+[gd_scene load_steps=21 format=4 uid="uid://pm1ydtyuxjy"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_2mopt"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_yrd7k"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cnxmpflivhljo" path="res://Imagenes/Texturas/objetos.png" id="4_82ch2"]
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="5_rnepu"]
 [ext_resource type="Script" uid="uid://bagc1l7bfvrmw" path="res://scripts/interactuables.gd" id="6_0ditk"]
-[ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="7_l6u7n"]
 [ext_resource type="Resource" uid="uid://dat2iddutgte2" path="res://Dialogos/piso3.dialogue" id="8_1witr"]
+[ext_resource type="PackedScene" uid="uid://c2mhh5e0y7ylm" path="res://escenas/instantaneo.tscn" id="9_yrd7k"]
+[ext_resource type="Resource" uid="uid://b3psch1qigtsh" path="res://Dialogos/laboratorio.dialogue" id="10_vkssr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyo34"]
 texture = ExtResource("2_yrd7k")
@@ -53,7 +54,7 @@ tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jyo34")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_op38x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yrd7k"]
 texture = ExtResource("2_yrd7k")
 separation = Vector2i(8, 8)
 texture_region_size = Vector2i(128, 128)
@@ -92,7 +93,7 @@ texture_region_size = Vector2i(128, 128)
 10:2/0 = 0
 10:2/0/y_sort_origin = 24
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xujh"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkssr"]
 texture = ExtResource("4_82ch2")
 separation = Vector2i(2, 2)
 texture_region_size = Vector2i(128, 128)
@@ -113,8 +114,8 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSet" id="TileSet_8xujh"]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_op38x")
-sources/1 = SubResource("TileSetAtlasSource_8xujh")
+sources/0 = SubResource("TileSetAtlasSource_yrd7k")
+sources/1 = SubResource("TileSetAtlasSource_vkssr")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_kuuix"]
 
@@ -129,8 +130,8 @@ size = Vector2(287.09, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrd7k"]
 size = Vector2(15.9708, 63.5454)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg1pm"]
-size = Vector2(256, 128)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkssr"]
+size = Vector2(230, 106.25)
 
 [node name="piso2" type="Node2D"]
 script = ExtResource("1_2mopt")
@@ -215,11 +216,6 @@ position = Vector2(958.553, 138.275)
 scale = Vector2(6.42036, 0.55761)
 shape = SubResource("RectangleShape2D_op38x")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Colisiones"]
-position = Vector2(451.786, -162.124)
-scale = Vector2(6.42036, 0.55761)
-shape = SubResource("RectangleShape2D_op38x")
-
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Colisiones"]
 position = Vector2(1215.29, 73.377)
 shape = SubResource("RectangleShape2D_2mopt")
@@ -231,22 +227,30 @@ shape = SubResource("RectangleShape2D_yrd7k")
 [node name="Interactuables" type="Node" parent="."]
 script = ExtResource("6_0ditk")
 
-[node name="Piso3" parent="Interactuables" instance=ExtResource("7_l6u7n")]
-scale = Vector2(1.0006, 1)
-collision_mask = 1
+[node name="instantaneo_lab" parent="Interactuables" instance=ExtResource("9_yrd7k")]
+dialogue_resource = ExtResource("10_vkssr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactuables/instantaneo_lab/Area2D" index="0"]
+position = Vector2(2656, -9)
+scale = Vector2(0.283002, 0.314352)
+shape = SubResource("RectangleShape2D_vkssr")
+debug_color = Color(0.94902, 0, 0.572549, 0.419608)
+
+[node name="instantaneo_piso3" parent="Interactuables" instance=ExtResource("9_yrd7k")]
+position = Vector2(-1781, -303)
 dialogue_resource = ExtResource("8_1witr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactuables/Piso3"]
-position = Vector2(896, -320)
-shape = SubResource("RectangleShape2D_lg1pm")
-debug_color = Color(0.949982, 4.23551e-06, 0.570836, 0.42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactuables/instantaneo_piso3/Area2D" index="0"]
+position = Vector2(2690, 21)
+scale = Vector2(1, 0.480001)
+shape = SubResource("RectangleShape2D_vkssr")
+debug_color = Color(0.94902, 0, 0.572549, 0.419608)
 
 [node name="ysort" type="Node2D" parent="."]
-
-[connection signal="body_entered" from="Interactuables/Piso3" to="Interactuables" method="_on_piso3_body_entered"]
-[connection signal="body_exited" from="Interactuables/Piso3" to="Interactuables" method="_on_piso3_body_exited"]
 
 [editable path="Puertas/Puerta_e2"]
 [editable path="Puertas/Puerta_salonp"]
 [editable path="Puertas/Puerta_b1"]
 [editable path="Puertas/Puerta_b2"]
+[editable path="Interactuables/instantaneo_lab"]
+[editable path="Interactuables/instantaneo_piso3"]

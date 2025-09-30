@@ -20,9 +20,14 @@ func start_cutscene():
 	is_cutscene_active = true
 	cutscene_started.emit()
 	
+	var player = get_tree().get_nodes_in_group("Jugador")
+	var jugador = player[0]
+	jugador.activar_movimiento(false)
+		
 	animation_player.play(nombre_escena)
 	await animation_player.animation_finished
 	_end_cutscene()
+	jugador.activar_movimiento(true)
 
 func _end_cutscene():
 	is_cutscene_active = false
@@ -37,9 +42,3 @@ func trigger_dialogue(dialogue_resource: DialogueResource):
 	await DialogueManager.dialogue_ended
 	
 	animation_player.play()
-
-func move_character(character_path: NodePath, target_position: Vector3, duration: float):
-	var character = get_node(character_path)
-	if character and character.has_method("move_in_cutscene"):
-		var direction = target_position - character.global_position
-		character.move_in_cutscene(direction, duration)

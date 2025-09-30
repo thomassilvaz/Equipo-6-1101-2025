@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Jugador
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactivo: Area2D = $Direccion/Interactivo
+@export var puede_mover: bool = true
 
 var velocidad = 700
 var direccion_actual = "abajo"
@@ -10,24 +11,25 @@ var skip_next_anim_update = false
 var walk_speed = 50
 var sprint_speed = 80
 
+func activar_movimiento(activado: bool):
+	puede_mover = activado
+	if activado == false:
+		skip_next_anim_update = true
+		animated_sprite.play("quieto_" + direccion_actual)
+	set_physics_process(activado)
+
 func _physics_process(_delta):
-	var input_vector = Vector2(
-		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
-		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	).normalized()
-	velocity = input_vector * velocidad
-
-	if skip_next_anim_update:
-		skip_next_anim_update = false
+	if not puede_mover:
+		return
 	else:
-		update_anim(input_vector)
+		var input_vector = Vector2(
+			Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+			Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+		).normalized()
+		velocity = input_vector * velocidad
 
-	move_and_slide()
-	
-	#if Input.get_action_strength("sprint"):
-		#velocidad = sprint_speed
-	#else:
-		#velocidad = walk_speed
+		update_anim(input_vector)
+		move_and_slide()
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -47,7 +49,6 @@ func _unhandled_input(_event: InputEvent) -> void:
 				CONNECT_ONE_SHOT
 			)
 			return
-		#DialogueManager.show_example_dialogue_balloon(load("res://Dialogos/test_puerta.dialogue"), "secretaria")
 
 func update_anim(direction: Vector2):
 	var anim = $AnimatedSprite2D

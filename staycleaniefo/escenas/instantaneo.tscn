@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2mhh5e0y7ylm"]
+
+[ext_resource type="Script" uid="uid://nm0sc535xflm" path="res://scripts/objetos/instantaneo.gd" id="1_kdrd2"]
+
+[node name="instantaneo" type="Node2D"]
+script = ExtResource("1_kdrd2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

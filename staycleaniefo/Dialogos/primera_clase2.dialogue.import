@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bpcn4b53qfj3c"
+path="res://.godot/imported/primera_clase2.dialogue-2735f34a0e8f9a11ea188382b8f26784.tres"
+
+[deps]
+
+source_file="res://Dialogos/primera_clase2.dialogue"
+dest_files=["res://.godot/imported/primera_clase2.dialogue-2735f34a0e8f9a11ea188382b8f26784.tres"]
+
+[params]
+
+defaults=true

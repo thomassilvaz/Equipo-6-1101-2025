@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5vmdkr56auw1"]
+[gd_scene load_steps=23 format=3 uid="uid://c5vmdkr56auw1"]
 
-[ext_resource type="Script" uid="uid://by8xvsmjyh1tv" path="res://scripts/jugador.gd" id="1_jpodt"]
+[ext_resource type="Script" uid="uid://by8xvsmjyh1tv" path="res://scripts/personajes/jugador.gd" id="1_jpodt"]
 [ext_resource type="Texture2D" uid="uid://bljafx5cd8ayc" path="res://Imagenes/Personajes/chica.png" id="2_njcx7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpodt"]
@@ -59,6 +59,10 @@ region = Rect2(52, 0, 40, 106)
 atlas = ExtResource("2_njcx7")
 region = Rect2(104, 0, 40, 106)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l35hm"]
+atlas = ExtResource("2_njcx7")
+region = Rect2(208, 0, 40, 106)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_c868g"]
 atlas = ExtResource("2_njcx7")
 region = Rect2(0, 0, 40, 106)
@@ -84,7 +88,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"mov_abajo",
-"speed": 3.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -101,7 +105,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"mov_arriba",
-"speed": 3.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -118,7 +122,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"mov_derecha",
-"speed": 3.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -135,7 +139,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"mov_izquierda",
-"speed": 3.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -151,6 +155,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"quieto_arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l35hm")
+}],
+"loop": true,
+"name": &"quieto_arriba_hablando",
 "speed": 5.0
 }, {
 "frames": [{
@@ -179,10 +191,11 @@ size = Vector2(20, 26.1364)
 y_sort_enabled = true
 script = ExtResource("1_jpodt")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Jugador"]]
 position = Vector2(0, -8.5)
 sprite_frames = SubResource("SpriteFrames_nil2l")
 animation = &"mov_abajo"
+frame_progress = 0.628666
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32.5)
