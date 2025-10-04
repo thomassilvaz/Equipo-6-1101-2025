@@ -2,6 +2,7 @@ extends Node
 
 #escenas_vistas
 var primera_clase: bool = false
+var introduccion: bool = false
 
 #decisiones
 var decision_1: String
@@ -11,7 +12,6 @@ var decision_4: String
 var decision_5: String
 
 #eventos
-var introduccion:= true
 var vendedor_bath1 := false
 #var dialogo_activo = false
 

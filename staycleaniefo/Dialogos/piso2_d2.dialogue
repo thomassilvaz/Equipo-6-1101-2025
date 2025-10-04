@@ -1,0 +1,21 @@
+~ start
+Estudiante 3: Oe chiqui
+match Estados.decision_1:
+	when "buena":
+		Estudiante 3: Esta tarde tendrémos algo interesante en la cancha...
+		Estudiante 3: Puedes venir si no eres gallina.
+		Estudiante 3: Venís y te das una.
+	when "mala":
+		Estudiante 3: Ya me contaron cosas. ¿Entonces te vas a juntar con nosotros?
+		Estudiante 3: Pues, nosotros estarémos en la cancha por la tarde, detrás de árbol.
+		Estudiante 3: Venís y te das una de la buena.
+- No me interesa, no iré.
+	Estudiante 1: Jaja, te dije que solo era cobarde.
+	Estudiante 3: Ah ya, eres uno de esos que no saben divertirse. Igual no podrás hacernos nada, a los profes no les importa.
+	Estudiante 1: Hasta luego entonces...
+- Allá estaré...
+	Estudiante 1: Jaja, eso me alegra oír.
+	Mateo: A-Alex?[next=auto]
+	Estudiante 1: Entonces ahora, en la tarde, detrás de árbol.
+	Estudiante 1: Allá te esperamos, y ni se te ocurra traer un profesor.
+=> END

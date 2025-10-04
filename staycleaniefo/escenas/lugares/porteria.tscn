@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bdyg28ciuwu2d"]
+[gd_scene load_steps=24 format=4 uid="uid://bdyg28ciuwu2d"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_a455t"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_idsxw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://xtf0tfl7y1m1" path="res://Imagenes/Texturas/escaleras2.png" id="6_8pouh"]
 [ext_resource type="Texture2D" uid="uid://cnxmpflivhljo" path="res://Imagenes/Texturas/objetos.png" id="7_m8660"]
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="8_lri4x"]
+[ext_resource type="Texture2D" uid="uid://dtgqd86iqr1yb" path="res://Imagenes/Personajes/portero.png" id="9_idsxw"]
 [ext_resource type="Script" uid="uid://bagc1l7bfvrmw" path="res://scripts/interactuables.gd" id="9_vrns3"]
 [ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="10_lneuw"]
 [ext_resource type="Resource" uid="uid://dm8jl07l08p4c" path="res://Dialogos/test_puerta.dialogue" id="11_x0ttr"]
@@ -114,6 +115,9 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_gtvei")
 sources/2 = SubResource("TileSetAtlasSource_lln2g")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruxvm"]
+size = Vector2(52, 29)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jhn"]
 size = Vector2(54, 262)
 
@@ -143,19 +147,6 @@ spawn_direccion = "derecha"
 [node name="Spawn" parent="Puertas/Puerta_entrada" index="1"]
 position = Vector2(21.4891, -0.153243)
 
-[node name="Puerta_introduccion" parent="Puertas" instance=ExtResource("5_8j774")]
-position = Vector2(-13, 257)
-scale = Vector2(2.57005, -12.0251)
-destino_nivel_tag = "salon_principal"
-destino_puerta_tag = "introduccion"
-spawn_direccion = "arriba"
-
-[node name="CollisionShape2D" parent="Puertas/Puerta_introduccion" index="0"]
-position = Vector2(66.5357, -7.73382)
-
-[node name="Spawn" parent="Puertas/Puerta_introduccion" index="1"]
-position = Vector2(21.4891, -0.153243)
-
 [node name="ysort" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -166,6 +157,16 @@ tile_set = SubResource("TileSet_lln2g")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("8_lri4x")]
 position = Vector2(899, 305)
+
+[node name="Portero" type="CharacterBody2D" parent="ysort"]
+position = Vector2(857, 166)
+
+[node name="Sprite2D" type="Sprite2D" parent="ysort/Portero"]
+texture = ExtResource("9_idsxw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Portero"]
+position = Vector2(0, 40.5)
+shape = SubResource("RectangleShape2D_ruxvm")
 
 [node name="Colisiones" type="StaticBody2D" parent="."]
 
@@ -181,7 +182,7 @@ position = Vector2(-27, 259)
 shape = SubResource("RectangleShape2D_o8jhn")
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Colisiones"]
-polygon = PackedVector2Array(896, 1, 1155, 639, 446, 638, 434, 670, 1187, 670, 895, -44)
+polygon = PackedVector2Array(896, 1, 1152, 640, 448, 640, 450, 669, 1187, 670, 895, -44)
 
 [node name="Interactuables" type="Node" parent="."]
 script = ExtResource("9_vrns3")
@@ -200,4 +201,3 @@ debug_color = Color(0.966744, 0, 0.478621, 0.42)
 [connection signal="body_exited" from="Interactuables/Secretaria" to="Interactuables" method="_on_secretaria_body_exited"]
 
 [editable path="Puertas/Puerta_entrada"]
-[editable path="Puertas/Puerta_introduccion"]

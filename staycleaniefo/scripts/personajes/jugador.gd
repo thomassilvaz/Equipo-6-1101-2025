@@ -11,13 +11,6 @@ var skip_next_anim_update = false
 var walk_speed = 50
 var sprint_speed = 80
 
-func activar_movimiento(activado: bool):
-	puede_mover = activado
-	if activado == false:
-		skip_next_anim_update = true
-		animated_sprite.play("quieto_" + direccion_actual)
-	set_physics_process(activado)
-
 func _physics_process(_delta):
 	if not puede_mover:
 		return
@@ -73,6 +66,16 @@ func update_anim(direction: Vector2):
 
 func _ready():
 	NavegacionManager.on_trigger_player_spawn.connect(_on_spawn)
+	
+func activar_movimiento(activado: bool):
+	puede_mover = activado
+	if activado == false:
+		skip_next_anim_update = true
+		animated_sprite.play("quieto_" + direccion_actual)
+	set_physics_process(activado)
+	
+func play_animation(anim_name: String):
+	$AnimatedSprite2D.play(anim_name)
 
 func _on_spawn(posicion: Vector2, direccion: String):
 	global_position = posicion

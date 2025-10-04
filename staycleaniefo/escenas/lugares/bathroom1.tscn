@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://by5ahruud74e1"]
+[gd_scene load_steps=23 format=4 uid="uid://by5ahruud74e1"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_aqnlp"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_gnpiq"]
@@ -122,6 +122,45 @@ sources/0 = SubResource("TileSetAtlasSource_xp4h7")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vglih"]
 size = Vector2(50, 35.25)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1sev"]
+atlas = ExtResource("9_6h1du")
+region = Rect2(0, 0, 48, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l40ny"]
+atlas = ExtResource("9_6h1du")
+region = Rect2(56, 0, 48, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vykfn"]
+atlas = ExtResource("9_6h1du")
+region = Rect2(112, 0, 48, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6h1du"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1sev")
+}],
+"loop": true,
+"name": &"quieto_abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l40ny")
+}],
+"loop": true,
+"name": &"quieto_arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vykfn")
+}],
+"loop": true,
+"name": &"quieto_arriba_hablando",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp4h7"]
 
 [node name="bathroom1" type="Node2D"]
@@ -169,8 +208,9 @@ debug_color = Color(0.972028, 0, 0.443895, 0.42)
 position = Vector2(0, 37.625)
 shape = SubResource("RectangleShape2D_vglih")
 
-[node name="Sprite2D" type="Sprite2D" parent="ysort/Vendedor"]
-texture = ExtResource("9_6h1du")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedor"]
+sprite_frames = SubResource("SpriteFrames_6h1du")
+animation = &"quieto_abajo"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-127, -257)
@@ -199,8 +239,5 @@ shape = SubResource("RectangleShape2D_xp4h7")
 position = Vector2(-6, 14)
 scale = Vector2(-0.875379, -1.4103)
 shape = SubResource("RectangleShape2D_xp4h7")
-
-[connection signal="body_entered" from="ysort/Vendedor/Interactuable" to="ysort/Vendedor/Sprite2D" method="_on_interactuable_body_entered"]
-[connection signal="body_exited" from="ysort/Vendedor/Interactuable" to="ysort/Vendedor/Sprite2D" method="_on_interactuable_body_exited"]
 
 [editable path="Puertas/Puerta_salida"]

@@ -14,12 +14,15 @@ do wait(1)
 Estudiante 3: (ríe desde el fondo)
 Estudiante 3: ¡Vamos al baño después! Tengo algo que te hará olvidar el aburrimiento de este lugar.
 Estudiante 1: Hey nuev@, ¿vas a venir o qué?
+do Estados.jugador.play("quieto_arriba_hablando")
 - Hagale, de una
 	El profesor te mira fijo
+	do Estados.jugador.play("quieto_arriba")
 	Alex... todo acto tiene su consecuencia. Recuerda eso.
 	set Estados.decision_3 = "mala"
 - No puedo, tengon cosas que hacer
 	El profesor te mira fijo
+	do Estados.jugador.play("quieto_arriba")
 	Profesor Andrés: Buena elección, Alex. Todo acto tiene su consecuencia. Que bien que sepas eso.
 	Profesor Andrés: No te dejes influenciar tan temprano. Acercate a mí cuando necesites.
 	set Estados.decision_3 = "buena"

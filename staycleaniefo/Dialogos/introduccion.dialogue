@@ -1,0 +1,13 @@
+~ start
+Estudiante 1: Niñ@, como que eres nuevo.
+Estudiante 1: Juntate con nosotros si no quieres pasarla mal.
+Estudiante 1: Aquí los juiciosos se quedan solos. Nos parchamos y melo.
+Estudiante 1: Te nos vas a unir, ¿si o qué?
+- Bueno, ahorita nos vemos
+	Estudiante 1: Antes de entrar al salón hablamos...
+	set Estados.decision_1 = "mala"
+- No puedo ahora
+	Estudiante 1: Listo, como quieras.
+	Estudiante 1: Te estás perdiendo.
+	set Estados.decision_1 = "buena"
+=> END
