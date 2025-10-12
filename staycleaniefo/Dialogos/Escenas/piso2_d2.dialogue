@@ -1,0 +1,33 @@
+~ start
+ Julian: ¡Hey tú!
+match Estados.decision_1:
+	when "buena":
+		Julian: Esta tarde tendrémos algo interesante en la cancha...
+		Julian: Puedes venir si no eres gallina.
+		Julian: Vení a nuestro grupo.
+		- No me interesa, no iré.
+			Ronald: Jaja, te dije que solo era cobarde.
+			Julian: Ah ya, eres uno de esos que no saben divertirse. Igual no podrás hacernos nada, a los profes no les importa.
+			Ronald: Hasta luego entonces...
+			set Estados.decision_2 = "buena"
+		- Ok... allá estaré...
+			Ronald: Ah, veo que cambiaste de opinión. Eso es todo.
+			Ronald: Entonces ahorita, en la tarde, detrás de árbol.
+			Ronald: Allá te esperamos.
+			set Estados.decision_2 = "mala"
+	when "mala":
+		Julian: Ya me contaron que te quieres hacer con nosotros. ¿Es eso verdad?
+		Julian: Pues, nosotros estarémos en la cancha por la tarde, detrás del árbol.
+		Julian: Vení y metés de la buena.
+		- Cambie de opinión, no quiero ir.
+			Ronald: ¿Hmm? ¿Cambiaste de opinión.?
+			Julian: Que suave.
+			Ronald: Hasta luego entonces...
+			set Estados.decision_2 = "buena"
+		- Allá estaré...
+			Ronald: Jaja, eso me alegra oír.
+			Mateo: {{Estados.nom}}?[next=auto]
+			Ronald: Entonces ahora, en la tarde, detrás de árbol.
+			Ronald: Allá te esperamos.
+			set Estados.decision_2 = "mala"
+=> END

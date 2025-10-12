@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dbkr302kijm6x" path="res://scripts/personajes/vendedor.gd" id="6_6h1du"]
 [ext_resource type="Texture2D" uid="uid://ddlaciyynomvs" path="res://Imagenes/Texturas/baño.png" id="6_p3ha7"]
 [ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="7_p3ha7"]
-[ext_resource type="Resource" uid="uid://bb6h318sq0vrl" path="res://Dialogos/vendedor.dialogue" id="8_buuxf"]
+[ext_resource type="Resource" uid="uid://bb6h318sq0vrl" path="res://Dialogos/personajes/ronald.dialogue" id="8_buuxf"]
 [ext_resource type="Texture2D" uid="uid://gg4xd5j4uo7b" path="res://Imagenes/Personajes/estudiante1.png" id="9_6h1du"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hdsm"]

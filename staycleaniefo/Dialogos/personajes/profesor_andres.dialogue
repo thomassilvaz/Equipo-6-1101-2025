@@ -1,0 +1,22 @@
+~ salon_principal
+if Estados.primera_clase:
+	if !Estados.pc_interactuo_profe:
+		do Estados.profesor_andres.play("quieto_abajo_hablando")
+		Profesor Andrés: Hola estudiante, ¿ya encontraste tu grupo?
+		if Estados.escogio_pareja == true:
+			do Estados.profesor_andres.play("quieto_abajo")
+			- Si, ya tengo.
+			do Estados.profesor_andres.play("quieto_abajo_hablando")
+			Profesor Andrés: Ok, dame un momento y ya empezamos la clase.
+			set Estados.empezar_primera_clase = true
+		else:
+			Profesor Andrés: Puedes hacerte con Mateo, y esta niña Valeria.
+			Profesor Andrés: Ellos suelen ser los menos cansones del salón. Igual tu escoge con quien quieras.
+	
+		set Estados.pc_interactuo_profe = true
+		do Estados.profesor_andres.play("quieto_arriba")
+	else:
+		Profesor Andrés: Puedes ir repasando los últimos conceptos que vimos.
+else:
+	Test
+=> END

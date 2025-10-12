@@ -1,0 +1,47 @@
+~ decision1
+???: Oh, hola. ¡Tú debes ser nuev{{Estados.genero}}!
+Mateo: Me llamo Mateo. Nosotros vamos a estar en la misma clase.
+Mateo: ¿Hmm? ¿Estabas hablando con unas personas?
+Mateo: Esos son los vagos del salón, ellos solo quieren aprovecharse del primero que ven.
+match Estados.decision_1:
+	when "buena":
+		Mateo: ¡Bien hecho al no escucharlos!
+		Mateo: No tienes que demostrarle nada a nadie.
+		Mateo: Es más, ellos no querían pasarla bien con vos. Solo te querían corromper.
+		Mateo: Si algo yo estoy con vos.
+		Mateo: Vamos ya al salón, yo te acompaño.
+	when "mala":
+		Mateo: Pero oye.
+		Mateo: No tienes que demostrarle nada a nadie.
+		Mateo: Ellos te van a ser una mala influencia. Puedes elegir bien desde el primer día.
+		Mateo: Si te juntas con ellos, no va a ser lo que tu esperes.
+		Mateo: Mejor vayamos a clase, ¿si? Yo te espero.
+=> END
+
+~ decision2
+match Estados.decision_2:
+	when "buena":
+		Mateo: ¡Bien hecho {{Estados.nom}}! No necesitas encajar con ellos.
+		Mateo: Ya se que ellos pueden ser muy insistentes con ese tema. Solo sigue sin aceptar cosas.
+		Mateo: Pero esa fue una buena decisión. Te lo aseguro.
+	when "mala":
+		Mateo: ...{{Estados.nom}} [wait=1] ¿Si te vas a juntar con ellos?
+		Mateo: Osea, no tienes que hacerlo, por si te sentiste presionad{{Estados.genero}}.
+		Mateo: Puedes decirle a un profe o algo si ellos te molestan.
+		Mateo: N-No tienes que hacerles caso.
+Mateo: Bueno, puedes ir yendo a clase, ya te alcanzo.
+=> END
+
+~ salon_principal
+if Estados.escogio_pareja == false:
+	Mateo: Oh, ¿que más {{Estados.nom}}?
+	Mateo: ¿Te quieres hacer conmigo en el trabajo?
+	- Sí.
+		Mateo: ¡Listo! Entonces esperemos al profe, o creo que ya puedes ir a avisarle.
+		set Estados.escogio_pareja = true
+		set Estados.pc_interactuo_profe = false
+	- Voy a mirar un poco más.
+		Mateo: Esta bien, ahorita me cuentas.
+else:
+	Mateo: Anda {{Estados.nom}}, no te intimides del profe.
+=> END

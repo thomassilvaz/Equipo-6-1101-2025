@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cj5io37xv2cg2"
+path="res://.godot/imported/piso2_d2.dialogue-708c7261e3fb2f9c4d9097879b51136a.tres"
+
+[deps]
+
+source_file="res://Dialogos/Escenas/piso2_d2.dialogue"
+dest_files=["res://.godot/imported/piso2_d2.dialogue-708c7261e3fb2f9c4d9097879b51136a.tres"]
+
+[params]
+
+defaults=true

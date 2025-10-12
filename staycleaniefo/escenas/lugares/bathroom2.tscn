@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dyq34gva08yu8"]
+[gd_scene load_steps=22 format=4 uid="uid://dyq34gva08yu8"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_3f3yf"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_ekax0"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="5_jkh4j"]
 [ext_resource type="Script" uid="uid://dbkr302kijm6x" path="res://scripts/personajes/vendedor.gd" id="6_g055b"]
 [ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="7_ro0j5"]
-[ext_resource type="Resource" uid="uid://b52k5sh24wse3" path="res://Dialogos/vendedora.dialogue" id="8_3f3yf"]
+[ext_resource type="Resource" uid="uid://b52k5sh24wse3" path="res://Dialogos/personajes/karen.dialogue" id="8_3f3yf"]
 [ext_resource type="Texture2D" uid="uid://mk3pwgpfycum" path="res://Imagenes/Personajes/estudiante4.png" id="9_3f3yf"]
 [ext_resource type="Texture2D" uid="uid://ddlaciyynomvs" path="res://Imagenes/Texturas/baño.png" id="10_buv81"]
 
@@ -122,6 +122,33 @@ sources/0 = SubResource("TileSetAtlasSource_xp4h7")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vglih"]
 size = Vector2(50, 35.25)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vav2"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(0, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wruy"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(48, 0, 40, 106)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3f3yf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vav2")
+}],
+"loop": true,
+"name": &"quieto_abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wruy")
+}],
+"loop": true,
+"name": &"quieto_arriba",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp4h7"]
 
 [node name="bathroom2" type="Node2D"]
@@ -168,9 +195,9 @@ debug_color = Color(0.972028, 0, 0.443895, 0.42)
 position = Vector2(0, 37.625)
 shape = SubResource("RectangleShape2D_vglih")
 
-[node name="Sprite2D" type="Sprite2D" parent="ysort/Vendedora"]
-position = Vector2(0, 3)
-texture = ExtResource("9_3f3yf")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedora"]
+sprite_frames = SubResource("SpriteFrames_3f3yf")
+animation = &"quieto_abajo"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-127, -257)
@@ -199,8 +226,5 @@ shape = SubResource("RectangleShape2D_xp4h7")
 position = Vector2(-6, 14)
 scale = Vector2(-0.875379, -1.4103)
 shape = SubResource("RectangleShape2D_xp4h7")
-
-[connection signal="body_entered" from="ysort/Vendedora/Interactuable" to="ysort/Vendedora/Sprite2D" method="_on_interactuable_body_entered"]
-[connection signal="body_exited" from="ysort/Vendedora/Interactuable" to="ysort/Vendedora/Sprite2D" method="_on_interactuable_body_exited"]
 
 [editable path="Puertas/Puerta_salida"]

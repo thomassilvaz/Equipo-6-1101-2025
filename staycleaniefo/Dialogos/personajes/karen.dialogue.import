@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b52k5sh24wse3"
+path="res://.godot/imported/karen.dialogue-4853a354cf1eabcd44445ebfcf409118.tres"
+
+[deps]
+
+source_file="res://Dialogos/personajes/karen.dialogue"
+dest_files=["res://.godot/imported/karen.dialogue-4853a354cf1eabcd44445ebfcf409118.tres"]
+
+[params]
+
+defaults=true

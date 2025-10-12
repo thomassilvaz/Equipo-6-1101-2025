@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bb6h318sq0vrl"
+path="res://.godot/imported/ronald.dialogue-702edb720ad4a87938b1bbff2d46c41a.tres"
+
+[deps]
+
+source_file="res://Dialogos/personajes/ronald.dialogue"
+dest_files=["res://.godot/imported/ronald.dialogue-702edb720ad4a87938b1bbff2d46c41a.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dtbckflknk50c"
+path="res://.godot/imported/profesor_andres.dialogue-ab94c014972e2e8df9cd24c0494f9e83.tres"
+
+[deps]
+
+source_file="res://Dialogos/personajes/profesor_andres.dialogue"
+dest_files=["res://.godot/imported/profesor_andres.dialogue-ab94c014972e2e8df9cd24c0494f9e83.tres"]
+
+[params]
+
+defaults=true

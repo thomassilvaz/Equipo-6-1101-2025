@@ -14,7 +14,7 @@ func _on_body_entered(body):
 		var nodo_puerta = self.name
 		match nodo_puerta:
 			"Puerta_introduccion":
-				if Estados.introduccion == false:
+				if Estados.introduccion == true and !Estados.primera_clase:
 					NavegacionManager.go_to_level(destino_nivel_tag, destino_puerta_tag)
 				else:
 					return

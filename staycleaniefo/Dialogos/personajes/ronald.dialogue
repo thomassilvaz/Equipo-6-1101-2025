@@ -14,9 +14,12 @@ Alexa:
 	Vendedor: Los buenos por acá se quedan solos.
 => END
 
-
 ~ oferta2
 Vendedor: [[Hey tú|Que pasa|Hablálo]].
 Vendedor: Entonces, ¿si vas a meter?
 Vendedor: Tengo varias cositas, tú dime cuál quieres.
 => END
+
+~ salon_principal
+Ronald: Alex... ¿qué cuentas?
+Ronald: Si es para lo de la actividad, Julián y yo no vamos a hacer nada, así que no te molestes por eso.

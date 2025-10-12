@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://pm1ydtyuxjy"]
+[gd_scene load_steps=58 format=4 uid="uid://pm1ydtyuxjy"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_2mopt"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_yrd7k"]
@@ -7,15 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="5_rnepu"]
 [ext_resource type="Script" uid="uid://bagc1l7bfvrmw" path="res://scripts/interactuables.gd" id="6_0ditk"]
 [ext_resource type="Script" uid="uid://bnrd7xw0yiiec" path="res://scripts/personajes/profesor_andres.gd" id="6_2ktug"]
+[ext_resource type="Script" uid="uid://daonlps0cfm53" path="res://scripts/personajes/vendedor_3.gd" id="6_owvbu"]
 [ext_resource type="Texture2D" uid="uid://bpuchjpnrosjc" path="res://Imagenes/Personajes/estudiante3.png" id="7_vcerq"]
-[ext_resource type="Resource" uid="uid://dat2iddutgte2" path="res://Dialogos/piso3.dialogue" id="8_1witr"]
+[ext_resource type="Resource" uid="uid://dat2iddutgte2" path="res://Dialogos/Interactuables/piso3.dialogue" id="8_1witr"]
 [ext_resource type="Script" uid="uid://dbkr302kijm6x" path="res://scripts/personajes/vendedor.gd" id="8_066uy"]
+[ext_resource type="Resource" uid="uid://126vcm5mf0lq" path="res://Dialogos/personajes/julian.dialogue" id="9_066uy"]
 [ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="9_uw3me"]
 [ext_resource type="PackedScene" uid="uid://c2mhh5e0y7ylm" path="res://escenas/instantaneo.tscn" id="9_yrd7k"]
-[ext_resource type="Resource" uid="uid://bb6h318sq0vrl" path="res://Dialogos/vendedor.dialogue" id="10_d4tda"]
-[ext_resource type="Resource" uid="uid://b3psch1qigtsh" path="res://Dialogos/laboratorio.dialogue" id="10_vkssr"]
+[ext_resource type="Resource" uid="uid://bb6h318sq0vrl" path="res://Dialogos/personajes/ronald.dialogue" id="10_d4tda"]
+[ext_resource type="Resource" uid="uid://b3psch1qigtsh" path="res://Dialogos/Interactuables/laboratorio.dialogue" id="10_vkssr"]
 [ext_resource type="Texture2D" uid="uid://gg4xd5j4uo7b" path="res://Imagenes/Personajes/estudiante1.png" id="11_lor8i"]
+[ext_resource type="Texture2D" uid="uid://br1oigyaljdbp" path="res://Imagenes/Personajes/Mateo.png" id="13_d4tda"]
+[ext_resource type="Script" uid="uid://cy3ocubuxqycm" path="res://scripts/objetos/activar_camina.gd" id="14_d4tda"]
+[ext_resource type="Resource" uid="uid://c7c3oc8bqt7dq" path="res://Dialogos/personajes/mateo.dialogue" id="15_lor8i"]
 [ext_resource type="PackedScene" uid="uid://cc22xuj5yn1j1" path="res://escenas/sistema_escenas.tscn" id="16_owvbu"]
+[ext_resource type="Resource" uid="uid://cj5io37xv2cg2" path="res://Dialogos/Escenas/piso2_d2.dialogue" id="17_vcerq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyo34"]
 texture = ExtResource("2_yrd7k")
@@ -50,6 +56,7 @@ texture_region_size = Vector2i(128, 128)
 5:1/0 = 0
 6:1/0 = 0
 6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, 32.341, -64, 32.0224, -0.318632, -32.341, 0, -32, -64, -64, -64, -64, 64, 64, 64)
 7:1/0 = 0
 7:0/0 = 0
 8:0/0 = 0
@@ -154,6 +161,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixbjb"]
 size = Vector2(97, 40)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_uw3me"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_jhy1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_higvg"]
@@ -198,6 +207,76 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cofx2"]
+atlas = ExtResource("13_d4tda")
+region = Rect2(0, 0, 66, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0n3y"]
+atlas = ExtResource("13_d4tda")
+region = Rect2(74, 0, 66, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfl8q"]
+atlas = ExtResource("13_d4tda")
+region = Rect2(148, 0, 66, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_owvbu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cofx2")
+}],
+"loop": true,
+"name": &"quieto_abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0n3y")
+}],
+"loop": true,
+"name": &"quieto_arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfl8q")
+}],
+"loop": true,
+"name": &"quieto_arriba_hablando",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6orc3"]
+size = Vector2(47, 23)
+
+[sub_resource type="Animation" id="Animation_lor8i"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_d4tda"]
+resource_name = "camina1"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(798, -55), Vector2(798, 8), Vector2(2142, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_owvbu"]
+_data = {
+&"RESET": SubResource("Animation_lor8i"),
+&"camina1": SubResource("Animation_d4tda")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw3me"]
+size = Vector2(252, 31)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_kuuix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuuix"]
@@ -206,18 +285,78 @@ size = Vector2(20.0075, 20.5388)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_op38x"]
 size = Vector2(20.6918, 39.304)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcerq"]
+size = Vector2(381.384, 63.7512)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkssr"]
 size = Vector2(230, 106.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_066uy"]
+size = Vector2(60.5, 38)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_se3q5"]
-size = Vector2(114.5, 215)
+size = Vector2(63.4249, 212.585)
+
+[sub_resource type="Animation" id="Animation_vcerq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ysort/Vendedor1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1991, 183)]
+}
 
 [sub_resource type="Animation" id="Animation_2ktug"]
 resource_name = "segunda_decision"
-length = 5.0
+length = 3.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ysort/Vendedor1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.41, 3.13333, 3.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1991, 183), Vector2(2033, 50), Vector2(2332, 48), Vector2(2443, -442)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SistemaEscenas/ControladorEscenas")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("17_vcerq"), "start"],
+"method": &"trigger_dialogue"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ysort/jugador:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1930, 60)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vcerq"]
 _data = {
+&"RESET": SubResource("Animation_vcerq"),
 &"segunda_decision": SubResource("Animation_2ktug")
 }
 
@@ -225,7 +364,7 @@ _data = {
 script = ExtResource("1_2mopt")
 
 [node name="Mapa" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAP//AAACAAAAAAD/////AAAEAAAAAAD+////AAABAAAAAAD9////AAAAAAAAAAD8////AAADAAAAAAD7////AAAAAAAAAAABAP//AAABAAAAAAACAP//AAAEAAAAAAADAP//AAACAAAAAAAEAP//AAAGAAAAAAD7/wAAAAAEAAEAAAD8/wAAAAAAAAIAAAD9/wAAAAAAAAIAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAEAAAAAAAAAAIAAAAFAP//AAABAAIAAAAFAP7/AAAEAAIAAAAGAP7/AAAFAAIAAAAFAAAAAAAFAAEAAAAGAAAAAAADAAIAAAAGAP//AAABAAIAADAGAP3/AAADAAEAAAAFAP3/AAADAAEAAAAHAP//AAABAAAAAAAIAP//AAAEAAAAAAAJAP//AAACAAAAAAAKAP//AAABAAAAAAALAP//AAAEAAAAAAAMAP//AAACAAAAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAANAP//AAAGAAAAAAANAAAAAAAAAAIAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAAHAP3/AAADAAEAAAAEAP3/AAADAAEAAAAEAP7/AAAEAAEAAAAHAP7/AAAEAAEAADAOAP//AAAAAAAAAAAPAP//AAADAAAAAAAQAP//AAAAAAAAAAARAP//AAABAAAAAAASAP//AAAEAAAAAAATAP//AAAEAAAAAAAUAP//AAACAAAAAAAVAP//AAAAAAAAAAAOAAAAAAAEAAIAAAAPAAAAAAAFAAIAAAAQAAAAAAAAAAIAAAARAAAAAAAAAAIAAAASAAAAAAAAAAIAAAATAAAAAAAAAAIAAAAUAAAAAAAAAAIAAAAVAAAAAAAEAAEAADAOAAEAAAACAAIAAAAPAAEAAAACAAIAAGAWAP//AAAHAAIAAAAWAAAAAAAHAAIAAAAQAAEAAAAGAAIAAAANAAEAAAAHAAIAADADAP7/AAAHAAIAADADAP3/AAAHAAIAADAIAP3/AAAHAAIAAAAIAP7/AAAHAAIAAAD6////AAAHAAIAADD6/wAAAAAHAAIAADAVAAEAAAAGAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AAACAAAAAAD/////AAAEAAAAAAD+////AAABAAAAAAD9////AAAAAAAAAAD8////AAADAAAAAAD7////AAAAAAAAAAABAP//AAABAAAAAAACAP//AAAEAAAAAAADAP//AAACAAAAAAAEAP//AAAGAAAAAAD7/wAAAAAEAAEAAAD8/wAAAAAAAAIAAAD9/wAAAAAAAAIAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAEAAAAAAAAAAIAAAAFAP//AAABAAIAAAAFAP7/AAAEAAIAAAAGAP7/AAAFAAIAAAAFAAAAAAAFAAEAAAAGAAAAAAADAAIAAAAGAP//AAABAAIAADAGAP3/AAADAAEAAAAFAP3/AAADAAEAAAAHAP//AAABAAAAAAAIAP//AAAEAAAAAAAJAP//AAACAAAAAAAKAP//AAABAAAAAAALAP//AAAEAAAAAAAMAP//AAACAAAAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAANAP//AAAGAAAAAAANAAAAAAAAAAIAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAAHAP3/AAADAAEAAAAEAP3/AAADAAEAAAAEAP7/AAAEAAEAAAAHAP7/AAAEAAEAADAOAP//AAAAAAAAAAAPAP//AAADAAAAAAAQAP//AAAAAAAAAAARAP//AAABAAAAAAASAP//AAAEAAAAAAATAP//AAAEAAAAAAAOAAAAAAAEAAIAAAAPAAAAAAAFAAIAAAAQAAAAAAAAAAIAAAARAAAAAAAAAAIAAAASAAAAAAAAAAIAAAATAAAAAAAAAAIAAAAUAAAAAAAAAAIAAAAOAAEAAAACAAIAAAAPAAEAAAACAAIAAGANAAEAAAAHAAIAADADAP7/AAAHAAIAADADAP3/AAAHAAIAADAIAP3/AAAHAAIAAAAIAP7/AAAHAAIAAAD6////AAAHAAIAADD6/wAAAAAHAAIAADAUAP//AAAEAAAAAAAVAP//AAACAAAAAAAWAP//AAAAAAAAAAAVAAAAAAAAAAIAAAAWAAAAAAAEAAEAADAWAAEAAAAGAAIAAAAXAAAAAAAHAAIAAAAXAP//AAAHAAIAAAA=")
 tile_set = SubResource("TileSet_op38x")
 
 [node name="Puertas" type="Node" parent="."]
@@ -240,7 +379,7 @@ destino_puerta_tag = "e1"
 position = Vector2(-4.85949e-06, 18.3333)
 
 [node name="Puerta_salonp" parent="Puertas" instance=ExtResource("3_vkssr")]
-position = Vector2(2752, 166)
+position = Vector2(2880, 166)
 scale = Vector2(2.99, 2.3929)
 destino_nivel_tag = "salon_principal"
 destino_puerta_tag = "salida"
@@ -271,21 +410,21 @@ destino_puerta_tag = "salida"
 position = Vector2(0, 13.9706)
 
 [node name="Puerta_introduccion" parent="Puertas" instance=ExtResource("3_vkssr")]
-position = Vector2(2752, 129)
+position = Vector2(2880, 128)
 scale = Vector2(2.57005, -12.0251)
 destino_nivel_tag = "salon_principal"
 destino_puerta_tag = "introduccion"
 spawn_direccion = "arriba"
 
 [node name="CollisionShape2D" parent="Puertas/Puerta_introduccion" index="0"]
-position = Vector2(-3.5019, 3.57585)
-scale = Vector2(3.01079, 0.355215)
+position = Vector2(0.389118, 2.99374)
+scale = Vector2(2.47118, 0.298667)
 
 [node name="Spawn" parent="Puertas/Puerta_introduccion" index="1"]
-position = Vector2(21.4891, -0.153243)
+position = Vector2(0.778208, 3.57585)
 
 [node name="Objetos" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAALAP//AQADAAEAAAACAP//AQADAAEAAAASAP//AQACAAEAAAAGAP3/AQAFAAEAAAAFAP3/AQAFAAEAABA=")
+tile_map_data = PackedByteArray("AAALAP//AQADAAEAAAACAP//AQADAAEAAAAGAP3/AQAFAAEAAAAFAP3/AQAFAAEAABATAP//AQACAAEAAAAUAP//AQACAAEAAAA=")
 tile_set = SubResource("TileSet_8xujh")
 
 [node name="Balcon" type="TileMapLayer" parent="Objetos"]
@@ -296,14 +435,15 @@ tile_map_data = PackedByteArray("AAD+/wAAAAAKAAIAAAD9/wAAAAAKAAIAAAD8/wAAAAAKAAI
 tile_set = SubResource("TileSet_8xujh")
 
 [node name="ysort" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="jugador" parent="ysort" instance=ExtResource("5_rnepu")]
+[node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("5_rnepu")]
 y_sort_enabled = false
-position = Vector2(1898, 63)
+position = Vector2(1756, 39)
 
 [node name="Vendedor3" type="CharacterBody2D" parent="ysort" groups=["Vendedor3"]]
 position = Vector2(2016, -41)
-script = ExtResource("6_2ktug")
+script = ExtResource("6_owvbu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedor3"]
 sprite_frames = SubResource("SpriteFrames_6orc3")
@@ -313,8 +453,19 @@ animation = &"quieto_abajo"
 position = Vector2(-24.5, 35)
 shape = SubResource("RectangleShape2D_ixbjb")
 
-[node name="Vendedor1" type="CharacterBody2D" parent="ysort"]
-position = Vector2(1928, 185)
+[node name="Interactuable" parent="ysort/Vendedor3" instance=ExtResource("9_uw3me")]
+dialogue_resource = ExtResource("9_066uy")
+dialogue_start = "piso2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3/Interactuable"]
+position = Vector2(0, 35)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_uw3me")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
+
+[node name="Vendedor1" type="CharacterBody2D" parent="ysort" groups=["Vendedor1"]]
+y_sort_enabled = true
+position = Vector2(1991, 183)
 script = ExtResource("8_066uy")
 
 [node name="Interactuable" parent="ysort/Vendedor1" instance=ExtResource("9_uw3me")]
@@ -335,10 +486,44 @@ shape = SubResource("RectangleShape2D_higvg")
 sprite_frames = SubResource("SpriteFrames_8vrp0")
 animation = &"quieto_abajo"
 
+[node name="Mateo" type="CharacterBody2D" parent="ysort" groups=["Mateo"]]
+position = Vector2(798, -55)
+script = ExtResource("6_2ktug")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Mateo"]
+sprite_frames = SubResource("SpriteFrames_owvbu")
+animation = &"quieto_abajo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Mateo"]
+position = Vector2(0.5, 43.5)
+shape = SubResource("RectangleShape2D_6orc3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ysort/Mateo"]
+libraries = {
+&"": SubResource("AnimationLibrary_owvbu")
+}
+
+[node name="Area2D" type="Area2D" parent="ysort/Mateo"]
+script = ExtResource("14_d4tda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Mateo/Area2D"]
+position = Vector2(-29, -88.5)
+shape = SubResource("RectangleShape2D_uw3me")
+
+[node name="Interactuable" parent="ysort/Mateo" instance=ExtResource("9_uw3me")]
+dialogue_resource = ExtResource("15_lor8i")
+dialogue_start = "decision2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Mateo/Interactuable"]
+position = Vector2(0, 35)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_uw3me")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
+
 [node name="EfectoLuz" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.254902)
-position = Vector2(1919.74, 62)
-scale = Vector2(-296.247, -400.128)
+position = Vector2(1987, 63)
+scale = Vector2(-430.488, -385.945)
 texture = SubResource("CanvasTexture_kuuix")
 
 [node name="Colisiones" type="StaticBody2D" parent="."]
@@ -355,20 +540,13 @@ position = Vector2(958.553, 138.275)
 scale = Vector2(6.42036, 0.55761)
 shape = SubResource("RectangleShape2D_op38x")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones"]
-polygon = PackedVector2Array(1023.98, 126.427, 1023.98, 63.4612, 1039.9, 63.4612, 1039.9, 95.1918, 1071.75, 95.1918, 1071.75, 63.4612, 1358.34, 63.4612, 1358.34, 95.1918, 1390.19, 95.1918, 1390.19, 63.4612, 1408.6, 63.4612, 1408.1, 104.116)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(1214.66, 95.5426)
+scale = Vector2(0.998766, 1)
+shape = SubResource("RectangleShape2D_vcerq")
 
 [node name="Interactuables" type="Node" parent="."]
 script = ExtResource("6_0ditk")
-
-[node name="instantaneo_lab" parent="Interactuables" instance=ExtResource("9_yrd7k")]
-dialogue_resource = ExtResource("10_vkssr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactuables/instantaneo_lab/Area2D" index="0"]
-position = Vector2(2656, -9)
-scale = Vector2(0.283002, 0.314352)
-shape = SubResource("RectangleShape2D_vkssr")
-debug_color = Color(0.94902, 0, 0.572549, 0.419608)
 
 [node name="instantaneo_piso3" parent="Interactuables" instance=ExtResource("9_yrd7k")]
 position = Vector2(-1781, -303)
@@ -380,19 +558,27 @@ scale = Vector2(1, 0.480001)
 shape = SubResource("RectangleShape2D_vkssr")
 debug_color = Color(0.94902, 0, 0.572549, 0.419608)
 
-[node name="SistemaEscenas1" parent="." instance=ExtResource("16_owvbu")]
+[node name="Interactuable" parent="Interactuables" instance=ExtResource("9_uw3me")]
+position = Vector2(128, -1)
+dialogue_resource = ExtResource("10_vkssr")
 
-[node name="ControladorEscenas" parent="SistemaEscenas1" index="0" node_paths=PackedStringArray("animation_player")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactuables/Interactuable"]
+position = Vector2(2656, -14)
+shape = SubResource("RectangleShape2D_066uy")
+
+[node name="SistemaEscenas" parent="." instance=ExtResource("16_owvbu")]
+
+[node name="ControladorEscenas" parent="SistemaEscenas" index="0" node_paths=PackedStringArray("animation_player")]
 cutscene_id = "segunda_decision"
 animation_player = NodePath("../../AnimationPlayer")
 nombre_escena = "segunda_decision"
 
-[node name="Area2D" parent="SistemaEscenas1" index="1"]
+[node name="Area2D" parent="SistemaEscenas" index="1"]
 cutscene_controller_path = NodePath("../ControladorEscenas")
 escena_a_detectar = "segunda_decision"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas1/Area2D" index="0"]
-position = Vector2(1958.25, 119.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas/Area2D" index="0"]
+position = Vector2(1977.5, 125.5)
 scale = Vector2(0.9933, 1.00195)
 shape = SubResource("RectangleShape2D_se3q5")
 
@@ -401,11 +587,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_vcerq")
 }
 
+[connection signal="body_entered" from="ysort/Mateo/Area2D" to="ysort/Mateo/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="SistemaEscenas/Area2D" to="SistemaEscenas/Area2D" method="_on_body_entered"]
+
 [editable path="Puertas/Puerta_e2"]
 [editable path="Puertas/Puerta_salonp"]
 [editable path="Puertas/Puerta_b1"]
 [editable path="Puertas/Puerta_b2"]
 [editable path="Puertas/Puerta_introduccion"]
-[editable path="Interactuables/instantaneo_lab"]
+[editable path="ysort/jugador"]
 [editable path="Interactuables/instantaneo_piso3"]
-[editable path="SistemaEscenas1"]
+[editable path="SistemaEscenas"]

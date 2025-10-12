@@ -3,6 +3,7 @@ extends Node
 const escena_entrada = preload("res://escenas/lugares/porteria.tscn")
 const escena_piso1 = preload("res://escenas/lugares/piso_1.tscn")
 const escena_salon2_p1 = preload("res://escenas/lugares/salon2_p1.tscn")
+const escena_sala_profesores = preload("res://escenas/lugares/sala_profesores.tscn")
 
 const escena_piso2 = preload("res://escenas/lugares/piso_2.tscn")
 const escena_salon_principal = preload("res://escenas/lugares/salon_principal.tscn")
@@ -31,6 +32,9 @@ func go_to_level(nivel_tag, destino_tag):
 			escena_a_cargar = escena_bath2
 		"salon2_p1":
 			escena_a_cargar = escena_salon2_p1
+		"sala_profesores":
+			escena_a_cargar = escena_sala_profesores
+	
 	if escena_a_cargar != null:
 		EfectoTransicion.transition()
 		await EfectoTransicion.on_transition_finished

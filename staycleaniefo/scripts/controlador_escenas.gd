@@ -23,7 +23,7 @@ func start_cutscene():
 	var player = get_tree().get_nodes_in_group("Jugador")
 	var jugador = player[0]
 	jugador.activar_movimiento(false)
-		
+	
 	animation_player.play(nombre_escena)
 	await animation_player.animation_finished
 	_end_cutscene()
@@ -33,12 +33,12 @@ func _end_cutscene():
 	is_cutscene_active = false
 	cutscene_ended.emit()
 	Estados.mark_cutscene_played(cutscene_id)
-	queue_free()
+	#queue_free()
 
-func trigger_dialogue(dialogue_resource: DialogueResource):
+func trigger_dialogue(dialogue_resource: DialogueResource, dialogue_start: String):
 	animation_player.pause()
 	
-	DialogueManager.show_example_dialogue_balloon(dialogue_resource)
+	DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
 	await DialogueManager.dialogue_ended
 	
 	animation_player.play()

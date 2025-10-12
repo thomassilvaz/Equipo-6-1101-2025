@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b3psch1qigtsh"
+path="res://.godot/imported/laboratorio.dialogue-c5b3c367fa786e58917d5999284f9f7e.tres"
+
+[deps]
+
+source_file="res://Dialogos/Interactuables/laboratorio.dialogue"
+dest_files=["res://.godot/imported/laboratorio.dialogue-c5b3c367fa786e58917d5999284f9f7e.tres"]
+
+[params]
+
+defaults=true

@@ -1,8 +1,12 @@
 extends Node
 
+var genero: String = "a"
+var nom: String = "Alexa"
+
 #escenas_vistas
 var primera_clase: bool = false
 var introduccion: bool = false
+var segunda_decision: bool = false
 
 #decisiones
 var decision_1: String
@@ -13,7 +17,12 @@ var decision_5: String
 
 #eventos
 var vendedor_bath1 := false
-#var dialogo_activo = false
+var caminarconmateo1 := false
+var decision2_tomada := false
+var escogio_pareja := false
+var pc_interactuo_profe := false
+var empezar_primera_clase := false
+var primera_clase_hecha := false
 
 #sprites
 var profesor_andres: AnimatedSprite2D

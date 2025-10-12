@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cmefj5h5kdtmh"
+path="res://.godot/imported/valeria.dialogue-439e8b866044b9570437bc9d45d4b811.tres"
+
+[deps]
+
+source_file="res://Dialogos/personajes/valeria.dialogue"
+dest_files=["res://.godot/imported/valeria.dialogue-439e8b866044b9570437bc9d45d4b811.tres"]
+
+[params]
+
+defaults=true

@@ -5,7 +5,7 @@ class_name Jugador
 @onready var interactivo: Area2D = $Direccion/Interactivo
 @export var puede_mover: bool = true
 
-var velocidad = 700
+var velocidad = 800
 var direccion_actual = "abajo"
 var skip_next_anim_update = false
 var walk_speed = 50

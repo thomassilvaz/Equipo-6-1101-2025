@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://dibx8uyqs5cmk"]
+[gd_scene load_steps=78 format=4 uid="uid://dibx8uyqs5cmk"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_wjwe5"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_45a53"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="6_sxfv7"]
 [ext_resource type="Texture2D" uid="uid://gu1fvkayp7sm" path="res://Imagenes/Texturas/porteria.png" id="7_8py4m"]
 [ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="7_nfe2u"]
-[ext_resource type="Resource" uid="uid://bb6h318sq0vrl" path="res://Dialogos/vendedor.dialogue" id="8_w2i3l"]
+[ext_resource type="Resource" uid="uid://bb6h318sq0vrl" path="res://Dialogos/personajes/ronald.dialogue" id="8_w2i3l"]
+[ext_resource type="Texture2D" uid="uid://cbknmxxtf6ep0" path="res://Imagenes/Texturas/arbol.png" id="8_xarbi"]
+[ext_resource type="Script" uid="uid://nbwsiw81u4sr" path="res://scripts/objetos/desvanecer_obj.gd" id="9_dsite"]
 [ext_resource type="Texture2D" uid="uid://gg4xd5j4uo7b" path="res://Imagenes/Personajes/estudiante1.png" id="9_xbray"]
 [ext_resource type="Script" uid="uid://dbkr302kijm6x" path="res://scripts/personajes/vendedor.gd" id="10_d13v1"]
 [ext_resource type="Script" uid="uid://bagc1l7bfvrmw" path="res://scripts/interactuables.gd" id="11_2babv"]
@@ -18,8 +20,12 @@
 [ext_resource type="Script" uid="uid://bnrd7xw0yiiec" path="res://scripts/personajes/profesor_andres.gd" id="15_w2i3l"]
 [ext_resource type="PackedScene" uid="uid://cc22xuj5yn1j1" path="res://escenas/sistema_escenas.tscn" id="16_nfe2u"]
 [ext_resource type="Texture2D" uid="uid://br1oigyaljdbp" path="res://Imagenes/Personajes/Mateo.png" id="16_nlq1u"]
-[ext_resource type="Resource" uid="uid://c3f1276qsth58" path="res://Dialogos/introduccion.dialogue" id="17_sxfv7"]
-[ext_resource type="Resource" uid="uid://c7c3oc8bqt7dq" path="res://Dialogos/mateo.dialogue" id="20_nlq1u"]
+[ext_resource type="Texture2D" uid="uid://dfu6p5pqrx017" path="res://Imagenes/Personajes/valeria.png" id="17_cuf27"]
+[ext_resource type="Resource" uid="uid://c3f1276qsth58" path="res://Dialogos/Escenas/introduccion.dialogue" id="17_sxfv7"]
+[ext_resource type="Resource" uid="uid://cmefj5h5kdtmh" path="res://Dialogos/personajes/valeria.dialogue" id="18_xarbi"]
+[ext_resource type="Texture2D" uid="uid://bpuchjpnrosjc" path="res://Imagenes/Personajes/estudiante3.png" id="19_dsite"]
+[ext_resource type="Resource" uid="uid://c7c3oc8bqt7dq" path="res://Dialogos/personajes/mateo.dialogue" id="20_nlq1u"]
+[ext_resource type="Resource" uid="uid://126vcm5mf0lq" path="res://Dialogos/personajes/julian.dialogue" id="20_ppido"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hdsm"]
 texture = ExtResource("2_45a53")
@@ -233,6 +239,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_45a53")
 sources/1 = SubResource("TileSetAtlasSource_rfmke")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chxva"]
+size = Vector2(163, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5byf"]
+size = Vector2(381, 386)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_gg1xv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg1xv"]
@@ -349,6 +361,70 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2babv"]
 size = Vector2(47, 23)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0vxt"]
+atlas = ExtResource("17_cuf27")
+region = Rect2(0, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js8yt"]
+atlas = ExtResource("17_cuf27")
+region = Rect2(48, 0, 40, 106)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chxva"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0vxt")
+}],
+"loop": true,
+"name": &"quieto_abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js8yt")
+}],
+"loop": true,
+"name": &"quieto_arriba",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3egfa"]
+size = Vector2(40, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h5byf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lud1"]
+atlas = ExtResource("19_dsite")
+region = Rect2(0, 0, 48, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tvut"]
+atlas = ExtResource("19_dsite")
+region = Rect2(56, 0, 48, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0uj62"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lud1")
+}],
+"loop": true,
+"name": &"quieto_abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tvut")
+}],
+"loop": true,
+"name": &"quieto_arriba",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ury2i"]
+size = Vector2(47, 23)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6xws"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27yxa"]
 size = Vector2(37.2362, 146.504)
 
@@ -360,10 +436,7 @@ size = Vector2(80, 129)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_auj4n"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d13v1"]
-size = Vector2(187, 79)
-
-[sub_resource type="Animation" id="Animation_sxfv7"]
+[sub_resource type="Animation" id="Animation_cuf27"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -389,8 +462,136 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-39, -652)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ysort/Valeria:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-116, -650)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ysort/Vendedor3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-205, -644)]
+}
 
-[sub_resource type="Animation" id="Animation_2babv"]
+[sub_resource type="Animation" id="Animation_xarbi"]
+resource_name = "cafeteria"
+length = 7.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ysort/Vendedor3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.52467, 2.23333, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-496, 1822), Vector2(-499, 1824), Vector2(-436, 1742), Vector2(-505, 1823)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ysort/jugador:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-409, 1738)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ysort/jugador/Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.43051, 4.8, 5.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -6), Vector2(1, -6.99996), Vector2(219, 17), Vector2(0, -3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ysort/Valeria:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6.4, 7, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-133, 1859), Vector2(-133, 1859), Vector2(-72, 1957), Vector2(-717, 2110)]
+}
+
+[sub_resource type="Animation" id="Animation_dsite"]
+resource_name = "cancha_tarde"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ysort/Vendedor1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1355, 2217)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ysort/Vendedora:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.47759, 3.13333, 3.76667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1462, 2237), Vector2(1462, 2237), Vector2(1476, 2111), Vector2(1457, 2235)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ysort/Vendedor3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1574, 2203)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ysort/jugador:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1464, 2092)]
+}
+
+[sub_resource type="Animation" id="Animation_ppido"]
 resource_name = "introduccion"
 length = 6.3
 tracks/0/type = "value"
@@ -408,17 +609,17 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SistemaEscenas/ControladorEscenas")
+tracks/1/path = NodePath("SistemaEscenas1/ControladorEscenas")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(1.46667, 5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [ExtResource("17_sxfv7")],
+"args": [ExtResource("17_sxfv7"), "start"],
 "method": &"trigger_dialogue"
 }, {
-"args": [ExtResource("20_nlq1u")],
+"args": [ExtResource("20_nlq1u"), "decision1"],
 "method": &"trigger_dialogue"
 }]
 }
@@ -488,17 +689,28 @@ tracks/6/keys = {
 "values": [Vector2(1154, 35), Vector2(1154, 35), Vector2(892, 34), Vector2(892, 34), Vector2(834, -38), Vector2(834, -183), Vector2(236, -597)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w6y6l"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chxva"]
 _data = {
-&"RESET": SubResource("Animation_sxfv7"),
-&"introduccion": SubResource("Animation_2babv")
+&"RESET": SubResource("Animation_cuf27"),
+&"cafeteria": SubResource("Animation_xarbi"),
+&"cancha_tarde": SubResource("Animation_dsite"),
+&"introduccion": SubResource("Animation_ppido")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d13v1"]
+size = Vector2(323.5, 224.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuf27"]
+size = Vector2(288, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6y6l"]
+size = Vector2(191, 122)
 
 [node name="piso1" type="Node2D"]
 script = ExtResource("1_wjwe5")
 
 [node name="Mapa" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAP//AAACAAAAAAD/////AAAEAAAAAAD+////AAAFAAAAAAD9////AAAAAAAAAAD8////AAADAAAAAAD7////AAAAAAAAAAABAP//AAAFAAAAAAACAP//AAAEAAAAAAADAP//AAACAAAAAAAEAP//AAAAAAAAAAD7/wAAAAAEAAEAAAD8/wAAAAAAAAIAAAD9/wAAAAAAAAIAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAD7/wEAAAACAAEAAAD8/wEAAAACAAEAAAD9/wEAAAACAAEAAAD+/wEAAAACAAEAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAEAAAAAAAAAAIAAAAFAP//AAABAAIAAAAFAP7/AAAEAAIAAAAGAP7/AAAFAAIAAAAFAAAAAAAFAAEAAAAGAAAAAAADAAIAAAAGAP//AAABAAIAADAGAP3/AAADAAEAAAAEAP7/AAAEAAEAAAAFAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAAHAP//AAAFAAAAAAAIAP//AAAEAAAAAAAJAP//AAACAAAAAAAKAP//AAAFAAAAAAALAP//AAAEAAAAAAAMAP//AAACAAAAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAANAP//AAAAAAAAAAANAAAAAAAAAAIAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAD//wQAAAABAAEAAAD//wUAAAABAAEAAAD//wYAAAABAAEAAAD+/wcAAAABAAEAAAD//wcAAAABAAEAAAD9/wcAAAABAAEAAAD7/wcAAAABAAEAAAD8/wcAAAABAAEAAAD7/wgAAAABAAEAAAD7/wkAAAABAAEAAAD7/woAAAABAAEAAAD7/wsAAAABAAEAAAD7/wwAAAABAAEAAAD7/w0AAAABAAEAAAD7/w4AAAABAAEAAAD//w8AAAABAAEAAAD//w4AAAABAAEAAAD//w0AAAABAAEAAAD//wwAAAABAAEAAAD//wsAAAABAAEAAAD//woAAAABAAEAAAD//wkAAAABAAEAAAD//wgAAAABAAEAAAD+/wgAAAABAAEAAAD9/wgAAAABAAEAAAD8/wgAAAABAAEAAAD8/wkAAAABAAEAAAD8/woAAAABAAEAAAD8/wsAAAABAAEAAAD8/wwAAAABAAEAAAD8/w0AAAABAAEAAAD8/w4AAAABAAEAAAD9/w4AAAABAAEAAAD+/w4AAAABAAEAAAD+/w0AAAABAAEAAAD9/w0AAAABAAEAAAD9/wwAAAABAAEAAAD9/wsAAAABAAEAAAD+/wwAAAABAAEAAAD+/wsAAAABAAEAAAD+/woAAAABAAEAAAD9/woAAAABAAEAAAD9/wkAAAABAAEAAAD+/wkAAAABAAEAAAAJAAEAAAAHAAEAAAAIAAEAAAAHAAEAAAAHAAEAAAAHAAEAAAAGAAEAAAAHAAEAAAAFAAEAAAAHAAEAAAAEAAEAAAAHAAEAAAADAAEAAAAHAAEAAAACAAEAAAAHAAEAAAABAAEAAAAHAAEAAAAAAAEAAAAHAAEAAAAAAAIAAAACAAEAAAAAAAMAAAACAAEAAAAAAAQAAAACAAEAAAAAAAUAAAACAAEAAAAAAAYAAAACAAEAAAAAAAcAAAACAAEAAAAAAAgAAAACAAEAAAAAAAkAAAACAAEAAAAAAAoAAAACAAEAAAAAAAsAAAACAAEAAAAAAAwAAAACAAEAAAAAAA0AAAACAAEAAAAAAA4AAAACAAEAAAAAAA8AAAACAAEAAAAFAAoAAQAAAAAAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAEAAAAEAAIAAAACAAEAAAAFAAIAAAACAAEAAAAGAAIAAAACAAEAAAAHAAIAAAACAAEAAAAIAAIAAAACAAEAAAAJAAIAAAACAAEAAAAAABAAAAACAAEAAAAAABEAAAACAAEAAAD//xAAAAABAAEAAAD//xEAAAABAAEAAAANAAMAAAAHAAEAAFANAAQAAAAHAAEAAFAKAAYAAAACAAEAAAALAAYAAAACAAEAAAALAAcAAAACAAEAAAALAAgAAAACAAEAAAALAAkAAAACAAEAAAALAAoAAAACAAEAAAALAAsAAAACAAEAAAALAAwAAAACAAEAAAALAA0AAAACAAEAAAALAA4AAAACAAEAAAALAA8AAAACAAEAAAALABAAAAACAAEAAAALABEAAAACAAEAAAAKABEAAAACAAEAAAAKABAAAAACAAEAAAAKAA8AAAACAAEAAAAKAA4AAAACAAEAAAAKAA0AAAACAAEAAAAKAAwAAAACAAEAAAAKAAsAAAACAAEAAAAKAAoAAAACAAEAAAAKAAkAAAACAAEAAAAKAAgAAAACAAEAAAAKAAcAAAACAAEAAAAKAAUAAAACAAEAAAALAAUAAAACAAEAAAAHAP3/AAADAAEAAAAHAP7/AAAEAAEAADD7/wYAAAAJAAAAAAD8/wYAAAAIAAIAAAD9/wYAAAAJAAIAAAD+/wYAAAAIAAAAAAAKAAEAAAAHAAEAAAAKAAIAAAAGAAEAAAAKAAMAAAAGAAEAAAAKAAQAAAAGAAEAAAALAAQAAAAGAAEAAAALAAMAAAAGAAEAAAALAAIAAAAGAAEAAAALAAEAAAAHAAEAAAAMAAEAAAAHAAEAAAAMAAIAAAAGAAEAAAAMAAMAAAAGAAEAAAAMAAQAAAAGAAEAAAAMAAUAAAAGAAEAAAAMAAYAAAAGAAEAAAAMAAcAAAAGAAEAAAAMAAgAAAAGAAEAAAAMAAkAAAAGAAEAAAAMAAoAAAAGAAEAAAAMAAsAAAAGAAEAAAAMAAwAAAAGAAEAAAAMAA0AAAAGAAEAAAAMAA4AAAAGAAEAAAAMAA8AAAAGAAEAAAAMABAAAAAGAAEAAAAMABEAAAAGAAEAAAAIAP3/AAAHAAIAAAAIAP7/AAAHAAIAAAADAP3/AAAHAAIAADADAP7/AAAHAAIAADD6////AAAHAAIAADD6/wAAAAAHAAIAADD6/wEAAAAHAAIAADD+/wIAAAAIAAEAADD+/wMAAAAIAAEAADD+/wQAAAAIAAEAADD+/wUAAAAIAAEAADD6/wYAAAAIAAEAADD6/wcAAAAIAAEAADD6/wgAAAAIAAEAADD6/wkAAAAIAAEAADD6/woAAAAIAAEAADD6/wsAAAAIAAEAADD6/wwAAAAIAAEAADD6/w0AAAAIAAEAADD6/w4AAAAIAAEAADANAAEAAAAIAAEAAAANAAIAAAAIAAEAAAAOAAEAAAACAAIAAAAOAAAAAAAFAAIAABAPAAAAAAAFAAIAAAAPAAEAAAACAAIAABAQAAAAAAAAAAIAAAAQAP//AAADAAAAAAAOAP//AAAAAAAAAAAPAP//AAAGAAAAAAARAAAAAAAAAAIAAAASAAAAAAAAAAIAAAATAAAAAAAAAAIAAAAVAAAAAAADAAIAAAAUAAAAAAAFAAEAAAAUAP//AAABAAIAAAAVAP//AAABAAIAABAUAP7/AAACAAIAAFAVAP7/AAACAAIAAEAUAP3/AAABAAAAAAAVAP3/AAACAAAAAAAWAAAAAAAGAAIAAGARAP//AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AAACAAAAAAD/////AAAEAAAAAAD+////AAAFAAAAAAD9////AAAAAAAAAAD8////AAADAAAAAAD7////AAAAAAAAAAABAP//AAAFAAAAAAACAP//AAAEAAAAAAADAP//AAACAAAAAAAEAP//AAAAAAAAAAD7/wAAAAAEAAEAAAD8/wAAAAAAAAIAAAD9/wAAAAAAAAIAAAD+/wAAAAAAAAIAAAD//wAAAAAAAAIAAAD7/wEAAAACAAEAAAD8/wEAAAACAAEAAAD9/wEAAAACAAEAAAD+/wEAAAACAAEAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAADAAAAAAAAAAIAAAAEAAAAAAAAAAIAAAAFAP//AAABAAIAAAAFAP7/AAAEAAIAAAAGAP7/AAAFAAIAAAAFAAAAAAAFAAEAAAAGAAAAAAADAAIAAAAGAP//AAABAAIAADAGAP3/AAADAAEAAAAEAP7/AAAEAAEAAAAFAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAAHAP//AAAFAAAAAAAIAP//AAAEAAAAAAAJAP//AAACAAAAAAAKAP//AAAFAAAAAAALAP//AAAEAAAAAAAMAP//AAACAAAAAAAHAAAAAAAAAAIAAAAIAAAAAAAAAAIAAAAJAAAAAAAAAAIAAAAKAAAAAAAAAAIAAAALAAAAAAAAAAIAAAAMAAAAAAAAAAIAAAANAP//AAAAAAAAAAANAAAAAAAAAAIAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAD//wQAAAABAAEAAAD//wUAAAABAAEAAAD//wYAAAABAAEAAAD+/wcAAAABAAEAAAD//wcAAAABAAEAAAD9/wcAAAABAAEAAAD7/wcAAAABAAEAAAD8/wcAAAABAAEAAAD7/wgAAAABAAEAAAD7/wkAAAABAAEAAAD7/woAAAABAAEAAAD7/wsAAAABAAEAAAD7/wwAAAABAAEAAAD7/w0AAAABAAEAAAD7/w4AAAABAAEAAAD//w8AAAABAAEAAAD//w4AAAABAAEAAAD//w0AAAABAAEAAAD//wwAAAABAAEAAAD//wsAAAABAAEAAAD//woAAAABAAEAAAD//wkAAAABAAEAAAD//wgAAAABAAEAAAD+/wgAAAABAAEAAAD9/wgAAAABAAEAAAD8/wgAAAABAAEAAAD8/wkAAAABAAEAAAD8/woAAAABAAEAAAD8/wsAAAABAAEAAAD8/wwAAAABAAEAAAD8/w0AAAABAAEAAAD8/w4AAAABAAEAAAD9/w4AAAABAAEAAAD+/w4AAAABAAEAAAD+/w0AAAABAAEAAAD9/w0AAAABAAEAAAD9/wwAAAABAAEAAAD9/wsAAAABAAEAAAD+/wwAAAABAAEAAAD+/wsAAAABAAEAAAD+/woAAAABAAEAAAD9/woAAAABAAEAAAD9/wkAAAABAAEAAAD+/wkAAAABAAEAAAAJAAEAAAAHAAEAAAAIAAEAAAAHAAEAAAAHAAEAAAAHAAEAAAAGAAEAAAAHAAEAAAAFAAEAAAAHAAEAAAAEAAEAAAAHAAEAAAADAAEAAAAHAAEAAAACAAEAAAAHAAEAAAABAAEAAAAHAAEAAAAAAAEAAAAHAAEAAAAAAAIAAAACAAEAAAAAAAMAAAACAAEAAAAAAAQAAAACAAEAAAAAAAUAAAACAAEAAAAAAAYAAAACAAEAAAAAAAcAAAACAAEAAAAAAAgAAAACAAEAAAAAAAkAAAACAAEAAAAAAAoAAAACAAEAAAAAAAsAAAACAAEAAAAAAAwAAAACAAEAAAAAAA0AAAACAAEAAAAAAA4AAAACAAEAAAAAAA8AAAACAAEAAAAFAAoAAQAAAAAAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAEAAAAEAAIAAAACAAEAAAAFAAIAAAACAAEAAAAGAAIAAAACAAEAAAAHAAIAAAACAAEAAAAIAAIAAAACAAEAAAAJAAIAAAACAAEAAAAAABAAAAACAAEAAAAAABEAAAACAAEAAAD//xAAAAABAAEAAAD//xEAAAABAAEAAAANAAMAAAAHAAEAAFANAAQAAAAHAAEAAFAKAAYAAAACAAEAAAALAAYAAAACAAEAAAALAAcAAAACAAEAAAALAAgAAAACAAEAAAALAAkAAAACAAEAAAALAAoAAAACAAEAAAALAAsAAAACAAEAAAALAAwAAAACAAEAAAALAA0AAAACAAEAAAALAA4AAAACAAEAAAALAA8AAAACAAEAAAALABAAAAACAAEAAAALABEAAAACAAEAAAAKABEAAAACAAEAAAAKABAAAAACAAEAAAAKAA8AAAACAAEAAAAKAA4AAAACAAEAAAAKAA0AAAACAAEAAAAKAAwAAAACAAEAAAAKAAsAAAACAAEAAAAKAAoAAAACAAEAAAAKAAkAAAACAAEAAAAKAAgAAAACAAEAAAAKAAcAAAACAAEAAAAKAAUAAAACAAEAAAALAAUAAAACAAEAAAAHAP3/AAADAAEAAAAHAP7/AAAEAAEAADD7/wYAAAAJAAAAAAD8/wYAAAAIAAIAAAD9/wYAAAAJAAIAAAD+/wYAAAAIAAAAAAAKAAEAAAAHAAEAAAAKAAIAAAAGAAEAAAAKAAMAAAAGAAEAAAAKAAQAAAAGAAEAAAALAAQAAAAGAAEAAAALAAMAAAAGAAEAAAALAAIAAAAGAAEAAAALAAEAAAAHAAEAAAAMAAEAAAAHAAEAAAAMAAIAAAAGAAEAAAAMAAMAAAAGAAEAAAAMAAQAAAAGAAEAAAAMAAUAAAAGAAEAAAAMAAYAAAAGAAEAAAAMAAcAAAAGAAEAAAAMAAgAAAAGAAEAAAAMAAkAAAAGAAEAAAAMAAoAAAAGAAEAAAAMAAsAAAAGAAEAAAAMAAwAAAAGAAEAAAAMAA0AAAAGAAEAAAAMAA4AAAAGAAEAAAAMAA8AAAAGAAEAAAAMABAAAAAGAAEAAAAMABEAAAAGAAEAAAAIAP3/AAAHAAIAAAAIAP7/AAAHAAIAAAADAP3/AAAHAAIAADADAP7/AAAHAAIAADD6////AAAHAAIAADD6/wAAAAAHAAIAADD6/wEAAAAHAAIAADD+/wIAAAAIAAEAADD+/wMAAAAIAAEAADD+/wQAAAAIAAEAADD+/wUAAAAIAAEAADD6/wYAAAAIAAEAADD6/wcAAAAIAAEAADD6/wgAAAAIAAEAADD6/wkAAAAIAAEAADD6/woAAAAIAAEAADD6/wsAAAAIAAEAADD6/wwAAAAIAAEAADD6/w0AAAAIAAEAADD6/w4AAAAIAAEAADANAAEAAAAIAAEAAAANAAIAAAAIAAEAAAAOAAEAAAACAAIAAAAOAAAAAAAFAAIAABAPAAAAAAAFAAIAAAAPAAEAAAACAAIAABAQAAAAAAAAAAIAAAAQAP//AAADAAAAAAAOAP//AAAAAAAAAAAPAP//AAAGAAAAAAARAAAAAAAAAAIAAAASAAAAAAAAAAIAAAATAAAAAAAAAAIAAAARAP//AAAAAAAAAAASAP//AAAAAAAAAAAWAP3/AAACAAAAAAAVAP3/AAABAAAAAAAVAAAAAAAFAAEAAAAUAAAAAAAAAAIAAAAUAP//AAAGAAAAAAATAP//AAAAAAAAAAAVAP//AAABAAIAAAAVAP7/AAACAAIAAFAWAP7/AAACAAIAAEAWAP//AAABAAIAABAWAAAAAAACAAIAAGAXAAAAAAAGAAIAAGA=")
 tile_set = SubResource("TileSet_27yxa")
 
 [node name="Puertas" type="Node" parent="."]
@@ -531,12 +743,25 @@ spawn_direccion = "izquierda"
 [node name="Spawn" parent="Puertas/Puerta_cancha" index="1"]
 position = Vector2(-26.9989, 0)
 
+[node name="Puerta_sala" parent="Puertas" instance=ExtResource("4_qddyy")]
+position = Vector2(2977, 65)
+destino_nivel_tag = "sala_profesores"
+destino_puerta_tag = "salida"
+spawn_direccion = "izquierda"
+
+[node name="CollisionShape2D" parent="Puertas/Puerta_sala" index="0"]
+position = Vector2(6, -1)
+scale = Vector2(2.45426, 3.26425)
+
+[node name="Spawn" parent="Puertas/Puerta_sala" index="1"]
+position = Vector2(-51, -1)
+
 [node name="ysort" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="Objetos" type="TileMapLayer" parent="ysort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD7//3/AQAAAAEAAABeAP3/AQAAAAEAAAAWAP3/AQAAAAEAAABHAP3/AQAAAAEAAAAOAPz/AQACAAEAAAA/APz/AQACAAEAAABZAPz/AQACAAEAAAD4//z/AQACAAEAAABxAP3/AQAAAAEAAADy/0IAAAAAAAAAAADe/z4AAAAAAAAAAADy/08AAAAAAAAAAADf/0sAAAAAAAAAAAD2/18AAQABAAAAAAD2/20AAQABAAAAAADe/1sAAQAFAAAAAADd/2gAAQAFAAAAAADq/2gAAQAFAAAAAADo/2QAAQAEAAEAAADy/2gAAQAEAAEAAADy/20AAQAEAAEAAADb/1cAAQAEAAEAAADg/1cAAQAEAAEAABD6/1wAAQAEAAEAABD6/2AAAQAEAAEAABD5/2wAAQAEAAEAABDg/2QAAQAEAAEAABDz/1sAAQAEAAEAAADz/2AAAQAEAAEAAAArABgAAgAAAAAAAACWAP3/AQAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAD7//3/AQAAAAEAAABeAP3/AQAAAAEAAAAWAP3/AQAAAAEAAABHAP3/AQAAAAEAAAAOAPz/AQACAAEAAAA/APz/AQACAAEAAABZAPz/AQACAAEAAAD4//z/AQACAAEAAABxAP3/AQAAAAEAAADy/0IAAAAAAAAAAADe/z4AAAAAAAAAAADy/08AAAAAAAAAAADf/0sAAAAAAAAAAADe/1sAAQAFAAAAAADd/2gAAQAFAAAAAADb/1cAAQAEAAEAAADg/1cAAQAEAAEAABArABgAAgAAAAAAAACWAP3/AQAAAAEAAADm/2QAAQAEAAEAAADn/2gAAQAFAAAAAADu/2gAAQAEAAEAAADu/2wAAQAEAAEAAADu/3AAAQAEAAEAAADy/2kAAQABAAAAAADy/3AAAQABAAAAAAD1/2gAAQAEAAEAABD1/24AAQAEAAEAABDs/1oAAQAEAAEAAADs/18AAQAEAAEAAAD0/1oAAQAEAAEAABD0/18AAQAEAAEAABDw/10AAQABAAAAAADe/2QAAQAEAAEAABA=")
 tile_set = SubResource("TileSet_axl62")
 
 [node name="Mallas" type="TileMapLayer" parent="ysort/Objetos"]
@@ -548,14 +773,54 @@ tile_set = SubResource("TileSet_w8vgs")
 modulate = Color(1, 1, 1, 0.831373)
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAANAAAAAAAKAAIAAAAQAAAAAAAKAAIAAAARAAAAAAAKAAIAAAASAAAAAAAKAAIAAAATAAAAAAAKAAIAAAAPAAEAAAAKAAIAAAAOAAEAAAAKAAIAAAA=")
+tile_map_data = PackedByteArray("AAANAAAAAAAKAAIAAAAQAAAAAAAKAAIAAAARAAAAAAAKAAIAAAASAAAAAAAKAAIAAAATAAAAAAAKAAIAAAAPAAEAAAAKAAIAAAAOAAEAAAAKAAIAAAAUAAAAAAAKAAIAAAA=")
 tile_set = SubResource("TileSet_sxfv7")
+
+[node name="Arbol2" type="StaticBody2D" parent="ysort/Objetos"]
+y_sort_enabled = true
+position = Vector2(1476, 1788)
+
+[node name="Sprite2D" type="Sprite2D" parent="ysort/Objetos/Arbol2"]
+position = Vector2(0, 150)
+texture = ExtResource("8_xarbi")
+offset = Vector2(0, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Objetos/Arbol2"]
+position = Vector2(-4.5, 206.5)
+shape = SubResource("RectangleShape2D_chxva")
+
+[node name="Area2D" type="Area2D" parent="ysort/Objetos/Arbol2"]
+script = ExtResource("9_dsite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Objetos/Arbol2/Area2D"]
+position = Vector2(-1.5, -44)
+shape = SubResource("RectangleShape2D_h5byf")
+
+[node name="Arbol" type="StaticBody2D" parent="ysort/Objetos"]
+y_sort_enabled = true
+position = Vector2(1476, 1510)
+
+[node name="Sprite2D" type="Sprite2D" parent="ysort/Objetos/Arbol"]
+position = Vector2(0, 150)
+texture = ExtResource("8_xarbi")
+offset = Vector2(0, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Objetos/Arbol"]
+position = Vector2(-4.5, 206.5)
+shape = SubResource("RectangleShape2D_chxva")
+
+[node name="Area2D" type="Area2D" parent="ysort/Objetos/Arbol"]
+script = ExtResource("9_dsite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Objetos/Arbol/Area2D"]
+position = Vector2(-1.5, -44)
+shape = SubResource("RectangleShape2D_h5byf")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("6_sxfv7")]
 position = Vector2(771, 44)
 
 [node name="Vendedor1" type="CharacterBody2D" parent="ysort"]
-position = Vector2(121, -596)
+position = Vector2(770, -55)
 script = ExtResource("10_d13v1")
 
 [node name="Interactuable" parent="ysort/Vendedor1" instance=ExtResource("7_nfe2u")]
@@ -577,7 +842,7 @@ sprite_frames = SubResource("SpriteFrames_qddyy")
 animation = &"quieto_abajo"
 
 [node name="Vendedora" type="CharacterBody2D" parent="ysort" groups=["Vendedora"]]
-position = Vector2(180, -590)
+position = Vector2(838, -103)
 script = ExtResource("13_sxfv7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedora"]
@@ -600,6 +865,50 @@ animation = &"quieto_abajo"
 position = Vector2(0.5, 43.5)
 shape = SubResource("RectangleShape2D_2babv")
 
+[node name="Valeria" type="CharacterBody2D" parent="ysort" groups=["Valeria"]]
+position = Vector2(-116, -650)
+script = ExtResource("15_w2i3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Valeria"]
+sprite_frames = SubResource("SpriteFrames_chxva")
+animation = &"quieto_abajo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Valeria"]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_3egfa")
+
+[node name="Interactuable" parent="ysort/Valeria" instance=ExtResource("7_nfe2u")]
+dialogue_resource = ExtResource("18_xarbi")
+dialogue_start = "salon_principal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Valeria/Interactuable"]
+position = Vector2(0, 31)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_h5byf")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
+
+[node name="Vendedor3" type="CharacterBody2D" parent="ysort" groups=["Vendedor3"]]
+position = Vector2(-205, -644)
+script = ExtResource("15_w2i3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedor3"]
+sprite_frames = SubResource("SpriteFrames_0uj62")
+animation = &"quieto_abajo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3"]
+position = Vector2(0.5, 43.5)
+shape = SubResource("RectangleShape2D_ury2i")
+
+[node name="Interactuable" parent="ysort/Vendedor3" instance=ExtResource("7_nfe2u")]
+dialogue_resource = ExtResource("20_ppido")
+dialogue_start = "piso2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3/Interactuable"]
+position = Vector2(0, 35)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_t6xws")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
+
 [node name="Colisiones" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones"]
@@ -617,11 +926,12 @@ position = Vector2(1733.5, 1470)
 shape = SubResource("RectangleShape2D_rfmke")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisiones"]
-position = Vector2(2520, -193.5)
+position = Vector2(2648, -192)
 shape = SubResource("RectangleShape2D_45a53")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Colisiones"]
-polygon = PackedVector2Array(2816, -257, 2816, 32, 2880, 32, 2880, 96, 2816, 96, 2816, 128, 2048, 128, 2048, 257, 2892, 261, 2893, -260)
+position = Vector2(128, 0)
+polygon = PackedVector2Array(2816, -257, 2816, 32, 2880, 32, 2880, 96, 2816, 96, 2816, 128, 1920, 128, 1920, 256, 2893, 257, 2893, -257)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Colisiones"]
 polygon = PackedVector2Array(1792, 640, 1841, 640, 1841, 355, 1792, 354, 1792, 128, 1682, 385, 1792, 384)
@@ -634,39 +944,87 @@ position = Vector2(-408, 63)
 scale = Vector2(505.763, 385.964)
 texture = SubResource("CanvasTexture_auj4n")
 
+[node name="Sprite2D3" type="Sprite2D" parent="Sombras"]
+modulate = Color(0, 0, 0, 0.121569)
+position = Vector2(-395, 1350)
+scale = Vector2(529.715, 1165.35)
+texture = SubResource("CanvasTexture_auj4n")
+
 [node name="Sprite2D2" type="Sprite2D" parent="Sombras"]
 modulate = Color(0, 0, 0, 0.254902)
-position = Vector2(2121.56, 64)
-scale = Vector2(874.881, 385.964)
+position = Vector2(2186.78, 64)
+scale = Vector2(1002.44, 385.964)
 texture = SubResource("CanvasTexture_auj4n")
 
 [node name="Interactuables" type="Node" parent="."]
 script = ExtResource("11_2babv")
 
-[node name="SistemaEscenas" parent="." instance=ExtResource("16_nfe2u")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_chxva")
+}
 
-[node name="ControladorEscenas" parent="SistemaEscenas" index="0" node_paths=PackedStringArray("animation_player")]
+[node name="SistemaEscenas1" parent="." instance=ExtResource("16_nfe2u")]
+
+[node name="ControladorEscenas" parent="SistemaEscenas1" index="0" node_paths=PackedStringArray("animation_player")]
 cutscene_id = "introduccion"
 animation_player = NodePath("../../AnimationPlayer")
 nombre_escena = "introduccion"
 
-[node name="Area2D" parent="SistemaEscenas" index="1"]
+[node name="Area2D" parent="SistemaEscenas1" index="1"]
+position = Vector2(-201, -51)
 cutscene_controller_path = NodePath("../ControladorEscenas")
 escena_a_detectar = "introduccion"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas/Area2D" index="0"]
-position = Vector2(768.5, 24.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas1/Area2D" index="0"]
+position = Vector2(968, 65)
+scale = Vector2(0.629355, 0.348534)
 shape = SubResource("RectangleShape2D_d13v1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_w6y6l")
-}
+[node name="SistemaEscenas2" parent="." instance=ExtResource("16_nfe2u")]
 
-[connection signal="body_entered" from="SistemaEscenas/Area2D" to="SistemaEscenas/Area2D" method="_on_body_entered"]
+[node name="ControladorEscenas" parent="SistemaEscenas2" index="0" node_paths=PackedStringArray("animation_player")]
+cutscene_id = "cancha_tarde"
+animation_player = NodePath("../../AnimationPlayer")
+nombre_escena = "cancha_tarde"
+
+[node name="Area2D" parent="SistemaEscenas2" index="1"]
+position = Vector2(-201, -51)
+cutscene_controller_path = NodePath("../ControladorEscenas")
+escena_a_detectar = "cancha_tarde"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas2/Area2D" index="0"]
+position = Vector2(1688, 2248)
+shape = SubResource("RectangleShape2D_cuf27")
+
+[node name="SistemaEscenas3" parent="." instance=ExtResource("16_nfe2u")]
+
+[node name="ControladorEscenas" parent="SistemaEscenas3" index="0" node_paths=PackedStringArray("animation_player")]
+cutscene_id = "cafeteria"
+animation_player = NodePath("../../AnimationPlayer")
+nombre_escena = "cafeteria"
+
+[node name="Area2D" parent="SistemaEscenas3" index="1"]
+cutscene_controller_path = NodePath("../ControladorEscenas")
+escena_a_detectar = "cafeteria"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas3/Area2D" index="0"]
+position = Vector2(-394.5, 1766)
+shape = SubResource("RectangleShape2D_w6y6l")
+
+[connection signal="body_entered" from="ysort/Objetos/Arbol2/Area2D" to="ysort/Objetos/Arbol2/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="ysort/Objetos/Arbol2/Area2D" to="ysort/Objetos/Arbol2/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="ysort/Objetos/Arbol/Area2D" to="ysort/Objetos/Arbol/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="ysort/Objetos/Arbol/Area2D" to="ysort/Objetos/Arbol/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="SistemaEscenas2/Area2D" to="SistemaEscenas2/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="SistemaEscenas3/Area2D" to="SistemaEscenas3/Area2D" method="_on_body_entered"]
 
 [editable path="Puertas/Puerta_e1"]
 [editable path="Puertas/Puerta_salon2"]
 [editable path="Puertas/Puerta_cancha"]
+[editable path="Puertas/Puerta_sala"]
 [editable path="ysort/jugador"]
-[editable path="SistemaEscenas"]
+[editable path="SistemaEscenas1"]
+[editable path="SistemaEscenas2"]
+[editable path="SistemaEscenas3"]

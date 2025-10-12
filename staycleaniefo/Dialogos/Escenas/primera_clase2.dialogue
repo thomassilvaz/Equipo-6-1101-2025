@@ -1,0 +1,29 @@
+~ start
+Escuchas alguien susurrando detrás tuyo.
+do Estados.vendedor1.play("quieto_arriba_hablando")
+Ronald: *Aprender... claro. Como si eso importara aquí.*
+do Estados.vendedor1.play("quieto_arriba")
+Alguien te toca a tu izquierda.
+do Estados.mateo.play("quieto_arriba_hablando")
+do Estados.jugador.play("quieto_arriba_hablando")
+Mateo: {{Estados.nom}}, solo quería decir, que ten cuidado con los que te rodean. No todos quieren lo mejor para ti.
+Mateo: Si necesitas hablar, estoy por ahí. No todo es lo que parece.
+do Estados.mateo.play("quieto_arriba")
+do Estados.jugador.play("quieto_arriba")
+do wait(1)
+Julián: (ríe desde el fondo)
+Julián: ¡Vamos al baño después! Tengo algo que te hará olvidar el aburrimiento de este lugar.
+Ronald: Hey nuev{{Estados.genero}}, ¿vas a venir o qué?
+do Estados.jugador.play("quieto_arriba_hablando")
+- Hagale, de una
+	El profesor te mira fijo
+	do Estados.jugador.play("quieto_arriba")
+	Profesor Andrés: {{Estados.nom}}... todo acto tiene su consecuencia. Recuerda eso.
+	set Estados.decision_3 = "mala"
+- No puedo, tengo cosas que hacer
+	El profesor te mira fijo
+	do Estados.jugador.play("quieto_arriba")
+	Profesor Andrés: Buena elección, {{Estados.nom}}. Todo acto tiene su consecuencia. Qué bien que sepas eso.
+	Profesor Andrés: No te dejes influenciar tan temprano. Acercate a mí cuando me necesites.
+	set Estados.decision_3 = "buena"
+=> END

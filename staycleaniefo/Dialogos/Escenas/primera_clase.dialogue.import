@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bscpevly35tlg"
+path="res://.godot/imported/primera_clase.dialogue-9b92fc1f3a4011ca5e8e50d1364c3607.tres"
+
+[deps]
+
+source_file="res://Dialogos/Escenas/primera_clase.dialogue"
+dest_files=["res://.godot/imported/primera_clase.dialogue-9b92fc1f3a4011ca5e8e50d1364c3607.tres"]
+
+[params]
+
+defaults=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://hlwd4oxnlx30"]
+[gd_scene load_steps=68 format=4 uid="uid://hlwd4oxnlx30"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_gd4t4"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="1_yap3h"]
@@ -8,13 +8,21 @@
 [ext_resource type="Script" uid="uid://bnrd7xw0yiiec" path="res://scripts/personajes/profesor_andres.gd" id="6_e1vbn"]
 [ext_resource type="Texture2D" uid="uid://bddsen2rg2bem" path="res://Imagenes/Personajes/profesor_andres.png" id="6_n3asq"]
 [ext_resource type="PackedScene" uid="uid://cc22xuj5yn1j1" path="res://escenas/sistema_escenas.tscn" id="7_3uesf"]
-[ext_resource type="Resource" uid="uid://bscpevly35tlg" path="res://Dialogos/primera_clase.dialogue" id="7_e1vbn"]
+[ext_resource type="Resource" uid="uid://bscpevly35tlg" path="res://Dialogos/Escenas/primera_clase.dialogue" id="7_e1vbn"]
+[ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="8_8ojtm"]
 [ext_resource type="Texture2D" uid="uid://dfu6p5pqrx017" path="res://Imagenes/Personajes/valeria.png" id="8_w0n1k"]
 [ext_resource type="Texture2D" uid="uid://gg4xd5j4uo7b" path="res://Imagenes/Personajes/estudiante1.png" id="9_al5ck"]
+[ext_resource type="Resource" uid="uid://dtbckflknk50c" path="res://Dialogos/personajes/profesor_andres.dialogue" id="9_h0vxt"]
 [ext_resource type="Texture2D" uid="uid://br1oigyaljdbp" path="res://Imagenes/Personajes/Mateo.png" id="10_jgnag"]
-[ext_resource type="Resource" uid="uid://bpcn4b53qfj3c" path="res://Dialogos/primera_clase2.dialogue" id="11_8pgr3"]
+[ext_resource type="Resource" uid="uid://bpcn4b53qfj3c" path="res://Dialogos/Escenas/primera_clase2.dialogue" id="11_8pgr3"]
 [ext_resource type="Texture2D" uid="uid://bpuchjpnrosjc" path="res://Imagenes/Personajes/estudiante3.png" id="11_24ept"]
+[ext_resource type="Resource" uid="uid://bb6h318sq0vrl" path="res://Dialogos/personajes/ronald.dialogue" id="11_h0vxt"]
+[ext_resource type="Resource" uid="uid://cmefj5h5kdtmh" path="res://Dialogos/personajes/valeria.dialogue" id="11_p1sev"]
 [ext_resource type="Texture2D" uid="uid://mk3pwgpfycum" path="res://Imagenes/Personajes/estudiante4.png" id="12_chi7g"]
+[ext_resource type="Resource" uid="uid://c7c3oc8bqt7dq" path="res://Dialogos/personajes/mateo.dialogue" id="15_l40ny"]
+[ext_resource type="Script" uid="uid://ddshj771xpj3r" path="res://scripts/objetos/puerta_bloqueada.gd" id="18_l40ny"]
+[ext_resource type="Resource" uid="uid://bs5r12bixc0e2" path="res://Dialogos/Escenas/terminar_clase1.dialogue" id="21_cofx2"]
+[ext_resource type="Script" uid="uid://c3qgq8ssk5wt1" path="res://scripts/objetos/primeraclase.gd" id="22_vykfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3i0r0"]
 texture = ExtResource("1_yap3h")
@@ -193,7 +201,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uesf"]
-size = Vector2(50, 50)
+size = Vector2(50, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_js8yt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h0vxt"]
 atlas = ExtResource("8_w0n1k")
@@ -363,6 +373,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly02a"]
 size = Vector2(33, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vykfn"]
+size = Vector2(9.49872, 50.8506)
+
 [sub_resource type="Animation" id="Animation_3uesf"]
 length = 10.0
 tracks/0/type = "value"
@@ -452,7 +465,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_n3asq"]
 resource_name = "primera_clase"
-length = 5.0
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -460,7 +473,7 @@ tracks/0/path = NodePath("ysort/ProfesorAndres:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.3, 2.2, 3.03333, 4.01),
+"times": PackedFloat32Array(1.3, 2.2, 4.63333, 5.61),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(524, -514), Vector2(485, -444), Vector2(485, -444), Vector2(586, -496)]
@@ -472,13 +485,13 @@ tracks/1/path = NodePath("SistemaEscenas1/ControladorEscenas")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.2, 4.03333),
+"times": PackedFloat32Array(3.8001, 5.63333),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [ExtResource("7_e1vbn")],
+"args": [ExtResource("7_e1vbn"), "start"],
 "method": &"trigger_dialogue"
 }, {
-"args": [ExtResource("11_8pgr3")],
+"args": [ExtResource("11_8pgr3"), "start"],
 "method": &"trigger_dialogue"
 }]
 }
@@ -489,7 +502,7 @@ tracks/2/path = NodePath("ysort/jugador/Camera2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.966667, 2.44, 3.03333, 4.03333, 5),
+"times": PackedFloat32Array(0, 0.966667, 4.04, 4.63333, 5.63333, 6.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -6), Vector2(-24, -110), Vector2(-24, -110), Vector2(0, 71), Vector2(0, 71), Vector2(0, -6)]
@@ -501,7 +514,7 @@ tracks/3/path = NodePath("ysort/ProfesorAndres")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.3, 2.2, 3.03333, 4),
+"times": PackedFloat32Array(0, 1.3, 2.2, 4.63333, 5.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": ["quieto_abajo"],
@@ -651,14 +664,68 @@ tracks/13/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_vykfn"]
+resource_name = "terminar_clase1"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ysort/ProfesorAndres:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.01),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(586, -496), Vector2(586, -496), Vector2(482, -445)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ysort/ProfesorAndres")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["mov_abajo"],
+"method": &"play_animation"
+}, {
+"args": ["quieto_abajo"],
+"method": &"play_animation"
+}, {
+"args": ["quieto_abajo_hablando"],
+"method": &"play_animation"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SistemaEscenas1/ControladorEscenas")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("21_cofx2"), "start"],
+"method": &"trigger_dialogue"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uvkpu"]
 _data = {
 &"RESET": SubResource("Animation_3uesf"),
-&"primera_clase": SubResource("Animation_n3asq")
+&"primera_clase": SubResource("Animation_n3asq"),
+&"terminar_clase1": SubResource("Animation_vykfn")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uvkpu"]
 size = Vector2(60, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cofx2"]
+size = Vector2(51, 82)
 
 [node name="salonprincipal" type="Node2D"]
 script = ExtResource("1_gd4t4")
@@ -697,11 +764,11 @@ y_sort_enabled = true
 
 [node name="Objetos" type="TileMapLayer" parent="ysort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAlANz/AAADAAAAAAAeANz/AAAEAAAAAAApAOD/AAAAAAAAAAApAOP/AAAFAAAAAAAtAAgAAAABAAAAABAtAPj/AAABAAAAABAoAOj/AAACAAAAAAAhAOj/AAACAAAAAAAaAOj/AAACAAAAAAATAOj/AAACAAAAAAATAO3/AAACAAAAAAAaAO3/AAACAAAAAAAhAO3/AAACAAAAAAAoAO3/AAACAAAAAAATAPL/AAACAAAAAAAaAPL/AAACAAAAAAAhAPL/AAACAAAAAAAoAPL/AAACAAAAAAAoAPf/AAACAAAAAAAhAPf/AAACAAAAAAAaAPf/AAACAAAAAAATAPf/AAACAAAAAAASAA4AAAAAAAAAAAAWAA4AAAABAAAAAAAXAAIAAAAFAAAAAAAlAAIAAAAFAAAAAAAXAN3/AAAGAAAAAAATAN3/AAAGAAAAAAAtAPH/AAABAAAAAAAtAOr/AAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAlANz/AAADAAAAAAAeANz/AAAEAAAAAAApAOD/AAAAAAAAAAApAOP/AAAFAAAAAAAtAAgAAAABAAAAABAtAPj/AAABAAAAABAoAOj/AAACAAAAAAAhAOj/AAACAAAAAAAaAOj/AAACAAAAAAATAOj/AAACAAAAAAATAO3/AAACAAAAAAAaAO3/AAACAAAAAAAhAO3/AAACAAAAAAAoAO3/AAACAAAAAAATAPL/AAACAAAAAAAaAPL/AAACAAAAAAAhAPL/AAACAAAAAAAoAPL/AAACAAAAAAAoAPf/AAACAAAAAAAhAPf/AAACAAAAAAAaAPf/AAACAAAAAAATAPf/AAACAAAAAAASAA4AAAAAAAAAAAAWAA4AAAABAAAAAAAXAN3/AAAGAAAAAAATAN3/AAAGAAAAAAAtAPH/AAABAAAAAAAtAOr/AAABAAAAAAAWAP//AAAFAAAAAAAlAP//AAAFAAAAAAAWAAYAAAAFAAAAAAAlAAYAAAAFAAAAAAA=")
 tile_set = SubResource("TileSet_5cxnd")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("2_3i0r0")]
-position = Vector2(1, 0)
+position = Vector2(484, -5)
 
 [node name="ProfesorAndres" type="CharacterBody2D" parent="ysort" groups=["ProfesorAndres"]]
 position = Vector2(485, -444)
@@ -712,8 +779,18 @@ sprite_frames = SubResource("SpriteFrames_h0vxt")
 animation = &"quieto_abajo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/ProfesorAndres"]
-position = Vector2(0, 30)
+position = Vector2(0, 39.5)
 shape = SubResource("RectangleShape2D_3uesf")
+
+[node name="Interactuable" parent="ysort/ProfesorAndres" instance=ExtResource("8_8ojtm")]
+dialogue_resource = ExtResource("9_h0vxt")
+dialogue_start = "salon_principal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/ProfesorAndres/Interactuable"]
+position = Vector2(0, 37)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_js8yt")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [node name="Valeria" type="CharacterBody2D" parent="ysort" groups=["Valeria"]]
 position = Vector2(-69, -7)
@@ -727,6 +804,16 @@ animation = &"quieto_abajo"
 position = Vector2(0, 39)
 shape = SubResource("RectangleShape2D_l40ny")
 
+[node name="Interactuable" parent="ysort/Valeria" instance=ExtResource("8_8ojtm")]
+dialogue_resource = ExtResource("11_p1sev")
+dialogue_start = "salon_principal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Valeria/Interactuable"]
+position = Vector2(0, 31)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_js8yt")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
+
 [node name="Vendedor1" type="CharacterBody2D" parent="ysort" groups=["Vendedor1"]]
 position = Vector2(-131, -9)
 script = ExtResource("6_e1vbn")
@@ -739,6 +826,16 @@ animation = &"quieto_abajo"
 position = Vector2(0.5, 43.5)
 shape = SubResource("RectangleShape2D_n0n3y")
 
+[node name="Interactuable" parent="ysort/Vendedor1" instance=ExtResource("8_8ojtm")]
+dialogue_resource = ExtResource("11_h0vxt")
+dialogue_start = "salon_principal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor1/Interactuable"]
+position = Vector2(0, 35)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_js8yt")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
+
 [node name="Mateo" type="CharacterBody2D" parent="ysort" groups=["Mateo"]]
 position = Vector2(-195, -5)
 script = ExtResource("6_e1vbn")
@@ -750,6 +847,16 @@ animation = &"quieto_abajo"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Mateo"]
 position = Vector2(0.5, 43.5)
 shape = SubResource("RectangleShape2D_n0n3y")
+
+[node name="Interactuable" parent="ysort/Mateo" instance=ExtResource("8_8ojtm")]
+dialogue_resource = ExtResource("15_l40ny")
+dialogue_start = "salon_principal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Mateo/Interactuable"]
+position = Vector2(0, 35)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_js8yt")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [node name="Vendedor3" type="CharacterBody2D" parent="ysort" groups=["Vendedor3"]]
 position = Vector2(-260, -5)
@@ -791,6 +898,12 @@ position = Vector2(256.654, 203.403)
 scale = Vector2(7.72001, 1)
 shape = SubResource("RectangleShape2D_ly02a")
 
+[node name="PuertaBloqueada" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(389.23, 162.37)
+shape = SubResource("RectangleShape2D_vykfn")
+script = ExtResource("18_l40ny")
+condicion_a_detectar = "primera_clase_hecha"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_uvkpu")
@@ -812,7 +925,15 @@ escena_a_detectar = "primera_clase"
 position = Vector2(536, -303)
 shape = SubResource("RectangleShape2D_uvkpu")
 
+[node name="primeraclase" type="Area2D" parent="SistemaEscenas1"]
+script = ExtResource("22_vykfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas1/primeraclase"]
+position = Vector2(479.5, -303)
+shape = SubResource("RectangleShape2D_cofx2")
+
 [connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="SistemaEscenas1/primeraclase" to="SistemaEscenas1/primeraclase" method="_on_body_entered"]
 
 [editable path="Puertas/Puerta_salida"]
 [editable path="Puertas/Puerta_introduccion"]

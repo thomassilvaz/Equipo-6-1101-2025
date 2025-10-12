@@ -22,3 +22,4 @@ func _on_body_entered(body: Node2D) -> void:
 				push_error("Cutscene controller not found or missing start_cutscene method")
 
 #si cada que se abre la escene la animacion se reproduce, aleja al JUGADOR de los TRIGGERS
+#si la animación no corre, añadir Node signal "on_body_entered" al Area2D

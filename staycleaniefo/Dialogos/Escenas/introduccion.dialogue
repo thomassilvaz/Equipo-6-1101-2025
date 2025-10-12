@@ -1,0 +1,14 @@
+~ start
+Estudiante 1: Oye tú, eres nuev{{Estados.genero}} por acá, ¿no?
+Ronald: Me llamo Ronald, y ella es Karen. Si no la quieres pasar mal en este colegio... unetenos.
+Ronald: Aquí los juiciosos se quedan solos. Te parchas con nuestro grupo.
+Ronald: Te nos vas a unir, ¿si o qué?
+- Ehh, bueno...
+	Ronald: Eso es todo, bienvenid{{Estados.genero}} al Ozanam.
+	Ronald: Antes de entrar al salón hablamos...
+	set Estados.decision_1 = "mala"
+- No puedo ahora
+	Ronald: Listo, como quieras.
+	Ronald: Te estás perdiendo.
+	set Estados.decision_1 = "buena"
+=> END

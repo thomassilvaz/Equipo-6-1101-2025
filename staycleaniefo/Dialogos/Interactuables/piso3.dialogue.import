@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dat2iddutgte2"
+path="res://.godot/imported/piso3.dialogue-a779d54a6cc18508b82f8b0ec250d361.tres"
+
+[deps]
+
+source_file="res://Dialogos/Interactuables/piso3.dialogue"
+dest_files=["res://.godot/imported/piso3.dialogue-a779d54a6cc18508b82f8b0ec250d361.tres"]
+
+[params]
+
+defaults=true
