@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=4 uid="uid://pm1ydtyuxjy"]
+[gd_scene load_steps=117 format=4 uid="uid://pm1ydtyuxjy"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_2mopt"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_yrd7k"]
@@ -818,6 +818,9 @@ size = Vector2(20.6918, 39.304)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcerq"]
 size = Vector2(381.384, 63.7512)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vrp0"]
+size = Vector2(41.844, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkssr"]
 size = Vector2(230, 106.25)
 
@@ -1135,6 +1138,10 @@ shape = SubResource("RectangleShape2D_op38x")
 position = Vector2(1214.66, 95.5426)
 scale = Vector2(0.998766, 1)
 shape = SubResource("RectangleShape2D_vcerq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(-217.957, -5.94949)
+shape = SubResource("RectangleShape2D_8vrp0")
 
 [node name="Interactuables" type="Node" parent="."]
 script = ExtResource("6_0ditk")

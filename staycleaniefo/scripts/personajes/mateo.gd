@@ -13,7 +13,10 @@ func _ready():
 	match get_tree().current_scene.name:
 		"piso2":
 			if Estados.decision3_tomada:
-				global_position = Vector2(2424, -29)
+				if !Estados.sustancia1 or Estados.charla_con_valeria:
+					global_position = Vector2(2424, -29)
+				else:
+					global_position = Vector2(154, -723)
 			else:
 				global_position = Vector2(798, -55)
 		"salon2_p1":

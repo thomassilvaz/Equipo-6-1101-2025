@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://dyq34gva08yu8"]
+[gd_scene load_steps=42 format=4 uid="uid://dyq34gva08yu8"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_3f3yf"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_ekax0"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://ddlaciyynomvs" path="res://Imagenes/Texturas/baño.png" id="10_buv81"]
 [ext_resource type="PackedScene" uid="uid://cc22xuj5yn1j1" path="res://escenas/sistema_escenas.tscn" id="12_3x5o0"]
 [ext_resource type="Script" uid="uid://ddshj771xpj3r" path="res://scripts/objetos/puerta_bloqueada.gd" id="12_jkh4j"]
-[ext_resource type="Script" uid="uid://th7dwslpshdh" path="res://scripts/objetos/puerta_salon_vacio.gd" id="14_g055b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hdsm"]
 texture = ExtResource("2_ekax0")
@@ -289,7 +288,7 @@ size = Vector2(115, 51)
 
 [sub_resource type="Animation" id="Animation_g055b"]
 resource_name = "baño_mujeres"
-length = 10.0
+length = 2.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -321,9 +320,6 @@ tracks/1/keys = {
 _data = {
 &"baño_mujeres": SubResource("Animation_g055b")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g08ib"]
-size = Vector2(69, 15)
 
 [node name="bathroom2" type="Node2D"]
 script = ExtResource("1_3f3yf")
@@ -450,17 +446,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_ro0j5")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("14_g055b")
-colision_a_detectar = NodePath("../Colisiones/PuertaBloqueada")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-64, 3)
-scale = Vector2(1.05768, -1.44119)
-shape = SubResource("RectangleShape2D_g08ib")
-
 [connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 
 [editable path="Puertas/Puerta_salida"]
 [editable path="Puertas/Puerta_introduccion"]

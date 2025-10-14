@@ -1,157 +1,219 @@
 <center>
     <div class="descripcion-container">
         <div class="descripcion-header">
-            <h1 class="titulo-principal">Descripción del Proyecto Stay Clean</h1>
+            <h1 class="titulo-principal blink">DESCRIPCIÓN DEL PROYECTO STAY CLEAN</h1>
             <div class="header-divider">
                 <div class="divider-line"></div>
-                <i class="fas fa-leaf"></i>
+                <i class="fas fa-gamepad"></i>
                 <div class="divider-line"></div>
             </div>
-            <p class="subtitulo">Un videojuego educativo para la prevención de drogas</p>
+            <p class="subtitulo">UN VIDEOJUEGO EDUCATIVO PARA LA PREVENCIÓN DE DROGAS</p>
         </div>
         
         <div class="descripcion-content">
-            <div class="card-horizontal">
+            <div class="card-horizontal glitch">
+                <div class="pixel-corner pixel-corner-tl"></div>
+                <div class="pixel-corner pixel-corner-tr"></div>
                 <div class="card-icon">
                     <i class="fas fa-gamepad"></i>
                 </div>
                 <div class="card-content">
-                    <h2>¿Qué es Stay Clean?</h2>
+                    <h2>¿QUÉ ES STAY CLEAN?</h2>
                     <p>Stay Clean es un videojuego educativo RPG desarrollado por estudiantes de 11°1 de la Institución Educativa Federico Ozanam. 
                     Nuestro objetivo es concientizar a los estudiantes sobre los riesgos del consumo de sustancias psicoactivas a través de una experiencia interactiva, 
                     atractiva y reflexiva.</p>
                 </div>
+                <div class="pixel-corner pixel-corner-bl"></div>
+                <div class="pixel-corner pixel-corner-br"></div>
             </div>
             
             <div class="feature-grid">
-                <div class="feature-card">
+                <div class="feature-card glitch">
+                    <div class="pixel-corner pixel-corner-tl"></div>
+                    <div class="pixel-corner pixel-corner-tr"></div>
                     <div class="feature-icon">
                         <i class="fas fa-user-graduate"></i>
                     </div>
-                    <h3>Enfoque Educativo</h3>
+                    <h3>ENFOQUE EDUCATIVO</h3>
                     <p>Diseñado específicamente para adolescentes de 12 a 17 años, con contenido adaptado a su contexto escolar y social.</p>
+                    <div class="pixel-corner pixel-corner-bl"></div>
+                    <div class="pixel-corner pixel-corner-br"></div>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card glitch">
+                    <div class="pixel-corner pixel-corner-tl"></div>
+                    <div class="pixel-corner pixel-corner-tr"></div>
                     <div class="feature-icon">
                         <i class="fas fa-route"></i>
                     </div>
-                    <h3>Decisiones con Consecuencias</h3>
+                    <h3>DECISIONES CON CONSECUENCIAS</h3>
                     <p>Cada elección del jugador afecta el desarrollo de la historia, mostrando resultados positivos o negativos de sus acciones.</p>
+                    <div class="pixel-corner pixel-corner-bl"></div>
+                    <div class="pixel-corner pixel-corner-br"></div>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card glitch">
+                    <div class="pixel-corner pixel-corner-tl"></div>
+                    <div class="pixel-corner pixel-corner-tr"></div>
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Personajes Reales</h3>
+                    <h3>PERSONAJES REALES</h3>
                     <p>Personajes con los que los estudiantes pueden identificarse, enfrentando situaciones reales de presión social.</p>
+                    <div class="pixel-corner pixel-corner-bl"></div>
+                    <div class="pixel-corner pixel-corner-br"></div>
                 </div>
             </div>
             
             <div class="objetivo-section">
+                <div class="pixel-corner pixel-corner-tl"></div>
+                <div class="pixel-corner pixel-corner-tr"></div>
                 <div class="objetivo-content">
-                    <h2>Objetivo Principal</h2>
+                    <h2>OBJETIVO PRINCIPAL</h2>
                     <p>Reducir la tasa de consumo de sustancias psicoactivas entre estudiantes mediante una herramienta innovadora que combate la desinformación y fortalece la toma de decisiones responsables.</p>
                 </div>
                 <div class="objetivo-image">
-                    <img src="https://cdn.pixabay.com/photo/2016/11/14/17/39/person-1824144_1280.png" alt="Objetivo educativo">
+                    <div class="pixel-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
                 </div>
+                <div class="pixel-corner pixel-corner-bl"></div>
+                <div class="pixel-corner pixel-corner-br"></div>
             </div>
             
             <div class="caracteristicas-container">
-                <h2>Características Clave</h2>
+                <h2>CARACTERÍSTICAS CLAVE</h2>
                 <div class="timeline">
-                    <div class="timeline-item">
+                    <div class="timeline-item glitch">
+                        <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="timeline-icon">
                             <i class="fas fa-book"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>Narrativa Inmersiva</h3>
+                            <h3>NARRATIVA INMERSIVA</h3>
                             <p>Historia desarrollada en el entorno del Colegio Federico Ozanam con situaciones basadas en casos reales.</p>
                         </div>
+                        <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
-                    <div class="timeline-item">
+                    <div class="timeline-item glitch">
+                        <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="timeline-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>Accesible</h3>
+                            <h3>ACCESIBLE</h3>
                             <p>Funciona en dispositivos móviles y computadoras con requisitos mínimos para máxima accesibilidad.</p>
                         </div>
+                        <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
-                    <div class="timeline-item">
+                    <div class="timeline-item glitch">
+                        <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="timeline-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>Sistema de Progreso</h3>
+                            <h3>SISTEMA DE PROGRESO</h3>
                             <p>Registro de decisiones y sus consecuencias, con estadísticas personales y comparativas.</p>
                         </div>
+                        <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
-                    <div class="timeline-item">
+                    <div class="timeline-item glitch">
+                        <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="timeline-icon">
                             <i class="fas fa-medal"></i>
                         </div>
                         <div class="timeline-content">
-                            <h3>Logros Educativos</h3>
+                            <h3>LOGROS EDUCATIVOS</h3>
                             <p>Sistema de recompensas por tomar decisiones saludables y superar desafíos.</p>
                         </div>
+                        <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                 </div>
             </div>
             
             <div class="impacto-section">
-                <h2>Impacto Esperado</h2>
+                <h2>IMPACTO ESPERADO</h2>
                 <div class="impacto-grid">
-                    <div class="impacto-card">
+                    <div class="impacto-card glitch">
+                        <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="impacto-number">70%</div>
                         <div class="impacto-label">Reducción en la curiosidad por probar drogas</div>
+                        <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
-                    <div class="impacto-card">
+                    <div class="impacto-card glitch">
+                        <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="impacto-number">85%</div>
                         <div class="impacto-label">Aumento en conocimiento de riesgos</div>
+                        <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
-                    <div class="impacto-card">
+                    <div class="impacto-card glitch">
+                        <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="impacto-number">90%</div>
                         <div class="impacto-label">Mejora en habilidades para rechazar ofertas</div>
+                        <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                 </div>
             </div>
             
             <div class="equipo-section">
-                <h2>Desarrollado por estudiantes para estudiantes</h2>
+                <div class="pixel-corner pixel-corner-tl"></div>
+                <div class="pixel-corner pixel-corner-tr"></div>
+                <h2>DESARROLLADO POR ESTUDIANTES PARA ESTUDIANTES</h2>
                 <p>El equipo de Stay Clean está formado por 4 estudiantes de grado 11 que han dedicado más de 600 horas a investigar, diseñar y desarrollar esta solución educativa.</p>
-
+                <div class="pixel-corner pixel-corner-bl"></div>
+                <div class="pixel-corner pixel-corner-br"></div>
             </div>
         </div>
     </div>
 </center>
 
 <style>
+:root {
+    --primary-blue: #0056b3;    /* Azul institucional principal */
+    --secondary-blue: #51a4e7;  /* Azul institucional secundario */
+    --accent-yellow: #ffc107;   /* Amarillo para acentos */
+    --light-gray: #f8f9fa;      /* Fondo claro */
+    --dark-text: #212529;       /* Texto oscuro */
+    --white: #ffffff;           /* Blanco */
+    --pixel-border: 4px solid #000;
+    --pixel-shadow: 4px 4px 0 #000;
+}
+
 .descripcion-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Silkscreen', cursive;
+    background-image: 
+        linear-gradient(rgba(0, 86, 179, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 86, 179, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
 .descripcion-header {
     text-align: center;
     margin-bottom: 50px;
+    position: relative;
 }
 
 .titulo-principal {
-    color: #0056b3;
-    font-size: 2.5rem;
+    color: var(--primary-blue);
+    font-size: 1.8rem;
     margin-bottom: 15px;
     font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 0 #000;
+    font-family: 'Press Start 2P', cursive;
+    position: relative;
+    padding: 10px;
+    border: var(--pixel-border);
+    background-color: var(--white);
+    box-shadow: var(--pixel-shadow);
+    display: inline-block;
 }
 
 .header-divider {
@@ -164,52 +226,60 @@
 .divider-line {
     height: 2px;
     width: 100px;
-    background: linear-gradient(to right, transparent, #0056b3, transparent);
+    background: linear-gradient(to right, transparent, var(--primary-blue), transparent);
     margin: 0 15px;
 }
 
 .header-divider i {
-    color: #0056b3;
+    color: var(--primary-blue);
     font-size: 1.8rem;
-    background: #f8f9fa;
+    background: var(--white);
     padding: 10px;
-    border-radius: 50%;
-    border: 2px solid #0056b3;
+    border: var(--pixel-border);
+    box-shadow: var(--pixel-shadow);
 }
 
 .subtitulo {
-    font-size: 1.4rem;
-    color: #51a4e7;
+    font-size: 1.2rem;
+    color: var(--secondary-blue);
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--white);
+    padding: 10px;
+    border: var(--pixel-border);
+    display: inline-block;
 }
 
 .card-horizontal {
     display: flex;
     align-items: center;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border: var(--pixel-border);
+    box-shadow: var(--pixel-shadow);
     overflow: hidden;
     margin-bottom: 40px;
     transition: transform 0.3s ease;
+    position: relative;
 }
 
 .card-horizontal:hover {
-    transform: translateY(-5px);
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 #000;
 }
 
 .card-icon {
     flex: 0 0 120px;
     height: 100%;
-    background: #0056b3;
+    background: var(--primary-blue);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3.5rem;
     padding: 30px;
+    border-right: var(--pixel-border);
 }
 
 .card-content {
@@ -218,15 +288,18 @@
 }
 
 .card-content h2 {
-    color: #0056b3;
+    color: var(--primary-blue);
     margin-bottom: 20px;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1px 1px 0 #000;
 }
 
 .card-content p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.7;
     color: #333;
+    font-family: 'Silkscreen', cursive;
 }
 
 .feature-grid {
@@ -238,57 +311,63 @@
 
 .feature-card {
     background: white;
-    border-radius: 12px;
+    border: var(--pixel-border);
     padding: 30px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--pixel-shadow);
     transition: all 0.3s ease;
-    border-top: 4px solid #0056b3;
+    position: relative;
+    border-top: 8px solid var(--primary-blue);
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 #000;
 }
 
 .feature-icon {
     width: 80px;
     height: 80px;
     background: #e6f0fa;
-    color: #0056b3;
-    border-radius: 50%;
+    color: var(--primary-blue);
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
     margin: 0 auto 20px;
     transition: all 0.3s ease;
+    border: var(--pixel-border);
 }
 
 .feature-card:hover .feature-icon {
-    background: #0056b3;
+    background: var(--primary-blue);
     color: white;
     transform: scale(1.1);
 }
 
 .feature-card h3 {
-    color: #0056b3;
+    color: var(--primary-blue);
     margin-bottom: 15px;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1px 1px 0 #000;
 }
 
 .feature-card p {
     color: #555;
     line-height: 1.6;
+    font-family: 'Silkscreen', cursive;
 }
 
 .objetivo-section {
     display: flex;
-    background: linear-gradient(135deg, #0056b3 0%, #51a4e7 100%);
-    border-radius: 12px;
+    background-color: var(--primary-blue);
+    border: var(--pixel-border);
     overflow: hidden;
     margin-bottom: 50px;
-    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.3);
+    box-shadow: var(--pixel-shadow);
+    position: relative;
 }
 
 .objetivo-content {
@@ -298,15 +377,18 @@
 }
 
 .objetivo-content h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 25px;
-    color: #ffc107;
+    color: var(--accent-yellow);
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 0 #000;
 }
 
 .objetivo-content p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.8;
     max-width: 600px;
+    font-family: 'Silkscreen', cursive;
 }
 
 .objetivo-image {
@@ -316,12 +398,38 @@
     justify-content: center;
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
+    border-left: var(--pixel-border);
 }
 
-.objetivo-image img {
-    max-width: 100%;
-    max-height: 300px;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+.pixel-avatar {
+    width: 200px;
+    height: 200px;
+    background-color: var(--secondary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.7);
+    border: var(--pixel-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.pixel-avatar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, #000 25%, transparent 25%), 
+        linear-gradient(-45deg, #000 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #000 75%), 
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity: 0.1;
 }
 
 .caracteristicas-container {
@@ -330,25 +438,19 @@
 
 .caracteristicas-container h2 {
     text-align: center;
-    color: #0056b3;
-    font-size: 2rem;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
     margin-bottom: 40px;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 0 #000;
     position: relative;
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
-}
-
-.caracteristicas-container h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: #ffc107;
-    border-radius: 2px;
+    background-color: var(--white);
+    padding: 10px 20px;
+    border: var(--pixel-border);
+    box-shadow: var(--pixel-shadow);
 }
 
 .timeline {
@@ -363,29 +465,38 @@
     top: 0;
     bottom: 0;
     width: 4px;
-    background: #0056b3;
+    background: var(--primary-blue);
     left: 60px;
-    border-radius: 2px;
+    border-radius: 0;
 }
 
 .timeline-item {
     display: flex;
     margin-bottom: 40px;
     position: relative;
+    border: var(--pixel-border);
+    background-color: var(--white);
+    box-shadow: var(--pixel-shadow);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 #000;
 }
 
 .timeline-icon {
     flex: 0 0 60px;
     height: 60px;
     background: white;
-    border: 3px solid #0056b3;
-    border-radius: 50%;
+    border: 3px solid var(--primary-blue);
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    color: #0056b3;
-    margin-right: 30px;
+    color: var(--primary-blue);
+    margin: 20px;
     z-index: 2;
 }
 
@@ -393,19 +504,21 @@
     flex: 1;
     background: white;
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: var(--pixel-border);
 }
 
 .timeline-content h3 {
-    color: #0056b3;
+    color: var(--primary-blue);
     margin-bottom: 15px;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1px 1px 0 #000;
 }
 
 .timeline-content p {
     color: #555;
     line-height: 1.6;
+    font-family: 'Silkscreen', cursive;
 }
 
 .impacto-section {
@@ -414,9 +527,16 @@
 
 .impacto-section h2 {
     text-align: center;
-    color: #0056b3;
-    font-size: 2rem;
+    color: var(--primary-blue);
+    font-size: 1.5rem;
     margin-bottom: 40px;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 0 #000;
+    background-color: var(--white);
+    padding: 10px 20px;
+    border: var(--pixel-border);
+    box-shadow: var(--pixel-shadow);
+    display: inline-block;
 }
 
 .impacto-grid {
@@ -429,70 +549,113 @@
 
 .impacto-card {
     background: white;
-    border-radius: 12px;
+    border: var(--pixel-border);
     padding: 30px 20px;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 86, 179, 0.15);
+    box-shadow: var(--pixel-shadow);
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .impacto-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 25px rgba(0, 86, 179, 0.25);
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 #000;
 }
 
 .impacto-number {
     font-size: 3rem;
     font-weight: 700;
-    color: #0056b3;
+    color: var(--primary-blue);
     margin-bottom: 15px;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 0 #000;
 }
 
 .impacto-label {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #333;
     line-height: 1.5;
+    font-family: 'Silkscreen', cursive;
 }
 
 .equipo-section {
     background: #e6f0fa;
-    border-radius: 12px;
+    border: var(--pixel-border);
     padding: 40px;
     text-align: center;
     margin-top: 50px;
+    position: relative;
+    box-shadow: var(--pixel-shadow);
 }
 
 .equipo-section h2 {
-    color: #0056b3;
-    font-size: 1.8rem;
+    color: var(--primary-blue);
+    font-size: 1.4rem;
     margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 0 #000;
 }
 
 .equipo-section p {
     color: #333;
     max-width: 700px;
     margin: 0 auto 30px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.7;
+    font-family: 'Silkscreen', cursive;
 }
 
-.btn-equipo {
-    display: inline-block;
-    background: #0056b3;
-    color: white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+/* Efectos especiales 8-bit */
+.pixel-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--accent-yellow);
+    z-index: 10;
 }
 
-.btn-equipo:hover {
-    background: #004494;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 86, 179, 0.4);
+.pixel-corner-tl {
+    top: -4px;
+    left: -4px;
+}
+
+.pixel-corner-tr {
+    top: -4px;
+    right: -4px;
+}
+
+.pixel-corner-bl {
+    bottom: -4px;
+    left: -4px;
+}
+
+.pixel-corner-br {
+    bottom: -4px;
+    right: -4px;
+}
+
+/* Animación de parpadeo para títulos */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.blink {
+    animation: blink 1.5s infinite;
+}
+
+/* Efecto de glitch para hover */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.glitch:hover {
+    animation: glitch 0.3s infinite;
 }
 
 /* Responsive */
@@ -505,10 +668,17 @@
         width: 100%;
         flex: none;
         padding: 20px;
+        border-right: none;
+        border-bottom: var(--pixel-border);
     }
     
     .objetivo-section {
         flex-direction: column;
+    }
+    
+    .objetivo-image {
+        border-left: none;
+        border-top: var(--pixel-border);
     }
     
     .timeline::before {
@@ -518,16 +688,43 @@
     .timeline-icon {
         margin-right: 15px;
     }
+    
+    .timeline-content {
+        border-left: none;
+        border-top: var(--pixel-border);
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 480px) {
     .titulo-principal {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
     
     .subtitulo {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>
 
+<script>
+// Efecto de sonido para interacciones (opcional)
+document.querySelectorAll('.glitch').forEach(element => {
+    element.addEventListener('mouseenter', function() {
+        // Podrías agregar un sonido de videojuego aquí
+        // new Audio('sounds/hover.wav').play();
+    });
+    
+    element.addEventListener('click', function() {
+        // Podrías agregar un sonido de selección aquí
+        // new Audio('sounds/select.wav').play();
+    });
+});
+</script>

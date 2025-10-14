@@ -548,9 +548,12 @@ tracks/3/path = NodePath("ysort/Vendedor3")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.4),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": ["mov_arriba"],
+"method": &"play_animation"
+}, {
 "args": ["quieto_abajo"],
 "method": &"play_animation"
 }]
@@ -654,7 +657,7 @@ tile_map_data = PackedByteArray("AAAEAPP/AAAAAAIAAAAEAOH/AAAAAAIAAAAEAOf/AAAAAAI
 tile_set = SubResource("TileSet_75jbr")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("5_6h1du")]
-position = Vector2(-131, -341)
+position = Vector2(-127, -350)
 
 [node name="Vendedor1" type="CharacterBody2D" parent="ysort"]
 position = Vector2(-130, -480)
@@ -662,7 +665,7 @@ script = ExtResource("6_6h1du")
 
 [node name="Interactuable" parent="ysort/Vendedor1" instance=ExtResource("7_p3ha7")]
 dialogue_resource = ExtResource("8_buuxf")
-dialogue_start = "oferta2"
+dialogue_start = "bano"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor1/Interactuable"]
 position = Vector2(0, 28)

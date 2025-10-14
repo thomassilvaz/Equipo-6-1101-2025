@@ -29,7 +29,7 @@ var pc_interactuo_profe := false
 var empezar_primera_clase := false
 var primera_clase_hecha := false
 var charla_con_valeria := false
-var sustancia_baño := false
+var sustancia1 := false
 
 #sprites
 var profesor_andres: AnimatedSprite2D

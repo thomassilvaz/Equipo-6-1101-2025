@@ -20,13 +20,8 @@ func _ready():
 			else:
 				return
 
-#func _process(_delta: float) -> void:
-	#if Estados.decision_3 == "mala":
-		#decision2_mala()
-	#else:
-		#return
 
-func decision2_mala():
-	var tween = create_tween()
-	tween.tween_property(self, "position", Vector2(1917, -41), 1.0)
-	interactuable.disabled = true
+#func decision2_mala():
+	#var tween = create_tween()
+	#tween.tween_property(self, "position", Vector2(1917, -41), 1.0)
+	#interactuable.disabled = true

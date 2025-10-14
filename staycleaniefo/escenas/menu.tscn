@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt8yq8kajlct0"]
+[gd_scene load_steps=8 format=3 uid="uid://bt8yq8kajlct0"]
 
 [ext_resource type="Script" uid="uid://cf475e4g4nhp3" path="res://scripts/menu.gd" id="1_d7r87"]
 [ext_resource type="Texture2D" uid="uid://17m7xqp8iygs" path="res://Imagenes/418658556_58cab525-a7f1-4940-866a-3c2db770e229.jpg" id="2_5t3kx"]
 [ext_resource type="AudioStream" uid="uid://bw2ag64s1do84" path="res://Audio/Musica/School Remix.mp3" id="3_2owot"]
 [ext_resource type="FontFile" uid="uid://boe65q6htbpaq" path="res://DTM-Mono.otf" id="3_6cq3m"]
 [ext_resource type="Texture2D" uid="uid://daniddw702g8f" path="res://Imagenes/escudo_pixel_art.png" id="5_56ah5"]
+[ext_resource type="Texture2D" uid="uid://caftpec1hjf5" path="res://Imagenes/logo.png" id="6_56ah5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7r87"]
 bg_color = Color(0.101764, 0.222282, 0.371111, 1)
@@ -51,12 +52,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -245.0
-offset_top = -254.0
+offset_top = -233.0
 offset_right = 246.0
-offset_bottom = -41.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 25
+theme_override_constants/separation = 20
 
 [node name="jugar" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -71,7 +72,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_6cq3m")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7r87")
-text = "DISEÑAR PERSONAJE"
+text = "SELECCIONAR PERSONAJE"
 
 [node name="salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -85,17 +86,33 @@ stream = ExtResource("3_2owot")
 volume_db = 5.0
 autoplay = true
 
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = -144.0
+offset_right = -164.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.84246, 4.84246)
+texture = ExtResource("6_56ah5")
+
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -83.0
-offset_top = 15.0
-offset_right = -47.0
-offset_bottom = 62.0
+offset_left = -55.0
+offset_top = 11.0
+offset_right = -19.0001
+offset_bottom = 58.0
 grow_horizontal = 2
-scale = Vector2(4.69084, 4.69084)
+scale = Vector2(3.27277, 3.27277)
 texture = ExtResource("5_56ah5")
 
 [connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_jugar_pressed"]

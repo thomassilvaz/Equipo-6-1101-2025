@@ -1,21 +1,20 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800" style="color: var(--primary-blue);">Registro de Usuario</h1>
-    </div>
 
     <!-- Content Row -->
     <div class="row">
         <div class="col-xl-10 col-lg-12 mx-auto">
-            <div class="card shadow mb-4" style="border-radius: 15px; border: none;">
+            <div class="card shadow mb-4 glitch" style="border-radius: 0; border: var(--pixel-border); background-color: white; box-shadow: var(--pixel-shadow); position: relative;">
+                <div class="pixel-corner pixel-corner-tl"></div>
+                <div class="pixel-corner pixel-corner-tr"></div>
                 <!-- Card Header -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" 
-                     style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%); 
-                            border-top-left-radius: 15px !important; 
-                            border-top-right-radius: 15px !important;">
-                    <h6 class="m-0 font-weight-bold text-white">
+                     style="background: var(--primary-blue); 
+                            border-top-left-radius: 0 !important; 
+                            border-top-right-radius: 0 !important;
+                            border-bottom: var(--pixel-border);">
+                    <h6 class="m-0 font-weight-bold text-white" style="font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; color: var(--accent-yellow) !important;">
                         <i class="fas fa-user-plus mr-2"></i>REGISTRO DE USUARIO
                     </h6>
                 </div>
@@ -25,12 +24,12 @@
                     <form class="user" action="../codigo.php" method="post" id="registrationForm">
                         <!-- Tipo de Documento -->
                         <div class="form-group">
-                            <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                            <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                 <i class="fas fa-id-card mr-2"></i>Tipo de Documento
                             </label>
                             <select class="form-control form-control-lg" name="cmb-tp" required 
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                        font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                        font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                                 <option value="">SELECCIONE TIPO DE DOCUMENTO</option>
                                 <option value="TI">TARJETA DE IDENTIDAD</option>
                                 <option value="CC">CÉDULA DE CIUDADANÍA</option>
@@ -40,89 +39,89 @@
 
                         <!-- Número de Identificación -->
                         <div class="form-group">
-                            <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                            <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                 <i class="fas fa-fingerprint mr-2"></i>Número de Identificación
                             </label>
                             <input type="text" class="form-control form-control-lg" name="txt-id" 
                                 placeholder="INGRESE SU NÚMERO DE IDENTIFICACIÓN" required
-                                style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                       font-family: 'Nunito', sans-serif;">
+                                style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                       font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                         </div>
 
                         <!-- Nombres -->
                         <div class="form-group row">
                             <div class="col-md-6 mb-3">
-                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                     <i class="fas fa-signature mr-2"></i>Primer Nombre
                                 </label>
                                 <input type="text" class="form-control form-control-lg" name="txt-pn" 
                                     placeholder="PRIMER NOMBRE" required
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                           font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                           font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                             </div>
                             <div class="col-md-6">
-                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                     <i class="fas fa-signature mr-2"></i>Segundo Nombre (Opcional)
                                 </label>
                                 <input type="text" class="form-control form-control-lg" name="txt-sn" 
                                     placeholder="SEGUNDO NOMBRE"
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                           font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                           font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                             </div>
                         </div>
 
                         <!-- Apellidos -->
                         <div class="form-group row">
                             <div class="col-md-6 mb-3">
-                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                     <i class="fas fa-signature mr-2"></i>Primer Apellido
                                 </label>
                                 <input type="text" class="form-control form-control-lg" name="txt-pa" 
                                     placeholder="PRIMER APELLIDO" required
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                           font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                           font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                             </div>
                             <div class="col-md-6">
-                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                     <i class="fas fa-signature mr-2"></i>Segundo Apellido (Opcional)
                                 </label>
                                 <input type="text" class="form-control form-control-lg" name="txt-sa" 
                                     placeholder="SEGUNDO APELLIDO"
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                           font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                           font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                             </div>
                         </div>
 
                         <!-- Contacto -->
                         <div class="form-group row">
                             <div class="col-md-6 mb-3">
-                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                     <i class="fas fa-phone mr-2"></i>Teléfono
                                 </label>
                                 <input type="tel" class="form-control form-control-lg" name="txt-tel" 
                                     placeholder="NÚMERO DE TELÉFONO" required
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                           font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                           font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                             </div>
                             <div class="col-md-6">
-                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                     <i class="fas fa-envelope mr-2"></i>Correo Electrónico
                                 </label>
                                 <input type="email" class="form-control form-control-lg" name="txt-cr" 
                                     placeholder="CORREO ELECTRÓNICO" required
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                           font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                           font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                             </div>
                         </div>
 
                         <!-- Rol del Usuario -->
                         <div class="form-group">
-                            <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                            <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                 <i class="fas fa-user-tag mr-2"></i>Rol del Usuario
                             </label>
                             <select class="form-control form-control-lg" name="cmb-rol" id="userRole" required
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                           font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                           font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                                 <option value="">SELECCIONE UN ROL</option>
                                 <option value="1">ADMINISTRADOR</option>
                                 <option value="2">USUARIO</option>
@@ -131,14 +130,14 @@
 
                         <!-- Campo de PIN para Administradores (oculto inicialmente) -->
                         <div class="form-group" id="adminPinField" style="display: none;">
-                            <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                            <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                 <i class="fas fa-key mr-2"></i>PIN de Administrador
                             </label>
                             <input type="password" class="form-control form-control-lg" name="admin-pin" id="adminPin" 
                                 placeholder="INGRESE EL PIN DE ADMINISTRADOR"
-                                style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                       font-family: 'Nunito', sans-serif;">
-                            <div class="alert alert-danger mt-2" id="pinError" style="display: none; border-radius: 10px;">
+                                style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                       font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
+                            <div class="alert alert-danger mt-2" id="pinError" style="display: none; border-radius: 0; border: var(--pixel-border); background-color: #f8d7da; color: #721c24; font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow);">
                                 <i class="fas fa-exclamation-circle mr-2"></i>PIN incorrecto. Solo los administradores autorizados pueden registrarse con este rol.
                             </div>
                         </div>
@@ -146,46 +145,115 @@
                         <!-- Contraseñas -->
                         <div class="form-group row">
                             <div class="col-md-6 mb-3">
-                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                     <i class="fas fa-lock mr-2"></i>Contraseña
                                 </label>
                                 <input type="password" class="form-control form-control-lg" name="txt-ct" 
                                     placeholder="CONTRASEÑA" required
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                           font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                           font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                             </div>
                             <div class="col-md-6">
-                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px;">
+                                <label class="font-weight-bold" style="color: var(--primary-blue); margin-bottom: 8px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000;">
                                     <i class="fas fa-lock mr-2"></i>Confirmar Contraseña
                                 </label>
                                 <input type="password" class="form-control form-control-lg" name="txt-ctc" 
                                     placeholder="CONFIRMAR CONTRASEÑA" required
-                                    style="border-radius: 10px; padding: 12px; font-size: 16px; border: 2px solid #e0e0e0;
-                                           font-family: 'Nunito', sans-serif;">
+                                    style="border-radius: 0; padding: 12px; font-size: 16px; border: var(--pixel-border);
+                                           font-family: 'Silkscreen', cursive; box-shadow: var(--pixel-shadow); background-color: white;">
                             </div>
                         </div>
 
                         <!-- Botón de Registro -->
                         <div class="form-group mt-4">
-                            <button type="submit" name="btn_registrar" class="btn btn-primary btn-user btn-block" 
-                                style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-                                       border: none; 
-                                       border-radius: 10px; 
+                            <button type="submit" name="btn_registrar" class="btn btn-primary btn-user btn-block glitch" 
+                                style="background: var(--primary-blue);
+                                       border: var(--pixel-border); 
+                                       border-radius: 0; 
                                        padding: 15px;
                                        font-size: 18px;
                                        font-weight: 600;
-                                       font-family: 'Nunito', sans-serif;">
+                                       font-family: 'Press Start 2P', cursive;
+                                       text-shadow: 2px 2px 0 #000;
+                                       box-shadow: var(--pixel-shadow);">
                                 <i class="fas fa-user-plus mr-2"></i>REGISTRAR USUARIO
                             </button>
                         </div>
                     </form>
                     
                 </div>
+                <div class="pixel-corner pixel-corner-bl"></div>
+                <div class="pixel-corner pixel-corner-br"></div>
             </div>
         </div>
     </div>
 
 </div>
+
+<style>
+:root {
+    --primary-blue: #0056b3;
+    --secondary-blue: #51a4e7;
+    --accent-yellow: #ffc107;
+    --white: #ffffff;
+    --pixel-border: 4px solid #000;
+    --pixel-shadow: 4px 4px 0 #000;
+}
+
+.pixel-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--accent-yellow);
+    z-index: 10;
+}
+
+.pixel-corner-tl {
+    top: -4px;
+    left: -4px;
+}
+
+.pixel-corner-tr {
+    top: -4px;
+    right: -4px;
+}
+
+.pixel-corner-bl {
+    bottom: -4px;
+    left: -4px;
+}
+
+.pixel-corner-br {
+    bottom: -4px;
+    right: -4px;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.glitch:hover {
+    animation: glitch 0.0s infinite;
+}
+
+.form-control:focus {
+    border-color: var(--primary-blue) !important;
+    box-shadow: 6px 6px 0 #000 !important;
+    transform: translate(-2px, -2px);
+    outline: none;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-blue) !important;
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 #000 !important;
+}
+</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

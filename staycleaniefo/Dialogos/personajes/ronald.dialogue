@@ -61,3 +61,9 @@ set Estados.sustancia1 = true
 ~ salon_principal
 Ronald: Alex... ¿qué cuentas?[#voz=Ronald]
 Ronald: Si es para lo de la actividad, Julián y yo no vamos a hacer nada, así que no te molestes por eso.[#voz=Ronald]
+=> END
+
+~ bano
+Ronald: Te veo bien Alex.
+Ronald: Cuando quiere más me habla.
+=> END

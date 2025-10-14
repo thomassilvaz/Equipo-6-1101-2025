@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=4 uid="uid://dibx8uyqs5cmk"]
+[gd_scene load_steps=151 format=4 uid="uid://dibx8uyqs5cmk"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_wjwe5"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_45a53"]
@@ -28,6 +28,8 @@
 [ext_resource type="Resource" uid="uid://c7c3oc8bqt7dq" path="res://Dialogos/personajes/mateo.dialogue" id="20_nlq1u"]
 [ext_resource type="Resource" uid="uid://126vcm5mf0lq" path="res://Dialogos/personajes/julian.dialogue" id="20_ppido"]
 [ext_resource type="Script" uid="uid://ddshj771xpj3r" path="res://scripts/objetos/puerta_bloqueada.gd" id="23_ppido"]
+[ext_resource type="Texture2D" uid="uid://bddsen2rg2bem" path="res://Imagenes/Personajes/profesor_andres.png" id="24_h5byf"]
+[ext_resource type="Resource" uid="uid://dtbckflknk50c" path="res://Dialogos/personajes/profesor_andres.dialogue" id="25_0uj62"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hdsm"]
 texture = ExtResource("2_45a53")
@@ -955,6 +957,115 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_al5ck"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(58, 120, 50, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pgr3"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(58, 0, 50, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgnag"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(58, 240, 50, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvkpu"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(0, 120, 50, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1vbn"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(0, 0, 50, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0n1k"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(0, 240, 50, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24ept"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(58, 0, 50, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chi7g"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(116, 0, 50, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkkho"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(58, 0, 50, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ojtm"]
+atlas = ExtResource("24_h5byf")
+region = Rect2(0, 0, 50, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ury2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al5ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pgr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgnag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pgr3")
+}],
+"loop": true,
+"name": &"mov_abajo",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvkpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1vbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0n1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1vbn")
+}],
+"loop": true,
+"name": &"mov_arriba",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24ept")
+}],
+"loop": true,
+"name": &"quieto_abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chi7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkkho")
+}],
+"loop": true,
+"name": &"quieto_abajo_hablando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ojtm")
+}],
+"loop": true,
+"name": &"quieto_arriba",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6xws"]
+size = Vector2(50, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_owrdq"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27yxa"]
 size = Vector2(37.2362, 146.504)
 
@@ -1001,22 +1112,10 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ysort/Valeria:position")
+tracks/2/path = NodePath("ysort/Vendedor3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-116, -650)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ysort/Vendedor3:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1025,54 +1124,18 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_xarbi"]
 resource_name = "cafeteria"
-length = 7.5
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ysort/Vendedor3:position")
+tracks/0/path = NodePath("ysort/ProfesorAndres:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.52467, 2.23333, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-496, 1822), Vector2(-499, 1824), Vector2(-436, 1742), Vector2(-505, 1823)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ysort/jugador:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-409, 1738)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ysort/jugador/Camera2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.43051, 4.8, 5.93333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -6), Vector2(1, -6.99996), Vector2(219, 17), Vector2(0, -3)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ysort/Valeria:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 6.4, 7, 7.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-133, 1859), Vector2(-133, 1859), Vector2(-72, 1957), Vector2(-717, 2110)]
+"values": [Vector2(-372, 1129)]
 }
 
 [sub_resource type="Animation" id="Animation_dsite"]
@@ -1410,7 +1473,7 @@ position = Vector2(-1.5, -44)
 shape = SubResource("RectangleShape2D_h5byf")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("6_sxfv7")]
-position = Vector2(771, 44)
+position = Vector2(-409, 1738)
 
 [node name="Vendedor1" type="CharacterBody2D" parent="ysort"]
 position = Vector2(770, -131.775)
@@ -1469,7 +1532,7 @@ sprite_frames = SubResource("SpriteFrames_30x41")
 animation = &"quieto_abajo"
 
 [node name="Valeria" type="CharacterBody2D" parent="ysort" groups=["Valeria"]]
-position = Vector2(-116, -650)
+position = Vector2(-186, -658)
 script = ExtResource("15_w2i3l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Valeria"]
@@ -1511,6 +1574,28 @@ debug_color = Color(0.972028, 0, 0.443895, 0.42)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedor3"]
 sprite_frames = SubResource("SpriteFrames_jtact")
 animation = &"quieto_arriba"
+
+[node name="ProfesorAndres" type="CharacterBody2D" parent="ysort" groups=["ProfesorAndres"]]
+position = Vector2(-380, 1129)
+script = ExtResource("15_w2i3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/ProfesorAndres"]
+sprite_frames = SubResource("SpriteFrames_ury2i")
+animation = &"quieto_abajo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/ProfesorAndres"]
+position = Vector2(0, 39.5)
+shape = SubResource("RectangleShape2D_t6xws")
+
+[node name="Interactuable" parent="ysort/ProfesorAndres" instance=ExtResource("7_nfe2u")]
+dialogue_resource = ExtResource("25_0uj62")
+dialogue_start = "salon_principal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/ProfesorAndres/Interactuable"]
+position = Vector2(0, 37)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_owrdq")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [node name="Colisiones" type="StaticBody2D" parent="."]
 
@@ -1618,6 +1703,7 @@ animation_player = NodePath("../../AnimationPlayer")
 nombre_escena = "cafeteria"
 
 [node name="Area2D" parent="SistemaEscenas3" index="1"]
+position = Vector2(21, -611)
 cutscene_controller_path = NodePath("../ControladorEscenas")
 escena_a_detectar = "cafeteria"
 

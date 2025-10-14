@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0d7n1o7e206g"
-path="res://.godot/imported/anq_qs.png-658680458eeebfc0c44686a9cbfaf89f.ctex"
+uid="uid://dhykiw540dgci"
+path="res://.godot/imported/CHICO.png-373698e9018057b91ff3d04b0125a9fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/anq_qs.png"
-dest_files=["res://.godot/imported/anq_qs.png-658680458eeebfc0c44686a9cbfaf89f.ctex"]
+source_file="res://Imagenes/CHICO.png"
+dest_files=["res://.godot/imported/CHICO.png-373698e9018057b91ff3d04b0125a9fa.ctex"]
 
 [params]
 

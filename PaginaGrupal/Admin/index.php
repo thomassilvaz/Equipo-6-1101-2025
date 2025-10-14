@@ -13,7 +13,8 @@ if (isset($_SESSION['user'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stay Clean, IEFO - Colegio Federico Ozanam</title>
     <link rel="icon" type="image/png" href="img/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Manteniendo los estilos de SB Admin 2 para compatibilidad con módulos -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,19 +27,26 @@ if (isset($_SESSION['user'])){
             --light-gray: #f8f9fa;      /* Fondo claro */
             --dark-text: #212529;       /* Texto oscuro */
             --white: #ffffff;           /* Blanco */
+            --pixel-border: 4px solid #000;
+            --pixel-shadow: 4px 4px 0 #000;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Nunito', sans-serif;
+            image-rendering: pixelated;
         }
         
         body {
             background-color: #f0f4f8;
             color: var(--dark-text);
             line-height: 1.6;
+            font-family: 'Silkscreen', cursive;
+            background-image: 
+                linear-gradient(rgba(0, 86, 179, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 86, 179, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
         
         .dashboard-container {
@@ -47,36 +55,41 @@ if (isset($_SESSION['user'])){
             min-height: 100vh;
         }
         
-        /* Sidebar */
+        /* Sidebar estilo 8-bit */
         .sidebar {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            background-color: var(--primary-blue);
             color: var(--white);
             padding: 20px 0;
-            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+            border-right: var(--pixel-border);
             position: fixed;
             width: 250px;
             height: 100%;
             overflow-y: auto;
             z-index: 100;
+            box-shadow: var(--pixel-shadow);
         }
         
         .brand {
             padding: 0 20px 20px;
             text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 4px dotted var(--accent-yellow);
+            margin-bottom: 10px;
         }
         
         .brand-icon {
             font-size: 2.5rem;
             margin-bottom: 10px;
             color: var(--accent-yellow);
+            filter: drop-shadow(2px 2px 0 #000);
         }
         
         .brand-text {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 2px 2px 0 #000;
         }
         
         .sidebar-menu {
@@ -87,12 +100,14 @@ if (isset($_SESSION['user'])){
         .menu-item {
             padding: 12px 20px;
             transition: all 0.3s;
-            border-left: 3px solid transparent;
+            border-left: 4px solid transparent;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
         }
         
         .menu-item:hover, .menu-item.active {
             background-color: rgba(255, 255, 255, 0.1);
-            border-left: 3px solid var(--accent-yellow);
+            border-left: 4px solid var(--accent-yellow);
         }
         
         .menu-item a {
@@ -123,11 +138,11 @@ if (isset($_SESSION['user'])){
         
         .submenu-item {
             padding: 8px 0;
+            font-size: 0.6rem;
         }
         
         .submenu-item a {
             font-weight: 400;
-            font-size: 0.9rem;
             opacity: 0.9;
         }
         
@@ -137,27 +152,44 @@ if (isset($_SESSION['user'])){
             padding: 20px 30px;
         }
         
-        /* Header */
+        /* Header estilo 8-bit */
         .header {
             background: var(--white);
             padding: 20px 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: var(--pixel-border);
+            box-shadow: var(--pixel-shadow);
             margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: var(--secondary-blue);
+            color: white;
+            position: relative;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: -4px;
+            bottom: -4px;
+            background-color: var(--primary-blue);
+            z-index: -1;
         }
         
         .header-title h1 {
-            color: var(--primary-blue);
+            color: var(--white);
             font-size: 1.8rem;
             margin-bottom: 5px;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 2px 2px 0 #000;
         }
         
         .header-title p {
-            color: #6c757d;
+            color: #e9ecef;
             font-size: 1rem;
+            font-family: 'Silkscreen', cursive;
         }
         
         .user-info {
@@ -168,9 +200,10 @@ if (isset($_SESSION['user'])){
         .user-info img {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
+            border-radius: 0;
             margin-right: 10px;
-            border: 2px solid var(--secondary-blue);
+            border: var(--pixel-border);
+            image-rendering: pixelated;
         }
         
         .user-details span {
@@ -179,15 +212,18 @@ if (isset($_SESSION['user'])){
         
         .user-name {
             font-weight: 600;
-            color: var(--primary-blue);
+            color: var(--accent-yellow);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
         }
         
         .user-role {
             font-size: 0.85rem;
-            color: #6c757d;
+            color: #e9ecef;
+            font-family: 'Silkscreen', cursive;
         }
         
-        /* Dashboard Grid */
+        /* Dashboard Grid estilo 8-bit */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -197,15 +233,17 @@ if (isset($_SESSION['user'])){
         
         .card {
             background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: var(--pixel-border);
+            box-shadow: var(--pixel-shadow);
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            background-color: #fff;
         }
         
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0 #000;
         }
         
         .card-header {
@@ -213,23 +251,16 @@ if (isset($_SESSION['user'])){
             color: var(--white);
             padding: 15px 20px;
             position: relative;
-        }
-        
-        .card-header::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 20px;
-            width: 20px;
-            height: 20px;
-            background: var(--primary-blue);
-            transform: rotate(45deg);
+            border-bottom: var(--pixel-border);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
         }
         
         .card-header h3 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
+            text-shadow: 1px 1px 0 #000;
         }
         
         .card-header i {
@@ -239,6 +270,7 @@ if (isset($_SESSION['user'])){
         
         .card-body {
             padding: 25px 20px;
+            font-family: 'Silkscreen', cursive;
         }
         
         .stats-grid {
@@ -250,8 +282,21 @@ if (isset($_SESSION['user'])){
         .stat-box {
             text-align: center;
             padding: 15px;
-            border-radius: 8px;
+            border: var(--pixel-border);
             background: var(--light-gray);
+            position: relative;
+        }
+        
+        .stat-box::before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: -4px;
+            bottom: -4px;
+            background-color: var(--secondary-blue);
+            z-index: -1;
+            opacity: 0.3;
         }
         
         .stat-number {
@@ -259,6 +304,8 @@ if (isset($_SESSION['user'])){
             font-weight: 700;
             color: var(--primary-blue);
             margin-bottom: 5px;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 1px 1px 0 #000;
         }
         
         .stat-label {
@@ -266,52 +313,47 @@ if (isset($_SESSION['user'])){
             color: #6c757d;
         }
         
-        /* Project Overview */
+        /* Project Overview estilo 8-bit */
         .project-overview {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            background-color: var(--primary-blue);
             color: var(--white);
-            border-radius: 10px;
+            border: var(--pixel-border);
             padding: 30px;
             margin-bottom: 30px;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--pixel-shadow);
         }
         
         .project-overview::before {
-            content: '';
+            content: "";
             position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-        
-        .project-overview::after {
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            right: -30px;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
+            top: 4px;
+            left: 4px;
+            right: -4px;
+            bottom: -4px;
+            background-color: #000;
+            z-index: -1;
+            opacity: 0.2;
         }
         
         .project-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 15px;
             position: relative;
             z-index: 2;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 3px 3px 0 #000;
+            color: var(--accent-yellow);
         }
         
         .project-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 25px;
             opacity: 0.9;
             position: relative;
             z-index: 2;
+            font-family: 'Press Start 2P', cursive;
         }
         
         .project-description {
@@ -319,8 +361,9 @@ if (isset($_SESSION['user'])){
             margin-bottom: 30px;
             position: relative;
             z-index: 2;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.7;
+            font-family: 'Silkscreen', cursive;
         }
         
         .project-stats {
@@ -333,20 +376,26 @@ if (isset($_SESSION['user'])){
         
         .project-stat {
             text-align: center;
+            border: 4px dotted var(--accent-yellow);
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.2);
         }
         
         .project-stat-number {
             font-size: 2.2rem;
             font-weight: 700;
             color: var(--accent-yellow);
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 2px 2px 0 #000;
         }
         
         .project-stat-label {
             font-size: 0.95rem;
             opacity: 0.9;
+            font-family: 'Silkscreen', cursive;
         }
         
-        /* Team Section */
+        /* Team Section estilo 8-bit */
         .team-section {
             margin-top: 40px;
         }
@@ -356,8 +405,10 @@ if (isset($_SESSION['user'])){
             font-size: 1.5rem;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-yellow);
+            border-bottom: 4px solid var(--accent-yellow);
             display: inline-block;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 2px 2px 0 #000;
         }
         
         .team-grid {
@@ -368,26 +419,47 @@ if (isset($_SESSION['user'])){
         
         .team-member {
             background: var(--white);
-            border-radius: 10px;
+            border: var(--pixel-border);
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--pixel-shadow);
             text-align: center;
             transition: transform 0.3s;
+            position: relative;
         }
         
         .team-member:hover {
-            transform: translateY(-5px);
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0 #000;
         }
         
         .member-photo {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+            background-color: var(--secondary-blue);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
             color: rgba(255, 255, 255, 0.7);
+            border-bottom: var(--pixel-border);
+            image-rendering: pixelated;
+        }
+        
+        .member-photo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, #000 25%, transparent 25%), 
+                linear-gradient(-45deg, #000 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #000 75%), 
+                linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            opacity: 0.1;
         }
         
         .member-info {
@@ -399,12 +471,15 @@ if (isset($_SESSION['user'])){
             color: var(--primary-blue);
             margin-bottom: 5px;
             font-size: 1.2rem;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 1px 1px 0 #000;
         }
         
         .member-role {
             color: #6c757d;
             font-size: 0.9rem;
             margin-bottom: 15px;
+            font-family: 'Silkscreen', cursive;
         }
         
         .member-contact {
@@ -417,13 +492,14 @@ if (isset($_SESSION['user'])){
         .contact-icon {
             width: 36px;
             height: 36px;
-            border-radius: 50%;
+            border-radius: 0;
             background: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-blue);
             transition: all 0.3s;
+            border: var(--pixel-border);
         }
         
         .contact-icon:hover {
@@ -439,13 +515,57 @@ if (isset($_SESSION['user'])){
             margin-top: 50px;
             color: #6c757d;
             font-size: 0.9rem;
-            border-top: 1px solid #e9ecef;
+            border-top: 4px dotted #e9ecef;
+            font-family: 'Silkscreen', cursive;
         }
         
         .footer-logo {
             color: var(--primary-blue);
             font-weight: 700;
             font-size: 1.1rem;
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        /* Efectos especiales 8-bit */
+        .pixel-corner {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-yellow);
+            z-index: 10;
+        }
+        
+        .pixel-corner-tl {
+            top: -4px;
+            left: -4px;
+        }
+        
+        .pixel-corner-tr {
+            top: -4px;
+            right: -4px;
+        }
+        
+        .pixel-corner-bl {
+            bottom: -4px;
+            left: -4px;
+        }
+        
+        .pixel-corner-br {
+            bottom: -4px;
+            right: -4px;
+        }
+        
+        .pixel-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
         }
         
         /* Responsive */
@@ -480,14 +600,58 @@ if (isset($_SESSION['user'])){
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .menu-item {
+                font-size: 0.6rem;
+            }
+            
+            .brand-text {
+                font-size: 1rem;
+            }
         }
         
         /* Manteniendo estilos de SB Admin 2 para compatibilidad */
         .content-area {
             background: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            border: var(--pixel-border);
+            box-shadow: var(--pixel-shadow);
+            position: relative;
+        }
+        
+        .content-area::before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: -4px;
+            bottom: -4px;
+            background-color: var(--light-gray);
+            z-index: -1;
+        }
+        
+        /* Animación de parpadeo para títulos */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .blink {
+            animation: blink 1.5s infinite;
+        }
+        
+        /* Efecto de glitch para hover */
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+        
+        .glitch:hover {
+            animation: glitch 0.3s infinite;
         }
     </style>
 </head>
@@ -564,22 +728,29 @@ window.onpopstate = function() {
         <main class="main-content">
             <!-- Header -->
             <header class="header">
+                <div class="pixel-corner pixel-corner-tl"></div>
+                <div class="pixel-corner pixel-corner-tr"></div>
                 <div class="header-title">
-                    <h1>Stay Clean, IEFO</h1>
+                    <h1 class="blink">STAY CLEAN, IEFO</h1>
                     <p>Plataforma de prevención de drogas para la I.E. Federico Ozanam</p>
                 </div>
+                <div class="pixel-corner pixel-corner-bl"></div>
+                <div class="pixel-corner pixel-corner-br"></div>
             </header>
             
             <!-- Área de contenido dinámico -->
             <div class="content-area">
+                <div class="pixel-grid"></div>
                 <?php
                 if(!isset($_GET['mod']) || $_GET['mod'] == "inicio") {
                     // Vista de inicio con el dashboard
                 ?>
                 <!-- Project Overview -->
                 <section class="project-overview">
+                    <div class="pixel-corner pixel-corner-tl"></div>
+                    <div class="pixel-corner pixel-corner-tr"></div>
                     <h2 class="project-title">STAY CLEAN, IEFO</h2>
-                    <h3 class="project-subtitle">Prevención de consumo de drogas mediante videojuego educativo</h3>
+                    <h3 class="project-subtitle">PREVENCIÓN DE CONSUMO DE DROGAS MEDIANTE VIDEOJUEGO EDUCATIVO</h3>
                     
                     <p class="project-description">
                         Proyecto de investigación desarrollado por estudiantes de 11°1 de la Institución Educativa Federico Ozanam 
@@ -590,26 +761,30 @@ window.onpopstate = function() {
                     <div class="project-stats">
                         <div class="project-stat">
                             <div class="project-stat-number">4</div>
-                            <div class="project-stat-label">Integrantes</div>
+                            <div class="project-stat-label">INTEGRANTES</div>
                         </div>
                         <div class="project-stat">
                             <div class="project-stat-number">638+</div>
-                            <div class="project-stat-label">Horas de trabajo</div>
+                            <div class="project-stat-label">HORAS DE TRABAJO</div>
                         </div>
                     </div>
+                    <div class="pixel-corner pixel-corner-bl"></div>
+                    <div class="pixel-corner pixel-corner-br"></div>
                 </section>
                 
                 <!-- Stats Grid -->
                 <div class="dashboard-grid">
                     <div class="card">
+                        <div class="pixel-corner pixel-corner-tl"></div>
+                        <div class="pixel-corner pixel-corner-tr"></div>
                         <div class="card-header">
-                            <h3><i class="fas fa-bullseye"></i> Objetivos</h3>
+                            <h3><i class="fas fa-bullseye"></i> OBJETIVOS</h3>
                         </div>
                         <div class="card-body">
-                            <h4>Objetivo General</h4>
+                            <h4 style="font-family: 'Press Start 2P', cursive; font-size: 0.8rem; margin-bottom: 10px;">OBJETIVO GENERAL</h4>
                             <p>Desarrollar un videojuego educativo para concientizar a los estudiantes sobre el consumo de drogas en la Institución Educativa Federico Ozanam.</p>
                             
-                            <h4 style="margin-top: 20px;">Objetivos Específicos</h4>
+                            <h4 style="margin-top: 20px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem;">OBJETIVOS ESPECÍFICOS</h4>
                             <ul style="padding-left: 20px; margin-top: 10px;">
                                 <li>Identificar necesidades y preferencias de los estudiantes</li>
                                 <li>Definir estructura narrativa y técnica del videojuego</li>
@@ -617,44 +792,23 @@ window.onpopstate = function() {
                                 <li>Validar usabilidad y efectividad educativa</li>
                             </ul>
                         </div>
+                        <div class="pixel-corner pixel-corner-bl"></div>
+                        <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
-                    <div class="card">
-                        <div class="card-header">
-                            <h3><i class="fas fa-chart-bar"></i> Estadísticas</h3>
-                        </div>
-                        <div class="card-body">
-                            <div class="stats-grid">
-                                <div class="stat-box">
-                                    <div class="stat-number">66.7%</div>
-                                    <div class="stat-label">Han visto drogas en la institución</div>
-                                </div>
-                                <div class="stat-box">
-                                    <div class="stat-number">80%</div>
-                                    <div class="stat-label">Consideran insuficiente la prevención</div>
-                                </div>
-                                <div class="stat-box">
-                                    <div class="stat-number">#1</div>
-                                    <div class="stat-label">Vaper es la droga más común</div>
-                                </div>
-                                <div class="stat-box">
-                                    <div class="stat-number">42</div>
-                                    <div class="stat-label">Estudiantes encuestados</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     
                     <div class="card">
+                        <div class="pixel-corner pixel-corner-tl"></div>
+                        <div class="pixel-corner pixel-corner-tr"></div>
                         <div class="card-header">
-                            <h3><i class="fas fa-gamepad"></i> Videojuego</h3>
+                            <h3><i class="fas fa-gamepad"></i> VIDEOJUEGO</h3>
                         </div>
                         <div class="card-body">
-                            <h4>Stay Clean, IEFO</h4>
+                            <h4 style="font-family: 'Press Start 2P', cursive; font-size: 0.8rem; margin-bottom: 10px;">STAY CLEAN, IEFO</h4>
                             <p>Videojuego RPG pixel art con enfoque narrativo donde los estudiantes enfrentan decisiones relacionadas con el consumo de drogas y sus consecuencias.</p>
                             
-                            <div style="margin-top: 20px; background: var(--light-gray); padding: 15px; border-radius: 8px;">
-                                <h4>Características principales:</h4>
+                            <div style="margin-top: 20px; background: var(--light-gray); padding: 15px; border: var(--pixel-border); position: relative;">
+                                <h4 style="font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">CARACTERÍSTICAS PRINCIPALES:</h4>
                                 <ul style="padding-left: 20px; margin-top: 10px;">
                                     <li>Múltiples rutas narrativas</li>
                                     <li>Decisiones con consecuencias reales</li>
@@ -663,15 +817,19 @@ window.onpopstate = function() {
                                 </ul>
                             </div>
                         </div>
+                        <div class="pixel-corner pixel-corner-bl"></div>
+                        <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                 </div>
                 
                 <!-- Team Section -->
                 <section class="team-section">
-                    <h3 class="section-title">Equipo de Investigación</h3>
+                    <h3 class="section-title">EQUIPO DE INVESTIGACIÓN</h3>
                     
                     <div class="team-grid">
-                        <div class="team-member">
+                        <div class="team-member glitch">
+                            <div class="pixel-corner pixel-corner-tl"></div>
+                            <div class="pixel-corner pixel-corner-tr"></div>
                             <div class="member-photo">
                                 <i class="fas fa-user"></i>
                             </div>
@@ -685,9 +843,13 @@ window.onpopstate = function() {
                                     <a href="#" class="contact-icon"><i class="fab fa-linkedin"></i></a>
                                 </div>
                             </div>
+                            <div class="pixel-corner pixel-corner-bl"></div>
+                            <div class="pixel-corner pixel-corner-br"></div>
                         </div>
                         
-                        <div class="team-member">
+                        <div class="team-member glitch">
+                            <div class="pixel-corner pixel-corner-tl"></div>
+                            <div class="pixel-corner pixel-corner-tr"></div>
                             <div class="member-photo">
                                 <i class="fas fa-user"></i>
                             </div>
@@ -701,9 +863,13 @@ window.onpopstate = function() {
                                     <a href="#" class="contact-icon"><i class="fab fa-linkedin"></i></a>
                                 </div>
                             </div>
+                            <div class="pixel-corner pixel-corner-bl"></div>
+                            <div class="pixel-corner pixel-corner-br"></div>
                         </div>
                         
-                        <div class="team-member">
+                        <div class="team-member glitch">
+                            <div class="pixel-corner pixel-corner-tl"></div>
+                            <div class="pixel-corner pixel-corner-tr"></div>
                             <div class="member-photo">
                                 <i class="fas fa-user"></i>
                             </div>
@@ -717,9 +883,13 @@ window.onpopstate = function() {
                                     <a href="#" class="contact-icon"><i class="fab fa-linkedin"></i></a>
                                 </div>
                             </div>
+                            <div class="pixel-corner pixel-corner-bl"></div>
+                            <div class="pixel-corner pixel-corner-br"></div>
                         </div>
                         
-                        <div class="team-member">
+                        <div class="team-member glitch">
+                            <div class="pixel-corner pixel-corner-tl"></div>
+                            <div class="pixel-corner pixel-corner-tr"></div>
                             <div class="member-photo">
                                 <i class="fas fa-user"></i>
                             </div>
@@ -733,6 +903,8 @@ window.onpopstate = function() {
                                     <a href="#" class="contact-icon"><i class="fab fa-linkedin"></i></a>
                                 </div>
                             </div>
+                            <div class="pixel-corner pixel-corner-bl"></div>
+                            <div class="pixel-corner pixel-corner-br"></div>
                         </div>
                     </div>
                 </section>
@@ -782,25 +954,22 @@ window.onpopstate = function() {
             }
         });
         
-        // Simple animation for stats
-        const stats = document.querySelectorAll('.stat-number');
-        stats.forEach(stat => {
-            const target = +stat.innerText.replace('%', '').replace('+', '');
-            let count = 0;
-            const duration = 2000;
-            const increment = target / (duration / 16);
+        // Efecto de sonido para interacciones
+        document.querySelectorAll('.menu-item, .card, .team-member, .contact-icon').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                // Podrías agregar un sonido de videojuego aquí
+                // new Audio('sounds/hover.wav').play();
+            });
             
-            const updateCount = () => {
-                if (count < target) {
-                    count += increment;
-                    stat.innerText = Math.round(count) + (stat.innerText.includes('%') ? '%' : '') + (stat.innerText.includes('+') ? '+' : '');
-                    setTimeout(updateCount, 16);
-                } else {
-                    stat.innerText = target + (stat.innerText.includes('%') ? '%' : '') + (stat.innerText.includes('+') ? '+' : '');
-                }
-            };
-            
-            setTimeout(updateCount, 500);
+            element.addEventListener('click', function() {
+                // Podrías agregar un sonido de selección aquí
+                // new Audio('sounds/select.wav').play();
+            });
+        });
+        
+        // Efecto de pixelado para imágenes
+        document.querySelectorAll('img').forEach(img => {
+            img.style.imageRendering = 'pixelated';
         });
     </script>
 </body>

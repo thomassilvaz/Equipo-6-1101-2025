@@ -1,810 +1,221 @@
-<div class="descargas-container">
-    <div class="descargas-header">
-        <h1 class="titulo-principal">Descarga Stay Clean</h1>
-        <div class="header-divider">
-            <div class="divider-line"></div>
-            <i class="fas fa-download"></i>
-            <div class="divider-line"></div>
+<div class="descargas-container" style="max-width: 1200px; margin: 0 auto; padding: 20px; font-family: 'Silkscreen', cursive; background: #f0f8ff; border: var(--pixel-border); box-shadow: var(--pixel-shadow); position: relative;">
+    <div class="pixel-corner pixel-corner-tl"></div>
+    <div class="pixel-corner pixel-corner-tr"></div>
+    
+    <div class="descargas-header" style="text-align: center; margin-bottom: 40px;">
+        <h1 class="titulo-principal" style="color: var(--primary-blue); font-size: 2rem; margin-bottom: 15px; font-weight: 700; text-shadow: 2px 2px 0 #000; font-family: 'Press Start 2P', cursive; border: var(--pixel-border); background-color: var(--white); padding: 15px; box-shadow: var(--pixel-shadow); display: inline-block;">Descarga Stay Clean</h1>
+        <div class="header-divider" style="display: flex; align-items: center; justify-content: center; margin: 20px 0;">
+            <div class="divider-line" style="height: 2px; width: 100px; background: linear-gradient(to right, transparent, var(--primary-blue), transparent); margin: 0 15px;"></div>
+            <i class="fas fa-download" style="color: var(--primary-blue); font-size: 1.8rem; background: var(--white); padding: 10px; border: var(--pixel-border); box-shadow: var(--pixel-shadow);"></i>
+            <div class="divider-line" style="height: 2px; width: 100px; background: linear-gradient(to right, transparent, var(--primary-blue), transparent); margin: 0 15px;"></div>
         </div>
-        <p class="subtitulo">Obtén nuestra aplicación y únete a la experiencia educativa</p>
+        <p class="subtitulo" style="font-size: 1.2rem; color: var(--secondary-blue); max-width: 700px; margin: 0 auto; line-height: 1.6; font-family: 'Press Start 2P', cursive; border: var(--pixel-border); background-color: var(--white); padding: 10px; box-shadow: var(--pixel-shadow); display: inline-block;">Obtén nuestra aplicación y únete a la experiencia educativa</p>
     </div>
     
-    <div class="pasos-descarga">
-        <h2 class="section-title">Cómo descargar e instalar</h2>
-        <p class="section-subtitle">Sigue estos simples pasos para comenzar tu aventura</p>
+    <div class="pasos-descarga" style="margin-bottom: 40px; padding: 20px; border: var(--pixel-border); background-color: white; box-shadow: var(--pixel-shadow); position: relative;">
+        <div class="pixel-corner pixel-corner-tl"></div>
+        <div class="pixel-corner pixel-corner-tr"></div>
         
-        <div class="pasos-grid">
-            <div class="paso-card">
-                <div class="paso-numero">1</div>
-                <div class="paso-icono">
-                    <i class="fas fa-laptop"></i>
-                </div>
-                <h3>Verifica los requisitos</h3>
-                <p>Asegúrate que tu dispositivo cumple con los requisitos mínimos</p>
-            </div>
-            
-            <div class="paso-card">
-                <div class="paso-numero">2</div>
-                <div class="paso-icono">
+        <h2 class="section-title" style="text-align: center; color: var(--primary-blue); font-size: 1.5rem; margin-bottom: 15px; font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; border: var(--pixel-border); background-color: var(--white); padding: 10px; box-shadow: var(--pixel-shadow); display: inline-block;">Cómo descargar e instalar</h2>
+        <p class="section-subtitle" style="text-align: center; color: #555; font-size: 1rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; font-family: 'Silkscreen', cursive;">Sigue estos simples pasos para comenzar tu aventura</p>
+        
+        <div class="pasos-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="paso-card glitch" style="background: white; border: var(--pixel-border); padding: 20px; text-align: center; box-shadow: var(--pixel-shadow); transition: all 0.3s ease; position: relative; overflow: hidden; border-top: 8px solid var(--primary-blue);">
+                <div class="paso-numero" style="position: absolute; top: 10px; right: 10px; font-size: 2rem; font-weight: 700; color: rgba(0, 86, 179, 0.1); font-family: 'Press Start 2P', cursive;">1</div>
+                <div class="paso-icono" style="width: 70px; height: 70px; background: #e6f0fa; color: var(--primary-blue); border: var(--pixel-border); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 15px; box-shadow: var(--pixel-shadow);">
                     <i class="fas fa-download"></i>
                 </div>
-                <h3>Descarga el instalador</h3>
-                <p>Selecciona la versión adecuada para tu sistema operativo</p>
+                <h3 style="color: var(--primary-blue); margin-bottom: 15px; font-size: 1.2rem; font-family: 'Press Start 2P', cursive; text-shadow: 1px 1px 0 #000;">Descarga el instalador</h3>
+                <p style="color: #555; line-height: 1.6; font-family: 'Silkscreen', cursive;">Haz clic en el botón de descarga para Windows</p>
             </div>
             
-            <div class="paso-card">
-                <div class="paso-numero">3</div>
-                <div class="paso-icono">
+            <div class="paso-card glitch" style="background: white; border: var(--pixel-border); padding: 20px; text-align: center; box-shadow: var(--pixel-shadow); transition: all 0.3s ease; position: relative; overflow: hidden; border-top: 8px solid var(--primary-blue);">
+                <div class="paso-numero" style="position: absolute; top: 10px; right: 10px; font-size: 2rem; font-weight: 700; color: rgba(0, 86, 179, 0.1); font-family: 'Press Start 2P', cursive;">2</div>
+                <div class="paso-icono" style="width: 70px; height: 70px; background: #e6f0fa; color: var(--primary-blue); border: var(--pixel-border); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 15px; box-shadow: var(--pixel-shadow);">
                     <i class="fas fa-cogs"></i>
                 </div>
-                <h3>Instala la aplicación</h3>
-                <p>Sigue el asistente de instalación paso a paso</p>
+                <h3 style="color: var(--primary-blue); margin-bottom: 15px; font-size: 1.2rem; font-family: 'Press Start 2P', cursive; text-shadow: 1px 1px 0 #000;">Instala la aplicación</h3>
+                <p style="color: #555; line-height: 1.6; font-family: 'Silkscreen', cursive;">Ejecuta el archivo descargado y sigue el asistente</p>
             </div>
             
-            <div class="paso-card">
-                <div class="paso-numero">4</div>
-                <div class="paso-icono">
+            <div class="paso-card glitch" style="background: white; border: var(--pixel-border); padding: 20px; text-align: center; box-shadow: var(--pixel-shadow); transition: all 0.3s ease; position: relative; overflow: hidden; border-top: 8px solid var(--primary-blue);">
+                <div class="paso-numero" style="position: absolute; top: 10px; right: 10px; font-size: 2rem; font-weight: 700; color: rgba(0, 86, 179, 0.1); font-family: 'Press Start 2P', cursive;">3</div>
+                <div class="paso-icono" style="width: 70px; height: 70px; background: #e6f0fa; color: var(--primary-blue); border: var(--pixel-border); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 15px; box-shadow: var(--pixel-shadow);">
                     <i class="fas fa-gamepad"></i>
                 </div>
-                <h3>¡Comienza a jugar!</h3>
-                <p>Crea tu cuenta y empieza tu viaje de prevención</p>
+                <h3 style="color: var(--primary-blue); margin-bottom: 15px; font-size: 1.2rem; font-family: 'Press Start 2P', cursive; text-shadow: 1px 1px 0 #000;">¡Comienza a jugar!</h3>
+                <p style="color: #555; line-height: 1.6; font-family: 'Silkscreen', cursive;">Abre la aplicación y crea tu cuenta para empezar</p>
             </div>
         </div>
+        
+        <div class="pixel-corner pixel-corner-bl"></div>
+        <div class="pixel-corner pixel-corner-br"></div>
     </div>
     
-    <div class="versiones-section">
-        <h2 class="section-title">Versiones Disponibles</h2>
-        <p class="section-subtitle">Selecciona la versión compatible con tu dispositivo</p>
+    <div class="versiones-section" style="margin-bottom: 40px; padding: 20px; border: var(--pixel-border); background-color: white; box-shadow: var(--pixel-shadow); position: relative;">
+        <div class="pixel-corner pixel-corner-tl"></div>
+        <div class="pixel-corner pixel-corner-tr"></div>
         
-        <div class="versiones-grid">
-            <div class="version-card">
-                <div class="version-icon windows">
+        <h2 class="section-title" style="text-align: center; color: var(--primary-blue); font-size: 1.5rem; margin-bottom: 15px; font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; border: var(--pixel-border); background-color: var(--white); padding: 10px; box-shadow: var(--pixel-shadow); display: inline-block;">Descarga para Windows</h2>
+        <p class="section-subtitle" style="text-align: center; color: #555; font-size: 1rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; font-family: 'Silkscreen', cursive;">Versión compatible con sistemas Windows</p>
+        
+        <div class="versiones-grid" style="display: flex; justify-content: center;">
+            <div class="version-card glitch" style="background: white; border: var(--pixel-border); padding: 25px; text-align: center; box-shadow: var(--pixel-shadow); transition: all 0.3s ease; max-width: 400px; width: 100%;">
+                <div class="version-icon windows" style="width: 90px; height: 90px; background: #0078d7; border: var(--pixel-border); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 20px; color: white; box-shadow: var(--pixel-shadow);">
                     <i class="fab fa-windows"></i>
                 </div>
-                <h3>Windows</h3>
-                <div class="version-info">
-                    <p><i class="fas fa-code-branch"></i> Versión 1.2.0</p>
-                    <p><i class="fas fa-database"></i> Tamaño: 85 MB</p>
-                    <p><i class="fas fa-calendar"></i> Actualizado: 15/09/2025</p>
+                <h3 style="color: var(--primary-blue); margin-bottom: 20px; font-size: 1.4rem; font-family: 'Press Start 2P', cursive; text-shadow: 1px 1px 0 #000;">Windows</h3>
+                <div class="version-info" style="background: #f8f9fa; border: var(--pixel-border); padding: 15px; margin-bottom: 20px; text-align: left; box-shadow: var(--pixel-shadow);">
+                    <p style="margin-bottom: 10px; display: flex; align-items: center; color: #555; font-family: 'Silkscreen', cursive;"><i class="fas fa-code-branch" style="margin-right: 10px; width: 20px; color: var(--primary-blue);"></i> Versión 1.2.0</p>
+                    <p style="margin-bottom: 10px; display: flex; align-items: center; color: #555; font-family: 'Silkscreen', cursive;"><i class="fas fa-database" style="margin-right: 10px; width: 20px; color: var(--primary-blue);"></i> Tamaño: 85 MB</p>
+                    <p style="margin-bottom: 0; display: flex; align-items: center; color: #555; font-family: 'Silkscreen', cursive;"><i class="fas fa-calendar" style="margin-right: 10px; width: 20px; color: var(--primary-blue);"></i> Actualizado: 15/09/2025</p>
                 </div>
-                <a href="#" class="btn-descarga">
-                    <i class="fas fa-download"></i> Descargar para Windows
-                </a>
-            </div>
-            
-            <div class="version-card">
-                <div class="version-icon android">
-                    <i class="fab fa-android"></i>
-                </div>
-                <h3>Android</h3>
-                <div class="version-info">
-                    <p><i class="fas fa-code-branch"></i> Versión 1.1.5</p>
-                    <p><i class="fas fa-database"></i> Tamaño: 45 MB</p>
-                    <p><i class="fas fa-calendar"></i> Actualizado: 10/09/2025</p>
-                </div>
-                <a href="#" class="btn-descarga">
-                    <i class="fas fa-download"></i> Descargar para Android
-                </a>
-            </div>
-            
-            <div class="version-card">
-                <div class="version-icon mac">
-                    <i class="fab fa-apple"></i>
-                </div>
-                <h3>MacOS</h3>
-                <div class="version-info">
-                    <p><i class="fas fa-code-branch"></i> Versión 1.0.8</p>
-                    <p><i class="fas fa-database"></i> Tamaño: 92 MB</p>
-                    <p><i class="fas fa-calendar"></i> Actualizado: 05/09/2025</p>
-                </div>
-                <a href="#" class="btn-descarga">
-                    <i class="fas fa-download"></i> Descargar para Mac
+                <a href="#" class="btn-descarga glitch" style="display: inline-block; background: var(--primary-blue); color: white; padding: 12px 20px; border: var(--pixel-border); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: var(--pixel-shadow); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000;">
+                    <i class="fas fa-download" style="margin-right: 10px;"></i> Descargar para Windows
                 </a>
             </div>
         </div>
-    </div>
-    
-    <div class="requisitos-section">
-        <h2 class="section-title">Requisitos del Sistema</h2>
-        <p class="section-subtitle">Para la mejor experiencia de juego</p>
         
-        <div class="requisitos-tabs">
-            <div class="tab-header">
-                <button class="tab-btn active" data-tab="windows">Windows</button>
-                <button class="tab-btn" data-tab="android">Android</button>
-                <button class="tab-btn" data-tab="mac">MacOS</button>
-            </div>
-            
-            <div class="tab-content active" id="windows">
-                <div class="requisitos-grid">
-                    <div class="requisito-card">
-                        <h3>Mínimos</h3>
-                        <ul>
-                            <li><i class="fas fa-microchip"></i> Procesador: Intel Core i3 o equivalente</li>
-                            <li><i class="fas fa-memory"></i> RAM: 4 GB</li>
-                            <li><i class="fas fa-hdd"></i> Almacenamiento: 150 MB espacio libre</li>
-                            <li><i class="fas fa-desktop"></i> Gráficos: Intel HD Graphics 4000</li>
-                            <li><i class="fas fa-window-restore"></i> Sistema: Windows 7 o superior</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="requisito-card recomendados">
-                        <h3>Recomendados</h3>
-                        <ul>
-                            <li><i class="fas fa-microchip"></i> Procesador: Intel Core i5 o equivalente</li>
-                            <li><i class="fas fa-memory"></i> RAM: 8 GB</li>
-                            <li><i class="fas fa-hdd"></i> Almacenamiento: 200 MB espacio libre</li>
-                            <li><i class="fas fa-desktop"></i> Gráficos: NVIDIA GeForce GTX 650</li>
-                            <li><i class="fas fa-window-restore"></i> Sistema: Windows 10 o superior</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="android">
-                <div class="requisitos-grid">
-                    <div class="requisito-card">
-                        <h3>Mínimos</h3>
-                        <ul>
-                            <li><i class="fas fa-microchip"></i> Procesador: Quad-core 1.5 GHz</li>
-                            <li><i class="fas fa-memory"></i> RAM: 2 GB</li>
-                            <li><i class="fas fa-hdd"></i> Almacenamiento: 100 MB espacio libre</li>
-                            <li><i class="fas fa-desktop"></i> GPU: Adreno 306 o Mali-T720</li>
-                            <li><i class="fas fa-window-restore"></i> Sistema: Android 6.0 Marshmallow</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="requisito-card recomendados">
-                        <h3>Recomendados</h3>
-                        <ul>
-                            <li><i class="fas fa-microchip"></i> Procesador: Octa-core 2.0 GHz</li>
-                            <li><i class="fas fa-memory"></i> RAM: 4 GB</li>
-                            <li><i class="fas fa-hdd"></i> Almacenamiento: 150 MB espacio libre</li>
-                            <li><i class="fas fa-desktop"></i> GPU: Adreno 618 o Mali-G52</li>
-                            <li><i class="fas fa-window-restore"></i> Sistema: Android 10 o superior</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="mac">
-                <div class="requisitos-grid">
-                    <div class="requisito-card">
-                        <h3>Mínimos</h3>
-                        <ul>
-                            <li><i class="fas fa-microchip"></i> Procesador: Intel Core i3</li>
-                            <li><i class="fas fa-memory"></i> RAM: 4 GB</li>
-                            <li><i class="fas fa-hdd"></i> Almacenamiento: 180 MB espacio libre</li>
-                            <li><i class="fas fa-desktop"></i> Gráficos: Intel Iris Graphics 5100</li>
-                            <li><i class="fas fa-window-restore"></i> Sistema: macOS Catalina 10.15</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="requisito-card recomendados">
-                        <h3>Recomendados</h3>
-                        <ul>
-                            <li><i class="fas fa-microchip"></i> Procesador: Apple M1 o Intel Core i5</li>
-                            <li><i class="fas fa-memory"></i> RAM: 8 GB</li>
-                            <li><i class="fas fa-hdd"></i> Almacenamiento: 250 MB espacio libre</li>
-                            <li><i class="fas fa-desktop"></i> Gráficos: Apple M1 GPU o Intel Iris Plus</li>
-                            <li><i class="fas fa-window-restore"></i> Sistema: macOS Big Sur 11.0+</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="pixel-corner pixel-corner-bl"></div>
+        <div class="pixel-corner pixel-corner-br"></div>
     </div>
     
-    <div class="faq-section">
-        <h2 class="section-title">Preguntas Frecuentes</h2>
-        <p class="section-subtitle">Encuentra respuestas a las dudas más comunes</p>
+    <div class="faq-section" style="margin-bottom: 40px; padding: 20px; border: var(--pixel-border); background-color: white; box-shadow: var(--pixel-shadow); position: relative;">
+        <div class="pixel-corner pixel-corner-tl"></div>
+        <div class="pixel-corner pixel-corner-tr"></div>
         
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-pregunta">
-                    <h3>¿Necesito conexión a internet para jugar?</h3>
-                    <i class="fas fa-chevron-down"></i>
+        <h2 class="section-title" style="text-align: center; color: var(--primary-blue); font-size: 1.5rem; margin-bottom: 15px; font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; border: var(--pixel-border); background-color: var(--white); padding: 10px; box-shadow: var(--pixel-shadow); display: inline-block;">Preguntas Frecuentes</h2>
+        <p class="section-subtitle" style="text-align: center; color: #555; font-size: 1rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; font-family: 'Silkscreen', cursive;">Encuentra respuestas a las dudas más comunes</p>
+        
+        <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item" style="background: white; border: var(--pixel-border); overflow: hidden; box-shadow: var(--pixel-shadow); margin-bottom: 15px; transition: all 0.3s ease;">
+                <div class="faq-pregunta" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; border-bottom: var(--pixel-border);">
+                    <h3 style="color: var(--primary-blue); margin: 0; font-size: 1rem; font-family: 'Press Start 2P', cursive; text-shadow: 1px 1px 0 #000;">¿Necesito conexión a internet para jugar?</h3>
+                    <i class="fas fa-chevron-down" style="color: var(--primary-blue); transition: transform 0.3s ease;"></i>
                 </div>
-                <div class="faq-respuesta">
-                    <p>Stay Clean puede jugarse completamente offline después de la instalación inicial. Solo necesitarás conexión a internet para actualizar el juego o acceder a funciones multijugador.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-pregunta">
-                    <h3>¿Es gratuito el juego?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-respuesta">
-                    <p>Sí, Stay Clean es completamente gratuito para todos los estudiantes de la Institución Educativa Federico Ozanam. Es un proyecto educativo sin fines de lucro.</p>
+                <div class="faq-respuesta" style="padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;">
+                    <p style="font-family: 'Silkscreen', cursive; padding: 15px 0;">Stay Clean puede jugarse completamente offline después de la instalación inicial. Solo necesitarás conexión a internet para actualizar el juego o acceder a funciones multijugador.</p>
                 </div>
             </div>
             
-            <div class="faq-item">
-                <div class="faq-pregunta">
-                    <h3>¿Cómo creo una cuenta?</h3>
-                    <i class="fas fa-chevron-down"></i>
+            <div class="faq-item" style="background: white; border: var(--pixel-border); overflow: hidden; box-shadow: var(--pixel-shadow); margin-bottom: 15px; transition: all 0.3s ease;">
+                <div class="faq-pregunta" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; border-bottom: var(--pixel-border);">
+                    <h3 style="color: var(--primary-blue); margin: 0; font-size: 1rem; font-family: 'Press Start 2P', cursive; text-shadow: 1px 1px 0 #000;">¿Es gratuito el juego?</h3>
+                    <i class="fas fa-chevron-down" style="color: var(--primary-blue); transition: transform 0.3s ease;"></i>
                 </div>
-                <div class="faq-respuesta">
-                    <p>Al iniciar el juego por primera vez, se te pedirá que crees una cuenta usando tu correo institucional (@iefo.edu.co). También puedes registrarte con un correo personal.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-pregunta">
-                    <h3>¿Puedo jugar en varios dispositivos?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-respuesta">
-                    <p>Sí, tu progreso se sincroniza entre dispositivos cuando inicias sesión con la misma cuenta. Puedes comenzar en tu computadora y continuar en tu teléfono.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-pregunta">
-                    <h3>¿Qué hago si tengo problemas técnicos?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-respuesta">
-                    <p>Puedes contactar a nuestro equipo de soporte técnico a través de:
-                    <br>- Correo: soporte@staycleaniefo.edu.co
-                    <br>- Oficina de sistemas del colegio
-                    <br>- Formulario de contacto en esta plataforma</p>
+                <div class="faq-respuesta" style="padding: 0 15px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;">
+                    <p style="font-family: 'Silkscreen', cursive; padding: 15px 0;">Sí, Stay Clean es completamente gratuito para todos los estudiantes de la Institución Educativa Federico Ozanam. Es un proyecto educativo sin fines de lucro.</p>
                 </div>
             </div>
         </div>
+        
+        <div class="pixel-corner pixel-corner-bl"></div>
+        <div class="pixel-corner pixel-corner-br"></div>
     </div>
     
-    <div class="soporte-section">
-        <div class="soporte-content">
-            <h2>¿Necesitas ayuda con la instalación?</h2>
-            <p>Nuestro equipo de soporte está listo para ayudarte con cualquier problema técnico</p>
-            <a href="#" class="btn-soporte">
-                <i class="fas fa-headset"></i> Contactar a Soporte
-            </a>
-        </div>
-        <div class="soporte-image">
-            <img src="https://cdn.pixabay.com/photo/2020/03/20/10/42/support-4950280_1280.png" alt="Soporte técnico">
-        </div>
-    </div>
-</div>
+    
 
 <style>
-.descargas-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --primary-blue: #0056b3;
+    --secondary-blue: #51a4e7;
+    --accent-yellow: #ffc107;
+    --white: #ffffff;
+    --pixel-border: 4px solid #000;
+    --pixel-shadow: 4px 4px 0 #000;
 }
 
-.descargas-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.titulo-principal {
-    color: #0056b3;
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.header-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.divider-line {
-    height: 2px;
-    width: 100px;
-    background: linear-gradient(to right, transparent, #0056b3, transparent);
-    margin: 0 15px;
-}
-
-.header-divider i {
-    color: #0056b3;
-    font-size: 1.8rem;
-    background: #f8f9fa;
-    padding: 10px;
-    border-radius: 50%;
-    border: 2px solid #0056b3;
-}
-
-.subtitulo {
-    font-size: 1.4rem;
-    color: #51a4e7;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-.section-title {
-    text-align: center;
-    color: #0056b3;
-    font-size: 2rem;
-    margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.section-title::after {
-    content: '';
+.pixel-corner {
     position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: #ffc107;
-    border-radius: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--accent-yellow);
+    z-index: 10;
 }
 
-.section-subtitle {
-    text-align: center;
-    color: #555;
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+.pixel-corner-tl {
+    top: -4px;
+    left: -4px;
 }
 
-.pasos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
+.pixel-corner-tr {
+    top: -4px;
+    right: -4px;
 }
 
-.paso-card {
-    background: white;
-    border-radius: 12px;
-    padding: 30px 20px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border-top: 4px solid #0056b3;
+.pixel-corner-bl {
+    bottom: -4px;
+    left: -4px;
 }
 
-.paso-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+.pixel-corner-br {
+    bottom: -4px;
+    right: -4px;
 }
 
-.paso-numero {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: rgba(0, 86, 179, 0.1);
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
 }
 
-.paso-icono {
-    width: 80px;
-    height: 80px;
-    background: #e6f0fa;
-    color: #0056b3;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin: 0 auto 20px;
-    transition: all 0.3s ease;
+.glitch:hover {
+    animation: glitch 0.3s infinite;
 }
 
-.paso-card:hover .paso-icono {
-    background: #0056b3;
-    color: white;
-    transform: scale(1.1);
+.paso-card:hover, .version-card:hover, .faq-item:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 #000 !important;
 }
 
-.paso-card h3 {
-    color: #0056b3;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-}
-
-.paso-card p {
-    color: #555;
-    line-height: 1.6;
-}
-
-.versiones-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.version-card {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    border: 1px solid #e9ecef;
-}
-
-.version-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
-    border-color: #0056b3;
-}
-
-.version-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    margin: 0 auto 20px;
-    color: white;
-}
-
-.version-icon.windows {
-    background: #0078d7;
-    box-shadow: 0 5px 15px rgba(0, 120, 215, 0.3);
-}
-
-.version-icon.android {
-    background: #3ddc84;
-    box-shadow: 0 5px 15px rgba(61, 220, 132, 0.3);
-}
-
-.version-icon.mac {
-    background: #999999;
-    box-shadow: 0 5px 15px rgba(153, 153, 153, 0.3);
-}
-
-.version-card h3 {
-    color: #0056b3;
-    margin-bottom: 20px;
-    font-size: 1.6rem;
-}
-
-.version-info {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 25px;
-    text-align: left;
-}
-
-.version-info p {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    color: #555;
-}
-
-.version-info i {
-    margin-right: 10px;
-    width: 20px;
-    color: #0056b3;
-}
-
-.btn-descarga {
-    display: inline-block;
-    background: #0056b3;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
-}
-
-.btn-descarga:hover {
-    background: #004494;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 86, 179, 0.4);
-}
-
-.btn-descarga i {
-    margin-right: 10px;
-}
-
-.requisitos-tabs {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 50px;
-}
-
-.tab-header {
-    display: flex;
-    background: #f8f9fa;
-    border-bottom: 1px solid #e9ecef;
-}
-
-.tab-btn {
-    flex: 1;
-    padding: 20px;
-    border: none;
-    background: transparent;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #6c757d;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.tab-btn.active {
-    color: #0056b3;
-}
-
-.tab-btn.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: #0056b3;
-}
-
-.tab-btn:hover:not(.active) {
-    background: rgba(0, 86, 179, 0.05);
-    color: #0056b3;
-}
-
-.tab-content {
-    display: none;
-    padding: 30px;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.requisitos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.requisito-card {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 25px;
-    border-left: 4px solid #0056b3;
-}
-
-.requisito-card.recomendados {
-    border-left-color: #ffc107;
-    position: relative;
-    overflow: hidden;
-}
-
-.requisito-card.recomendados::before {
-    content: 'RECOMENDADO';
-    position: absolute;
-    top: 15px;
-    right: -30px;
-    background: #ffc107;
-    color: #333;
-    font-weight: 600;
-    padding: 5px 30px;
-    transform: rotate(45deg);
-    font-size: 0.8rem;
-}
-
-.requisito-card h3 {
-    color: #0056b3;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1.4rem;
-}
-
-.requisito-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.requisito-card li {
-    margin-bottom: 15px;
-    padding-left: 30px;
-    position: relative;
-    color: #555;
-}
-
-.requisito-card li i {
-    position: absolute;
-    left: 0;
-    top: 2px;
-    color: #0056b3;
-    width: 20px;
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
-    border: 1px solid #e9ecef;
-    transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    border-color: #0056b3;
-    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.1);
-}
-
-.faq-pregunta {
-    padding: 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.faq-pregunta h3 {
-    color: #0056b3;
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-.faq-pregunta i {
-    color: #0056b3;
-    transition: transform 0.3s ease;
-}
-
-.faq-respuesta {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+.btn-descarga:hover, .btn-soporte:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 #000 !important;
 }
 
 .faq-item.active .faq-respuesta {
-    padding: 0 20px 20px;
-    max-height: 300px;
+    padding: 0 15px 15px !important;
+    max-height: 300px !important;
 }
 
 .faq-item.active .faq-pregunta i {
-    transform: rotate(180deg);
-}
-
-.soporte-section {
-    display: flex;
-    background: linear-gradient(135deg, #0056b3 0%, #51a4e7 100%);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-top: 50px;
-    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.3);
-}
-
-.soporte-content {
-    flex: 1;
-    padding: 40px;
-    color: white;
-}
-
-.soporte-content h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
-    color: #ffc107;
-}
-
-.soporte-content p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 600px;
-    margin-bottom: 30px;
-}
-
-.btn-soporte {
-    display: inline-block;
-    background: #ffc107;
-    color: #333;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
-}
-
-.btn-soporte:hover {
-    background: #e0a800;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.4);
-}
-
-.btn-soporte i {
-    margin-right: 10px;
-}
-
-.soporte-image {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.soporte-image img {
-    max-width: 100%;
-    max-height: 300px;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+    transform: rotate(180deg) !important;
 }
 
 /* Responsive */
-@media (max-width: 992px) {
-    .soporte-section {
-        flex-direction: column;
-    }
-    
-    .soporte-image {
-        order: -1;
-    }
-}
-
 @media (max-width: 768px) {
-    .tab-header {
-        flex-direction: column;
+    .pasos-grid {
+        grid-template-columns: 1fr !important;
     }
     
-    .requisitos-grid {
-        grid-template-columns: 1fr;
+    .soporte-section {
+        flex-direction: column !important;
     }
 }
 
 @media (max-width: 480px) {
     .titulo-principal {
-        font-size: 2rem;
+        font-size: 1.5rem !important;
     }
     
     .subtitulo {
-        font-size: 1.2rem;
+        font-size: 1rem !important;
+    }
+    
+    .version-card {
+        padding: 15px !important;
+    }
+    
+    .section-title {
+        font-size: 1.2rem !important;
     }
 }
 </style>
 
 <script>
-// Funcionalidad para tabs
-document.querySelectorAll('.tab-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const tabId = button.getAttribute('data-tab');
-        
-        // Ocultar todos los contenidos
-        document.querySelectorAll('.tab-content').forEach(content => {
-            content.classList.remove('active');
-        });
-        
-        // Desactivar todos los botones
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Activar tab seleccionado
-        document.getElementById(tabId).classList.add('active');
-        button.classList.add('active');
-    });
-});
-
 // Funcionalidad para FAQ
 document.querySelectorAll('.faq-pregunta').forEach(pregunta => {
     pregunta.addEventListener('click', () => {

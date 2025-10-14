@@ -6,7 +6,7 @@ extends CharacterBody2D
 func _ready():
 	match get_tree().current_scene.name:
 		"bathroom2":
-			if !Estados.baño:
+			if !Estados.sustancia1:
 				interactuable.set_deferred("disabled", true)
 		"piso1":
 			if Estados.introduccion:
@@ -15,7 +15,10 @@ func _ready():
 				global_position = Vector2(838, -103)
 		"piso2":
 			if Estados.decision3_tomada:
-				global_position = Vector2(2324, 75)
+				if !Estados.sustancia1 or Estados.charla_con_valeria:
+					global_position = Vector2(2324, 75)
+				else:
+					global_position = Vector2(28, -2000)
 			else:
 				global_position = Vector2(28, -2000)
 

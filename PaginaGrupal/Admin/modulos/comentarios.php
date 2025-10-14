@@ -83,36 +83,37 @@ function obtenerRespuestas($conexion, $parent_id, $usuario_doc) {
 // Función para mostrar un comentario (recursiva para respuestas)
 function mostrarComentario($com, $conexion, $nivel = 0) {
     $usuario_actual = is_array($_SESSION['user']) ? $_SESSION['user']['doc'] : $_SESSION['user'];
-    $margin_left = $nivel * 30; // Sangría para respuestas anidadas
-    $border_class = $nivel > 0 ? 'border-start ps-3' : '';
+    $margin_left = $nivel * 30;
+    $border_class = $nivel > 0 ? 'comentario-respuesta' : '';
     
     // Obtener respuestas
     $respuestas = obtenerRespuestas($conexion, $com['id'], $usuario_actual);
     $tiene_respuestas = $respuestas->num_rows > 0;
     
     // Determinar clases para botones de like/dislike
-    $like_class = ($com['mi_reaccion'] == 'like') ? 'btn-primary' : 'btn-outline-primary';
-    $dislike_class = ($com['mi_reaccion'] == 'dislike') ? 'btn-danger' : 'btn-outline-secondary';
+    $like_class = ($com['mi_reaccion'] == 'like') ? 'btn-like-active' : 'btn-like';
+    $dislike_class = ($com['mi_reaccion'] == 'dislike') ? 'btn-dislike-active' : 'btn-dislike';
     
-    echo '<div class="comentario-item mb-3 ' . $border_class . '" style="margin-left: ' . $margin_left . 'px;">';
-    echo '<div class="d-flex">';
-    echo '<div class="flex-shrink-0">';
-    echo '<div class="avatar bg-primary text-white rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">';
+    echo '<div class="comentario-item ' . $border_class . '" style="margin-left: ' . $margin_left . 'px;">';
+    echo '<div class="pixel-corner pixel-corner-tl"></div>';
+    echo '<div class="pixel-corner pixel-corner-tr"></div>';
+    echo '<div class="comentario-header">';
+    echo '<div class="comentario-avatar">';
+    echo '<div class="avatar-pixel">';
     echo substr($com['PNombre'], 0, 1) . substr($com['PApellido'], 0, 1);
     echo '</div>';
     echo '</div>';
-    echo '<div class="flex-grow-1 ms-3">';
-    echo '<div class="d-flex justify-content-between align-items-start">';
-    echo '<div>';
-    echo '<h6 class="mb-0 fw-bold">' . htmlspecialchars($com['PNombre'] . ' ' . $com['PApellido']) . '</h6>';
-    echo '<small class="text-muted"><i class="far fa-clock me-1"></i>' . date('d/m/Y H:i', strtotime($com['fecha'])) . '</small>';
+    echo '<div class="comentario-info">';
+    echo '<div class="comentario-meta">';
+    echo '<span class="comentario-autor">' . htmlspecialchars($com['PNombre'] . ' ' . $com['PApellido']) . '</span>';
+    echo '<span class="comentario-fecha"><i class="fas fa-clock"></i>' . date('d/m/Y H:i', strtotime($com['fecha'])) . '</span>';
     echo '</div>';
     
     // Botones de acción (eliminar) para el propietario
     if($usuario_actual == $com['usuario_doc']): 
         echo '<div class="comentario-acciones">';
         echo '<a href="?mod=comentarios&eliminar=' . $com['id'] . '"';
-        echo 'class="btn btn-sm btn-outline-danger"';
+        echo 'class="btn-eliminar"';
         echo 'title="Eliminar comentario"';
         echo 'data-bs-toggle="modal"';
         echo 'data-bs-target="#confirmDeleteModal"';
@@ -122,48 +123,49 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
         echo '</div>';
     endif;
     echo '</div>';
+    echo '</div>';
     
-    echo '<p class="mt-2 mb-2 comentario-texto">' . nl2br(htmlspecialchars($com['texto'])) . '</p>';
+    echo '<div class="comentario-texto">' . nl2br(htmlspecialchars($com['texto'])) . '</div>';
     
     // Controles de like/dislike y responder
-    echo '<div class="d-flex align-items-center mt-2">';
-    echo '<form method="POST" class="me-2">';
+    echo '<div class="comentario-acciones-inferiores">';
+    echo '<form method="POST" class="form-reaccion">';
     echo '<input type="hidden" name="comentario_id" value="' . $com['id'] . '">';
     echo '<input type="hidden" name="tipo" value="like">';
-    echo '<button type="submit" name="reaccionar" class="btn btn-sm ' . $like_class . ' d-flex align-items-center">';
-    echo '<i class="fas fa-thumbs-up me-1"></i> <span class="count">' . $com['likes'] . '</span>';
+    echo '<button type="submit" name="reaccionar" class="' . $like_class . '">';
+    echo '<i class="fas fa-thumbs-up"></i> <span class="count">' . $com['likes'] . '</span>';
     echo '</button>';
     echo '</form>';
     
-    echo '<form method="POST" class="me-3">';
+    echo '<form method="POST" class="form-reaccion">';
     echo '<input type="hidden" name="comentario_id" value="' . $com['id'] . '">';
     echo '<input type="hidden" name="tipo" value="dislike">';
-    echo '<button type="submit" name="reaccionar" class="btn btn-sm ' . $dislike_class . ' d-flex align-items-center">';
-    echo '<i class="fas fa-thumbs-down me-1"></i> <span class="count">' . $com['dislikes'] . '</span>';
+    echo '<button type="submit" name="reaccionar" class="' . $dislike_class . '">';
+    echo '<i class="fas fa-thumbs-down"></i> <span class="count">' . $com['dislikes'] . '</span>';
     echo '</button>';
     echo '</form>';
     
     // Botón para responder
-    echo '<button class="btn btn-sm btn-outline-primary me-2 btn-responder" data-comentario-id="' . $com['id'] . '">';
-    echo '<i class="fas fa-reply me-1"></i> Responder';
+    echo '<button class="btn-responder" data-comentario-id="' . $com['id'] . '">';
+    echo '<i class="fas fa-reply"></i> Responder';
     echo '</button>';
     echo '</div>';
     
     // Formulario para responder (oculto inicialmente)
-    echo '<div class="respuesta-form mt-3" id="respuesta-form-' . $com['id'] . '" style="display: none;">';
+    echo '<div class="respuesta-form" id="respuesta-form-' . $com['id'] . '" style="display: none;">';
     echo '<form method="POST">';
     echo '<input type="hidden" name="parent_id" value="' . $com['id'] . '">';
     echo '<div class="form-group">';
-    echo '<textarea name="texto" class="form-control" rows="2" placeholder="Escribe tu respuesta..." required></textarea>';
+    echo '<textarea name="texto" class="form-control-pixel" rows="2" placeholder="Escribe tu respuesta..." required></textarea>';
     echo '</div>';
-    echo '<div class="d-flex justify-content-end mt-2">';
-    echo '<button type="button" class="btn btn-sm btn-outline-secondary me-2 cancelar-respuesta" data-comentario-id="' . $com['id'] . '">Cancelar</button>';
-    echo '<button type="submit" name="crear_comentario" class="btn btn-sm btn-primary">Responder</button>';
+    echo '<div class="form-actions">';
+    echo '<button type="button" class="btn-cancelar cancelar-respuesta" data-comentario-id="' . $com['id'] . '">Cancelar</button>';
+    echo '<button type="submit" name="crear_comentario" class="btn-publicar">Responder</button>';
     echo '</div>';
     echo '</form>';
     echo '</div>';
-    echo '</div>';
-    echo '</div>';
+    echo '<div class="pixel-corner pixel-corner-bl"></div>';
+    echo '<div class="pixel-corner pixel-corner-br"></div>';
     echo '</div>';
     
     // Mostrar respuestas
@@ -175,158 +177,507 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
 }
 ?>
 
-<!-- Contenedor principal -->
-<div class="content-area">
-    <div class="card shadow-sm mb-4">
-        <div class="card-header bg-primary text-white">
-            <h3 class="card-title mb-0">
-                <i class="fas fa-comments me-2"></i>Comentarios
-            </h3>
+<!-- Contenedor principal con estilo 8-bit -->
+<div class="comentarios-module">
+    <!-- Header de la sección -->
+    <div class="section-header">
+        <div class="pixel-corner pixel-corner-tl"></div>
+        <div class="pixel-corner pixel-corner-tr"></div>
+        <h2 class="section-title blink">
+            <i class="fas fa-comments"></i> COMENTARIOS
+        </h2>
+        <p class="section-subtitle">Comparte tus ideas y opiniones sobre el proyecto</p>
+        <div class="pixel-corner pixel-corner-bl"></div>
+        <div class="pixel-corner pixel-corner-br"></div>
+    </div>
+
+    <!-- Formulario para nuevo comentario -->
+    <div class="nuevo-comentario-card card">
+        <div class="pixel-corner pixel-corner-tl"></div>
+        <div class="pixel-corner pixel-corner-tr"></div>
+        <div class="card-header">
+            <h3><i class="fas fa-edit"></i> NUEVO COMENTARIO</h3>
         </div>
         <div class="card-body">
-            <!-- Formulario para nuevo comentario -->
-            <form method="POST" class="mb-4" id="form-comentario-principal">
+            <form method="POST" id="form-comentario-principal">
                 <div class="form-group">
-                    <label for="texto" class="form-label text-muted small">Escribe tu comentario</label>
-                    <textarea name="texto" id="texto" class="form-control" rows="3" required 
-                              placeholder="Comparte tus ideas..."></textarea>
+                    <label for="texto" class="form-label">Escribe tu comentario:</label>
+                    <textarea name="texto" id="texto" class="form-control-pixel" rows="3" required 
+                              placeholder="Comparte tus ideas sobre el proyecto Stay Clean..."></textarea>
                 </div>
-                <button type="submit" name="crear_comentario" class="btn btn-primary mt-2">
-                    <i class="fas fa-paper-plane me-1"></i> Publicar
+                <button type="submit" name="crear_comentario" class="btn-publicar">
+                    <i class="fas fa-paper-plane"></i> PUBLICAR COMENTARIO
                 </button>
             </form>
-
-            <!-- Lista de comentarios -->
-            <div class="comentarios-list">
-                <?php if($comentarios_principales->num_rows > 0): ?>
-                    <?php while($com = $comentarios_principales->fetch_assoc()): ?>
-                        <?php mostrarComentario($com, $conexion); ?>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <div class="alert alert-info mb-0 text-center">
-                        <i class="fas fa-info-circle me-2"></i> No hay comentarios aún. ¡Sé el primero en comentar!
-                    </div>
-                <?php endif; ?>
-            </div>
         </div>
+        <div class="pixel-corner pixel-corner-bl"></div>
+        <div class="pixel-corner pixel-corner-br"></div>
+    </div>
+
+    <!-- Lista de comentarios -->
+    <div class="comentarios-lista">
+        <h3 class="subsection-title">
+            <i class="fas fa-comment-dots"></i> COMENTARIOS RECIENTES
+        </h3>
+        
+        <?php if($comentarios_principales->num_rows > 0): ?>
+            <div class="comentarios-container">
+                <?php while($com = $comentarios_principales->fetch_assoc()): ?>
+                    <?php mostrarComentario($com, $conexion); ?>
+                <?php endwhile; ?>
+            </div>
+        <?php else: ?>
+            <div class="no-comentarios card">
+                <div class="pixel-corner pixel-corner-tl"></div>
+                <div class="pixel-corner pixel-corner-tr"></div>
+                <div class="card-body text-center">
+                    <i class="fas fa-comment-slash no-comentarios-icon"></i>
+                    <h4>No hay comentarios aún</h4>
+                    <p>¡Sé el primero en compartir tus ideas sobre el proyecto!</p>
+                </div>
+                <div class="pixel-corner pixel-corner-bl"></div>
+                <div class="pixel-corner pixel-corner-br"></div>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 
-<!-- Modal de confirmación personalizado -->
+<!-- Modal de confirmación estilo 8-bit -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title">
-                    <i class="fas fa-exclamation-triangle me-2"></i>Confirmar eliminación
-                </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content modal-pixel">
+            <div class="pixel-corner pixel-corner-tl"></div>
+            <div class="pixel-corner pixel-corner-tr"></div>
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-exclamation-triangle"></i> CONFIRMAR ELIMINACIÓN
+                </h3>
             </div>
             <div class="modal-body">
                 <p>¿Estás seguro que deseas eliminar este comentario?</p>
-                <p class="small text-muted">Esta acción no se puede deshacer y también eliminará todas las respuestas asociadas.</p>
+                <p class="text-muted">Esta acción no se puede deshacer y también eliminará todas las respuestas asociadas.</p>
             </div>
-            <div class="modal-footer border-0">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    <i class="fas fa-times me-1"></i> Cancelar
+            <div class="modal-footer">
+                <button type="button" class="btn-cancelar" data-bs-dismiss="modal">
+                    <i class="fas fa-times"></i> CANCELAR
                 </button>
-                <a id="confirmDeleteBtn" href="#" class="btn btn-danger">
-                    <i class="fas fa-trash-alt me-1"></i> Eliminar
+                <a id="confirmDeleteBtn" href="#" class="btn-eliminar-confirm">
+                    <i class="fas fa-trash-alt"></i> ELIMINAR
                 </a>
             </div>
+            <div class="pixel-corner pixel-corner-bl"></div>
+            <div class="pixel-corner pixel-corner-br"></div>
         </div>
     </div>
 </div>
 
 <style>
-    .comentario-item {
-        background-color: white;
-        border-radius: 10px;
-        padding: 15px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
-        border-left: 3px solid #0d6efd;
+/* Estilos específicos para el módulo de comentarios */
+.comentarios-module {
+    padding: 0 10px;
+}
+
+.section-header {
+    background: var(--primary-blue);
+    color: var(--white);
+    border: var(--pixel-border);
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: var(--pixel-shadow);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 3px 3px 0 #000;
+    color: var(--accent-yellow);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-family: 'Silkscreen', cursive;
+}
+
+.subsection-title {
+    color: var(--primary-blue);
+    font-size: 1.3rem;
+    margin: 30px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid var(--accent-yellow);
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 0 #000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Formularios */
+.form-control-pixel {
+    width: 100%;
+    padding: 12px 15px;
+    border: var(--pixel-border);
+    background-color: var(--light-gray);
+    font-family: 'Silkscreen', cursive;
+    resize: vertical;
+    box-shadow: inset 2px 2px 0 #0000001a;
+}
+
+.form-control-pixel:focus {
+    outline: none;
+    background-color: var(--white);
+    box-shadow: inset 2px 2px 0 var(--primary-blue);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--primary-blue);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+}
+
+/* Botones */
+.btn-publicar {
+    background-color: var(--primary-blue);
+    color: white;
+    border: var(--pixel-border);
+    padding: 12px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: var(--pixel-shadow);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-publicar:hover {
+    background-color: var(--secondary-blue);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+    color: white;
+}
+
+.btn-cancelar {
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    border: var(--pixel-border);
+    padding: 10px 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: var(--pixel-shadow);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-cancelar:hover {
+    background-color: #e9ecef;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+
+/* Comentarios */
+.comentario-item {
+    background: var(--white);
+    border: var(--pixel-border);
+    box-shadow: var(--pixel-shadow);
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.comentario-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+
+.comentario-respuesta {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--secondary-blue);
+}
+
+.comentario-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.avatar-pixel {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: var(--pixel-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.comentario-info {
+    flex-grow: 1;
+}
+
+.comentario-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.comentario-autor {
+    font-weight: bold;
+    color: var(--primary-blue);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+}
+
+.comentario-fecha {
+    color: #6c757d;
+    font-size: 0.8rem;
+    font-family: 'Silkscreen', cursive;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.comentario-texto {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-family: 'Silkscreen', cursive;
+    padding: 10px;
+    background-color: var(--light-gray);
+    border: 2px solid #e9ecef;
+}
+
+.comentario-acciones-inferiores {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.form-reaccion {
+    display: inline;
+}
+
+/* Botones de reacción */
+.btn-like, .btn-dislike, .btn-responder {
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    border: var(--pixel-border);
+    padding: 8px 12px;
+    font-family: 'Silkscreen', cursive;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-like:hover, .btn-dislike:hover, .btn-responder:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 2px 2px 0 #000;
+}
+
+.btn-like-active {
+    background-color: var(--primary-blue);
+    color: white;
+    border: var(--pixel-border);
+    padding: 8px 12px;
+    font-family: 'Silkscreen', cursive;
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #000;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-dislike-active {
+    background-color: #dc3545;
+    color: white;
+    border: var(--pixel-border);
+    padding: 8px 12px;
+    font-family: 'Silkscreen', cursive;
+    font-size: 0.8rem;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #000;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-eliminar {
+    color: #dc3545;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.btn-eliminar:hover {
+    transform: scale(1.1);
+    color: #bd2130;
+}
+
+/* Formulario de respuesta */
+.respuesta-form {
+    background-color: #f1f3f4;
+    padding: 15px;
+    margin-top: 15px;
+    border: var(--pixel-border);
+    position: relative;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Sin comentarios */
+.no-comentarios {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.no-comentarios-icon {
+    font-size: 3rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.no-comentarios h4 {
+    color: var(--primary-blue);
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 10px;
+}
+
+.no-comentarios p {
+    font-family: 'Silkscreen', cursive;
+    color: #6c757d;
+}
+
+/* Modal personalizado */
+.modal-pixel {
+    border: var(--pixel-border);
+    box-shadow: var(--pixel-shadow);
+    position: relative;
+    background: white;
+}
+
+.modal-header {
+    background: var(--primary-blue);
+    color: white;
+    padding: 20px;
+    border-bottom: var(--pixel-border);
+}
+
+.modal-header .modal-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-body {
+    padding: 20px;
+    font-family: 'Silkscreen', cursive;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 2px dotted #dee2e6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-eliminar-confirm {
+    background-color: #dc3545;
+    color: white;
+    border: var(--pixel-border);
+    padding: 10px 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s;
+    box-shadow: var(--pixel-shadow);
+}
+
+.btn-eliminar-confirm:hover {
+    background-color: #bd2130;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .comentario-header {
+        flex-direction: column;
+        gap: 10px;
     }
     
-    .comentario-item:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        transform: translateY(-2px);
+    .comentario-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
     }
     
-    .avatar {
-        font-weight: 600;
-        background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+    .comentario-acciones-inferiores {
+        flex-wrap: wrap;
+        gap: 10px;
     }
     
-    .comentario-texto {
-        line-height: 1.6;
-        color: #333;
+    .modal-footer {
+        flex-direction: column;
     }
     
-    .btn-responder, .cancelar-respuesta {
-        border-radius: 20px;
-        transition: all 0.2s ease;
+    .btn-publicar, .btn-cancelar, .btn-eliminar-confirm {
+        width: 100%;
+        justify-content: center;
     }
-    
-    .btn-responder:hover, .cancelar-respuesta:hover {
-        transform: translateY(-1px);
-    }
-    
-    .count {
-        min-width: 20px;
-        text-align: center;
-        display: inline-block;
-    }
-    
-    .border-start {
-        border-left: 3px solid #0dcaf0 !important;
-    }
-    
-    .form-control:focus {
-        border-color: #0d6efd;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    }
-    
-    .btn-primary {
-        background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
-        border: none;
-        border-radius: 20px;
-    }
-    
-    .btn-primary:hover {
-        background: linear-gradient(135deg, #0a58ca 0%, #084298 100%);
-        transform: translateY(-1px);
-    }
-    
-    .modal-content {
-        border-radius: 12px;
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    }
-    
-    .respuesta-form {
-        background-color: #f8f9fa;
-        padding: 15px;
-        border-radius: 8px;
-        border-left: 3px solid #6c757d;
-    }
-    
-    @media (max-width: 576px) {
-        .comentario-item {
-            padding: 12px;
-        }
-        
-        .d-flex {
-            flex-direction: column;
-        }
-        
-        .flex-shrink-0 {
-            margin-bottom: 10px;
-        }
-        
-        .btn-responder, .cancelar-respuesta {
-            margin-top: 8px;
-        }
-    }
+}
+
+/* Efectos especiales */
+.comentario-item.glitch:hover {
+    animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
 </style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -343,7 +694,7 @@ $(document).ready(function() {
         $('#confirmDeleteBtn').attr('href', deleteUrl);
     });
     
-    // Manejar clic en botón "Responder" - Usar delegación de eventos
+    // Manejar clic en botón "Responder"
     $(document).on('click', '.btn-responder', function() {
         var comentarioId = $(this).data('comentario-id');
         
@@ -378,6 +729,14 @@ $(document).ready(function() {
     // Prevenir que el clic dentro del formulario cierre el mismo
     $('.respuesta-form').on('click', function(e) {
         e.stopPropagation();
+    });
+    
+    // Efecto de sonido para interacciones (opcional)
+    document.querySelectorAll('.btn-like, .btn-dislike, .btn-responder, .btn-publicar').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            // Podrías agregar un sonido de videojuego aquí
+            // new Audio('sounds/hover.wav').play();
+        });
     });
 });
 </script>
