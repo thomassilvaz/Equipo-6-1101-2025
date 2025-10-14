@@ -1,6 +1,6 @@
 ~ start
 do Estados.profesor_andres.play("quieto_abajo_hablando")
-Profesor Andrés: Bienvenido, {{Estados.nom}}. Este es tu nuevo grupo. Espero que encuentres un buen ambiente para aprender.
-Profesor Andrés: Estaré aquí leyendo mis notas por si me necesitas. Vayan formando grupos, y también delen una miradita a sus cuadernos mientras tanto.
+Profesor Andrés: Bienvenido, {{Estados.nom}}. Este es tu nuevo grupo. Espero que encuentres un buen ambiente para aprender.[#voz=Andres]
+Profesor Andrés: Estaré aquí leyendo mis notas por si me necesitas. Vayan formando grupos, y también delen una miradita a sus cuadernos mientras tanto.[#voz=Andres]
 do Estados.profesor_andres.play("quieto_abajo")
 => END

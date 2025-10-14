@@ -1,29 +1,30 @@
 ~ start
 Escuchas alguien susurrando detrás tuyo.
 do Estados.vendedor1.play("quieto_arriba_hablando")
-Ronald: *Aprender... claro. Como si eso importara aquí.*
+Ronald: *Aprender... claro. Como si eso importara aquí.*[#voz=Ronald]
 do Estados.vendedor1.play("quieto_arriba")
 Alguien te toca a tu izquierda.
 do Estados.mateo.play("quieto_arriba_hablando")
 do Estados.jugador.play("quieto_arriba_hablando")
-Mateo: {{Estados.nom}}, solo quería decir, que ten cuidado con los que te rodean. No todos quieren lo mejor para ti.
-Mateo: Si necesitas hablar, estoy por ahí. No todo es lo que parece.
+Mateo: {{Estados.nom}}, solo quería decir, que ten cuidado con los que te rodean. No todos quieren lo mejor para ti.[#voz=Mateo]
+Mateo: Si necesitas hablar, estoy por ahí. No todo es lo que parece.[#voz=Mateo]
 do Estados.mateo.play("quieto_arriba")
 do Estados.jugador.play("quieto_arriba")
 do wait(1)
-Julián: (ríe desde el fondo)
+Escuchas risas desde el fondo.
 Julián: ¡Vamos al baño después! Tengo algo que te hará olvidar el aburrimiento de este lugar.
-Ronald: Hey nuev{{Estados.genero}}, ¿vas a venir o qué?
+Ronald: Hey nuev{{Estados.genero}}, ¿vas a venir o qué?[#voz=Ronald]
 do Estados.jugador.play("quieto_arriba_hablando")
 - Hagale, de una
-	El profesor te mira fijo
+	El profesor te mira fijo.
 	do Estados.jugador.play("quieto_arriba")
-	Profesor Andrés: {{Estados.nom}}... todo acto tiene su consecuencia. Recuerda eso.
+	Profesor Andrés: {{Estados.nom}}... todo acto tiene su consecuencia. Recuerda eso.[#voz=Andres]
 	set Estados.decision_3 = "mala"
-- No puedo, tengo cosas que hacer
-	El profesor te mira fijo
+- No puedo, tengo cosas que hacer.
+	El profesor te mira fijo.
 	do Estados.jugador.play("quieto_arriba")
-	Profesor Andrés: Buena elección, {{Estados.nom}}. Todo acto tiene su consecuencia. Qué bien que sepas eso.
-	Profesor Andrés: No te dejes influenciar tan temprano. Acercate a mí cuando me necesites.
+	Profesor Andrés: Buena elección, {{Estados.nom}}. Todo acto tiene su consecuencia. Qué bien que sepas eso.[#voz=Andres]
+	Profesor Andrés: No te dejes influenciar tan temprano. Acercate a mí cuando me necesites.[#voz=Andres]
 	set Estados.decision_3 = "buena"
+set Estados.decision3_tomada = true
 => END

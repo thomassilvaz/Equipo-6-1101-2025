@@ -15,11 +15,49 @@ Alexa:
 => END
 
 ~ oferta2
-Vendedor: [[Hey tú|Que pasa|Hablálo]].
-Vendedor: Entonces, ¿si vas a meter?
-Vendedor: Tengo varias cositas, tú dime cuál quieres.
+do Estados.vendedor1.play("quieto_abajo_hablando")
+Ronald: [[Hey tú|Que pasa|Hablálo]].[#voz=Ronald]
+Ronald: Entonces, ¿si vas a meter?[#voz=Ronald]
+Ronald: Tengo varias cositas, tú dime cuál quieres.[#voz=Ronald]
+do Estados.vendedor1.play("quieto_abajo")
+
+do Estados.vendedor3.play("quieto_abajo_hablando")
+Julian: Aquí es donde se escapa de la realidad. Solo un rato, y todo lo demás se va.[#voz=Julian]
+do Estados.vendedor3.play("quieto_abajo")
+
+do Estados.vendedor1.play("mov_arriba")
+Ves a Ronald sacar una bolsa de su bolsillo.
+do Estados.vendedor1.play("quieto_abajo")
+
+do Estados.vendedor1.play("quieto_abajo_hablando")
+Ronald: Este te pondrá a volar, hermano. Como si nada más importara.[#voz=Ronald]
+do Estados.vendedor1.play("quieto_abajo")
+do wait(2)
+do Estados.vendedor2.play("quieto_abajo_hablando")
+Estudiante: ¿Qué le pasa al parcero? Nadie descubre nada si no dices nada. Aquí todos saben, pero nadie habla.[#voz=Andres]
+do Estados.vendedor2.play("quieto_abajo")
+do wait(3)
+do Estados.vendedor3.play("quieto_abajo_hablando")
+Julian: Vamos, Alex. No seas el aguafiestas. Te va a gustar.[#voz=Julian]
+do Estados.vendedor3.play("quieto_abajo")
+do wait(3)
+do Estados.jugador.play("probando1")
+do wait(3)
+do Estados.jugador.play("probando2")
+do wait(3)
+
+do Estados.vendedor1.play("quieto_abajo_hablando")
+Ronald: Te dije que nada no pasaría nada.[#voz=Ronald]
+do Estados.vendedor1.play("quieto_abajo")
+
+do Estados.vendedor2.play("quieto_abajo_hablando")
+Estudiante: Me agrada este chico.[#voz=Andres]
+do Estados.vendedor2.play("quieto_abajo")
+do wait(1)
+set Estados.escuela_oscura = true
+set Estados.sustancia1 = true
 => END
 
 ~ salon_principal
-Ronald: Alex... ¿qué cuentas?
-Ronald: Si es para lo de la actividad, Julián y yo no vamos a hacer nada, así que no te molestes por eso.
+Ronald: Alex... ¿qué cuentas?[#voz=Ronald]
+Ronald: Si es para lo de la actividad, Julián y yo no vamos a hacer nada, así que no te molestes por eso.[#voz=Ronald]

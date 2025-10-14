@@ -1,15 +1,19 @@
-[gd_scene load_steps=22 format=4 uid="uid://dyq34gva08yu8"]
+[gd_scene load_steps=44 format=4 uid="uid://dyq34gva08yu8"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_3f3yf"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_ekax0"]
 [ext_resource type="Texture2D" uid="uid://dshrqvrcys17u" path="res://Imagenes/Texturas/cancha.png" id="3_ao71d"]
 [ext_resource type="PackedScene" uid="uid://do257tduj2rj5" path="res://escenas/puerta.tscn" id="4_3x5o0"]
+[ext_resource type="Texture2D" uid="uid://cnxmpflivhljo" path="res://Imagenes/Texturas/objetos.png" id="4_ekax0"]
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="5_jkh4j"]
-[ext_resource type="Script" uid="uid://dbkr302kijm6x" path="res://scripts/personajes/vendedor.gd" id="6_g055b"]
+[ext_resource type="Script" uid="uid://e14s1bjm6hw1" path="res://scripts/personajes/vendedora.gd" id="7_ao71d"]
 [ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="7_ro0j5"]
 [ext_resource type="Resource" uid="uid://b52k5sh24wse3" path="res://Dialogos/personajes/karen.dialogue" id="8_3f3yf"]
 [ext_resource type="Texture2D" uid="uid://mk3pwgpfycum" path="res://Imagenes/Personajes/estudiante4.png" id="9_3f3yf"]
 [ext_resource type="Texture2D" uid="uid://ddlaciyynomvs" path="res://Imagenes/Texturas/baño.png" id="10_buv81"]
+[ext_resource type="PackedScene" uid="uid://cc22xuj5yn1j1" path="res://escenas/sistema_escenas.tscn" id="12_3x5o0"]
+[ext_resource type="Script" uid="uid://ddshj771xpj3r" path="res://scripts/objetos/puerta_bloqueada.gd" id="12_jkh4j"]
+[ext_resource type="Script" uid="uid://th7dwslpshdh" path="res://scripts/objetos/puerta_salon_vacio.gd" id="14_g055b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hdsm"]
 texture = ExtResource("2_ekax0")
@@ -50,7 +54,7 @@ texture_region_size = Vector2i(128, 128)
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 5:1/0 = 0
 7:2/0 = 0
-7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -22.0145, -32, -22.0145, 32, -32, 32)
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 8:1/0 = 0
 8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -22.0145, -32, -22.0145, 32, -32, 32)
 8:2/0 = 0
@@ -73,7 +77,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3hdsm")
 sources/1 = SubResource("TileSetAtlasSource_no1cm")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xp4h7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ekax0"]
 texture = ExtResource("2_ekax0")
 separation = Vector2i(8, 8)
 texture_region_size = Vector2i(128, 128)
@@ -113,16 +117,57 @@ texture_region_size = Vector2i(128, 128)
 9:2/0 = 0
 10:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ao71d"]
+texture = ExtResource("4_ekax0")
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(128, 128)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-58.1408, -51.3671, 64, -51.9316, 64, 64, -58.7053, 64)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -2, -64, -2, 64, -64, 64)
+
 [sub_resource type="TileSet" id="TileSet_lgqkh"]
 tile_size = Vector2i(128, 128)
-sources/0 = SubResource("TileSetAtlasSource_xp4h7")
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ekax0")
+sources/1 = SubResource("TileSetAtlasSource_ao71d")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d4dq3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3x5o0"]
+texture = ExtResource("4_ekax0")
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(128, 128)
+0:2/0 = 0
+0:2/0/y_sort_origin = 30
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-57.6722, 41.422, 64.3634, 41.1034, 64.0448, 64.0448, -57.9908, 64.0448)
+
+[sub_resource type="TileSet" id="TileSet_jkh4j"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3x5o0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vglih"]
 size = Vector2(50, 35.25)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_chxva"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(48, 114, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30x41"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(48, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jlnn"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(48, 228, 40, 106)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vav2"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(0, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtact"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(0, 114, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbfnw"]
 atlas = ExtResource("9_3f3yf")
 region = Rect2(0, 0, 40, 106)
 
@@ -130,8 +175,45 @@ region = Rect2(0, 0, 40, 106)
 atlas = ExtResource("9_3f3yf")
 region = Rect2(48, 0, 40, 106)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfbq7"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(0, 228, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51x64"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(96, 228, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3apmc"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(0, 228, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ao71d"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(96, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x5o0"]
+atlas = ExtResource("9_3f3yf")
+region = Rect2(96, 114, 40, 106)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3f3yf"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chxva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30x41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jlnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30x41")
+}],
+"loop": true,
+"name": &"mov_arriba",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1vav2")
@@ -142,14 +224,106 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jtact")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbfnw")
+}],
+"loop": true,
+"name": &"quieto_abajo_hablando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5wruy")
 }],
 "loop": true,
 "name": &"quieto_arriba",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfbq7")
+}],
+"loop": true,
+"name": &"quieto_derecha",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51x64")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3apmc")
+}],
+"loop": true,
+"name": &"quieto_derecha_hablando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ao71d")
+}],
+"loop": true,
+"name": &"vaper1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x5o0")
+}],
+"loop": true,
+"name": &"vaper2",
+"speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ao71d"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp4h7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ro0j5"]
+size = Vector2(69, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkh4j"]
+size = Vector2(115, 51)
+
+[sub_resource type="Animation" id="Animation_g055b"]
+resource_name = "baño_mujeres"
+length = 10.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SistemaEscenas1/ControladorEscenas")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("8_3f3yf"), "start"],
+"method": &"trigger_dialogue"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ysort/jugador:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, -273)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ro0j5"]
+_data = {
+&"baño_mujeres": SubResource("Animation_g055b")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g08ib"]
+size = Vector2(69, 15)
 
 [node name="bathroom2" type="Node2D"]
 script = ExtResource("1_3f3yf")
@@ -159,6 +333,8 @@ tile_map_data = PackedByteArray("AAD//wAAAAAJAAEAAAD/////AAAKAAEAAAD+////AAAKAAE
 tile_set = SubResource("TileSet_27yxa")
 
 [node name="Objetos" type="TileMapLayer" parent="Mapa"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD9//7/AQABAAIAAAD9//3/AQABAAIAAAA=")
 tile_set = SubResource("TileSet_lgqkh")
 
 [node name="Puertas" type="Node" parent="."]
@@ -176,20 +352,17 @@ position = Vector2(2.63641e-07, 45.0103)
 [node name="ysort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="jugador" parent="ysort" instance=ExtResource("5_jkh4j")]
+[node name="Baños" type="TileMapLayer" parent="ysort"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAEAPP/AAAAAAIAAAAEAOH/AAAAAAIAAAAEAOf/AAAAAAIAAAAEAO3/AAAAAAIAAAA=")
+tile_set = SubResource("TileSet_jkh4j")
+
+[node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("5_jkh4j")]
+position = Vector2(-128, -273)
 
 [node name="Vendedora" type="CharacterBody2D" parent="ysort"]
-position = Vector2(-130, -480)
-script = ExtResource("6_g055b")
-
-[node name="Interactuable" parent="ysort/Vendedora" instance=ExtResource("7_ro0j5")]
-dialogue_resource = ExtResource("8_3f3yf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedora/Interactuable"]
-position = Vector2(0, 28)
-scale = Vector2(3.87988, 3.9482)
-shape = SubResource("CircleShape2D_d4dq3")
-debug_color = Color(0.972028, 0, 0.443895, 0.42)
+position = Vector2(-130, -358)
+script = ExtResource("7_ao71d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedora"]
 position = Vector2(0, 37.625)
@@ -198,6 +371,15 @@ shape = SubResource("RectangleShape2D_vglih")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedora"]
 sprite_frames = SubResource("SpriteFrames_3f3yf")
 animation = &"quieto_abajo"
+
+[node name="Interactuable" parent="ysort/Vendedora" instance=ExtResource("7_ro0j5")]
+dialogue_resource = ExtResource("8_3f3yf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedora/Interactuable"]
+position = Vector2(0, 31)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_ao71d")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-127, -257)
@@ -227,4 +409,44 @@ position = Vector2(-6, 14)
 scale = Vector2(-0.875379, -1.4103)
 shape = SubResource("RectangleShape2D_xp4h7")
 
+[node name="PuertaBloqueada" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(-30.8317, 7.52997)
+shape = SubResource("RectangleShape2D_ro0j5")
+script = ExtResource("12_jkh4j")
+condicion_a_detectar = "sustancia1"
+
+[node name="SistemaEscenas1" parent="." instance=ExtResource("12_3x5o0")]
+
+[node name="ControladorEscenas" parent="SistemaEscenas1" index="0" node_paths=PackedStringArray("animation_player")]
+cutscene_id = "baño"
+animation_player = NodePath("../../AnimationPlayer")
+nombre_escena = "baño_mujeres"
+
+[node name="Area2D" parent="SistemaEscenas1" index="1"]
+position = Vector2(-201, -51)
+cutscene_controller_path = NodePath("../ControladorEscenas")
+escena_a_detectar = "sustancia1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas1/Area2D" index="0"]
+position = Vector2(71.5, -226.5)
+shape = SubResource("RectangleShape2D_jkh4j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ro0j5")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("14_g055b")
+colision_a_detectar = NodePath("../Colisiones/PuertaBloqueada")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-64, 3)
+scale = Vector2(1.05768, -1.44119)
+shape = SubResource("RectangleShape2D_g08ib")
+
+[connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+
 [editable path="Puertas/Puerta_salida"]
+[editable path="SistemaEscenas1"]

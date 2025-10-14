@@ -1,0 +1,35 @@
+~ start
+do Estados.mateo.play("quieto_abajo_hablando")
+if Estados.decision_3 == "buena":
+	Mateo: {{Estados.nom}}, vamos entonces a un salón para hacer la actividad.[#voz=Mateo]
+	Mateo: El profe nos dió las llaves para recoger los materiales en el salón de abajo.[#voz=Mateo]
+	do Estados.mateo.play("quieto_abajo")
+elif Estados.decision_3 == "mala":
+	Mateo: Ok {{Estados.nom}}, entonces vamos a hacer el trabaj-[next=auto][#voz=Mateo]
+	do Estados.mateo.play("quieto_abajo")
+	
+	do Estados.vendedor1.play("quieto_derecha_hablando")
+	Ronald: Bueno {{Estados.nom}}, vamos pues.[#voz=Ronald]
+	do Estados.vendedor1.play("quieto_derecha")
+	
+	do Estados.mateo.play("quieto_abajo_hablando")
+	Mateo: Alex, pero la activid-[next=auto][#voz=Mateo]
+	do Estados.mateo.play("quieto_abajo")
+	
+	do Estados.vendedor1.play("quieto_derecha_hablando")
+	Ronald: Niño, estamos ocupados con algo.[#voz=Ronald]
+	do Estados.vendedor1.play("quieto_derecha")
+	
+	do Estados.mateo.play("quieto_izquierda_hablando")
+	Mateo: .¿Qué?[next=auto][#voz=Mateo]
+	do Estados.mateo.play("quieto_abajo")
+	if Estados.nom == "Alex":
+		do Estados.vendedor1.play("quieto_derecha_hablando")
+		Ronald: Vamos a parcharnos en el baño con Julián y otros.[#voz=Ronald]
+		do Estados.vendedor1.play("quieto_derecha")
+	elif Estados.nom == "Alexa":
+		do Estados.vendedora.play("quieto_derecha_hablando")
+		Karen: Vamos un rato al baño las dos juntas y charlamos, ¿te parece?[#voz=Karen]
+		Karen: Ven conmigo.[#voz=Karen]
+		do Estados.vendedora.play("quieto_derecha")
+=> END

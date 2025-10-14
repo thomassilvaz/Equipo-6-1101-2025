@@ -1,12 +1,16 @@
 extends Node
 
-var genero: String = "a"
-var nom: String = "Alexa"
+
+var escuela_oscura: bool = false
+var genero: String = "o"
+var nom: String = "Alex"
 
 #escenas_vistas
 var primera_clase: bool = false
 var introduccion: bool = false
 var segunda_decision: bool = false
+var escena_extra1: bool = false
+var salon_vacio: bool = false
 
 #decisiones
 var decision_1: String
@@ -17,17 +21,21 @@ var decision_5: String
 
 #eventos
 var vendedor_bath1 := false
-var caminarconmateo1 := false
+#var caminarconmateo1 := false
 var decision2_tomada := false
+var decision3_tomada := false
 var escogio_pareja := false
 var pc_interactuo_profe := false
 var empezar_primera_clase := false
 var primera_clase_hecha := false
+var charla_con_valeria := false
+var sustancia_baño := false
 
 #sprites
 var profesor_andres: AnimatedSprite2D
 var jugador: AnimatedSprite2D
 var vendedor1: AnimatedSprite2D
+var vendedor2: AnimatedSprite2D
 var vendedor3: AnimatedSprite2D
 var vendedora: AnimatedSprite2D
 var mateo: AnimatedSprite2D
@@ -47,6 +55,7 @@ func _find_sprites():
 		valeria = _get_sprite(escena, "Valeria")
 		vendedor3 = _get_sprite(escena, "Vendedor3")
 		vendedora = _get_sprite(escena, "Vendedora")
+		vendedor2 = _get_sprite(escena, "Vendedor2")
 
 func _get_sprite(escena, nombre):
 	var nodo_personaje = escena.find_child(nombre, true, false)

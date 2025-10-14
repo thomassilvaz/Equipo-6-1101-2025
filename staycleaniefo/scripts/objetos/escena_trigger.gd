@@ -11,6 +11,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Jugador:
 		if !escena_hecha:
+			print("Escena no esta hecha")
 			var cutscene_controller = get_node(cutscene_controller_path)
 			if cutscene_controller and cutscene_controller.has_method("start_cutscene"):
 				cutscene_controller.start_cutscene()
@@ -20,6 +21,8 @@ func _on_body_entered(body: Node2D) -> void:
 				escena_hecha = true
 			else:
 				push_error("Cutscene controller not found or missing start_cutscene method")
+		else:
+			print("La escena esta hecha")
 
 #si cada que se abre la escene la animacion se reproduce, aleja al JUGADOR de los TRIGGERS
 #si la animación no corre, añadir Node signal "on_body_entered" al Area2D

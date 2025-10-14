@@ -1,5 +1,7 @@
 ~ start
-Profesor Andrés: Ok muchachos, ¿ya todos tienen pareja?
-Profesor Andrés: Vayan apagando los celulares, que vamos ya a empezar la clase.
-Profesor Andrés: Vamos a empezar con lo básico...
+Profesor Andrés: Ok muchachos, ¿ya todos tienen pareja?[#voz=Andres]
+Profesor Andrés: Vayan apagando los celulares, que vamos ya a empezar la clase.[#voz=Andres]
+Profesor Andrés: Vamos a empezar con lo básico...[#voz=Andres]
+do Estados.profesor_andres.play("quieto_abajo")
+do wait(0.5)
 => END

@@ -1,3 +1,12 @@
 ~ piso2
-Julián: Este no es tu baño. No vas a entrar.
+do Estados.vendedor3.play("quieto_abajo_hablando")
+if Estados.decision_2 == "mala":
+	if Estados.nom == "Alex":
+		Julián: Aún no te vamos a dejar entrar...
+		Julián: De pronto después de clase
+	else:
+		Julián: Este no es tu baño. No vas a entrar.
+else:
+	Julián: No hay nada de que hablar.
+do Estados.vendedor3.play("quieto_abajo")
 => END

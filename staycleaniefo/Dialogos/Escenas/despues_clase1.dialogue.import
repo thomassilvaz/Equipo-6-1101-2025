@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://4en0ctwq1xk8"
+path="res://.godot/imported/despues_clase1.dialogue-1e495240059789df1c18a6d305f88eec.tres"
+
+[deps]
+
+source_file="res://Dialogos/Escenas/despues_clase1.dialogue"
+dest_files=["res://.godot/imported/despues_clase1.dialogue-1e495240059789df1c18a6d305f88eec.tres"]
+
+[params]
+
+defaults=true

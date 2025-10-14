@@ -1,5 +1,32 @@
 ~ salon_principal
-Valeria: Hola, {{Estados.nom}}.
-Valeria: ¿Que si te vas a hacer conmigo para la actividad?
-Valeria: Perdón... no puedo, ya me hice con Karen, pero de pronto otro día.
+Valeria: Hola, {{Estados.nom}}.[#voz=Valeria]
+Valeria: ¿Que si te vas a hacer conmigo para la actividad?[#voz=Valeria]
+Valeria: Perdón... no puedo, ya me hice con Karen, pero de pronto otro día.[#voz=Valeria]
+=> END
+
+~ salon_vacio
+do Estados.mateo.play("quieto_izquierda_hablando")
+Mateo: Oh.. hola Valeria.[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda")
+
+do Estados.valeria.play("quieto_abajo_hablando")
+Valeria: Hola.. Vine aquí porque el profe me dejó hacerme con ustédes, y que ustédes estaban acá.[#voz=Valeria]
+do Estados.valeria.play("quieto_abajo")
+
+do Estados.mateo.play("quieto_izquierda_hablando")
+Mateo: Ehm, esta bien. Estamos buscando materiales.[#voz=Mateo]
+Mateo: Puedes ayudar a {{Estados.nom}} a recoger marcadores.[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda")
+
+Valeria: Bueno.[#voz=Valeria]
+do Estados.mateo.play("quieto_arriba")
+=> END
+
+~ salon_vacio2
+do Estados.valeria.play("quieto_arriba")
+Valeria te susurra algo.
+do Estados.mateo.play("confundido")
+Valeria: {{Estados.nom}}, ya se que dije que no podía hacerme contigo.[#voz=Valeria]
+Valeria: Pero ya no me cae bien Karen. La verdad es que me ha hecho mal.[#voz=Valeria]
+Valeria: Y por pena no quería decirle nada, pero ya me está afectando.[#voz=Valeria]
 => END

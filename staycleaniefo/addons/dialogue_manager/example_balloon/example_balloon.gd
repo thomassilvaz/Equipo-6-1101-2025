@@ -27,6 +27,11 @@ var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
 
+var VOCES = {
+	"Ronald": "res://Audio/FX/Dialogo/txt_ron.wav",
+	"Valeria": "res://Audio/FX/Dialogo/txt_val.wav",
+}
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
@@ -191,3 +196,28 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
+
+func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+	if not letter in [".", " "]:
+		if dialogue_line.has_tag("voz"):
+			var voz_tag = dialogue_line.get_tag_value("voz")
+			match voz_tag:
+				"Andres":
+					audio_stream_player.stream = load("res://Audio/FX/Dialogo/txt_and.wav")
+				"Ronald":
+					audio_stream_player.stream = load("res://Audio/FX/Dialogo/txt_ron.wav")
+				"Valeria":
+					audio_stream_player.stream = load("res://Audio/FX/Dialogo/txt_val.wav")
+				"Julian":
+					audio_stream_player.stream = load("res://Audio/FX/Dialogo/txt_jul.wav")
+				"Karen":
+					audio_stream_player.stream = load("res://Audio/FX/Dialogo/txt_kar.wav")
+				"Mateo":
+					audio_stream_player.stream = load("res://Audio/FX/Dialogo/txt_mat.wav")
+				_:
+					audio_stream_player.stream = load("res://Audio/FX/Dialogo/texto.wav")
+			audio_stream_player.play()
+		else:
+			audio_stream_player.stream = load("res://Audio/FX/Dialogo/texto.wav")
+			audio_stream_player.play()

@@ -3,6 +3,8 @@ extends CharacterBody2D
 class_name Jugador
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactivo: Area2D = $Direccion/Interactivo
+@export var sprite_hombre: SpriteFrames
+@export var sprite_mujer: SpriteFrames
 @export var puede_mover: bool = true
 
 var velocidad = 800
@@ -65,8 +67,22 @@ func update_anim(direction: Vector2):
 				anim.play("mov_arriba")
 
 func _ready():
+	genero_avatar()
 	NavegacionManager.on_trigger_player_spawn.connect(_on_spawn)
-	
+	match get_tree().current_scene.name:
+		"piso2":
+			if Estados.decision3_tomada == true:
+				_on_spawn(Vector2(2882, 90), "arriba")
+		"bathroom1":
+			NavegacionManager.trigger_player_spawn(Vector2(-63,-34), "arriba")
+
+func genero_avatar():
+	match Estados.nom:
+		"Alex":
+			animated_sprite.sprite_frames = sprite_hombre
+		"Alexa":
+			animated_sprite.sprite_frames = sprite_mujer
+
 func activar_movimiento(activado: bool):
 	puede_mover = activado
 	if activado == false:

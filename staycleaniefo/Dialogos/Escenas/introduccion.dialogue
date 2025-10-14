@@ -1,14 +1,20 @@
 ~ start
-Estudiante 1: Oye tú, eres nuev{{Estados.genero}} por acá, ¿no?
-Ronald: Me llamo Ronald, y ella es Karen. Si no la quieres pasar mal en este colegio... unetenos.
-Ronald: Aquí los juiciosos se quedan solos. Te parchas con nuestro grupo.
-Ronald: Te nos vas a unir, ¿si o qué?
+do Estados.vendedor1.play("quieto_abajo_hablando")
+Estudiante 1: Oye tú, eres nuev{{Estados.genero}} por acá, ¿no? [#voz=Ronald]
+Ronald: Me llamo Ronald, y ella es Karen. Si no la quieres pasar mal en este colegio... unetenos. [#voz=Ronald]
+Ronald: Aquí los juiciosos se quedan solos. Ven y te parchas con nuestro grupo. [#voz=Ronald]
+Ronald: Te nos vas a unir, ¿si o qué? [#voz=Ronald]
+do Estados.vendedor1.play("quieto_abajo")
 - Ehh, bueno...
-	Ronald: Eso es todo, bienvenid{{Estados.genero}} al Ozanam.
-	Ronald: Antes de entrar al salón hablamos...
+	do Estados.vendedor1.play("quieto_abajo_hablando")
+	Ronald: Eso es todo, bienvenid{{Estados.genero}} al Ozanam. [#voz=Ronald]
+	Ronald: Antes de entrar al salón hablamos... [#voz=Ronald]
+	do Estados.vendedor1.play("quieto_abajo")
 	set Estados.decision_1 = "mala"
 - No puedo ahora
-	Ronald: Listo, como quieras.
-	Ronald: Te estás perdiendo.
+	do Estados.vendedor1.play("quieto_abajo_hablando")
+	Ronald: Listo, como quieras. [#voz=Ronald]
+	Ronald: Te estás perdiendo. [#voz=Ronald]
+	do Estados.vendedor1.play("quieto_abajo")
 	set Estados.decision_1 = "buena"
 => END

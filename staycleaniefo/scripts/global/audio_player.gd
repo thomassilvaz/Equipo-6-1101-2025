@@ -4,6 +4,12 @@ var current_music_path: String = ""
 @onready var player := $MusicPlayer
 @onready var fx_player := $FxPlayer
 
+func _process(_delta: float) -> void:
+	if Estados.escuela_oscura:
+		player.pitch_scale = 0.9
+	else:
+		player.pitch_scale = 1.0
+
 func play_music(path: String):
 	if path == current_music_path:
 		

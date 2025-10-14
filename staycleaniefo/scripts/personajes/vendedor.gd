@@ -14,7 +14,12 @@ func _ready():
 				global_position = Vector2(28, -719)
 			else:
 				global_position = Vector2(770, -55)
-				#interactuable.dialogue_start = "oferta1"
+				#$Interactuable.dialogue_start = "oferta1"
+		"piso2":
+			if Estados.decision3_tomada:
+				global_position = Vector2(2323, -30)
+			else:
+				global_position = Vector2(1991, 183)
 	
 	#visibilidad_npc(mostrar)
 

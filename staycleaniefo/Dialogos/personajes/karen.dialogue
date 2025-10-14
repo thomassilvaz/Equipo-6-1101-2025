@@ -1,11 +1,39 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+do Estados.vendedora.play("quieto_abajo_hablando")
+Karen: Alexa, ya se que no nos hemos conocido aun todavía.[#voz=Karen]
+Karen: Pero tienes que relajarte de hacer tantas tareas, ¿no crees?[#voz=Karen]
+Karen: Y tengo algo justo para relajarse aquí.[#voz=Karen]
+do Estados.vendedora.play("mov_arriba")
+Ves a Karen sacar algo de su bolsillo.
+do wait(1)
+do Estados.vendedora.play("quieto_abajo_hablando")
+Karen: ¡Prueba esto! No te arrepentiras.[#voz=Karen]
+do Estados.vendedora.play("quieto_abajo")
+do wait(3)
+do Estados.vendedora.play("quieto_abajo_hablando")
+Karen: Hazle Alexa, ¡Nadie nos va a ver![#voz=Karen]
+Karen: Ni que te fuera a hacer daño.[#voz=Karen]
+do Estados.vendedora.play("quieto_abajo")
+do wait(3)
+do Estados.jugador.play("probando1")
+do wait(3)
+do Estados.jugador.play("probando2")
+do wait(3)
+do Estados.vendedora.play("quieto_abajo_hablando")
+Karen: Te dije que nada no pasaría nada.[#voz=Karen]
+do Estados.vendedora.play("quieto_abajo")
+do wait(1)
+do Estados.vendedora.play("vaper1")
+do wait(1)
+do Estados.vendedora.play("vaper2")
+do wait(1)
+do Estados.vendedora.play("vaper1")
+do wait(0.5)
+do Estados.vendedora.play("quieto_abajo")
+set Estados.sustancia1 = true
+set Estados.escuela_oscura = true
+=> END
+
+~ salon_principal
+Karen: Hola {{Estados.nom}}. Si es para ser equipo pues no, ya me hice con Valeria.
 => END

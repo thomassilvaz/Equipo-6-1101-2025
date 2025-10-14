@@ -42,3 +42,6 @@ func trigger_dialogue(dialogue_resource: DialogueResource, dialogue_start: Strin
 	await DialogueManager.dialogue_ended
 	
 	animation_player.play()
+	
+func sonido_puerta():
+	AudioPlayer.play_fx("res://Audio/FX/sonido_transicion.wav")

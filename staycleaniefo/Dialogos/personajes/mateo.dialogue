@@ -1,47 +1,109 @@
 ~ decision1
-???: Oh, hola. ¡Tú debes ser nuev{{Estados.genero}}!
-Mateo: Me llamo Mateo. Nosotros vamos a estar en la misma clase.
-Mateo: ¿Hmm? ¿Estabas hablando con unas personas?
-Mateo: Esos son los vagos del salón, ellos solo quieren aprovecharse del primero que ven.
+do Estados.mateo.play("quieto_izquierda_hablando")
+???: Oh, hola. ¡Tú debes ser nuev{{Estados.genero}}![#voz=Mateo]
+Mateo: Me llamo Mateo. Nosotros vamos a estar en la misma clase.[#voz=Mateo]
+Mateo: ¿Hmm? ¿Estabas hablando con unas personas?[#voz=Mateo]
+Mateo: Esos son los vagos del salón, ellos solo quieren aprovecharse del primero que ven.[#voz=Mateo]
 match Estados.decision_1:
 	when "buena":
-		Mateo: ¡Bien hecho al no escucharlos!
-		Mateo: No tienes que demostrarle nada a nadie.
-		Mateo: Es más, ellos no querían pasarla bien con vos. Solo te querían corromper.
-		Mateo: Si algo yo estoy con vos.
-		Mateo: Vamos ya al salón, yo te acompaño.
+		Mateo: ¡Bien hecho al no escucharlos![#voz=Mateo]
+		Mateo: No tienes que demostrarle nada a nadie.[#voz=Mateo]
+		Mateo: Es más, ellos no querían pasarla bien con vos. Solo te querían corromper.[#voz=Mateo]
+		Mateo: Si algo yo estoy con vos.[#voz=Mateo]
+		Mateo: Vamos ya al salón, yo te acompaño.[#voz=Mateo]
 	when "mala":
-		Mateo: Pero oye.
-		Mateo: No tienes que demostrarle nada a nadie.
-		Mateo: Ellos te van a ser una mala influencia. Puedes elegir bien desde el primer día.
-		Mateo: Si te juntas con ellos, no va a ser lo que tu esperes.
-		Mateo: Mejor vayamos a clase, ¿si? Yo te espero.
+		Mateo: Pero oye.[#voz=Mateo]
+		Mateo: No tienes que demostrarle nada a nadie.[#voz=Mateo]
+		Mateo: Ellos te van a ser una mala influencia. Puedes elegir bien desde el primer día.[#voz=Mateo]
+		Mateo: Si te juntas con ellos, no va a ser lo que tu esperes.[#voz=Mateo]
+		Mateo: Mejor vayamos a clase, ¿si? Yo te espero.[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda")
 => END
 
 ~ decision2
+do Estados.mateo.play("quieto_abajo_hablando")
 match Estados.decision_2:
 	when "buena":
-		Mateo: ¡Bien hecho {{Estados.nom}}! No necesitas encajar con ellos.
-		Mateo: Ya se que ellos pueden ser muy insistentes con ese tema. Solo sigue sin aceptar cosas.
-		Mateo: Pero esa fue una buena decisión. Te lo aseguro.
+		Mateo: ¡Bien hecho {{Estados.nom}}! No necesitas encajar con ellos.[#voz=Mateo]
+		Mateo: Ya se que ellos pueden ser muy insistentes con ese tema. Solo sigue sin aceptar cosas.[#voz=Mateo]
+		Mateo: Pero esa fue una buena decisión. Te lo aseguro.[#voz=Mateo]
 	when "mala":
-		Mateo: ...{{Estados.nom}} [wait=1] ¿Si te vas a juntar con ellos?
-		Mateo: Osea, no tienes que hacerlo, por si te sentiste presionad{{Estados.genero}}.
-		Mateo: Puedes decirle a un profe o algo si ellos te molestan.
-		Mateo: N-No tienes que hacerles caso.
-Mateo: Bueno, puedes ir yendo a clase, ya te alcanzo.
+		Mateo: ..{{Estados.nom}}.. [wait=1] ¿Si te vas a juntar con ellos?[#voz=Mateo]
+		Mateo: Osea, no tienes que hacerlo, por si te sentiste presionad{{Estados.genero}}.[#voz=Mateo]
+		Mateo: Puedes decirle a un profe o algo si ellos te molestan.[#voz=Mateo]
+		Mateo: N-No tienes que hacerles caso.[#voz=Mateo]
+Mateo: Bueno, puedes ir yendo a clase, ya te alcanzo.[#voz=Mateo]
+do Estados.mateo.play("quieto_abajo")
 => END
 
 ~ salon_principal
 if Estados.escogio_pareja == false:
-	Mateo: Oh, ¿que más {{Estados.nom}}?
-	Mateo: ¿Te quieres hacer conmigo en el trabajo?
+	Mateo: Oh, ¿que más {{Estados.nom}}?[#voz=Mateo]
+	Mateo: ¿Te quieres hacer conmigo en el trabajo?[#voz=Mateo]
 	- Sí.
-		Mateo: ¡Listo! Entonces esperemos al profe, o creo que ya puedes ir a avisarle.
+		Mateo: ¡Listo! Entonces esperemos al profe.[#voz=Mateo]
+		do Estados.mateo.play("confundido")
+		Mateo: O creo que ya puedes ir a avisarle.[#voz=Mateo]
+		do Estados.mateo.play("quieto_arriba")
 		set Estados.escogio_pareja = true
 		set Estados.pc_interactuo_profe = false
 	- Voy a mirar un poco más.
-		Mateo: Esta bien, ahorita me cuentas.
+		Mateo: Esta bien, ahorita me cuentas.[#voz=Mateo]
 else:
-	Mateo: Anda {{Estados.nom}}, no te intimides del profe.
+	Mateo: Anda {{Estados.nom}}, no te intimides del profe.[#voz=Mateo]
 => END
+
+~ salon_vacio
+do Estados.mateo.play("pensando")
+Mateo: Ok. Si no estoy mal, las reglas y papeles están en las vitrinas.[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda_hablando")
+Mateo: Entonces yo iré recogiendo esas..[#voz=Mateo]
+Mateo: {{Estados.nom}}, revisa en los cajones del escritorio para ver si encuentras una cartuchera negra.[#voz=Mateo]
+do Estados.mateo.play("quieto_abajo")
+=> END
+
+~ salon_vacio2
+do Estados.mateo.play("confundido")
+Revisas por los cajones buscando algun material útil.
+Crees sentir lo que parece ser una cartuchera.
+do Estados.mateo.play("quieto_izquierda_hablando")
+Mateo: {{Estados.nom}}, ¿ya encontraste lo tuyo?[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda")
+=> END
+
+~ salon_vacio3
+do Estados.mateo.play("quieto_izquierda_hablando")
+Mateo: Listo ya tengo varios materiales, ¿de qué están hablando?[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda")
+
+Valeria: De los vagos del salón, que he estado intentando por romper lazos con ellos.
+Valeria: Después de tantas veces que me dejé llevar con esas sustancias ..[#voz=Valeria]
+
+do Estados.mateo.play("quieto_izquierda_hablando")
+Mateo: ¡Eso esta bien! Ellos pueden tratarse muy mal entre ellos.[#voz=Mateo]
+Mateo: Pero no tienes que forzarte a hacer lo que ellos digan para que les caigas bien.[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda")
+
+Valeria: Si, ya me estoy dando cuenta. He ido a la psicologa para evitar la adicción.[#voz=Valeria]
+Valeria: Y.. la verdad es que me estoy sintiendo mejor.[#voz=Valeria]
+=> END
+
+~ salon_vacio4
+do Estados.mateo.play("quieto_izquierda_hablando")
+Mateo: {{Estados.nom}}, me alegra que hayas decidido quedarte. No todos se atreven a decir que no.[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda")
+
+Valeria: Este lugar no es perfecto, pero algunos aún creemos que se puede cambiar.[#voz=Valeria]
+
+do Estados.mateo.play("quieto_izquierda_hablando")
+Mateo: Empezar por no ceder ya es suficiente. Vamos, el salón está vacío, podemos charlar tranquilos.[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda")
+
+Valeria: Aquí es donde a veces me refugio. Pensar, escribir, escapar un rato del ruido.[#voz=Valeria]
+Piensas que tal vez sí hay algo más.
+Tal vez aún hay caminos limpios.
+
+do Estados.mateo.play("quieto_izquierda_hablando")
+Mateo: Bueno, vamos saliendo ya entonces.[#voz=Mateo]
+do Estados.mateo.play("quieto_izquierda")
+set Estados.charla_con_valeria = true

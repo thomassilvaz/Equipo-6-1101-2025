@@ -2,21 +2,23 @@
 if Estados.primera_clase:
 	if !Estados.pc_interactuo_profe:
 		do Estados.profesor_andres.play("quieto_abajo_hablando")
-		Profesor Andrés: Hola estudiante, ¿ya encontraste tu grupo?
+		Profesor Andrés: Hola estudiante, ¿ya encontraste tu grupo?[#voz=Andres]
 		if Estados.escogio_pareja == true:
 			do Estados.profesor_andres.play("quieto_abajo")
 			- Si, ya tengo.
 			do Estados.profesor_andres.play("quieto_abajo_hablando")
-			Profesor Andrés: Ok, dame un momento y ya empezamos la clase.
+			Profesor Andrés: Ok, dame un momento y ya empezamos la clase.[#voz=Andres]
 			set Estados.empezar_primera_clase = true
 		else:
-			Profesor Andrés: Puedes hacerte con Mateo, y esta niña Valeria.
-			Profesor Andrés: Ellos suelen ser los menos cansones del salón. Igual tu escoge con quien quieras.
+			Profesor Andrés: Puedes hacerte con Mateo, y esta niña Valeria.[#voz=Andres]
+			Profesor Andrés: Ellos suelen ser los menos cansones del salón. Igual tu escoge con quien quieras.[#voz=Andres]
 	
 		set Estados.pc_interactuo_profe = true
 		do Estados.profesor_andres.play("quieto_arriba")
 	else:
-		Profesor Andrés: Puedes ir repasando los últimos conceptos que vimos.
+		Profesor Andrés: Puedes ir repasando los últimos conceptos que vimos.[#voz=Andres]
 else:
-	Test
+	Profesor Andrés: Hola {{Estados.nom}}. Recuerda entregar el trabajo durante esta semana con Mateo.[#voz=Andres]
+	Profesor Andrés: Les estoy dando un plazo generoso[#voz=Andres]
+	Profesor Andrés: Enseguida bajare a la cafeteria, para que sepas que no estaré acá.[#voz=Andres]
 => END
