@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://by5ahruud74e1"]
+[gd_scene load_steps=67 format=4 uid="uid://by5ahruud74e1"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_aqnlp"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_gnpiq"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://bpuchjpnrosjc" path="res://Imagenes/Personajes/estudiante3.png" id="13_axx3o"]
 [ext_resource type="Script" uid="uid://ddshj771xpj3r" path="res://scripts/objetos/puerta_bloqueada.gd" id="15_axx3o"]
 [ext_resource type="PackedScene" uid="uid://cc22xuj5yn1j1" path="res://escenas/sistema_escenas.tscn" id="15_rij5l"]
-[ext_resource type="Script" uid="uid://th7dwslpshdh" path="res://scripts/objetos/puerta_salon_vacio.gd" id="17_rij5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hdsm"]
 texture = ExtResource("2_gnpiq")
@@ -595,9 +594,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kve8n"]
 size = Vector2(115, 51)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7yft"]
-size = Vector2(69, 15)
-
 [node name="bathroom1" type="Node2D"]
 script = ExtResource("1_aqnlp")
 
@@ -634,6 +630,20 @@ position = Vector2(-0.0334473, -0.0296718)
 
 [node name="Spawn" parent="Puertas/Puerta_salonp" index="1"]
 position = Vector2(-85.6187, 53.0737)
+
+[node name="Puerta_introduccion" parent="Puertas" instance=ExtResource("4_hmu5h")]
+position = Vector2(218, -191)
+scale = Vector2(2.57005, -12.0251)
+destino_nivel_tag = "salon_principal"
+destino_puerta_tag = "introduccion"
+spawn_direccion = "arriba"
+
+[node name="CollisionShape2D" parent="Puertas/Puerta_introduccion" index="0"]
+position = Vector2(0.389118, 2.99374)
+scale = Vector2(2.47118, 0.298667)
+
+[node name="Spawn" parent="Puertas/Puerta_introduccion" index="1"]
+position = Vector2(-109.336, -13.3055)
 
 [node name="ysort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -674,7 +684,7 @@ script = ExtResource("12_75jbr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedor2"]
 sprite_frames = SubResource("SpriteFrames_v7yft")
-animation = &"vaper1"
+animation = &"mov_arriba"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor2"]
 position = Vector2(0, 39.5)
@@ -747,19 +757,10 @@ escena_a_detectar = "sustancia1"
 position = Vector2(72, -348)
 shape = SubResource("RectangleShape2D_kve8n")
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("17_rij5l")
-colision_a_detectar = NodePath("../Colisiones/PuertaBloqueada")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-64, 3)
-scale = Vector2(1.05768, -1.44119)
-shape = SubResource("RectangleShape2D_v7yft")
-
 [connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 
 [editable path="Puertas/Puerta_salida"]
 [editable path="Puertas/Puerta_salonp"]
+[editable path="Puertas/Puerta_introduccion"]
 [editable path="ysort/jugador"]
 [editable path="SistemaEscenas1"]

@@ -3,9 +3,14 @@ extends CharacterBody2D
 class_name Jugador
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactivo: Area2D = $Direccion/Interactivo
+
 @export var sprite_hombre: SpriteFrames
 @export var sprite_mujer: SpriteFrames
+
 @export var puede_mover: bool = true
+
+@export var hombre_enfermo: SpriteFrames
+@export var mujer_enferma: SpriteFrames
 
 var velocidad = 800
 var direccion_actual = "abajo"
@@ -79,9 +84,15 @@ func _ready():
 func genero_avatar():
 	match Estados.nom:
 		"Alex":
-			animated_sprite.sprite_frames = sprite_hombre
+			if Estados.escuela_oscura:
+				animated_sprite.sprite_frames = hombre_enfermo
+			else:
+				animated_sprite.sprite_frames = sprite_hombre
 		"Alexa":
-			animated_sprite.sprite_frames = sprite_mujer
+			if Estados.escuela_oscura:
+				animated_sprite.sprite_frames = mujer_enferma
+			else:
+				animated_sprite.sprite_frames = sprite_mujer
 
 func activar_movimiento(activado: bool):
 	puede_mover = activado
