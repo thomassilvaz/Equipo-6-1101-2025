@@ -4,11 +4,12 @@ do Estados.vendedor3.play("quieto_abajo_hablando")
 Julian: ¡Hey tú! [#voz=Julian]
 match Estados.decision_1:
 	when "buena":
-		Julian: Esta tarde tendrémos algo interesante en la cancha...[#voz=Julian]
+		Julian: Esta tarde tendrémos algo [color=red]interesante[/color] en la cancha...[#voz=Julian]
 		Julian: Puedes venir si no eres gallina.[#voz=Julian]
 		Julian: Vení a nuestro grupo.[#voz=Julian]
 		do Estados.vendedor3.play("quieto_abajo")
 		- No me interesa, no iré.
+			do Estados.reputacion(1)
 			do Estados.vendedor1.play("quieto_arriba")
 			Ronald: Jaja, te dije que solo era cobarde.[#voz=Ronald]
 			do Estados.vendedor1.play("quieto_izquierda")
@@ -20,37 +21,40 @@ match Estados.decision_1:
 			Ronald: Hasta luego entonces...[#voz=Ronald]
 			set Estados.decision_2 = "buena"
 		- Ok... allá estaré...
+			do Estados.reputacion(-1)
 			Ronald: Ah, veo que cambiaste de opinión. Eso es todo.[#voz=Ronald]
 			
 			do Estados.mateo.play("quieto_abajo_hablando")
 			Mateo: .{{Estados.nom}}?[next=auto][#voz=Mateo]
 			do Estados.mateo.play("quieto_abajo")
 			
-			Ronald: Entonces ahorita, en la tarde, detrás de árbol.[#voz=Ronald]
+			Ronald: Entonces ahorita, [color=yellow]en la tarde, detrás de árbol[/color].[#voz=Ronald]
 			Ronald: Allá te esperamos.[#voz=Ronald]
 			set Estados.decision_2 = "mala"
 	when "mala":
-		Julian: Ya me contaron que te quieres hacer con nosotros. ¿Es eso verdad?[#voz=Julian]
-		Julian: Pues, nosotros estarémos en la cancha por la tarde, detrás del árbol.[#voz=Julian]
-		Julian: Vení y metés de la buena.[#voz=Julian]
+		Julián: Ya me contaron que te quieres hacer con nosotros. ¿Es eso verdad?[#voz=Julian]
+		Julián: Pues, nosotros estarémos en la [color=yellow]cancha por la tarde, detrás del árbol[/color].[#voz=Julian]
+		Julián: Vení y metés de la buena.[#voz=Julian]
 		do Estados.vendedor3.play("quieto_abajo")
 		- Cambie de opinión, no quiero ir.
+			do Estados.reputacion(1)
 			Ronald: ¿Hmm? ¿Cambiaste de opinión.?[#voz=Ronald]
 			
 			do Estados.vendedor3.play("quieto_abajo_hablando")
-			Julian: Que suave.[#voz=Julian]
+			Julián: Que suave.[#voz=Julian]
 			do Estados.vendedor3.play("quieto_abajo")
 			
 			Ronald: Hasta luego entonces...[#voz=Ronald]
 			set Estados.decision_2 = "buena"
 		- Allá estaré...
+			do Estados.reputacion(-1)
 			Ronald: Jaja, eso me alegra oír.[#voz=Ronald]
 			
 			do Estados.mateo.play("quieto_abajo_hablando")
 			Mateo: .{{Estados.nom}}?[next=auto][#voz=Mateo]
 			do Estados.mateo.play("quieto_abajo")
 			
-			Ronald: Entonces ahora, en la tarde, detrás de árbol.[#voz=Ronald]
+			Ronald: Entonces ahora, [color=yellow]en la tarde, detrás de árbol[/color].[#voz=Ronald]
 			Ronald: Allá te esperamos.[#voz=Ronald]
 			set Estados.decision_2 = "mala"
 set Estados.segunda_decision = true

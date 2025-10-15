@@ -1,7 +1,7 @@
 ~ salon_principal
+do Estados.profesor_andres.play("quieto_abajo_hablando")
 if Estados.primera_clase:
 	if !Estados.pc_interactuo_profe:
-		do Estados.profesor_andres.play("quieto_abajo_hablando")
 		Profesor Andrés: Hola estudiante, ¿ya encontraste tu grupo?[#voz=Andres]
 		if Estados.escogio_pareja == true:
 			do Estados.profesor_andres.play("quieto_abajo")
@@ -16,9 +16,42 @@ if Estados.primera_clase:
 		set Estados.pc_interactuo_profe = true
 		do Estados.profesor_andres.play("quieto_arriba")
 	else:
-		Profesor Andrés: Puedes ir repasando los últimos conceptos que vimos.[#voz=Andres]
+		if Estados.primera_clase_hecha:
+			if Estados.pc_interactuo_profe2 == false
+				Profesor Andrés: Hola {{Estados.nom}}. Recuerda entregar el trabajo durante esta semana con Mateo.[#voz=Andres]
+				Profesor Andrés: Les estoy dando un plazo generoso[#voz=Andres]
+				Profesor Andrés: Enseguida bajare a la cafeteria, para que sepas que no estaré acá.[#voz=Andres]
+				set Estados.pc_interactuo_profe2 = true
+			else:
+				Profesor Andrés: Ahorita bajo, estudiante.[#voz=Andres]
+			do Estados.profesor_andres.play("quieto_abajo")
+		else:
+			Profesor Andrés: Puedes ir repasando los últimos conceptos que vimos.[#voz=Andres]
+			do Estados.profesor_andres.play("quieto_arriba")
+=> END
+
+~ cafeteria
+do Estados.profesor_andres.play("quieto_abajo_hablando")
+if Estados.sustancia1 or Estados.decision_3 == "mala":
+	Profesor Andrés: Hmm, hola {{Estados.nom}}.[#voz=Andres]
+	Profesor Andrés: No te ves en buena condición.[#voz=Andres]
+	Profesor Andrés: ¿Te estás dejando manipular de los indisciplinados de clase?[#voz=Andres]
+	Profesor Andrés: {{Estados.nom}}, si sigues con ellos, vas a arruinar tu futuro.[#voz=Andres]
+	Profesor Andrés: Tienes buen futuro por delante, aun puedes parar.[#voz=Andres]
+	do Estados.profesor_andres.play("quieto_abajo_hablando")
+	do wait(3)
+	do Estados.profesor_andres.play("quieto_abajo_hablando")
+	Profesor Andrés: {{Estados.nom}}, confío en harás una buena decisión.[#voz=Andres]
+	Profesor Andrés: ..Después de una visita a la psicóloga..[#voz=Andres]
 else:
-	Profesor Andrés: Hola {{Estados.nom}}. Recuerda entregar el trabajo durante esta semana con Mateo.[#voz=Andres]
-	Profesor Andrés: Les estoy dando un plazo generoso[#voz=Andres]
-	Profesor Andrés: Enseguida bajare a la cafeteria, para que sepas que no estaré acá.[#voz=Andres]
+	Profesor Andrés: Buenas tardes {{Estados.nom}}. ¿Cómod{{Estados.genero}} en tu nuevo grupo?[#voz=Andres]
+	Profesor Andrés: Bueno, Vi tu decisión. No todos eligen bien cuando nadie los mira.[#voz=Andres]
+	Profesor Andrés: Quería felicitarte por tu perseverancia ante las influencias de tus compañeros.[#voz=Andres]
+	Profesor Andrés: Los indisciplinados de clase han llevado a unas cuantas personas a los malos habitos.[#voz=Andres]
+	do wait(3)
+	Profesor Andrés: Muchos buscan respuestas en los lugares equivocados. Pero tú escogiste pensar.[#voz=Andres]
+	Profesor Andrés: No quiero que te desconcentres de tu proceso formativo. Me veo orgulloso de tus decisiones.[#voz=Andres]
+	Profesor Andrés: Ahorita si quieres puedes acompañar a tu amiga Valeria a la psicóloga.[#voz=Andres]
+Profesor Andrés: Busca la sala de profesores al fondo de aquel pasillo verde.[#voz=Andres]
+do Estados.profesor_andres.play("quieto_abajo")
 => END

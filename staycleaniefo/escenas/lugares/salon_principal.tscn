@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=4 uid="uid://hlwd4oxnlx30"]
+[gd_scene load_steps=128 format=4 uid="uid://hlwd4oxnlx30"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_gd4t4"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="1_yap3h"]
@@ -13,15 +13,20 @@
 [ext_resource type="Texture2D" uid="uid://dfu6p5pqrx017" path="res://Imagenes/Personajes/valeria.png" id="8_w0n1k"]
 [ext_resource type="Texture2D" uid="uid://gg4xd5j4uo7b" path="res://Imagenes/Personajes/estudiante1.png" id="9_al5ck"]
 [ext_resource type="Resource" uid="uid://dtbckflknk50c" path="res://Dialogos/personajes/profesor_andres.dialogue" id="9_h0vxt"]
+[ext_resource type="Script" uid="uid://dckd8xeubl2n" path="res://scripts/personajes/valeria.gd" id="10_1vav2"]
 [ext_resource type="Texture2D" uid="uid://br1oigyaljdbp" path="res://Imagenes/Personajes/Mateo.png" id="10_jgnag"]
 [ext_resource type="Resource" uid="uid://bpcn4b53qfj3c" path="res://Dialogos/Escenas/primera_clase2.dialogue" id="11_8pgr3"]
 [ext_resource type="Texture2D" uid="uid://bpuchjpnrosjc" path="res://Imagenes/Personajes/estudiante3.png" id="11_24ept"]
 [ext_resource type="Resource" uid="uid://bb6h318sq0vrl" path="res://Dialogos/personajes/ronald.dialogue" id="11_h0vxt"]
 [ext_resource type="Resource" uid="uid://cmefj5h5kdtmh" path="res://Dialogos/personajes/valeria.dialogue" id="11_p1sev"]
 [ext_resource type="Texture2D" uid="uid://mk3pwgpfycum" path="res://Imagenes/Personajes/estudiante4.png" id="12_chi7g"]
+[ext_resource type="Script" uid="uid://dbkr302kijm6x" path="res://scripts/personajes/vendedor.gd" id="13_5wruy"]
 [ext_resource type="Resource" uid="uid://c7c3oc8bqt7dq" path="res://Dialogos/personajes/mateo.dialogue" id="15_l40ny"]
+[ext_resource type="Script" uid="uid://daonlps0cfm53" path="res://scripts/personajes/vendedor_3.gd" id="18_hel7o"]
 [ext_resource type="Script" uid="uid://ddshj771xpj3r" path="res://scripts/objetos/puerta_bloqueada.gd" id="18_l40ny"]
 [ext_resource type="Resource" uid="uid://b52k5sh24wse3" path="res://Dialogos/personajes/karen.dialogue" id="18_n0n3y"]
+[ext_resource type="Resource" uid="uid://126vcm5mf0lq" path="res://Dialogos/personajes/julian.dialogue" id="20_5wruy"]
+[ext_resource type="Script" uid="uid://e14s1bjm6hw1" path="res://scripts/personajes/vendedora.gd" id="20_wqfci"]
 [ext_resource type="Resource" uid="uid://bs5r12bixc0e2" path="res://Dialogos/Escenas/terminar_clase1.dialogue" id="21_cofx2"]
 [ext_resource type="Script" uid="uid://c3qgq8ssk5wt1" path="res://scripts/objetos/primeraclase.gd" id="22_vykfn"]
 
@@ -767,6 +772,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hel7o"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_chxva"]
 atlas = ExtResource("12_chi7g")
 region = Rect2(48, 114, 40, 106)
@@ -1000,7 +1007,7 @@ tracks/0/path = NodePath("ysort/ProfesorAndres:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.3, 2.2, 4.63333, 5.61),
+"times": PackedFloat32Array(1.3, 2.2, 3.9999, 4.97657),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(524, -514), Vector2(485, -444), Vector2(485, -444), Vector2(586, -496)]
@@ -1012,7 +1019,7 @@ tracks/1/path = NodePath("SistemaEscenas1/ControladorEscenas")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3.8001, 5.63333),
+"times": PackedFloat32Array(3.16667, 4.9999),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [ExtResource("7_e1vbn"), "start"],
@@ -1029,7 +1036,7 @@ tracks/2/path = NodePath("ysort/jugador/Camera2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.966667, 4.04, 4.63333, 5.63333, 6.6),
+"times": PackedFloat32Array(0, 0.966667, 3.40657, 3.9999, 4.9999, 5.96657),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -6), Vector2(-24, -110), Vector2(-24, -110), Vector2(0, 71), Vector2(0, 71), Vector2(0, -6)]
@@ -1041,7 +1048,7 @@ tracks/3/path = NodePath("ysort/ProfesorAndres")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.3, 2.2, 4.63333, 5.6),
+"times": PackedFloat32Array(0, 1.3, 2.2, 3.9999, 4.96657),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": ["quieto_abajo"],
@@ -1321,7 +1328,7 @@ debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [node name="Valeria" type="CharacterBody2D" parent="ysort" groups=["Valeria"]]
 position = Vector2(-69, -7)
-script = ExtResource("6_e1vbn")
+script = ExtResource("10_1vav2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Valeria"]
 position = Vector2(0, 39)
@@ -1343,7 +1350,7 @@ animation = &"mov_abajo"
 
 [node name="Vendedor1" type="CharacterBody2D" parent="ysort" groups=["Vendedor1"]]
 position = Vector2(-131, -9)
-script = ExtResource("6_e1vbn")
+script = ExtResource("13_5wruy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor1"]
 position = Vector2(0.5, 43.5)
@@ -1387,7 +1394,7 @@ debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [node name="Vendedor3" type="CharacterBody2D" parent="ysort" groups=["Vendedor3"]]
 position = Vector2(-260, -5)
-script = ExtResource("6_e1vbn")
+script = ExtResource("18_hel7o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3"]
 position = Vector2(0.5, 43.5)
@@ -1397,9 +1404,19 @@ shape = SubResource("RectangleShape2D_n0n3y")
 sprite_frames = SubResource("SpriteFrames_wqfci")
 animation = &"quieto_abajo"
 
+[node name="Interactuable" parent="ysort/Vendedor3" instance=ExtResource("8_8ojtm")]
+dialogue_resource = ExtResource("20_5wruy")
+dialogue_start = "piso2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3/Interactuable"]
+position = Vector2(0, 35)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_hel7o")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
+
 [node name="Vendedora" type="CharacterBody2D" parent="ysort" groups=["Vendedora"]]
 position = Vector2(-315, -3)
-script = ExtResource("6_e1vbn")
+script = ExtResource("20_wqfci")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedora"]
 position = Vector2(0, 39)

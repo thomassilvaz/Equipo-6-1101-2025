@@ -6,12 +6,14 @@ Ronald: Aquí los juiciosos se quedan solos. Ven y te parchas con nuestro grupo.
 Ronald: Te nos vas a unir, ¿si o qué? [#voz=Ronald]
 do Estados.vendedor1.play("quieto_abajo")
 - Ehh, bueno...
+	do Estados.reputacion(-1)
 	do Estados.vendedor1.play("quieto_abajo_hablando")
 	Ronald: Eso es todo, bienvenid{{Estados.genero}} al Ozanam. [#voz=Ronald]
 	Ronald: Antes de entrar al salón hablamos... [#voz=Ronald]
 	do Estados.vendedor1.play("quieto_abajo")
 	set Estados.decision_1 = "mala"
 - No puedo ahora
+	do Estados.reputacion(1)
 	do Estados.vendedor1.play("quieto_abajo_hablando")
 	Ronald: Listo, como quieras. [#voz=Ronald]
 	Ronald: Te estás perdiendo. [#voz=Ronald]

@@ -22,7 +22,7 @@ Ronald: Tengo varias cositas, tú dime cuál quieres.[#voz=Ronald]
 do Estados.vendedor1.play("quieto_abajo")
 
 do Estados.vendedor3.play("quieto_abajo_hablando")
-Julian: Aquí es donde se escapa de la realidad. Solo un rato, y todo lo demás se va.[#voz=Julian]
+Julián: Aquí es donde se escapa de la realidad. Solo un rato, y todo lo demás se va.[#voz=Julian]
 do Estados.vendedor3.play("quieto_abajo")
 
 do Estados.vendedor1.play("mov_arriba")
@@ -38,7 +38,7 @@ Estudiante: ¿Qué le pasa al parcero? Nadie descubre nada si no dices nada. Aqu
 do Estados.vendedor2.play("quieto_abajo")
 do wait(3)
 do Estados.vendedor3.play("quieto_abajo_hablando")
-Julian: Vamos, Alex. No seas el aguafiestas. Te va a gustar.[#voz=Julian]
+Julián: Vamos, Alex. No seas el aguafiestas. Te va a gustar.[#voz=Julian]
 do Estados.vendedor3.play("quieto_abajo")
 do wait(3)
 do Estados.jugador.play("probando1")
@@ -47,11 +47,11 @@ do Estados.jugador.play("probando2")
 do wait(3)
 
 do Estados.vendedor1.play("quieto_abajo_hablando")
-Ronald: Te dije que nada no pasaría nada.[#voz=Ronald]
+Ronald: [wave amp=25 freq=5]Te dije que nada no pasaría nada.[/wave][#voz=Ronald]
 do Estados.vendedor1.play("quieto_abajo")
 
 do Estados.vendedor2.play("quieto_abajo_hablando")
-Estudiante: Me agrada este chico.[#voz=Andres]
+Estudiante: [wave amp=25 freq=5]Me agrada este chico.[/wave][#voz=Andres]
 do Estados.vendedor2.play("quieto_abajo")
 do wait(1)
 set Estados.escuela_oscura = true
@@ -64,6 +64,6 @@ Ronald: Si es para lo de la actividad, Julián y yo no vamos a hacer nada, así 
 => END
 
 ~ bano
-Ronald: Te veo bien Alex.
-Ronald: Cuando quiere más me habla.
+Ronald: [wave amp=25 freq=5]Te veo bien Alex.[/wave][#voz=Ronald]
+Ronald: [wave amp=25 freq=5]Cuando quiera más me habla.[/wave][#voz=Ronald]
 => END

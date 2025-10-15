@@ -2,7 +2,8 @@
 do Estados.mateo.play("quieto_abajo_hablando")
 if Estados.decision_3 == "buena":
 	Mateo: {{Estados.nom}}, vamos entonces a un salón para hacer la actividad.[#voz=Mateo]
-	Mateo: El profe nos dió las llaves para recoger los materiales en el salón de abajo.[#voz=Mateo]
+	Mateo: El profe nos dió las llaves para recoger los materiales en el [color=yellow]salón de abajo[/color].[#voz=Mateo]
+	Mateo: Vamos.[#voz=Mateo]
 	do Estados.mateo.play("quieto_abajo")
 elif Estados.decision_3 == "mala":
 	Mateo: Ok {{Estados.nom}}, entonces vamos a hacer el trabaj-[next=auto][#voz=Mateo]

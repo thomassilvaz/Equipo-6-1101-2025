@@ -12,7 +12,7 @@ class_name Jugador
 @export var hombre_enfermo: SpriteFrames
 @export var mujer_enferma: SpriteFrames
 
-var velocidad = 800
+var velocidad = 350
 var direccion_actual = "abajo"
 var skip_next_anim_update = false
 var walk_speed = 50

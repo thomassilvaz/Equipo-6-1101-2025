@@ -1,4 +1,4 @@
-[gd_scene load_steps=151 format=4 uid="uid://dibx8uyqs5cmk"]
+[gd_scene load_steps=153 format=4 uid="uid://dibx8uyqs5cmk"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_wjwe5"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_45a53"]
@@ -27,7 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://bpuchjpnrosjc" path="res://Imagenes/Personajes/estudiante3.png" id="19_dsite"]
 [ext_resource type="Resource" uid="uid://c7c3oc8bqt7dq" path="res://Dialogos/personajes/mateo.dialogue" id="20_nlq1u"]
 [ext_resource type="Resource" uid="uid://126vcm5mf0lq" path="res://Dialogos/personajes/julian.dialogue" id="20_ppido"]
+[ext_resource type="Script" uid="uid://dckd8xeubl2n" path="res://scripts/personajes/valeria.gd" id="20_ury2i"]
 [ext_resource type="Script" uid="uid://ddshj771xpj3r" path="res://scripts/objetos/puerta_bloqueada.gd" id="23_ppido"]
+[ext_resource type="Script" uid="uid://daonlps0cfm53" path="res://scripts/personajes/vendedor_3.gd" id="23_t6xws"]
 [ext_resource type="Texture2D" uid="uid://bddsen2rg2bem" path="res://Imagenes/Personajes/profesor_andres.png" id="24_h5byf"]
 [ext_resource type="Resource" uid="uid://dtbckflknk50c" path="res://Dialogos/personajes/profesor_andres.dialogue" id="25_0uj62"]
 
@@ -1125,17 +1127,19 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_xarbi"]
 resource_name = "cafeteria"
 length = 4.0
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ysort/ProfesorAndres:position")
+tracks/0/path = NodePath("SistemaEscenas3/ControladorEscenas")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.433333),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-372, 1129)]
+"values": [{
+"args": [ExtResource("25_0uj62"), "cafeteria"],
+"method": &"trigger_dialogue"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_dsite"]
@@ -1360,7 +1364,7 @@ size = Vector2(323.5, 224.75)
 size = Vector2(288, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6y6l"]
-size = Vector2(191, 122)
+size = Vector2(148, 99)
 
 [node name="piso1" type="Node2D"]
 script = ExtResource("1_wjwe5")
@@ -1473,7 +1477,7 @@ position = Vector2(-1.5, -44)
 shape = SubResource("RectangleShape2D_h5byf")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("6_sxfv7")]
-position = Vector2(-409, 1738)
+position = Vector2(765, 37)
 
 [node name="Vendedor1" type="CharacterBody2D" parent="ysort"]
 position = Vector2(770, -131.775)
@@ -1533,7 +1537,7 @@ animation = &"quieto_abajo"
 
 [node name="Valeria" type="CharacterBody2D" parent="ysort" groups=["Valeria"]]
 position = Vector2(-186, -658)
-script = ExtResource("15_w2i3l")
+script = ExtResource("20_ury2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Valeria"]
 position = Vector2(0, 39)
@@ -1555,7 +1559,7 @@ animation = &"mov_abajo"
 
 [node name="Vendedor3" type="CharacterBody2D" parent="ysort" groups=["Vendedor3"]]
 position = Vector2(-205, -644)
-script = ExtResource("15_w2i3l")
+script = ExtResource("23_t6xws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3"]
 position = Vector2(0.5, 43.5)
@@ -1576,7 +1580,7 @@ sprite_frames = SubResource("SpriteFrames_jtact")
 animation = &"quieto_arriba"
 
 [node name="ProfesorAndres" type="CharacterBody2D" parent="ysort" groups=["ProfesorAndres"]]
-position = Vector2(-380, 1129)
+position = Vector2(-128, -519)
 script = ExtResource("15_w2i3l")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/ProfesorAndres"]
@@ -1696,6 +1700,7 @@ position = Vector2(1688, 2248)
 shape = SubResource("RectangleShape2D_cuf27")
 
 [node name="SistemaEscenas3" parent="." instance=ExtResource("16_nfe2u")]
+position = Vector2(-117, -60)
 
 [node name="ControladorEscenas" parent="SistemaEscenas3" index="0" node_paths=PackedStringArray("animation_player")]
 cutscene_id = "cafeteria"
@@ -1708,7 +1713,7 @@ cutscene_controller_path = NodePath("../ControladorEscenas")
 escena_a_detectar = "cafeteria"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas3/Area2D" index="0"]
-position = Vector2(-394.5, 1766)
+position = Vector2(-416, 1754.5)
 shape = SubResource("RectangleShape2D_w6y6l")
 
 [connection signal="body_entered" from="ysort/Objetos/Arbol2/Area2D" to="ysort/Objetos/Arbol2/Area2D" method="_on_body_entered"]

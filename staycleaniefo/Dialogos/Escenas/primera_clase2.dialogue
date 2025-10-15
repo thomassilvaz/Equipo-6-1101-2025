@@ -12,15 +12,17 @@ do Estados.mateo.play("quieto_arriba")
 do Estados.jugador.play("quieto_arriba")
 do wait(1)
 Escuchas risas desde el fondo.
-Julián: ¡Vamos al baño después! Tengo algo que te hará olvidar el aburrimiento de este lugar.
+Julián: ¡Vamos al baño después! Tengo algo que te hará olvidar el aburrimiento de este lugar.[#voz=Julian]
 Ronald: Hey nuev{{Estados.genero}}, ¿vas a venir o qué?[#voz=Ronald]
 do Estados.jugador.play("quieto_arriba_hablando")
 - Hagale, de una
+	do Estados.reputacion(-1)
 	El profesor te mira fijo.
 	do Estados.jugador.play("quieto_arriba")
-	Profesor Andrés: {{Estados.nom}}... todo acto tiene su consecuencia. Recuerda eso.[#voz=Andres]
+	Profesor Andrés: {{Estados.nom}}... todo acto tiene su [color=red]consecuencia[/color]. Recuerda eso.[#voz=Andres]
 	set Estados.decision_3 = "mala"
 - No puedo, tengo cosas que hacer.
+	do Estados.reputacion(1)
 	El profesor te mira fijo.
 	do Estados.jugador.play("quieto_arriba")
 	Profesor Andrés: Buena elección, {{Estados.nom}}. Todo acto tiene su consecuencia. Qué bien que sepas eso.[#voz=Andres]

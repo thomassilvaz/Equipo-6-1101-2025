@@ -1,5 +1,6 @@
 extends Node
 
+var contador: int = 0
 
 var escuela_oscura: bool = false
 var genero: String = "o"
@@ -26,6 +27,7 @@ var decision2_tomada := false
 var decision3_tomada := false
 var escogio_pareja := false
 var pc_interactuo_profe := false
+var pc_interactuo_profe2 := false
 var empezar_primera_clase := false
 var primera_clase_hecha := false
 var charla_con_valeria := false
@@ -71,6 +73,21 @@ func _ready():
 	load_game()
 	get_tree().tree_changed.connect(_find_sprites)
 	_find_sprites()
+
+func reputacion(valor: int):
+	if not jugador:
+		return
+	
+	var puntaje = jugador.get_parent().get_node("Camera2D/Puntaje")
+	contador += valor
+	puntaje.text = str(contador)
+	
+	if contador == 0:
+		puntaje.modulate = Color.DODGER_BLUE
+	elif contador > 0:
+		puntaje.modulate = Color.LIME_GREEN if contador > 4 else Color.AQUAMARINE
+	elif contador < 0:
+		puntaje.modulate = Color.RED if contador < -4 else Color.PALE_VIOLET_RED
 
 func mark_cutscene_played(cutscene_id):
 	game_data["played_cutscenes"][cutscene_id] = true

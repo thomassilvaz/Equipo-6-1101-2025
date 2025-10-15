@@ -113,6 +113,21 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+	
+	match character_label.text:
+		"Ronald":
+			character_label.modulate = Color.DARK_ORANGE
+		"Karen":
+			character_label.modulate = Color.PURPLE
+		"Mateo":
+			character_label.modulate = Color.LIGHT_SEA_GREEN
+		"Julián":
+			character_label.modulate = Color.YELLOW
+		"Profesor Andrés":
+			character_label.modulate = Color.SADDLE_BROWN
+		_:
+			character_label.add_theme_color_override("font_color", Color.WHITE)
+
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line

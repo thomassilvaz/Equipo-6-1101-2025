@@ -3,18 +3,18 @@ do Estados.mateo.play("quieto_izquierda_hablando")
 ???: Oh, hola. ¡Tú debes ser nuev{{Estados.genero}}![#voz=Mateo]
 Mateo: Me llamo Mateo. Nosotros vamos a estar en la misma clase.[#voz=Mateo]
 Mateo: ¿Hmm? ¿Estabas hablando con unas personas?[#voz=Mateo]
-Mateo: Esos son los vagos del salón, ellos solo quieren aprovecharse del primero que ven.[#voz=Mateo]
+Mateo: Esos son los [color=red]vagos del salón[/color], ellos solo quieren aprovecharse del primero que ven.[#voz=Mateo]
 match Estados.decision_1:
 	when "buena":
 		Mateo: ¡Bien hecho al no escucharlos![#voz=Mateo]
 		Mateo: No tienes que demostrarle nada a nadie.[#voz=Mateo]
-		Mateo: Es más, ellos no querían pasarla bien con vos. Solo te querían corromper.[#voz=Mateo]
+		Mateo: Es más, ellos no querían pasarla bien con vos. Solo te querían [color=red]corromper[/color].[#voz=Mateo]
 		Mateo: Si algo yo estoy con vos.[#voz=Mateo]
 		Mateo: Vamos ya al salón, yo te acompaño.[#voz=Mateo]
 	when "mala":
 		Mateo: Pero oye.[#voz=Mateo]
 		Mateo: No tienes que demostrarle nada a nadie.[#voz=Mateo]
-		Mateo: Ellos te van a ser una mala influencia. Puedes elegir bien desde el primer día.[#voz=Mateo]
+		Mateo: Ellos te van a ser una [color=red]mala[/color] influencia. Puedes elegir [color=green]bien[/color] desde el primer día.[#voz=Mateo]
 		Mateo: Si te juntas con ellos, no va a ser lo que tu esperes.[#voz=Mateo]
 		Mateo: Mejor vayamos a clase, ¿si? Yo te espero.[#voz=Mateo]
 do Estados.mateo.play("quieto_izquierda")
@@ -106,4 +106,6 @@ Tal vez aún hay caminos limpios.
 do Estados.mateo.play("quieto_izquierda_hablando")
 Mateo: Bueno, vamos saliendo ya entonces.[#voz=Mateo]
 do Estados.mateo.play("quieto_izquierda")
+do Estados.reputacion(3)
 set Estados.charla_con_valeria = true
+=> END

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://y76afappx4r"
+path="res://.godot/imported/cancha.dialogue-1dfdc622d1e22a9b7db913e8a760684f.tres"
+
+[deps]
+
+source_file="res://Dialogos/Escenas/cancha.dialogue"
+dest_files=["res://.godot/imported/cancha.dialogue-1dfdc622d1e22a9b7db913e8a760684f.tres"]
+
+[params]
+
+defaults=true

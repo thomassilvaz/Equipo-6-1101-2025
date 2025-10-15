@@ -315,6 +315,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-128, -273)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ysort/jugador")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["quieto_arriba"],
+"method": &"play_animation"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ro0j5"]
 _data = {
@@ -368,7 +382,7 @@ tile_map_data = PackedByteArray("AAAEAPP/AAAAAAIAAAAEAOH/AAAAAAIAAAAEAOf/AAAAAAI
 tile_set = SubResource("TileSet_jkh4j")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("5_jkh4j")]
-position = Vector2(-128, -273)
+position = Vector2(-138, -250)
 
 [node name="Vendedora" type="CharacterBody2D" parent="ysort"]
 position = Vector2(-130, -358)
