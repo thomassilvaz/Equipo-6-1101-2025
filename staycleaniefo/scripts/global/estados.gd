@@ -3,6 +3,7 @@ extends Node
 var contador: int = 0
 
 var escuela_oscura: bool = false
+var escuela_oscura2: bool = false
 var genero: String = "o"
 var nom: String = "Alex"
 
@@ -32,6 +33,8 @@ var empezar_primera_clase := false
 var primera_clase_hecha := false
 var charla_con_valeria := false
 var sustancia1 := false
+var escena_divergente2 := false
+var sustancia2 := false
 
 #sprites
 var profesor_andres: AnimatedSprite2D

@@ -54,4 +54,5 @@ else:
 	Profesor Andrés: Ahorita si quieres puedes acompañar a tu amiga Valeria a la psicóloga.[#voz=Andres]
 Profesor Andrés: Busca la sala de profesores al fondo de aquel pasillo verde.[#voz=Andres]
 do Estados.profesor_andres.play("quieto_abajo")
+set Estados.escena_divergente2 = true
 => END

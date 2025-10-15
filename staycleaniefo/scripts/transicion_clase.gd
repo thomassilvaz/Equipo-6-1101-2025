@@ -2,10 +2,13 @@ extends Control
 
 func _ready() -> void:
 	if get_tree().current_scene.name == "piso2" and Estados.decision3_tomada:
-		show()
-		await get_tree().create_timer(2.0).timeout
-		create_tween().tween_property(self, "modulate", 0, 0)
-		queue_free()
+		if !Estados.sustancia1 or Estados.charla_con_valeria:
+			return
+		else:
+			show()
+			await get_tree().create_timer(2.0).timeout
+			create_tween().tween_property(self, "modulate", 0, 0)
+			queue_free()
 	else:
 		hide()
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=4 uid="uid://dibx8uyqs5cmk"]
+[gd_scene load_steps=155 format=4 uid="uid://dibx8uyqs5cmk"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_wjwe5"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_45a53"]
@@ -32,6 +32,8 @@
 [ext_resource type="Script" uid="uid://daonlps0cfm53" path="res://scripts/personajes/vendedor_3.gd" id="23_t6xws"]
 [ext_resource type="Texture2D" uid="uid://bddsen2rg2bem" path="res://Imagenes/Personajes/profesor_andres.png" id="24_h5byf"]
 [ext_resource type="Resource" uid="uid://dtbckflknk50c" path="res://Dialogos/personajes/profesor_andres.dialogue" id="25_0uj62"]
+[ext_resource type="Script" uid="uid://cuwxuijce0uks" path="res://scripts/cancha.gd" id="33_owrdq"]
+[ext_resource type="Script" uid="uid://bk6ng3ox7hyan" path="res://scripts/escena_cafeteria.gd" id="34_x08o2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hdsm"]
 texture = ExtResource("2_45a53")
@@ -1698,6 +1700,7 @@ escena_a_detectar = "cancha_tarde"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas2/Area2D" index="0"]
 position = Vector2(1688, 2248)
 shape = SubResource("RectangleShape2D_cuf27")
+script = ExtResource("33_owrdq")
 
 [node name="SistemaEscenas3" parent="." instance=ExtResource("16_nfe2u")]
 position = Vector2(-117, -60)
@@ -1715,6 +1718,7 @@ escena_a_detectar = "cafeteria"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas3/Area2D" index="0"]
 position = Vector2(-416, 1754.5)
 shape = SubResource("RectangleShape2D_w6y6l")
+script = ExtResource("34_x08o2")
 
 [connection signal="body_entered" from="ysort/Objetos/Arbol2/Area2D" to="ysort/Objetos/Arbol2/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="ysort/Objetos/Arbol2/Area2D" to="ysort/Objetos/Arbol2/Area2D" method="_on_body_exited"]
