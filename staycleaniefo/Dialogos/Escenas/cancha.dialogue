@@ -1,17 +1,18 @@
 ~ start1
-Ronald: Mira quién vino... el novato no es tan cobarde después de todo.
-Julián: Aquí es donde todo comienza, Alex. Solo hay dos reglas: no hagas preguntas y no te eches para atrás.
-Julián: ¿Ya sabes que pasa acá?
-Karen: Lo vas a ver. O mejor, lo vas a sentir...
+Ronald: Mira quién vino... el novato no es tan cobarde después de todo.[#voz=Ronald]
+Julián: Aquí es donde todo comienza, Alex. Solo hay dos reglas: no hagas preguntas y no te eches para atrás.[#voz=Julian]
+Julián: ¿Ya sabes que pasa acá?[#voz=Julian]
+Karen: Lo vas a ver. O mejor, lo vas a sentir...[#voz=Karen]
 => END
 
 ~ start2
 Karen te entrega algo envuelto.
-Ronald: Bienvenido a la verdadera IEFO. Ahora sí perteneces.
+Ronald: Bienvenido a la verdadera IEFO. Ahora sí perteneces.[#voz=Ronald]
 Escuchas risas al fondo del grupo.
 La cancha se siente más oscura de lo normal.)
-Karen: [wave amp=25 freq=5]Hmm.. ¿No te parece interesante? Yo se que se siente bien[/wave]
+Karen: [wave amp=25 freq=5]Hmm.. ¿No te parece interesante? Yo se que se siente bien.[/wave][#voz=Karen]
 set Estados.escena_divergente2 = true
 set Estados.sustancia2 = true
-set Estados.escuela_oscura2 = true
+set Estados.escuela_oscura += 1
+do Estados.reputacion(-3)
 => END

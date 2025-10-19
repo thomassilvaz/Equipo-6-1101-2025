@@ -10,9 +10,11 @@ class_name Jugador
 @export var puede_mover: bool = true
 
 @export var hombre_enfermo: SpriteFrames
+@export var hombre_enfermo2: SpriteFrames
 @export var mujer_enferma: SpriteFrames
+@export var mujer_enferma2: SpriteFrames
 
-var velocidad = 700
+var velocidad = 250
 var direccion_actual = "abajo"
 var skip_next_anim_update = false
 var walk_speed = 50
@@ -30,6 +32,12 @@ func _physics_process(_delta):
 
 		update_anim(input_vector)
 		move_and_slide()
+		
+		genero_avatar()
+		#if Estados.escuela_oscura==2:
+			#velocidad = 175
+		#else:
+			#velocidad = 250
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -72,7 +80,7 @@ func update_anim(direction: Vector2):
 				anim.play("mov_arriba")
 
 func _ready():
-	genero_avatar()
+	#genero_avatar()
 	NavegacionManager.on_trigger_player_spawn.connect(_on_spawn)
 	match get_tree().current_scene.name:
 		"piso2":
@@ -84,15 +92,19 @@ func _ready():
 func genero_avatar():
 	match Estados.nom:
 		"Alex":
-			if Estados.escuela_oscura:
-				animated_sprite.sprite_frames = hombre_enfermo
-			else:
+			if Estados.escuela_oscura == 0:
 				animated_sprite.sprite_frames = sprite_hombre
+			elif Estados.escuela_oscura == 1:
+				animated_sprite.sprite_frames = hombre_enfermo
+			elif Estados.escuela_oscura == 2:
+				animated_sprite.sprite_frames = hombre_enfermo2
 		"Alexa":
-			if Estados.escuela_oscura:
-				animated_sprite.sprite_frames = mujer_enferma
-			else:
+			if Estados.escuela_oscura == 0:
 				animated_sprite.sprite_frames = sprite_mujer
+			elif Estados.escuela_oscura == 1:
+				animated_sprite.sprite_frames = mujer_enferma
+			elif Estados.escuela_oscura == 2:
+				animated_sprite.sprite_frames = mujer_enferma2
 
 func activar_movimiento(activado: bool):
 	puede_mover = activado

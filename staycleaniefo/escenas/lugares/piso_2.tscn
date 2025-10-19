@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cnxmpflivhljo" path="res://Imagenes/Texturas/objetos.png" id="4_82ch2"]
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="5_rnepu"]
 [ext_resource type="Script" uid="uid://bagc1l7bfvrmw" path="res://scripts/interactuables.gd" id="6_0ditk"]
-[ext_resource type="Script" uid="uid://c43ghojm5ne16" path="res://scripts/transicion_clase.gd" id="6_hny8y"]
+[ext_resource type="Script" uid="uid://c43ghojm5ne16" path="res://scripts/escenas/transicion_clase.gd" id="6_hny8y"]
 [ext_resource type="Script" uid="uid://daonlps0cfm53" path="res://scripts/personajes/vendedor_3.gd" id="6_owvbu"]
 [ext_resource type="Texture2D" uid="uid://bpuchjpnrosjc" path="res://Imagenes/Personajes/estudiante3.png" id="7_vcerq"]
 [ext_resource type="Resource" uid="uid://dat2iddutgte2" path="res://Dialogos/Interactuables/piso3.dialogue" id="8_1witr"]
@@ -26,7 +26,7 @@
 [ext_resource type="Resource" uid="uid://cj5io37xv2cg2" path="res://Dialogos/Escenas/piso2_d2.dialogue" id="17_vcerq"]
 [ext_resource type="Texture2D" uid="uid://mk3pwgpfycum" path="res://Imagenes/Personajes/estudiante4.png" id="18_se3q5"]
 [ext_resource type="Resource" uid="uid://b52k5sh24wse3" path="res://Dialogos/personajes/karen.dialogue" id="19_8vrp0"]
-[ext_resource type="Script" uid="uid://c5ctfdqsppbxs" path="res://scripts/despues_clase1.gd" id="22_ixbjb"]
+[ext_resource type="Script" uid="uid://c5ctfdqsppbxs" path="res://scripts/escenas/despues_clase1.gd" id="22_ixbjb"]
 [ext_resource type="Resource" uid="uid://4en0ctwq1xk8" path="res://Dialogos/Escenas/despues_clase1.dialogue" id="24_jhy1c"]
 [ext_resource type="FontFile" uid="uid://boe65q6htbpaq" path="res://DTM-Mono.otf" id="28_se3q5"]
 
@@ -868,7 +868,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2ktug"]
 resource_name = "segunda_decision"
-length = 3.8
+length = 3.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -979,7 +979,7 @@ position = Vector2(0, 13.9706)
 position = Vector2(-448, -40)
 scale = Vector2(3.60942, 4.28392)
 destino_nivel_tag = "bathroom2"
-destino_puerta_tag = "salida"
+destino_puerta_tag = "salida2"
 
 [node name="Spawn" parent="Puertas/Puerta_b2" index="1"]
 position = Vector2(0, 13.9706)
@@ -998,6 +998,16 @@ scale = Vector2(2.47118, 0.298667)
 [node name="Spawn" parent="Puertas/Puerta_introduccion" index="1"]
 position = Vector2(0.389111, 3.57585)
 
+[node name="Puerta_salida2" parent="Puertas" instance=ExtResource("3_vkssr")]
+position = Vector2(-455, -153)
+scale = Vector2(3.4455, -1.73294)
+destino_nivel_tag = "piso_2"
+destino_puerta_tag = "b2"
+spawn_direccion = "arriba"
+
+[node name="Spawn" parent="Puertas/Puerta_salida2" index="1"]
+position = Vector2(2.03164, -99.2533)
+
 [node name="Objetos" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAALAP//AQADAAEAAAACAP//AQADAAEAAAAGAP3/AQAFAAEAAAAFAP3/AQAFAAEAABATAP//AQACAAEAAAAUAP//AQACAAEAAAA=")
 tile_set = SubResource("TileSet_8xujh")
@@ -1014,13 +1024,15 @@ y_sort_enabled = true
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("5_rnepu")]
 y_sort_enabled = false
-position = Vector2(1637, 42)
+position = Vector2(1837, 57)
 
 [node name="Transicion" type="Control" parent="ysort/jugador/Camera2D" index="2"]
 visible = false
+z_index = 2
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 1.0
+offset_right = 41.0
 offset_bottom = 40.0
 script = ExtResource("6_hny8y")
 
@@ -1253,6 +1265,7 @@ libraries = {
 [editable path="Puertas/Puerta_b1"]
 [editable path="Puertas/Puerta_b2"]
 [editable path="Puertas/Puerta_introduccion"]
+[editable path="Puertas/Puerta_salida2"]
 [editable path="ysort/jugador"]
 [editable path="Interactuables/instantaneo_piso3"]
 [editable path="SistemaEscenas"]

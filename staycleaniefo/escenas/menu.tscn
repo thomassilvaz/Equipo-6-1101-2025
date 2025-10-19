@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bt8yq8kajlct0"]
+[gd_scene load_steps=7 format=3 uid="uid://bt8yq8kajlct0"]
 
 [ext_resource type="Script" uid="uid://cf475e4g4nhp3" path="res://scripts/menu.gd" id="1_d7r87"]
 [ext_resource type="Texture2D" uid="uid://17m7xqp8iygs" path="res://Imagenes/418658556_58cab525-a7f1-4940-866a-3c2db770e229.jpg" id="2_5t3kx"]
-[ext_resource type="AudioStream" uid="uid://bw2ag64s1do84" path="res://Audio/Musica/School Remix.mp3" id="3_2owot"]
 [ext_resource type="FontFile" uid="uid://boe65q6htbpaq" path="res://DTM-Mono.otf" id="3_6cq3m"]
 [ext_resource type="Texture2D" uid="uid://daniddw702g8f" path="res://Imagenes/escudo_pixel_art.png" id="5_56ah5"]
 [ext_resource type="Texture2D" uid="uid://caftpec1hjf5" path="res://Imagenes/logo.png" id="6_56ah5"]
@@ -81,11 +80,6 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7r87")
 text = "SALIR"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_2owot")
-volume_db = 5.0
-autoplay = true
-
 [node name="TextureRect3" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -115,6 +109,9 @@ grow_horizontal = 2
 scale = Vector2(3.27277, 3.27277)
 texture = ExtResource("5_56ah5")
 
+[connection signal="mouse_entered" from="VBoxContainer/jugar" to="." method="_on_jugar_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/jugar" to="." method="_on_jugar_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/diseño" to="." method="_on_diseño_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/diseño" to="." method="_on_diseño_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/salir" to="." method="_on_salir_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/salir" to="." method="_on_salir_pressed"]

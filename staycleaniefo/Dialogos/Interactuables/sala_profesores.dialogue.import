@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://brcf0ns3ip3y4"
+path="res://.godot/imported/sala_profesores.dialogue-18e5f1c81010e930126905545c485e2e.tres"
+
+[deps]
+
+source_file="res://Dialogos/Interactuables/sala_profesores.dialogue"
+dest_files=["res://.godot/imported/sala_profesores.dialogue-18e5f1c81010e930126905545c485e2e.tres"]
+
+[params]
+
+defaults=true

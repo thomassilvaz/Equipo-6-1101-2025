@@ -349,14 +349,14 @@ tile_set = SubResource("TileSet_lgqkh")
 
 [node name="Puertas" type="Node" parent="."]
 
-[node name="Puerta_salida" parent="Puertas" instance=ExtResource("4_3x5o0")]
+[node name="Puerta_salida2" parent="Puertas" instance=ExtResource("4_3x5o0")]
 position = Vector2(-63, 47)
 scale = Vector2(3.4455, -1.73294)
 destino_nivel_tag = "piso_2"
 destino_puerta_tag = "b2"
 spawn_direccion = "arriba"
 
-[node name="Spawn" parent="Puertas/Puerta_salida" index="1"]
+[node name="Spawn" parent="Puertas/Puerta_salida2" index="1"]
 position = Vector2(2.63641e-07, 45.0103)
 
 [node name="Puerta_introduccion" parent="Puertas" instance=ExtResource("4_3x5o0")]
@@ -398,6 +398,7 @@ animation = &"quieto_abajo"
 
 [node name="Interactuable" parent="ysort/Vendedora" instance=ExtResource("7_ro0j5")]
 dialogue_resource = ExtResource("8_3f3yf")
+dialogue_start = "bano"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedora/Interactuable"]
 position = Vector2(0, 31)
@@ -462,6 +463,6 @@ libraries = {
 
 [connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
 
-[editable path="Puertas/Puerta_salida"]
+[editable path="Puertas/Puerta_salida2"]
 [editable path="Puertas/Puerta_introduccion"]
 [editable path="SistemaEscenas1"]

@@ -5,15 +5,19 @@ var current_music_path: String = ""
 @onready var fx_player := $FxPlayer
 
 func _process(_delta: float) -> void:
-	if Estados.escuela_oscura:
+	if Estados.escuela_oscura >= 1:
 		player.pitch_scale = 0.9
+		if Estados.escuela_oscura == 2:
+			player.volume_db = 1.5
+		else:
+			player.volume_db = 5.0
 	else:
 		player.pitch_scale = 1.0
 
 func play_music(path: String):
 	if path == current_music_path:
-		
 		return
+	
 	var new_stream = load(path)
 	if new_stream:
 		player.stream = new_stream

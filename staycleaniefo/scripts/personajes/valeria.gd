@@ -9,6 +9,14 @@ func play_animation(anim_name: String):
 func play_animationplayer(anim_name: String):
 	$AnimationPlayer.play(anim_name)
 
+func _ready() -> void:
+	match get_tree().current_scene.name:
+		"piso1":
+			if Estados.charla_con_valeria:
+				global_position = Vector2(341, 19)
+			else:
+				global_position = Vector2(-186,-658)
+
 func visibilidad_npc(visibilidad: bool):
 	if visibilidad:
 		show()
@@ -18,3 +26,6 @@ func visibilidad_npc(visibilidad: bool):
 		hide()
 		colision.disabled = true
 		interactuable.disabled = true
+
+func toggle_dialogo(toggle: bool):
+	interactuable.disabled(toggle)

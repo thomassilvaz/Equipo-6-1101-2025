@@ -38,12 +38,12 @@ do Estados.mateo.play("quieto_abajo")
 
 ~ salon_principal
 if Estados.escogio_pareja == false:
-	Mateo: Oh, ¿que más {{Estados.nom}}?[#voz=Mateo]
+	Mateo: [[Oh, ¿que|¿Que]] más {{Estados.nom}}?[#voz=Mateo]
 	Mateo: ¿Te quieres hacer conmigo en el trabajo?[#voz=Mateo]
 	- Sí.
 		Mateo: ¡Listo! Entonces esperemos al profe.[#voz=Mateo]
 		do Estados.mateo.play("confundido")
-		Mateo: O creo que ya puedes ir a avisarle.[#voz=Mateo]
+		Mateo: O creo que ya [color=yellow]puedes ir a avisarle[/color].[#voz=Mateo]
 		do Estados.mateo.play("quieto_arriba")
 		set Estados.escogio_pareja = true
 		set Estados.pc_interactuo_profe = false
@@ -76,16 +76,20 @@ do Estados.mateo.play("quieto_izquierda_hablando")
 Mateo: Listo ya tengo varios materiales, ¿de qué están hablando?[#voz=Mateo]
 do Estados.mateo.play("quieto_izquierda")
 
+do Estados.valeria.play("quieto_abajo_hablando")
 Valeria: De los vagos del salón, que he estado intentando por romper lazos con ellos.
 Valeria: Después de tantas veces que me dejé llevar con esas sustancias ..[#voz=Valeria]
+do Estados.valeria.play("quieto_abajo")
 
 do Estados.mateo.play("quieto_izquierda_hablando")
 Mateo: ¡Eso esta bien! Ellos pueden tratarse muy mal entre ellos.[#voz=Mateo]
 Mateo: Pero no tienes que forzarte a hacer lo que ellos digan para que les caigas bien.[#voz=Mateo]
 do Estados.mateo.play("quieto_izquierda")
 
+do Estados.valeria.play("quieto_abajo_hablando")
 Valeria: Si, ya me estoy dando cuenta. He ido a la psicologa para evitar la adicción.[#voz=Valeria]
 Valeria: Y.. la verdad es que me estoy sintiendo mejor.[#voz=Valeria]
+do Estados.valeria.play("quieto_abajo")
 => END
 
 ~ salon_vacio4
@@ -99,7 +103,9 @@ do Estados.mateo.play("quieto_izquierda_hablando")
 Mateo: Empezar por no ceder ya es suficiente. Vamos, el salón está vacío, podemos charlar tranquilos.[#voz=Mateo]
 do Estados.mateo.play("quieto_izquierda")
 
+do Estados.valeria.play("quieto_abajo_hablando")
 Valeria: Aquí es donde a veces me refugio. Pensar, escribir, escapar un rato del ruido.[#voz=Valeria]
+do Estados.valeria.play("quieto_abajo")
 Piensas que tal vez sí hay algo más.
 Tal vez aún hay caminos limpios.
 
@@ -108,4 +114,38 @@ Mateo: Bueno, vamos saliendo ya entonces.[#voz=Mateo]
 do Estados.mateo.play("quieto_izquierda")
 do Estados.reputacion(3)
 set Estados.charla_con_valeria = true
+set Estados.escena_divergente1 = true
+=> END
+
+~ sustancia1
+do Estados.mateo.play("quieto_abajo_hablando")
+Mateo: [wave amp=25 freq=5]A-{{Estados.nom}}.. ¿Qué te pasó?[/wave][#voz=Mateo]
+Mateo: [wave amp=25 freq=5]Recuerda que tu tienes el control. Pero cada elección deja una marca.[/wave][#voz=Mateo]
+Mateo: [wave amp=25 freq=5]El profe quiere hablar contigo. [color=yellow]Ve a la cafeteria[/color] para hablar con él.[/wave][#voz=Mateo]
+Mateo: [wave amp=25 freq=5]El primer paso es aceptar que necesitas a otros. No es tarde para cambiar.[/wave][#voz=Mateo]
+do Estados.mateo.play("quieto_abajo")
+=> END
+
+~ despues_de_charla
+Cierras el salón con llave.
+do Estados.mateo.play("quieto_abajo_hablando")
+Mateo: ¡Ok! Ya tenemos suficiantes cosas.[#voz=Mateo]
+Mateo: Aunque esperen yo primero voy a la tienda, que voy a comprar algo.[#voz=Mateo]
+do Estados.mateo.play("quieto_abajo")
+do Estados.valeria.play("quieto_abajo_hablando")
+Valeria: Esta bien.[#voz=Valeria]
+do Estados.valeria.play("quieto_abajo")
+=> END
+
+~ cafeteria
+do Estados.mateo.play("quieto_abajo_hablando")
+if !Estados.caf_interactuo_profe:
+	Mateo: {{Estados.nom}}, ahí está el profe por las mesas.
+	Mateo: Dile que ya estamos listo, mientras tanto.
+else:
+	Mateo: Hola {{Estados.nom}}, ¿ya hablaste con el profe?
+	Mateo: ¿Valeria? Ella se fue a hacer algo segun ella.
+	Mateo: Oh, ¿ibas a buscarla?
+	Mateo: Puedes ir, yo me quedará acá charlando con [color=saddle_brown]Andrés[/color].
+do Estados.mateo.play("quieto_abajo")
 => END

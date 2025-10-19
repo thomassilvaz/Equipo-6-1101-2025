@@ -1,10 +1,18 @@
-[gd_scene load_steps=13 format=4 uid="uid://dvfjn74cjuxdq"]
+[gd_scene load_steps=42 format=4 uid="uid://dvfjn74cjuxdq"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_s6qmf"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_lu6mv"]
 [ext_resource type="Texture2D" uid="uid://cnxmpflivhljo" path="res://Imagenes/Texturas/objetos.png" id="3_4x6mu"]
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="4_o6bq8"]
+[ext_resource type="Texture2D" uid="uid://bseelxcgndqff" path="res://Imagenes/Personajes/psicologa.png" id="5_4x6mu"]
 [ext_resource type="PackedScene" uid="uid://do257tduj2rj5" path="res://escenas/puerta.tscn" id="5_lu6mv"]
+[ext_resource type="PackedScene" uid="uid://cc22xuj5yn1j1" path="res://escenas/sistema_escenas.tscn" id="7_j3jb0"]
+[ext_resource type="Script" uid="uid://bk4rwpa7hpcid" path="res://scripts/escenas/psicologia.gd" id="8_mckrd"]
+[ext_resource type="Resource" uid="uid://b8fwo0fifl5l" path="res://Dialogos/personajes/psicologa_laura.dialogue" id="9_ok0a5"]
+[ext_resource type="Script" uid="uid://dckd8xeubl2n" path="res://scripts/personajes/valeria.gd" id="10_584cg"]
+[ext_resource type="Texture2D" uid="uid://dfu6p5pqrx017" path="res://Imagenes/Personajes/valeria.png" id="11_h26mt"]
+[ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="12_5p6pt"]
+[ext_resource type="Resource" uid="uid://cmefj5h5kdtmh" path="res://Dialogos/personajes/valeria.dialogue" id="13_v60u1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8a2ri"]
 texture = ExtResource("2_lu6mv")
@@ -71,6 +79,7 @@ texture_region_size = Vector2i(128, 128)
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-54.3265, 26.4464, 59.106, 26.1277, 59.7433, 61.8144, -54.0079, 62.133)
 4:2/0 = 0
 0:0/0 = 0
+0:0/0/y_sort_origin = -20
 1:0/0 = 0
 5:2/0 = 0
 5:2/0/y_sort_origin = -30
@@ -84,6 +93,43 @@ texture_region_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dtugs")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6bq8"]
+atlas = ExtResource("5_4x6mu")
+region = Rect2(0, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtugs"]
+atlas = ExtResource("5_4x6mu")
+region = Rect2(44, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpcpb"]
+atlas = ExtResource("5_4x6mu")
+region = Rect2(0, 0, 40, 106)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8a2ri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6bq8")
+}],
+"loop": true,
+"name": &"quieto_abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtugs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpcpb")
+}],
+"loop": true,
+"name": &"quieto_abajo_hablando",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpodt"]
+size = Vector2(20, 26.1364)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lu6mv"]
 size = Vector2(43, 256.5)
 
@@ -92,6 +138,141 @@ size = Vector2(929, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6bq8"]
 size = Vector2(164, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23d12"]
+size = Vector2(175, 118)
+
+[sub_resource type="Animation" id="Animation_rqosc"]
+resource_name = "psicologia"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SistemaEscenas1/ControladorEscenas")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("9_ok0a5"), "start"],
+"method": &"trigger_dialogue"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hgl3q"]
+_data = {
+&"psicologia": SubResource("Animation_rqosc")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_halnj"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(48, 114, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocn73"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(48, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t148e"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(48, 228, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frbg8"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(96, 114, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3bfh"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(96, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1sff"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(96, 228, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_js8yt"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(48, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0vxt"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(0, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k78kv"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(48, 0, 40, 106)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlto0"]
+atlas = ExtResource("11_h26mt")
+region = Rect2(96, 0, 40, 106)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kanqv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_halnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocn73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t148e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocn73")
+}],
+"loop": true,
+"name": &"mov_abajo",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frbg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3bfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1sff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3bfh")
+}],
+"loop": true,
+"name": &"mov_arriba",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_js8yt")
+}],
+"loop": true,
+"name": &"quieto_abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0vxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k78kv")
+}],
+"loop": true,
+"name": &"quieto_abajo_hablando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlto0")
+}],
+"loop": true,
+"name": &"quieto_arriba",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tow7"]
+size = Vector2(40, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hpgco"]
 
 [node name="sala_profesores" type="Node2D"]
 script = ExtResource("1_s6qmf")
@@ -108,7 +289,20 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD+/+3/AAADAAIAAAAGAO3/AAADAAIAAAA7APb/AAAFAAIAAAATAO7/AAACAAIAAAAlAO7/AAACAAIAAAA7AO7/AAACAAIAAAAcAPD/AAAFAAIAAAAbAPD/AAAEAAIAAAAkAPr/AAAEAAIAAAAuAPr/AAAEAAIAAAA6APb/AAAEAAIAAAAXAPr/AAAEAAIAAAAYAPv/AAAFAAIAAAAlAPv/AAAFAAIAAAAvAPv/AAAFAAIAAAAtAO3/AAADAAIAAAAzAO3/AAADAAIAAAA8APj/AAAAAAAAABAdAPL/AAAAAAAAABA=")
 tile_set = SubResource("TileSet_bpcpb")
 
-[node name="jugador" parent="ysort" instance=ExtResource("4_o6bq8")]
+[node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("4_o6bq8")]
+position = Vector2(41, -94)
+
+[node name="PsicologaLaura" type="CharacterBody2D" parent="ysort"]
+position = Vector2(531, -228)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/PsicologaLaura"]
+sprite_frames = SubResource("SpriteFrames_8a2ri")
+animation = &"quieto_abajo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/PsicologaLaura"]
+position = Vector2(0, 41)
+scale = Vector2(1.96, 0.879997)
+shape = SubResource("RectangleShape2D_jpodt")
 
 [node name="Puertas" type="Node" parent="."]
 
@@ -142,4 +336,52 @@ shape = SubResource("RectangleShape2D_4x6mu")
 position = Vector2(-50, 30)
 shape = SubResource("RectangleShape2D_o6bq8")
 
+[node name="SistemaEscenas1" parent="." instance=ExtResource("7_j3jb0")]
+
+[node name="ControladorEscenas" parent="SistemaEscenas1" index="0" node_paths=PackedStringArray("animation_player")]
+cutscene_id = "psicologia"
+animation_player = NodePath("../../AnimationPlayer")
+nombre_escena = "psicologia"
+
+[node name="Area2D" parent="SistemaEscenas1" index="1"]
+position = Vector2(-201, -51)
+cutscene_controller_path = NodePath("../ControladorEscenas")
+escena_a_detectar = "psicologia"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas1/Area2D" index="0"]
+position = Vector2(751, -126)
+shape = SubResource("RectangleShape2D_23d12")
+script = ExtResource("8_mckrd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hgl3q")
+}
+
+[node name="Valeria" type="CharacterBody2D" parent="." groups=["Valeria"]]
+position = Vector2(586, -208)
+script = ExtResource("10_584cg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Valeria"]
+sprite_frames = SubResource("SpriteFrames_kanqv")
+animation = &"mov_abajo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Valeria"]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_4tow7")
+
+[node name="Interactuable" parent="Valeria" instance=ExtResource("12_5p6pt")]
+dialogue_resource = ExtResource("13_v60u1")
+dialogue_start = "salon_principal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Valeria/Interactuable"]
+position = Vector2(0, 31)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_hpgco")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
+
+[connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
+
+[editable path="ysort/jugador"]
 [editable path="Puertas/Puerta_salida"]
+[editable path="SistemaEscenas1"]

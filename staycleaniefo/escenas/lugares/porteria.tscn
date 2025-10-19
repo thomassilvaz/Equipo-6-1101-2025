@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bdyg28ciuwu2d"]
+[gd_scene load_steps=26 format=4 uid="uid://bdyg28ciuwu2d"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_a455t"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_idsxw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dtgqd86iqr1yb" path="res://Imagenes/Personajes/portero.png" id="9_idsxw"]
 [ext_resource type="Script" uid="uid://bagc1l7bfvrmw" path="res://scripts/interactuables.gd" id="9_vrns3"]
 [ext_resource type="PackedScene" uid="uid://40yj2htapr23" path="res://escenas/interactuable.tscn" id="10_lneuw"]
+[ext_resource type="Resource" uid="uid://bom45u3y0qyjr" path="res://Dialogos/personajes/portero.dialogue" id="11_ruxvm"]
 [ext_resource type="Resource" uid="uid://dm8jl07l08p4c" path="res://Dialogos/test_puerta.dialogue" id="11_x0ttr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1dusw"]
@@ -118,6 +119,8 @@ sources/2 = SubResource("TileSetAtlasSource_lln2g")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ruxvm"]
 size = Vector2(52, 29)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bxpn3"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8jhn"]
 size = Vector2(54, 262)
 
@@ -167,6 +170,16 @@ texture = ExtResource("9_idsxw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Portero"]
 position = Vector2(0, 40.5)
 shape = SubResource("RectangleShape2D_ruxvm")
+
+[node name="Interactuable" parent="ysort/Portero" instance=ExtResource("10_lneuw")]
+position = Vector2(0, 5)
+dialogue_resource = ExtResource("11_ruxvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Portero/Interactuable"]
+position = Vector2(0, 31)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_bxpn3")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [node name="Colisiones" type="StaticBody2D" parent="."]
 

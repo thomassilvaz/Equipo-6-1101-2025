@@ -2,16 +2,20 @@
 do Estados.vendedor3.play("quieto_abajo_hablando")
 if Estados.decision_2 == "mala":
 	if Estados.nom == "Alex":
-		Julián: Aún no te vamos a dejar entrar...
-		Julián: De pronto después de clase
+		if Estados.sustancia1:
+			Julián: Ustéd ya tuvo su ratito acá. Parchate en otro lado.[#voz=Julian]
+		else:
+			Julián: Aún no te vamos a dejar entrar...[#voz=Julian]
+			Julián: De pronto después de clase.[#voz=Julian]
 	else:
-		Julián: Este no es tu baño. No vas a entrar.
+		Julián: Este no es tu baño. No vas a entrar.[#voz=Julian]
 else:
-	Julián: No hay nada de que hablar.
+	Julián: No hay nada de que hablar.[#voz=Julian]
 do Estados.vendedor3.play("quieto_abajo")
 => END
 
 ~ salon_principal
-Julián: Oe.
-Julián: ¿Qué, lo del grupo?
-Julián: 
+Julián: Oe.[#voz=Julian]
+Julián: ¿Qué, lo del grupo?[#voz=Julian]
+Julián: Ahh, habla con [color=orange]Ronald[/color].[#voz=Julian]
+=> END

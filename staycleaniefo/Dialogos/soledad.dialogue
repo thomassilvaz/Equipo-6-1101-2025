@@ -1,0 +1,7 @@
+~ start
+La Soledad: Te alejaste de todos. Ahora no tienes a nadie. Este lugar es tuyo... solo tuyo.
+Crees escuchar unas voces familiares...
+"Aún estoy aquí si me necesitas. Pero tú decides."[#voz=valeria]
+La Soledad: No contestes. Solo es lástima. Nadie te necesita.
+{{Estados.nom}}: No queda nadie... y la verdad es que yo los alejé.
+=> END

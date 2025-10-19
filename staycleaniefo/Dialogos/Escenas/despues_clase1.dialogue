@@ -30,7 +30,8 @@ elif Estados.decision_3 == "mala":
 		do Estados.vendedor1.play("quieto_derecha")
 	elif Estados.nom == "Alexa":
 		do Estados.vendedora.play("quieto_derecha_hablando")
-		Karen: Vamos un rato al baño las dos juntas y charlamos, ¿te parece?[#voz=Karen]
+		Ronald: ¿Por qué no te parchas un rato con [color=hot_pink]Karen[/color]?
+		Karen: Sí, sí, vamos un rato al baño las dos juntas y charlamos, ¿te parece?[#voz=Karen]
 		Karen: Ven conmigo.[#voz=Karen]
 		do Estados.vendedora.play("quieto_derecha")
 => END

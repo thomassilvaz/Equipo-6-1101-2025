@@ -13,12 +13,10 @@ func _ready():
 		"piso2":
 			if !Estados.decision2_tomada:
 				global_position = Vector2(2016, -41)
-			elif Estados.decision2_tomada:
-				if Estados.decision_3 == "mala":
-					if Estados.nom == "Alex":
-						global_position = Vector2(1917, -41)
-			else:
-				return
+			#elif Estados.decision2_tomada:
+				#if Estados.decision_3 == "mala":
+					#if Estados.nom == "Alex":
+						#global_position = Vector2(1917, -41)
 
 
 #func decision2_mala():

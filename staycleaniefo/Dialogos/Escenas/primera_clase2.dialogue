@@ -11,7 +11,7 @@ Mateo: Si necesitas hablar, estoy por ahí. No todo es lo que parece.[#voz=Mateo
 do Estados.mateo.play("quieto_arriba")
 do Estados.jugador.play("quieto_arriba")
 do wait(1)
-Escuchas risas desde el fondo.
+Escuchas risas desde el fondo del salón.
 Julián: ¡Vamos al baño después! Tengo algo que te hará olvidar el aburrimiento de este lugar.[#voz=Julian]
 Ronald: Hey nuev{{Estados.genero}}, ¿vas a venir o qué?[#voz=Ronald]
 do Estados.jugador.play("quieto_arriba_hablando")

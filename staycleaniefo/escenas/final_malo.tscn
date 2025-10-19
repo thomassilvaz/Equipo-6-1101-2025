@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://df7s6tgx51xbo"]
+
+[ext_resource type="FontFile" uid="uid://boe65q6htbpaq" path="res://DTM-Mono.otf" id="1_ionj7"]
+[ext_resource type="Script" uid="uid://cf475e4g4nhp3" path="res://scripts/menu.gd" id="1_ixfaj"]
+[ext_resource type="Texture2D" uid="uid://17m7xqp8iygs" path="res://Imagenes/418658556_58cab525-a7f1-4940-866a-3c2db770e229.jpg" id="2_rdfqp"]
+[ext_resource type="Texture2D" uid="uid://daniddw702g8f" path="res://Imagenes/escudo_pixel_art.png" id="3_l6b88"]
+[ext_resource type="Texture2D" uid="uid://ch4lw3725epcq" path="res://Imagenes/FINALmalo.png" id="5_gdm1e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixfaj"]
+bg_color = Color(0.101764, 0.222282, 0.371111, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+shadow_size = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ixfaj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rdfqp")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_top = 11.0
+offset_right = -19.0001
+offset_bottom = 58.0
+grow_horizontal = 2
+scale = Vector2(3.27277, 3.27277)
+texture = ExtResource("3_l6b88")
+
+[node name="salir" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -182.0
+offset_top = -152.0
+offset_right = 183.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_ionj7")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_ixfaj")
+text = "GRACIAS POR JUGAR"
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -142.0
+offset_right = 274.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_gdm1e")
+
+[connection signal="mouse_entered" from="salir" to="." method="_on_salir_mouse_entered"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]

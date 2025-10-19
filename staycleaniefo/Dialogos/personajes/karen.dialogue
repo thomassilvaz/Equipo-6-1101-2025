@@ -31,10 +31,15 @@ do Estados.vendedora.play("vaper1")
 do wait(0.5)
 do Estados.vendedora.play("quieto_abajo")
 do Estados.reputacion(-3)
+set Estados.escuela_oscura += 1
 set Estados.sustancia1 = true
-set Estados.escuela_oscura = true
+set Estados.escena_divergente1 = true
 => END
 
 ~ salon_principal
 Karen: Hola {{Estados.nom}}. Si es para ser equipo pues no, ya me hice con Valeria.
+=> END
+
+~ bano
+Karen: ¡Oh! Te veo muy féliz. Yo sabía que te iba a gustar
 => END

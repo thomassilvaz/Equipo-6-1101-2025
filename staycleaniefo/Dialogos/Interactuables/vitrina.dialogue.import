@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c5tdbjnohbufx"
+path="res://.godot/imported/vitrina.dialogue-17c7bbb087663400b1cb1e15dec802d6.tres"
+
+[deps]
+
+source_file="res://Dialogos/Interactuables/vitrina.dialogue"
+dest_files=["res://.godot/imported/vitrina.dialogue-17c7bbb087663400b1cb1e15dec802d6.tres"]
+
+[params]
+
+defaults=true

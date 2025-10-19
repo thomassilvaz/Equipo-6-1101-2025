@@ -7,8 +7,6 @@ var jugador_cerca := false
 
 func _ready():
 	match get_tree().current_scene.name:
-		"bathroom1":
-			var _mostrar = Estados.vendedor_bath1
 		"piso1":
 			if Estados.introduccion:
 				global_position = Vector2(28, -719)
@@ -17,12 +15,14 @@ func _ready():
 				#$Interactuable.dialogue_start = "oferta1"
 		"piso2":
 			if Estados.decision3_tomada:
-				if !Estados.sustancia1 or Estados.charla_con_valeria:
-					global_position = Vector2(2323, -30)
-				else:
+				if Estados.escena_divergente1:
 					global_position = Vector2(28, -719)
+				else:
+					global_position = Vector2(2323, -30)
+					print("Vendedor está esperando afuera del salón")
 			else:
 				global_position = Vector2(1991, 183)
+				print("Vendedor está listo para decision 2")
 	
 	#visibilidad_npc(mostrar)
 

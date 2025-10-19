@@ -5,6 +5,7 @@ Valeria: Perdón... no puedo, ya me hice con Karen, pero de pronto otro día.[#v
 => END
 
 ~ salon_vacio
+do Estados.jugador.play("quieto_izquierda")
 do Estados.mateo.play("quieto_izquierda_hablando")
 Mateo: Oh.. hola Valeria.[#voz=Mateo]
 do Estados.mateo.play("quieto_izquierda")
@@ -18,15 +19,25 @@ Mateo: Ehm, esta bien. Estamos buscando materiales.[#voz=Mateo]
 Mateo: Puedes ayudar a {{Estados.nom}} a recoger marcadores.[#voz=Mateo]
 do Estados.mateo.play("quieto_izquierda")
 
-Valeria: Bueno.[#voz=Valeria]
+do Estados.valeria.play("quieto_abajo_hablando")
+Valeria: Uhm, Bueno.[#voz=Valeria]
+do Estados.valeria.play("quieto_abajo")
 do Estados.mateo.play("quieto_arriba")
 => END
 
 ~ salon_vacio2
+do Estados.jugador.play("quieto_abajo")
 do Estados.valeria.play("quieto_arriba")
 Valeria te susurra algo.
 do Estados.mateo.play("confundido")
 Valeria: {{Estados.nom}}, ya se que dije que no podía hacerme contigo.[#voz=Valeria]
 Valeria: Pero ya no me cae bien Karen. La verdad es que me ha hecho mal.[#voz=Valeria]
 Valeria: Y por pena no quería decirle nada, pero ya me está afectando.[#voz=Valeria]
+=> END
+
+~ cafeteria
+if !Estados.caf_valeria:
+	Valeria: Si {{Estados.nom}}[speed=1.5]...[speed=1.0] deberías ir donde el profe.
+else:
+	Valeria: [speed=1.5]...
 => END

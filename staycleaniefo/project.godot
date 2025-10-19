@@ -23,7 +23,8 @@ AudioPlayer="*res://escenas/global/audio_player.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Estados="*res://scripts/global/estados.gd"
 Nivel="*res://scripts/nivel.gd"
-Introduccion="*res://scripts/introduccion.gd"
+Introduccion="*res://scripts/escenas/introduccion.gd"
+MenuMusica="*res://scripts/global/menu_musica.gd"
 
 [dialogic]
 
@@ -89,6 +90,10 @@ Vendedor3=""
 Vendedora=""
 Jugador=""
 
+[importer_defaults]
+
+import_gif_to_animated_texture={}
+
 [input]
 
 ui_accept={
@@ -151,10 +156,16 @@ interactuar={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+ui_fullscreen={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194342,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":true,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194309,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogos/test_puerta.dialogue", "res://Dialogos/personajes/julian.dialogue", "res://Dialogos/personajes/mateo.dialogue", "res://Dialogos/personajes/ronald.dialogue", "res://Dialogos/personajes/profesor_andres.dialogue", "res://Dialogos/personajes/valeria.dialogue", "res://Dialogos/personajes/karen.dialogue", "res://Dialogos/Escenas/introduccion.dialogue", "res://Dialogos/Escenas/piso2_d2.dialogue", "res://Dialogos/Escenas/primera_clase2.dialogue", "res://Dialogos/Escenas/primera_clase.dialogue", "res://Dialogos/Interactuables/laboratorio.dialogue", "res://Dialogos/Interactuables/piso3.dialogue", "res://Dialogos/Escenas/terminar_clase1.dialogue", "res://Dialogos/Escenas/despues_clase1.dialogue", "res://Dialogos/Escenas/cancha.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogos/test_puerta.dialogue", "res://Dialogos/personajes/julian.dialogue", "res://Dialogos/personajes/mateo.dialogue", "res://Dialogos/personajes/ronald.dialogue", "res://Dialogos/personajes/profesor_andres.dialogue", "res://Dialogos/personajes/valeria.dialogue", "res://Dialogos/personajes/karen.dialogue", "res://Dialogos/Escenas/introduccion.dialogue", "res://Dialogos/Escenas/piso2_d2.dialogue", "res://Dialogos/Escenas/primera_clase2.dialogue", "res://Dialogos/Escenas/primera_clase.dialogue", "res://Dialogos/Interactuables/laboratorio.dialogue", "res://Dialogos/Interactuables/piso3.dialogue", "res://Dialogos/Escenas/terminar_clase1.dialogue", "res://Dialogos/Escenas/despues_clase1.dialogue", "res://Dialogos/Escenas/cancha.dialogue", "res://Dialogos/Interactuables/fernei.dialogue", "res://Dialogos/Interactuables/tienda.dialogue", "res://Dialogos/Interactuables/baño_profes.dialogue", "res://Dialogos/personajes/psicologa_laura.dialogue", "res://Dialogos/duda.dialogue", "res://Dialogos/soledad.dialogue", "res://Dialogos/Interactuables/sala_profesores.dialogue", "res://Dialogos/Interactuables/vitrina.dialogue", "res://Dialogos/personajes/portero.dialogue")
 
 [layer_names]
 

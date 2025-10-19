@@ -11,10 +11,21 @@ func play_animationplayer(anim_name: String):
 
 func _ready():
 	match get_tree().current_scene.name:
+		"piso1":
+			if Estados.decision3_tomada:
+				if Estados.charla_con_valeria:
+					global_position = Vector2(401, 0)
+				else:
+					global_position = Vector2(-128, -519)
+			else:
+				global_position = Vector2(-128, -519)
 		"piso2":
 			if Estados.decision3_tomada:
-				if !Estados.sustancia1 or Estados.charla_con_valeria:
+				if !Estados.charla_con_valeria:
 					global_position = Vector2(2424, -29)
+					if Estados.sustancia1:
+						global_position = Vector2(798, -55)
+						interactuable.get_parent().dialogue_start = "sustancia1"
 				else:
 					global_position = Vector2(154, -723)
 			else:

@@ -1,0 +1,13 @@
+~ tienda1
+if !Estados.charla_con_valeria:
+	Es la tienda institucional.
+	No contiene mucha mercancía.
+else:
+	La tienda parece haber sido surtida hace poco.
+	Ves a Mateo pensando un poco.
+=> END
+
+~ tienda2
+Es el puesto de helados y raspados.
+Está cerrado.
+=> END

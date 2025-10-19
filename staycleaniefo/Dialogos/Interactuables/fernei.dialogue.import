@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://hva1y3e5j60t"
+path="res://.godot/imported/fernei.dialogue-6538e886f358f53c2cb375660433e197.tres"
+
+[deps]
+
+source_file="res://Dialogos/Interactuables/fernei.dialogue"
+dest_files=["res://.godot/imported/fernei.dialogue-6538e886f358f53c2cb375660433e197.tres"]
+
+[params]
+
+defaults=true

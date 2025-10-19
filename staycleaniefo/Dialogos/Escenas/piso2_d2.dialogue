@@ -1,12 +1,12 @@
 ~ start
 do Estados.vendedor1.play("quieto_izquierda")
 do Estados.vendedor3.play("quieto_abajo_hablando")
-Julian: ¡Hey tú! [#voz=Julian]
+Julián: ¡Hey tú! [#voz=Julian]
 match Estados.decision_1:
 	when "buena":
-		Julian: Esta tarde tendrémos algo [color=red]interesante[/color] en la cancha...[#voz=Julian]
-		Julian: Puedes venir si no eres gallina.[#voz=Julian]
-		Julian: Vení a nuestro grupo.[#voz=Julian]
+		Julián: Esta tarde tendrémos algo [color=red]interesante[/color] en la cancha...[#voz=Julian]
+		Julián: Puedes venir si no eres gallina.[#voz=Julian]
+		Julián: Vení a nuestro grupo.[#voz=Julian]
 		do Estados.vendedor3.play("quieto_abajo")
 		- No me interesa, no iré.
 			do Estados.reputacion(1)
@@ -15,7 +15,7 @@ match Estados.decision_1:
 			do Estados.vendedor1.play("quieto_izquierda")
 			
 			do Estados.vendedor3.play("quieto_abajo_hablando")
-			Julian: Ah ya, eres uno de esos que no saben divertirse. Igual no podrás hacernos nada, a los profes no les importa.[#voz=Julian]
+			Julián: Ah ya, eres uno de esos que no saben divertirse. Igual no podrás hacernos nada, a los profes no les importa.[#voz=Julian]
 			do Estados.vendedor3.play("quieto_abajo")
 			
 			Ronald: Hasta luego entonces...[#voz=Ronald]
@@ -26,7 +26,7 @@ match Estados.decision_1:
 			
 			do Estados.mateo.play("quieto_abajo_hablando")
 			Mateo: .{{Estados.nom}}?[next=auto][#voz=Mateo]
-			do Estados.mateo.play("quieto_abajo")
+			do Estados.mateo.play("quieto_izquierda")
 			
 			Ronald: Entonces ahorita, [color=yellow]en la tarde, detrás de árbol[/color].[#voz=Ronald]
 			Ronald: Allá te esperamos.[#voz=Ronald]
@@ -42,7 +42,7 @@ match Estados.decision_1:
 			
 			do Estados.vendedor3.play("quieto_abajo_hablando")
 			Julián: Que suave.[#voz=Julian]
-			do Estados.vendedor3.play("quieto_abajo")
+			do Estados.vendedor3.play("quieto_izquierda")
 			
 			Ronald: Hasta luego entonces...[#voz=Ronald]
 			set Estados.decision_2 = "buena"
@@ -59,4 +59,5 @@ match Estados.decision_1:
 			set Estados.decision_2 = "mala"
 set Estados.segunda_decision = true
 set Estados.decision2_tomada = true
+do Estados.mateo.play("quieto_abajo")
 => END

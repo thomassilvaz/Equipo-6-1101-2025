@@ -1,0 +1,7 @@
+~ start
+if !Estados.charla_con_valeria:
+	Es la cocina de la tienda.
+	Aun no hay nadie en ella.
+else:
+	Ves algunas cocineras preparando los almuerzos para los estudiantes.
+=> END

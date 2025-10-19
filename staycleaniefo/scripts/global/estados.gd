@@ -2,10 +2,10 @@ extends Node
 
 var contador: int = 0
 
-var escuela_oscura: bool = false
-var escuela_oscura2: bool = false
-var genero: String = "o"
-var nom: String = "Alex"
+var escuela_oscura: int = 0
+var genero: String = "a"
+var nom: String = "Alexa"
+var escogio_genero: bool = false
 
 #escenas_vistas
 var primera_clase: bool = false
@@ -13,6 +13,10 @@ var introduccion: bool = false
 var segunda_decision: bool = false
 var escena_extra1: bool = false
 var salon_vacio: bool = false
+var escena_divergente1 := false
+var escena_divergente2 := false
+var psicologia: bool = false
+var despues_charla: bool = false
 
 #decisiones
 var decision_1: String
@@ -33,11 +37,13 @@ var empezar_primera_clase := false
 var primera_clase_hecha := false
 var charla_con_valeria := false
 var sustancia1 := false
-var escena_divergente2 := false
 var sustancia2 := false
+var caf_interactuo_profe := false
+var caf_valeria := false
 
 #sprites
 var profesor_andres: AnimatedSprite2D
+var psicologa_laura: AnimatedSprite2D
 var jugador: AnimatedSprite2D
 var vendedor1: AnimatedSprite2D
 var vendedor2: AnimatedSprite2D
@@ -54,6 +60,7 @@ func _find_sprites():
 	var escena = tree.current_scene
 	if escena:
 		profesor_andres = _get_sprite(escena, "ProfesorAndres")
+		psicologa_laura = _get_sprite(escena, "PsicologaLaura")
 		jugador =_get_sprite(escena, "jugador")
 		vendedor1 = _get_sprite(escena, "Vendedor1")
 		mateo = _get_sprite(escena, "Mateo")
@@ -85,12 +92,23 @@ func reputacion(valor: int):
 	contador += valor
 	puntaje.text = str(contador)
 	
-	if contador == 0:
+	if contador == 9:
+		puntaje.modulate = Color.GOLD
+	elif contador == -9:
+		puntaje.modulate = Color.PURPLE
+	elif contador == 0:
 		puntaje.modulate = Color.DODGER_BLUE
 	elif contador > 0:
 		puntaje.modulate = Color.LIME_GREEN if contador > 4 else Color.AQUAMARINE
 	elif contador < 0:
 		puntaje.modulate = Color.RED if contador < -4 else Color.PALE_VIOLET_RED
+
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_fullscreen"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func mark_cutscene_played(cutscene_id):
 	game_data["played_cutscenes"][cutscene_id] = true

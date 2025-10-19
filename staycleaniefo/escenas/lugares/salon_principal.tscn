@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=4 uid="uid://hlwd4oxnlx30"]
+[gd_scene load_steps=131 format=4 uid="uid://hlwd4oxnlx30"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_gd4t4"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="1_yap3h"]
@@ -29,6 +29,8 @@
 [ext_resource type="Script" uid="uid://e14s1bjm6hw1" path="res://scripts/personajes/vendedora.gd" id="20_wqfci"]
 [ext_resource type="Resource" uid="uid://bs5r12bixc0e2" path="res://Dialogos/Escenas/terminar_clase1.dialogue" id="21_cofx2"]
 [ext_resource type="Script" uid="uid://c3qgq8ssk5wt1" path="res://scripts/objetos/primeraclase.gd" id="22_vykfn"]
+[ext_resource type="Script" uid="uid://bagc1l7bfvrmw" path="res://scripts/interactuables.gd" id="30_wqfci"]
+[ext_resource type="Resource" uid="uid://c5tdbjnohbufx" path="res://Dialogos/Interactuables/vitrina.dialogue" id="31_wqfci"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3i0r0"]
 texture = ExtResource("1_yap3h")
@@ -1247,6 +1249,18 @@ tracks/2/keys = {
 "method": &"trigger_dialogue"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ysort/jugador:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(536, -307)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uvkpu"]
 _data = {
@@ -1260,6 +1274,9 @@ size = Vector2(60, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cofx2"]
 size = Vector2(156, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iw3i7"]
+size = Vector2(222.998, 104.273)
 
 [node name="salonprincipal" type="Node2D"]
 script = ExtResource("1_gd4t4")
@@ -1302,7 +1319,7 @@ tile_map_data = PackedByteArray("AAAlANz/AAADAAAAAAAeANz/AAAEAAAAAAApAOD/AAAAAAA
 tile_set = SubResource("TileSet_5cxnd")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("2_3i0r0")]
-position = Vector2(469, 20)
+position = Vector2(484, -7)
 
 [node name="ProfesorAndres" type="CharacterBody2D" parent="ysort" groups=["ProfesorAndres"]]
 position = Vector2(485, -444)
@@ -1406,7 +1423,7 @@ animation = &"quieto_abajo"
 
 [node name="Interactuable" parent="ysort/Vendedor3" instance=ExtResource("8_8ojtm")]
 dialogue_resource = ExtResource("20_5wruy")
-dialogue_start = "piso2"
+dialogue_start = "salon_principal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3/Interactuable"]
 position = Vector2(0, 35)
@@ -1485,6 +1502,21 @@ script = ExtResource("22_vykfn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SistemaEscenas1/primeraclase"]
 position = Vector2(536, -300.5)
 shape = SubResource("RectangleShape2D_cofx2")
+
+[node name="Interactuables" type="Node" parent="."]
+script = ExtResource("30_wqfci")
+
+[node name="vitrinas" parent="Interactuables" instance=ExtResource("8_8ojtm")]
+position = Vector2(316, -511)
+scale = Vector2(0.600005, 0.439995)
+collision_mask = 1
+dialogue_resource = ExtResource("31_wqfci")
+dialogue_start = "salon_principal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactuables/vitrinas"]
+position = Vector2(46.833, -0.00012207)
+shape = SubResource("RectangleShape2D_iw3i7")
+debug_color = Color(0.966744, 0, 0.478621, 0.42)
 
 [connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="SistemaEscenas1/primeraclase" to="SistemaEscenas1/primeraclase" method="_on_body_entered"]

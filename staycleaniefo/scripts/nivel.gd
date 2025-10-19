@@ -1,10 +1,16 @@
 extends Node2D
 
+var is_shader_applied = false
+
 func _process(_delta: float) -> void:
-	if Estados.escuela_oscura:
-		create_tween().tween_property(self, "modulate", Color("#c4d9e4"), 1.0)
+	if Estados.escuela_oscura >= 1:
+		var tween = create_tween()
+		tween.tween_property(self, "modulate", Color("#c4d9e4"), 1.0)
 	else:
-		create_tween().tween_property(self, "modulate", Color("#ffffff"), 1.0)
+		self.modulate = Color.WHITE
+	
+	if Estados.escuela_oscura == 2:
+		music_player()
 
 func _ready():
 	var scene_name = get_tree().current_scene.name
@@ -32,15 +38,18 @@ func _ready():
 
 func music_player():
 	var scene_name = get_tree().current_scene.name
-	match scene_name:
-		"piso1", "piso2", "salonprincipal", "porteria", "sala_profesores":
-			AudioPlayer.play_music("res://Audio/Musica/Tu Escuela.mp3")
-		#"salon":
-			#AudioPlayer.play_music("res://music/salon_theme.ogg")
-		"bathroom1":
-			AudioPlayer.stop_music()
-		_:
-			AudioPlayer.stop_music()
+	if Estados.escuela_oscura < 2:
+		match scene_name:
+			"piso1", "piso2", "salonprincipal", "porteria", "sala_profesores":
+				AudioPlayer.play_music("res://Audio/Musica/Tu Escuela.mp3")
+			#"salon":
+				#AudioPlayer.play_music("res://music/salon_theme.ogg")
+			"bathroom1":
+				AudioPlayer.stop_music()
+			_:
+				AudioPlayer.stop_music()
+	else:
+		AudioPlayer.play_music("res://Audio/Musica/Anticipacion.mp3")
 
 func _on_level_spawn(destino_tag: String):
 	var puerta_path = "Puertas/Puerta_" + destino_tag

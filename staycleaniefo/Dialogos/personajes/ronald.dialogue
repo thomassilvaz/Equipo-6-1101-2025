@@ -54,8 +54,10 @@ do Estados.vendedor2.play("quieto_abajo_hablando")
 Estudiante: [wave amp=25 freq=5]Me agrada este chico.[/wave][#voz=Andres]
 do Estados.vendedor2.play("quieto_abajo")
 do wait(1)
-set Estados.escuela_oscura = true
+do Estados.reputacion(-3)
+set Estados.escuela_oscura += 1
 set Estados.sustancia1 = true
+set Estados.escena_divergente1 = true
 => END
 
 ~ salon_principal

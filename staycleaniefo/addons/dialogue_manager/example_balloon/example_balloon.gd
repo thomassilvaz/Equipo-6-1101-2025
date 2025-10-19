@@ -118,15 +118,21 @@ func apply_dialogue_line() -> void:
 		"Ronald":
 			character_label.modulate = Color.DARK_ORANGE
 		"Karen":
-			character_label.modulate = Color.PURPLE
+			character_label.modulate = Color.HOT_PINK
 		"Mateo":
 			character_label.modulate = Color.LIGHT_SEA_GREEN
+		"Valeria":
+			character_label.modulate = Color.PURPLE
 		"Julián":
 			character_label.modulate = Color.YELLOW
+		"Estudiante":
+			character_label.modulate = Color.DARK_RED
 		"Profesor Andrés":
 			character_label.modulate = Color.SADDLE_BROWN
+		"Psicóloga Laura":
+			character_label.modulate = Color.CORNFLOWER_BLUE
 		_:
-			character_label.add_theme_color_override("font_color", Color.WHITE)
+			character_label.modulate = Color.GRAY
 
 
 	dialogue_label.hide()
@@ -220,6 +226,8 @@ func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -
 			match voz_tag:
 				"Andres":
 					audio_stream_player.stream = load("res://Audio/FX/Dialogo/txt_and.wav")
+				"Laura":
+					audio_stream_player.stream = load("res://Audio/FX/Dialogo/txt_lau.wav")
 				"Ronald":
 					audio_stream_player.stream = load("res://Audio/FX/Dialogo/txt_ron.wav")
 				"Valeria":

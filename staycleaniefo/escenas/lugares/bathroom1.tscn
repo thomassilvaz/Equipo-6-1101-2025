@@ -548,7 +548,7 @@ tracks/3/path = NodePath("ysort/Vendedor3")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.4),
+"times": PackedFloat32Array(0.0333333, 1.4),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": ["mov_arriba"],
@@ -671,7 +671,7 @@ tile_map_data = PackedByteArray("AAAEAPP/AAAAAAIAAAAEAOH/AAAAAAIAAAAEAOf/AAAAAAI
 tile_set = SubResource("TileSet_75jbr")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("5_6h1du")]
-position = Vector2(-132, -360)
+position = Vector2(-128, -394)
 
 [node name="Vendedor1" type="CharacterBody2D" parent="ysort"]
 position = Vector2(-130, -480)
@@ -713,7 +713,7 @@ script = ExtResource("12_75jbr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedor3"]
 sprite_frames = SubResource("SpriteFrames_jjtrk")
-animation = &"quieto_arriba"
+animation = &"mov_arriba"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3"]
 position = Vector2(0.5, 43.5)

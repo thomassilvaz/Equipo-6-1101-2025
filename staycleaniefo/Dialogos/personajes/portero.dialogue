@@ -1,0 +1,17 @@
+~ start
+Portero: ¡Bienvenido al Ozanam!
+Portero: ¿Qué me quieres preguntar?
+- Cómo se juega.
+	Portero: Estos son los controles.
+	Portero: Para moverte, puedes usar las teclas [color=yellow]WASD[/color] y las teclas ⬅⬇⬆➡️.
+	Portero: Si quieres interactuar con un objeto, puedes usar las teclas [color=yellow]E, Enter y Z[/color].
+	Portero: Y para saltar o skipear el dialogo, puedes usar tu [color=yellow]mouse[/color].
+	Portero: De resto, todo lo que deberás hacer, será [color=yellow]señalado[/color] para tí. Ya puedes jugar.
+- Quién eres.
+	Portero: Soy el portero de hoy. Estás un poco tarde, deberías [color=yellow]subir a clase[/color].
+- Qué se puede hacer en el juego.
+	Portero: En esta experiencia, podrás encaminar tu propio camino mediante las decisiones que tomes.
+	Portero: Tendrás varios personajes intentando llevarte por distintas rutas.
+	Portero: Y está en tus manos escoger la que creas mejor, aumentar tu [color=yellow]Reputación[/color] institucional,
+	Portero: Y llevar al colegio a un camino más limpio, reconociendo las consecuencias de las sustancias psicoactivas.
+=> END

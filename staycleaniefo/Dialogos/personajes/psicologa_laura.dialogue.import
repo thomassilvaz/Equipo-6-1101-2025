@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b8fwo0fifl5l"
+path="res://.godot/imported/psicologa_laura.dialogue-7ae10ce4a5967e739638b3939f656faa.tres"
+
+[deps]
+
+source_file="res://Dialogos/personajes/psicologa_laura.dialogue"
+dest_files=["res://.godot/imported/psicologa_laura.dialogue-7ae10ce4a5967e739638b3939f656faa.tres"]
+
+[params]
+
+defaults=true

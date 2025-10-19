@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://351eyp0t2tqt"
+path="res://.godot/imported/estrella.gif-3215821e33475734caa5735d699d9292.tres"
+
+[deps]
+
+source_file="res://Imagenes/estrella.gif"
+dest_files=["res://.godot/imported/estrella.gif-3215821e33475734caa5735d699d9292.tres"]
+
+[params]
+

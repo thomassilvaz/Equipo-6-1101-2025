@@ -1,0 +1,39 @@
+~ start
+???: Hola {{Estados.nom}}. El [color=SADDLE_BROWN]profesor Andrés[/color] me ha hablado de tí.[#voz=Laura]
+Psicóloga Laura: Me llamo Laura, y soy la psicóloga de la institución.[#voz=Laura]
+match Estados.escuela_oscura:
+	when 0:
+		Psicóloga Laura: Bienvenido seas.[#voz=Laura]
+		Psicóloga Laura: Veo que quisiste acompañar a una [color=purple]amiga[/color] tuya, ¿no?[#voz=Laura]
+		Valeria: Hola, {{Estados.nom}}. Gracias por acompañarme. No crei que tuviera otras personas con quien estar.[#voz=Valeria]
+		Valeria: Siento que aun puedo cambiar mis malos hábitos. Por eso estoy aquí.[#voz=Valeria]
+		Psicóloga Laura: Eso es [color=purple]Valeria[/color]. {{Estados.nom}}, creo que les ayudado indirectamente a Valeria con solo recibirla.[#voz=Laura]
+		Psicóloga Laura: Bueno, te felicito por eso. Te veo como un buen [color=green]rol modelo[/color] para el colegio.[#voz=Laura]
+		Psicóloga Laura: No todos tienen la fuerta voluntad de rechazar lo que otros quieran para tí.[#voz=Laura]
+		Psicóloga Laura: Sin embargo, el que se llama [color=dark_orange]Ronald[/color] de tu salón.[#voz=Laura]
+		Psicóloga Laura: Él es un chico angustiado. Él ya me ha venido aquí antes. Son solos sus circumstancias en casa, la que lo vuelve así.[#voz=Laura]
+		Valeria: {{Estados.nom}}, si quieres puedes esperar a que termine mi charla. Agradezco lo que has hecho.[#voz=Valeria][#voz=Laura]
+		Psicóloga Laura: Gracias por venir, {{Estados.nom}}.[#voz=Laura]
+	when 1:
+		Psicóloga Laura: Me alegra verte por decisión propia. Eso es más difícil de lo que parece.[#voz=Laura]
+		Psicóloga Laura: Aquí también está una amiga tuya.[#voz=Laura]
+		Valeria: {{Estados.nom}}, arreglemos lo que aun podemos de nosotros para seguir adelante.[#voz=Valeria]
+		{{Estados.nom}}: No quiero volver a repetirlo... pero tampoco sé cómo avanzar.
+		Psicóloga Laura: Podemos hablar aquí, sin juzgarte. Este espacio es para eso.[#voz=Laura]
+		Valeria: Nunca imaginé poder confiar en alguien adulto aquí...[#voz=Valeria]
+		Psicóloga Laura: Hay más personas de tu lado de lo que crees. Y no es tarde para descubrirlo.[#voz=Laura]
+		Psicóloga Laura: Yo se que ustédes dos pueden cambiar, y para eso estoy aquí.[#voz=Laura]
+		Psicóloga Laura: Gracias por venir aquí, {{Estados.nom}}...[#voz=Laura]
+	when 2:
+		[wave amp=25 freq=5]La Culpa[/wave]: Te lo advertimos. Ahora mírate. Sol{{Estados.genero}}, confundid{{Estados.genero}}, culpable.
+		Valeria: Aún estoy aquí si me necesitas. Pero tú decides.[#voz=Valeria]
+		Alex: No puedo cambiar lo que hice...
+		La Culpa: Repite conmigo: "Todo fue mi culpa."
+		do wait(2)
+		{{Estados.nom}}: ...[color=red]todo fue mi culpa[/color]...
+		Psicóloga Laura: Culparse no es sanar. Reconocerlo es el primer paso.[#voz=Laura]
+		Psicóloga Laura: {{Estados.nom}}, estás al límite. No es debilidad aceptar que necesitas ayuda.[#voz=Laura]
+		{{Estados.nom}}: ¡Cállese! Usted no sabe nada...
+		Psicóloga Laura: He visto este camino muchas veces. Aún puedes escribir un final distinto.[#voz=Laura]
+		Valeria: No es fácil verte así. Pero si alguna vez decides volver... estaré ahí, {{Estados.nom}}.[#voz=Valeria]
+=> END

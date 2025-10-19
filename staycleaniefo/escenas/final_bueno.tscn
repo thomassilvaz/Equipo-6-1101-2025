@@ -1,0 +1,139 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3ntr3malhskf"]
+
+[ext_resource type="Script" uid="uid://cf475e4g4nhp3" path="res://scripts/menu.gd" id="1_fmix8"]
+[ext_resource type="FontFile" uid="uid://boe65q6htbpaq" path="res://DTM-Mono.otf" id="1_rvfla"]
+[ext_resource type="Texture2D" uid="uid://17m7xqp8iygs" path="res://Imagenes/418658556_58cab525-a7f1-4940-866a-3c2db770e229.jpg" id="2_7h7fi"]
+[ext_resource type="Texture2D" uid="uid://daniddw702g8f" path="res://Imagenes/escudo_pixel_art.png" id="4_icdfm"]
+[ext_resource type="Texture2D" uid="uid://cid4qrtlxp44r" path="res://Imagenes/medalla.png" id="5_c8dlj"]
+[ext_resource type="Texture2D" uid="uid://s6a2aifsl35n" path="res://Imagenes/FINALbueno.png" id="5_n3lr5"]
+[ext_resource type="Script" uid="uid://dmw5wsho3tx1l" path="res://scripts/completista.gd" id="6_0esgb"]
+[ext_resource type="Texture2D" uid="uid://351eyp0t2tqt" path="res://Imagenes/estrella.gif" id="6_nyd50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fmix8"]
+bg_color = Color(0.101764, 0.222282, 0.371111, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+shadow_size = 10
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c8dlj"]
+particle_flag_disable_z = true
+radial_velocity_min = -423.9
+radial_velocity_max = 347.83
+gravity = Vector3(0, 98, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fmix8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7h7fi")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="salir" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = -170.0
+offset_right = 99.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_rvfla")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_fmix8")
+text = "GRACIAS
+POR JUGAR"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_top = 11.0
+offset_right = -19.0001
+offset_bottom = 58.0
+grow_horizontal = 2
+scale = Vector2(3.27277, 3.27277)
+texture = ExtResource("4_icdfm")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -122.0
+offset_right = 256.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_n3lr5")
+
+[node name="completista" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("6_0esgb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="completista"]
+offset_left = 675.0
+offset_top = 154.0
+offset_right = 1135.0
+offset_bottom = 285.0
+theme_override_colors/default_color = Color(1, 0.866667, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/line_separation = -5
+theme_override_fonts/normal_font = ExtResource("1_rvfla")
+theme_override_font_sizes/normal_font_size = 30
+text = "MEDALLA COMPLETISTA
+
+REPUTACIÓN MÁXIMA"
+horizontal_alignment = 2
+
+[node name="TextureRect3" type="TextureRect" parent="completista"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 853.0
+offset_top = 351.0
+offset_right = 1048.0
+offset_bottom = 546.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -0.360202
+texture = ExtResource("5_c8dlj")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="completista/TextureRect3"]
+z_index = -1
+position = Vector2(100.267, 26.0097)
+amount = 30
+texture = ExtResource("6_nyd50")
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_c8dlj")
+
+[connection signal="mouse_entered" from="salir" to="." method="_on_salir_mouse_entered"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]

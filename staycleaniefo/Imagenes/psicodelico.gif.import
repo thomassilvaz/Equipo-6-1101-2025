@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://d3778e0p3tap"
+path="res://.godot/imported/psicodelico.gif-7fd47e7444143a2b77e6aa2f14dced8d.tres"
+
+[deps]
+
+source_file="res://Imagenes/psicodelico.gif"
+dest_files=["res://.godot/imported/psicodelico.gif-7fd47e7444143a2b77e6aa2f14dced8d.tres"]
+
+[params]
+

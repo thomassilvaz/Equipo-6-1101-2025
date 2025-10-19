@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dodwqg68kehub"
+path="res://.godot/imported/duda.dialogue-480859bc54967ff6746e4e1b7bedd718.tres"
+
+[deps]
+
+source_file="res://Dialogos/duda.dialogue"
+dest_files=["res://.godot/imported/duda.dialogue-480859bc54967ff6746e4e1b7bedd718.tres"]
+
+[params]
+
+defaults=true

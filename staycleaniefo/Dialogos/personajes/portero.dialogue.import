@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bom45u3y0qyjr"
+path="res://.godot/imported/portero.dialogue-fc8d7e69b8e056bf3a762783c30f1533.tres"
+
+[deps]
+
+source_file="res://Dialogos/personajes/portero.dialogue"
+dest_files=["res://.godot/imported/portero.dialogue-fc8d7e69b8e056bf3a762783c30f1533.tres"]
+
+[params]
+
+defaults=true
