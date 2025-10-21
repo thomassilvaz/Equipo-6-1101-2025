@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
 var direction : Vector2
-const velocidad = 280
+const velocidad = 220
 
 var health: = 10000:
 	set(value):

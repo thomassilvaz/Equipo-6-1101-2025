@@ -1199,6 +1199,20 @@ tracks/13/keys = {
 "method": &"play_animation"
 }]
 }
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("ysort/jugador")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["quieto_arriba"],
+"method": &"play_animation"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_vykfn"]
 resource_name = "terminar_clase1"

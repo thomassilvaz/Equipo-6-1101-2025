@@ -1094,6 +1094,7 @@ position = Vector2(1991, 183)
 script = ExtResource("8_066uy")
 
 [node name="Interactuable" parent="ysort/Vendedor1" instance=ExtResource("9_uw3me")]
+position = Vector2(54, -6)
 dialogue_resource = ExtResource("10_d4tda")
 dialogue_start = "oferta1"
 
