@@ -24,7 +24,7 @@ func _ready():
 	
 	match scene_name:
 		"piso2":
-			if Estados.sustancia1:
+			if Estados.sustancia1 and !Estados.duda:
 				DialogueManager.show_example_dialogue_balloon(load("res://Dialogos/duda.dialogue"))
 		"salon2_p1":
 			if Estados.decision3_tomada:

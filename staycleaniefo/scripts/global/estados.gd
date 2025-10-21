@@ -19,6 +19,7 @@ var escena_divergente2 := false
 var psicologia: bool = false
 var despues_charla: bool = false
 var caminar_cafeteria: bool = false
+var duda: bool = false
 
 #decisiones
 var decision_1: String

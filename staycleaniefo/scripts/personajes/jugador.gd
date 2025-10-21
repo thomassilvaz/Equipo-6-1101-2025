@@ -15,7 +15,7 @@ class_name Jugador
 @export var mujer_enferma: SpriteFrames
 @export var mujer_enferma2: SpriteFrames
 
-var velocidad = 800 #normal: 250, combate: 350
+var velocidad = 350 #normal: 250, combate: 350
 var direccion_actual = "abajo"
 var skip_next_anim_update = false
 var walk_speed = 50

@@ -43,7 +43,11 @@ func makepath():
 	nav_agent.target_position = jugador.global_position
 
 func take_damage():
-	var value = 50
+	var value: int
+	if randi() % 5 == 1:
+		value = 100
+	else:
+		value = 50
 	health -= 50
 	var daño = damage.instantiate()
 	get_tree().current_scene.add_child(daño)
