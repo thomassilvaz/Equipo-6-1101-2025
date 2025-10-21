@@ -66,6 +66,6 @@ Ronald: Si es para lo de la actividad, Julián y yo no vamos a hacer nada, así 
 => END
 
 ~ bano
-Ronald: [wave amp=25 freq=5]Te veo bien Alex.[/wave][#voz=Ronald]
+Ronald: [wave amp=25 freq=5]Te veo bien {{Estados.nom}}.[/wave][#voz=Ronald]
 Ronald: [wave amp=25 freq=5]Cuando quiera más me habla.[/wave][#voz=Ronald]
 => END

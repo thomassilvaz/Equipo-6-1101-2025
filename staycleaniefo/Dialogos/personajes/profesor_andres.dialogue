@@ -43,6 +43,8 @@ if Estados.sustancia1 or Estados.decision_3 == "mala":
 	do Estados.profesor_andres.play("quieto_arriba")
 	do wait(3)
 	do Estados.profesor_andres.play("quieto_abajo_hablando")
+	if Estados.decision_2 == "mala":
+		Profesor Andrés: Ten cuidado con ellos, se mantienen [color=red]detrás de los árboles[/color] de la cancha.
 	Profesor Andrés: {{Estados.nom}}, confío en harás una buena decisión.[#voz=Andres]
 	Profesor Andrés: ..Después de una visita a la psicóloga..[#voz=Andres]
 else:
@@ -57,6 +59,7 @@ else:
 	Profesor Andrés: No quiero que te desconcentres de tu proceso formativo. Me veo orgulloso de tus decisiones.[#voz=Andres]
 	Profesor Andrés: Ahorita si quieres puedes acompañar a tu amiga [color=yellow]Valeria a la psicóloga[/color].[#voz=Andres]
 	set Estados.escena_divergente2 = true
+	set Estados.reputacion(3)
 Profesor Andrés: Busca la [color=yellow]sala de profesores[/color] al fondo de aquel pasillo verde para ir allá.[#voz=Andres]
 do Estados.profesor_andres.play("quieto_abajo")
 set Estados.caf_interactuo_profe = true

@@ -8,13 +8,14 @@ class_name Jugador
 @export var sprite_mujer: SpriteFrames
 
 @export var puede_mover: bool = true
+@export var bullet_node: PackedScene
 
 @export var hombre_enfermo: SpriteFrames
 @export var hombre_enfermo2: SpriteFrames
 @export var mujer_enferma: SpriteFrames
 @export var mujer_enferma2: SpriteFrames
 
-var velocidad = 250
+var velocidad = 800 #normal: 250, combate: 350
 var direccion_actual = "abajo"
 var skip_next_anim_update = false
 var walk_speed = 50
@@ -57,6 +58,15 @@ func _unhandled_input(_event: InputEvent) -> void:
 				CONNECT_ONE_SHOT
 			)
 			return
+
+func _input(event):
+	if event.is_action_pressed("shoot") and Estados.puede_disparar:
+		shoot()
+		Estados.puede_disparar = false
+		await get_tree().create_timer(1.0).timeout
+		Estados.puede_disparar = true
+	else:
+		return
 
 func update_anim(direction: Vector2):
 	var anim = $AnimatedSprite2D
@@ -121,3 +131,10 @@ func _on_spawn(posicion: Vector2, direccion: String):
 	direccion_actual = direccion
 	animated_sprite.play("quieto_" + direccion)
 	skip_next_anim_update = true
+
+func shoot():
+	var bullet = bullet_node.instantiate()
+ 
+	bullet.position = global_position
+	bullet.direction = (get_global_mouse_position() - global_position).normalized()
+	get_tree().current_scene.call_deferred("add_child",bullet)

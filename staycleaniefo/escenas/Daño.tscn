@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1e1e2v6u0b74"]
+
+[ext_resource type="PackedScene" uid="uid://1b00jbdl4yob" path="res://escenas/daño_label.tscn" id="1_ttehu"]
+
+[node name="Daño" type="Node2D"]
+
+[node name="Label" parent="." instance=ExtResource("1_ttehu")]
+modulate = Color(1, 1, 1, 1)
+
+[editable path="Label"]

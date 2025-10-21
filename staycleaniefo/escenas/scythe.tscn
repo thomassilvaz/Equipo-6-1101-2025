@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgrwrc4kgveh5"]
+
+[ext_resource type="Script" uid="uid://03fnmxmh1aq6" path="res://scripts/objetos/schythe.gd" id="1_j4oc8"]
+[ext_resource type="Texture2D" uid="uid://crqtj2x6ss6tl" path="res://Imagenes/Texturas/scythe.png" id="2_61xqs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rymqf"]
+
+[node name="scythe" type="Node2D"]
+script = ExtResource("1_j4oc8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_61xqs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_rymqf")

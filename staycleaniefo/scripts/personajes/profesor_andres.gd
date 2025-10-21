@@ -13,3 +13,8 @@ func _ready():
 				global_position = Vector2(-489, 1010)
 			else:
 				global_position = Vector2(-128, -519)
+		"salonprincipal":
+			if Estados.charla_con_valeria:
+				global_position = Vector2(-389, -8)
+			else:
+				global_position = Vector2(524, -514)

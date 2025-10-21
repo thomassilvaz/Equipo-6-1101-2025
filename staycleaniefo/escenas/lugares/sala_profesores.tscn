@@ -130,41 +130,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jpodt"]
 size = Vector2(20, 26.1364)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu6mv"]
-size = Vector2(43, 256.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x6mu"]
-size = Vector2(929, 68)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6bq8"]
-size = Vector2(164, 59)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_23d12"]
-size = Vector2(175, 118)
-
-[sub_resource type="Animation" id="Animation_rqosc"]
-resource_name = "psicologia"
-length = 3.0
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SistemaEscenas1/ControladorEscenas")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [ExtResource("9_ok0a5"), "start"],
-"method": &"trigger_dialogue"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hgl3q"]
-_data = {
-&"psicologia": SubResource("Animation_rqosc")
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_halnj"]
 atlas = ExtResource("11_h26mt")
 region = Rect2(48, 114, 40, 106)
@@ -274,6 +239,41 @@ size = Vector2(40, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hpgco"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu6mv"]
+size = Vector2(43, 256.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4x6mu"]
+size = Vector2(929, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6bq8"]
+size = Vector2(164, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23d12"]
+size = Vector2(175, 118)
+
+[sub_resource type="Animation" id="Animation_rqosc"]
+resource_name = "psicologia"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SistemaEscenas1/ControladorEscenas")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("9_ok0a5"), "start"],
+"method": &"trigger_dialogue"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hgl3q"]
+_data = {
+&"psicologia": SubResource("Animation_rqosc")
+}
+
 [node name="sala_profesores" type="Node2D"]
 script = ExtResource("1_s6qmf")
 
@@ -303,6 +303,28 @@ animation = &"quieto_abajo"
 position = Vector2(0, 41)
 scale = Vector2(1.96, 0.879997)
 shape = SubResource("RectangleShape2D_jpodt")
+
+[node name="Valeria" type="CharacterBody2D" parent="ysort" groups=["Valeria"]]
+position = Vector2(586, -208)
+script = ExtResource("10_584cg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Valeria"]
+sprite_frames = SubResource("SpriteFrames_kanqv")
+animation = &"mov_abajo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Valeria"]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_4tow7")
+
+[node name="Interactuable" parent="ysort/Valeria" instance=ExtResource("12_5p6pt")]
+dialogue_resource = ExtResource("13_v60u1")
+dialogue_start = "salon_principal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Valeria/Interactuable"]
+position = Vector2(0, 31)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_hpgco")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [node name="Puertas" type="Node" parent="."]
 
@@ -357,28 +379,6 @@ script = ExtResource("8_mckrd")
 libraries = {
 &"": SubResource("AnimationLibrary_hgl3q")
 }
-
-[node name="Valeria" type="CharacterBody2D" parent="." groups=["Valeria"]]
-position = Vector2(586, -208)
-script = ExtResource("10_584cg")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Valeria"]
-sprite_frames = SubResource("SpriteFrames_kanqv")
-animation = &"mov_abajo"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Valeria"]
-position = Vector2(0, 39)
-shape = SubResource("RectangleShape2D_4tow7")
-
-[node name="Interactuable" parent="Valeria" instance=ExtResource("12_5p6pt")]
-dialogue_resource = ExtResource("13_v60u1")
-dialogue_start = "salon_principal"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Valeria/Interactuable"]
-position = Vector2(0, 31)
-scale = Vector2(3, 2.5)
-shape = SubResource("CircleShape2D_hpgco")
-debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [connection signal="body_entered" from="SistemaEscenas1/Area2D" to="SistemaEscenas1/Area2D" method="_on_body_entered"]
 

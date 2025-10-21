@@ -140,12 +140,13 @@ do Estados.valeria.play("quieto_abajo")
 ~ cafeteria
 do Estados.mateo.play("quieto_abajo_hablando")
 if !Estados.caf_interactuo_profe:
-	Mateo: {{Estados.nom}}, ahí está el profe por las mesas.
-	Mateo: Dile que ya estamos listo, mientras tanto.
+	Mateo: {{Estados.nom}}, ahí está el profe por las mesas.[#voz=Mateo]
+	Mateo: Dile que ya estamos listo, mientras tanto.[#voz=Mateo]
+	do Estados.mateo.play("quieto_arriba")
 else:
-	Mateo: Hola {{Estados.nom}}, ¿ya hablaste con el profe?
-	Mateo: ¿Valeria? Ella se fue a hacer algo segun ella.
-	Mateo: Oh, ¿ibas a buscarla?
-	Mateo: Puedes ir, yo me quedará acá charlando con [color=saddle_brown]Andrés[/color].
-do Estados.mateo.play("quieto_abajo")
+	Mateo: Hola {{Estados.nom}}, ¿ya hablaste con el profe?[#voz=Mateo]
+	Mateo: ¿Valeria? Ella se fue a hacer algo segun ella.[#voz=Mateo]
+	Mateo: Oh, ¿ibas a buscarla?[#voz=Mateo]
+	Mateo: Puedes ir, yo me quedará acá charlando con [color=saddle_brown]Andrés[/color].[#voz=Mateo]
+	do Estados.mateo.play("quieto_abajo")
 => END

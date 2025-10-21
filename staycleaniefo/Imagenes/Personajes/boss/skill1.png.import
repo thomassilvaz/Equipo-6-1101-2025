@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lcqgd70dcw48"
-path="res://.godot/imported/estrella2.png-e61c1719ebf5b4a4adfeb65fd474c292.ctex"
+uid="uid://cmb8d31q5kps2"
+path="res://.godot/imported/skill1.png-c13d394a89433937d8b2aea30ba249ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/estrella2.png"
-dest_files=["res://.godot/imported/estrella2.png-e61c1719ebf5b4a4adfeb65fd474c292.ctex"]
+source_file="res://Imagenes/Personajes/boss/skill1.png"
+dest_files=["res://.godot/imported/skill1.png-c13d394a89433937d8b2aea30ba249ca.ctex"]
 
 [params]
 

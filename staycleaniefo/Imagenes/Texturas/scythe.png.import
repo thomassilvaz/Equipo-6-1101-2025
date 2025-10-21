@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0e01toqqfvl1"
-valid=false
+uid="uid://crqtj2x6ss6tl"
+path="res://.godot/imported/scythe.png-5c0f4d201972d648430798db3c54db2b.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Imagenes/estrella.webp"
+source_file="res://Imagenes/Texturas/scythe.png"
+dest_files=["res://.godot/imported/scythe.png-5c0f4d201972d648430798db3c54db2b.ctex"]
 
 [params]
 

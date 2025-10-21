@@ -96,6 +96,7 @@ anchors_preset = 0
 script = ExtResource("6_0esgb")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="completista"]
+layout_mode = 0
 offset_left = 675.0
 offset_top = 154.0
 offset_right = 1135.0

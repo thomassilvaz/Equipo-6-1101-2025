@@ -13,7 +13,10 @@ func _ready() -> void:
 	match get_tree().current_scene.name:
 		"piso1":
 			if Estados.charla_con_valeria:
-				global_position = Vector2(341, 19)
+				if !Estados.caminar_cafeteria:
+					global_position = Vector2(341, 19)
+				else:
+					global_position = Vector2(-251, 873)
 			else:
 				global_position = Vector2(-186,-658)
 

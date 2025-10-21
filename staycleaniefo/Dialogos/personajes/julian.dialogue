@@ -3,7 +3,7 @@ do Estados.vendedor3.play("quieto_abajo_hablando")
 if Estados.decision_2 == "mala":
 	if Estados.nom == "Alex":
 		if Estados.sustancia1:
-			Julián: Ustéd ya tuvo su ratito acá. Parchate en otro lado.[#voz=Julian]
+			Julián: Ustéd ya tuvo su ratito acá. Vaya a parcharse a otro lado.[#voz=Julian]
 		else:
 			Julián: Aún no te vamos a dejar entrar...[#voz=Julian]
 			Julián: De pronto después de clase.[#voz=Julian]
@@ -19,3 +19,9 @@ Julián: Oe.[#voz=Julian]
 Julián: ¿Qué, lo del grupo?[#voz=Julian]
 Julián: Ahh, habla con [color=orange]Ronald[/color].[#voz=Julian]
 => END
+
+~ bano
+if Estados.sustancia1:
+	Julián: Jaja, ¿te pusiste mal solo con eso?, que suaave..[#voz=Julian]
+else:
+	Julián: Chiqui, vaya donde Ronald que le va a decir una cosita.[#voz=Julian]

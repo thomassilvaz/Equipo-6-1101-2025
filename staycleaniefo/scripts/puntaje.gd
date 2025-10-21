@@ -1,5 +1,7 @@
 extends RichTextLabel
 
+@export var restador: PackedScene
+
 func _ready() -> void:
 	var cont = Estados.contador
 	text = str(cont)

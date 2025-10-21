@@ -23,6 +23,9 @@ func _ready():
 		return
 	
 	match scene_name:
+		"piso2":
+			if Estados.sustancia1:
+				DialogueManager.show_example_dialogue_balloon(load("res://Dialogos/duda.dialogue"))
 		"salon2_p1":
 			if Estados.decision3_tomada:
 				if Estados.decision_3 == "buena":
@@ -49,7 +52,8 @@ func music_player():
 			_:
 				AudioPlayer.stop_music()
 	else:
-		AudioPlayer.play_music("res://Audio/Musica/Anticipacion.mp3")
+		if !scene_name == "Arena":
+			AudioPlayer.play_music("res://Audio/Musica/Anticipacion.mp3")
 
 func _on_level_spawn(destino_tag: String):
 	var puerta_path = "Puertas/Puerta_" + destino_tag

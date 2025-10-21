@@ -14,7 +14,10 @@ func _ready():
 		"piso1":
 			if Estados.decision3_tomada:
 				if Estados.charla_con_valeria:
-					global_position = Vector2(401, 0)
+					if Estados.caminar_cafeteria:
+						global_position = Vector2(-379, 892)
+					else:
+						global_position = Vector2(401, 0)
 				else:
 					global_position = Vector2(-128, -519)
 			else:
@@ -22,10 +25,11 @@ func _ready():
 		"piso2":
 			if Estados.decision3_tomada:
 				if !Estados.charla_con_valeria:
-					global_position = Vector2(2424, -29)
 					if Estados.sustancia1:
 						global_position = Vector2(798, -55)
 						interactuable.get_parent().dialogue_start = "sustancia1"
+					else:
+						global_position = Vector2(2424, -29)
 				else:
 					global_position = Vector2(154, -723)
 			else:
@@ -33,9 +37,10 @@ func _ready():
 		"salon2_p1":
 			if Estados.decision3_tomada:
 				if Estados.decision_3 == "buena":
-					if Estados.charla_con_valeria == true:
+					if Estados.charla_con_valeria:
 						global_position = Vector2(154, -323)
-					global_position = Vector2(389, 81)
+					else:
+						global_position = Vector2(389, 81)
 				else:
 					global_position = Vector2(154, -323)
 			else:

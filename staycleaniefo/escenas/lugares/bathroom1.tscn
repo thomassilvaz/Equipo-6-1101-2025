@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://by5ahruud74e1"]
+[gd_scene load_steps=69 format=4 uid="uid://by5ahruud74e1"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_aqnlp"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_gnpiq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b0muyq0s4imkh" path="res://Imagenes/Personajes/estudiante2.png" id="11_vglih"]
 [ext_resource type="Script" uid="uid://bnrd7xw0yiiec" path="res://scripts/personajes/profesor_andres.gd" id="12_75jbr"]
 [ext_resource type="Texture2D" uid="uid://bpuchjpnrosjc" path="res://Imagenes/Personajes/estudiante3.png" id="13_axx3o"]
+[ext_resource type="Resource" uid="uid://126vcm5mf0lq" path="res://Dialogos/personajes/julian.dialogue" id="14_axx3o"]
 [ext_resource type="Script" uid="uid://ddshj771xpj3r" path="res://scripts/objetos/puerta_bloqueada.gd" id="15_axx3o"]
 [ext_resource type="PackedScene" uid="uid://cc22xuj5yn1j1" path="res://escenas/sistema_escenas.tscn" id="15_rij5l"]
 
@@ -468,6 +469,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8wmn"]
 size = Vector2(47, 23)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rij5l"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp4h7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61t00"]
@@ -718,6 +721,16 @@ animation = &"mov_arriba"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3"]
 position = Vector2(0.5, 43.5)
 shape = SubResource("RectangleShape2D_l8wmn")
+
+[node name="Interactuable" parent="ysort/Vendedor3" instance=ExtResource("7_p3ha7")]
+dialogue_resource = ExtResource("14_axx3o")
+dialogue_start = "bano"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Vendedor3/Interactuable"]
+position = Vector2(0, 31)
+scale = Vector2(3, 2.5)
+shape = SubResource("CircleShape2D_rij5l")
+debug_color = Color(0.972028, 0, 0.443895, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-127, -257)

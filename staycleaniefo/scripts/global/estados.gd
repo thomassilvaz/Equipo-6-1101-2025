@@ -6,6 +6,7 @@ var escuela_oscura: int = 0
 var genero: String = "a"
 var nom: String = "Alexa"
 var escogio_genero: bool = false
+var puede_disparar := false
 
 #escenas_vistas
 var primera_clase: bool = false
@@ -17,6 +18,7 @@ var escena_divergente1 := false
 var escena_divergente2 := false
 var psicologia: bool = false
 var despues_charla: bool = false
+var caminar_cafeteria: bool = false
 
 #decisiones
 var decision_1: String
@@ -26,20 +28,20 @@ var decision_4: String
 var decision_5: String
 
 #eventos
-var vendedor_bath1 := false
+var vendedor_bath1: bool = false
 #var caminarconmateo1 := false
-var decision2_tomada := false
-var decision3_tomada := false
-var escogio_pareja := false
-var pc_interactuo_profe := false
-var pc_interactuo_profe2 := false
-var empezar_primera_clase := false
-var primera_clase_hecha := false
-var charla_con_valeria := false
-var sustancia1 := false
-var sustancia2 := false
-var caf_interactuo_profe := false
-var caf_valeria := false
+var decision2_tomada: bool = false
+var decision3_tomada: bool = false
+var escogio_pareja: bool = false
+var pc_interactuo_profe: bool = false
+var pc_interactuo_profe2: bool = false
+var empezar_primera_clase: bool = false
+var primera_clase_hecha: bool = false
+var charla_con_valeria: bool = false
+var sustancia1: bool = false
+var sustancia2: bool = false
+var caf_interactuo_profe: bool = false
+var caf_valeria: bool = false
 
 #sprites
 var profesor_andres: AnimatedSprite2D
@@ -102,6 +104,11 @@ func reputacion(valor: int):
 		puntaje.modulate = Color.LIME_GREEN if contador > 4 else Color.AQUAMARINE
 	elif contador < 0:
 		puntaje.modulate = Color.RED if contador < -4 else Color.PALE_VIOLET_RED
+	
+	var daño = puntaje.restador.instantiate()
+	puntaje.add_child(daño)
+	daño.position = puntaje.position + Vector2(150,100)
+	daño.text = str(valor)
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_fullscreen"):
