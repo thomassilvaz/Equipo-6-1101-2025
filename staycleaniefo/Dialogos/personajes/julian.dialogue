@@ -22,6 +22,6 @@ Julián: Ahh, habla con [color=orange]Ronald[/color].[#voz=Julian]
 
 ~ bano
 if Estados.sustancia1:
-	Julián: Jaja, ¿te pusiste mal solo con eso?, que suaave..[#voz=Julian]
+	Julián: [wave amp=25 freq=5]Jaja, ¿te pusiste mal solo con eso?, que suaave..[/wave][#voz=Julian]
 else:
 	Julián: Chiqui, vaya donde Ronald que le va a decir una cosita.[#voz=Julian]

@@ -1,0 +1,173 @@
+[gd_scene load_steps=41 format=3 uid="uid://c1s6tximl5ddp"]
+
+[ext_resource type="Texture2D" uid="uid://c147u7q10tekm" path="res://2D Godot Powerup/0001.png" id="1_e7bdh"]
+[ext_resource type="Texture2D" uid="uid://cgq4clx650dui" path="res://2D Godot Powerup/0002.png" id="2_f7uh1"]
+[ext_resource type="Texture2D" uid="uid://bp520fce6hnru" path="res://2D Godot Powerup/0003.png" id="3_kvxy4"]
+[ext_resource type="Texture2D" uid="uid://h747tkm6oapp" path="res://2D Godot Powerup/0004.png" id="4_bfvrx"]
+[ext_resource type="Texture2D" uid="uid://dq0konukyy8n7" path="res://2D Godot Powerup/0005.png" id="5_21ofd"]
+[ext_resource type="Texture2D" uid="uid://bws2tpjucg3hv" path="res://2D Godot Powerup/0006.png" id="6_gowec"]
+[ext_resource type="Texture2D" uid="uid://c76ool5at7xm4" path="res://2D Godot Powerup/0007.png" id="7_v4tsh"]
+[ext_resource type="Texture2D" uid="uid://di436nudxnl1r" path="res://2D Godot Powerup/0008.png" id="8_r2ba3"]
+[ext_resource type="Texture2D" uid="uid://lj7gik8cxb32" path="res://2D Godot Powerup/0009.png" id="9_gpqwu"]
+[ext_resource type="Texture2D" uid="uid://lrp0k7bldn3w" path="res://2D Godot Powerup/0010.png" id="10_gguit"]
+[ext_resource type="Texture2D" uid="uid://botd2aufleuml" path="res://2D Godot Powerup/0011.png" id="11_ounsp"]
+[ext_resource type="Texture2D" uid="uid://bxfsag50ygv78" path="res://2D Godot Powerup/0012.png" id="12_nvm0r"]
+[ext_resource type="Texture2D" uid="uid://50r5tq6jfnsg" path="res://2D Godot Powerup/0013.png" id="13_t6ho5"]
+[ext_resource type="Texture2D" uid="uid://dsigul1wcdosr" path="res://2D Godot Powerup/0014.png" id="14_5i34e"]
+[ext_resource type="Texture2D" uid="uid://ihloploqoc4q" path="res://2D Godot Powerup/0015.png" id="15_j1gkh"]
+[ext_resource type="Texture2D" uid="uid://dscyvfkkcw6wa" path="res://2D Godot Powerup/0016.png" id="16_q2n6n"]
+[ext_resource type="Texture2D" uid="uid://rwl0aem1cvxk" path="res://2D Godot Powerup/0017.png" id="17_24i51"]
+[ext_resource type="Texture2D" uid="uid://bi5hgjidxixqh" path="res://2D Godot Powerup/0018.png" id="18_a1qp4"]
+[ext_resource type="Texture2D" uid="uid://dml4baw0acdy4" path="res://2D Godot Powerup/0019.png" id="19_ob0kf"]
+[ext_resource type="Texture2D" uid="uid://j6kwcxtcq4g" path="res://2D Godot Powerup/0020.png" id="20_gfhqx"]
+[ext_resource type="Texture2D" uid="uid://j3k3wtmi3hug" path="res://2D Godot Powerup/0021.png" id="21_cmtkl"]
+[ext_resource type="Texture2D" uid="uid://753bbcykojdh" path="res://2D Godot Powerup/0022.png" id="22_n6r8k"]
+[ext_resource type="Texture2D" uid="uid://bdjh8jbirqhmf" path="res://2D Godot Powerup/0023.png" id="23_apvxj"]
+[ext_resource type="Texture2D" uid="uid://bogvq4k5f14ql" path="res://2D Godot Powerup/0024.png" id="24_vk4ie"]
+[ext_resource type="Texture2D" uid="uid://bj65jinrg1j0o" path="res://2D Godot Powerup/0025.png" id="25_vo6vh"]
+[ext_resource type="Texture2D" uid="uid://3xsw0nhuywwi" path="res://2D Godot Powerup/0026.png" id="26_ke3b3"]
+[ext_resource type="Texture2D" uid="uid://dc7o8bxil16o7" path="res://2D Godot Powerup/0027.png" id="27_4ou7r"]
+[ext_resource type="Texture2D" uid="uid://yc212c5jcvlk" path="res://2D Godot Powerup/0028.png" id="28_ihtwu"]
+[ext_resource type="Texture2D" uid="uid://ccqsj585yu4e6" path="res://2D Godot Powerup/0029.png" id="29_1nd56"]
+[ext_resource type="Texture2D" uid="uid://ce5b0nccwtbrx" path="res://2D Godot Powerup/0030.png" id="30_um0cs"]
+[ext_resource type="Texture2D" uid="uid://bevo8j1g0i870" path="res://2D Godot Powerup/0031.png" id="31_2c8ot"]
+[ext_resource type="Texture2D" uid="uid://civqwliup4pnj" path="res://2D Godot Powerup/0032.png" id="32_sqbob"]
+[ext_resource type="Texture2D" uid="uid://bqa4hlcmbc4ex" path="res://2D Godot Powerup/0033.png" id="33_8vn7d"]
+[ext_resource type="Texture2D" uid="uid://bhxfbda22kj23" path="res://2D Godot Powerup/0034.png" id="34_rsrct"]
+[ext_resource type="Texture2D" uid="uid://c5lwk8nlfxsw7" path="res://2D Godot Powerup/0035.png" id="35_vvg2j"]
+[ext_resource type="Texture2D" uid="uid://s5f8utimjray" path="res://2D Godot Powerup/0036.png" id="36_w65ss"]
+[ext_resource type="Texture2D" uid="uid://citogg433nhpv" path="res://2D Godot Powerup/0037.png" id="37_yl36v"]
+[ext_resource type="Texture2D" uid="uid://b6707f1jn7yt0" path="res://2D Godot Powerup/0038.png" id="38_43f4a"]
+[ext_resource type="Texture2D" uid="uid://cukupw1wbbfov" path="res://2D Godot Powerup/0039.png" id="39_ud417"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vrwx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e7bdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f7uh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kvxy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bfvrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_21ofd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gowec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v4tsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r2ba3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gpqwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gguit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ounsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nvm0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_t6ho5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5i34e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_j1gkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_q2n6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_24i51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_a1qp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ob0kf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gfhqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_cmtkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_n6r8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_apvxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_vk4ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vo6vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ke3b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_4ou7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ihtwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_1nd56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_um0cs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_2c8ot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_sqbob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_8vn7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_rsrct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_vvg2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_w65ss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_yl36v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_43f4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ud417")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="GodotPowerup2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_vrwx4")
+autoplay = "default"

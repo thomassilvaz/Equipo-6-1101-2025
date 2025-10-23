@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://3audr1rolrq4"
+path="res://.godot/imported/muerte.dialogue-e6bc198b821928481423727e48345f8f.tres"
+
+[deps]
+
+source_file="res://Dialogos/muerte.dialogue"
+dest_files=["res://.godot/imported/muerte.dialogue-e6bc198b821928481423727e48345f8f.tres"]
+
+[params]
+
+defaults=true

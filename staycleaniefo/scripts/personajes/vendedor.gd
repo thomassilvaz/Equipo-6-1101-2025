@@ -9,7 +9,10 @@ func _ready():
 	match get_tree().current_scene.name:
 		"piso1":
 			if Estados.introduccion:
-				global_position = Vector2(28, -719)
+				if Estados.decision_2 == "mala" and Estados.escena_divergente1:
+					global_position = Vector2(1355, 2217)
+				else:
+					global_position = Vector2(28, -719)
 			else:
 				global_position = Vector2(770, -55)
 				#$Interactuable.dialogue_start = "oferta1"

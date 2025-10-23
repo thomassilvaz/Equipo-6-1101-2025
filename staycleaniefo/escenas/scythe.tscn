@@ -1,19 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgrwrc4kgveh5"]
+[gd_scene load_steps=6 format=3 uid="uid://dgrwrc4kgveh5"]
 
-[ext_resource type="Script" uid="uid://03fnmxmh1aq6" path="res://scripts/objetos/schythe.gd" id="1_j4oc8"]
+[ext_resource type="Script" uid="uid://03fnmxmh1aq6" path="res://scripts/objetos/scythe.gd" id="1_j4oc8"]
 [ext_resource type="Texture2D" uid="uid://crqtj2x6ss6tl" path="res://Imagenes/Texturas/scythe.png" id="2_61xqs"]
+[ext_resource type="Texture2D" uid="uid://bex1mw5oapd67" path="res://Imagenes/Texturas/light.png" id="3_61xqs"]
+[ext_resource type="Script" uid="uid://ch7rotyfo0xm8" path="res://scripts/personajes/minion_damage.gd" id="3_ynika"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rymqf"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4oc8"]
+radius = 11.5
 
 [node name="scythe" type="Node2D"]
 script = ExtResource("1_j4oc8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_61xqs")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_ynika")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_rymqf")
+position = Vector2(-2, 2)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_j4oc8")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.598962, 0.228186, 1, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("3_61xqs")
+texture_scale = 0.5
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

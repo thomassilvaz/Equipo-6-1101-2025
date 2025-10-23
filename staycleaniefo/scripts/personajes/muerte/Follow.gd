@@ -15,7 +15,7 @@ func exit():
 func transition():
 	if owner.direction.length() <= 120:
 		get_parent().change_state("Attack")
-	if owner.direction.length() > 333:
+	if owner.direction.length() > 300:
 		var chance = randi() % 2
 		match chance:
 			0:

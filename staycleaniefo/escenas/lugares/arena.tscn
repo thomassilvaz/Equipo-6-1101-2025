@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://coqflip8v3627"]
+[gd_scene load_steps=42 format=4 uid="uid://coqflip8v3627"]
 
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="1_4sd3b"]
 [ext_resource type="Script" uid="uid://cr0w8nj5l1x4w" path="res://scripts/arena.gd" id="1_8ei8p"]
@@ -11,26 +11,56 @@
 [ext_resource type="PackedScene" uid="uid://c5vmdkr56auw1" path="res://escenas/jugador.tscn" id="8_yy1r7"]
 [ext_resource type="PackedScene" uid="uid://c1flcuqrhltd8" path="res://escenas/Muerte.tscn" id="9_qojdx"]
 [ext_resource type="PackedScene" uid="uid://dwafphfywbqsl" path="res://escenas/bullet.tscn" id="9_sbn8r"]
+[ext_resource type="Texture2D" uid="uid://bex1mw5oapd67" path="res://Imagenes/Texturas/light.png" id="11_ylcga"]
 [ext_resource type="AudioStream" uid="uid://dc87cpfikb1gq" path="res://Audio/Musica/LaMuerte.mp3" id="12_dgqfl"]
 [ext_resource type="PackedScene" uid="uid://c1e1e2v6u0b74" path="res://escenas/Daño.tscn" id="12_sjml3"]
+[ext_resource type="FontFile" uid="uid://boe65q6htbpaq" path="res://DTM-Mono.otf" id="13_ckx6j"]
+[ext_resource type="Script" uid="uid://daxjg7yvd0fmk" path="res://scripts/spawn_scythe.gd" id="14_egtg7"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_31640"]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dta0b"]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hfcnn"]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pxe05"]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x8glq"]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nomss"]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b4qaa"]
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjml3"]
 texture = ExtResource("1_4sd3b")
 separation = Vector2i(8, 8)
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_31640")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 1:0/0 = 0
+1:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_dta0b")
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 2:0/0 = 0
+2:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_hfcnn")
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 4:0/0 = 0
+4:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_pxe05")
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 5:0/0 = 0
+5:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_x8glq")
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 6:0/0 = 0
+6:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_nomss")
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 0:1/0 = 0
 1:1/0 = 0
@@ -55,6 +85,7 @@ texture_region_size = Vector2i(128, 128)
 7:2/0 = 0
 7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -44, -64, -44, 64, -64, 64)
 8:1/0 = 0
+8:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_b4qaa")
 8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 8:2/0 = 0
 8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -71,6 +102,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSet" id="TileSet_ylcga"]
 tile_size = Vector2i(128, 128)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_sjml3")
 sources/1 = SubResource("TileSetAtlasSource_egtg7")
@@ -93,6 +125,9 @@ texture = ExtResource("4_qojdx")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-87.5, 3.5, 4.5, -29.5, 93.5, 52.5, -85.5, 50.5)
 0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(3.5, -28.5, 96.5, 8.5, 92.5, 51.5)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ckx6j"]
+polygon = PackedVector2Array(-59.2698, -5.08027, 57.5763, -3.95132, 62.6566, 64.9145, -63.7855, 64.35)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31640"]
 texture = ExtResource("5_sbn8r")
 separation = Vector2i(2, 2)
@@ -107,11 +142,15 @@ texture_region_size = Vector2i(128, 128)
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53.625, -29.9171, 56.4474, -29.9171, 56.4474, 33.8684, -54.1895, 34.4329)
 6:0/0 = 0
 0:1/0 = 0
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ckx6j")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64.35, 29.9171, 64.35, 28.7882, 64.35, 64.35, -64.35, 63.2211)
 1:1/0 = 0
 2:1/0 = 0
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28.2237, 7.90264, 29.9171, 5.64474, 27.0947, 44.5934, -27.6592, 45.7224)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ylcga"]
+polygon = PackedVector2Array(-165.5, 62, -155.5, 63, -121.5, 37, 128.5, 35, 156.5, 63, 163.5, 63, 164.5, 1, -165.5, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dx600"]
 texture = ExtResource("6_8ei8p")
@@ -119,13 +158,18 @@ texture_region_size = Vector2i(128, 128)
 0:0/size_in_atlas = Vector2i(3, 1)
 0:0/0 = 0
 0:0/0/y_sort_origin = -20
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ylcga")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(130.001, 36.0053, 154.855, 64.0448, 164.095, 63.7262, 164.262, -2.82237, -165.955, -5.08027, -166.52, 63.2211, -152.972, 64.35, -127.007, 36.1263)
 
 [sub_resource type="TileSet" id="TileSet_dta0b"]
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_31640")
 sources/0 = SubResource("TileSetAtlasSource_ckx6j")
 sources/2 = SubResource("TileSetAtlasSource_dx600")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dx600"]
+polygon = PackedVector2Array(-64, 52, 64, 53, 64, 64, -64, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hfcnn"]
 texture = ExtResource("1_4sd3b")
@@ -144,6 +188,7 @@ texture_region_size = Vector2i(128, 128)
 10:0/0 = 0
 11:0/0 = 0
 11:0/0/y_sort_origin = 8
+11:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_dx600")
 11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 52, 64, 52.4961, 64, 64, -64, 64)
 0:1/0 = 0
 1:1/0 = 0
@@ -171,11 +216,15 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSet" id="TileSet_pxe05"]
 tile_size = Vector2i(128, 128)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hfcnn")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8glq"]
 size = Vector2(163, 83)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kxbx7"]
+polygon = PackedVector2Array(-82.5, -58.5, -82.5, 42.5, 82.5, 42.5, 82.5, -57.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nomss"]
 size = Vector2(381, 386)
@@ -237,6 +286,9 @@ offset = Vector2(0, -150)
 position = Vector2(-4.5, 206.5)
 shape = SubResource("RectangleShape2D_x8glq")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="ysort/NavigationRegion2D/Objetos/Arbol2/CollisionShape2D"]
+occluder = SubResource("OccluderPolygon2D_kxbx7")
+
 [node name="Area2D" type="Area2D" parent="ysort/NavigationRegion2D/Objetos/Arbol2"]
 script = ExtResource("8_sjml3")
 
@@ -257,6 +309,9 @@ offset = Vector2(0, -150)
 position = Vector2(-4.5, 206.5)
 shape = SubResource("RectangleShape2D_x8glq")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="ysort/NavigationRegion2D/Objetos/Arbol/CollisionShape2D"]
+occluder = SubResource("OccluderPolygon2D_kxbx7")
+
 [node name="Area2D" type="Area2D" parent="ysort/NavigationRegion2D/Objetos/Arbol"]
 script = ExtResource("8_sjml3")
 
@@ -265,7 +320,8 @@ position = Vector2(-1.5, -44)
 shape = SubResource("RectangleShape2D_nomss")
 
 [node name="jugador" parent="ysort" instance=ExtResource("8_yy1r7")]
-position = Vector2(765, 45)
+position = Vector2(769, 45)
+damage = ExtResource("12_sjml3")
 bullet_node = ExtResource("9_sbn8r")
 
 [node name="Camera2D" parent="ysort/jugador" index="2"]
@@ -283,9 +339,39 @@ offset_top = -193.0
 offset_right = -186.0
 offset_bottom = -153.0
 
+[node name="Niebla" parent="ysort/jugador/Camera2D" index="2"]
+visible = true
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(-1.14441e-05, 8.5)
+scale = Vector2(1.93, 1.1225)
+
+[node name="PointLight2D" type="PointLight2D" parent="ysort/jugador"]
+color = Color(1, 1, 0.901961, 1)
+energy = 0.7
+shadow_enabled = true
+texture = ExtResource("11_ylcga")
+texture_scale = 1.7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ysort/jugador"]
+z_index = 3
+offset_left = -220.0
+offset_top = -216.0
+offset_right = 212.0
+offset_bottom = -141.0
+alignment = 1
+
+[node name="Label" type="Label" parent="ysort/jugador/VBoxContainer"]
+z_index = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_ckx6j")
+theme_override_font_sizes/font_size = 30
+text = "ATACAR
+Click izquierdo"
+horizontal_alignment = 1
+
 [node name="Muerte" parent="ysort" node_paths=PackedStringArray("jugador") instance=ExtResource("9_qojdx")]
 y_sort_enabled = true
-position = Vector2(741, 733)
+position = Vector2(503, 13)
 damage = ExtResource("12_sjml3")
 jugador = NodePath("../jugador")
 
@@ -293,6 +379,21 @@ jugador = NodePath("../jugador")
 stream = ExtResource("12_dgqfl")
 volume_db = -3.0
 autoplay = true
+
+[node name="Spawn1" type="Node2D" parent="."]
+script = ExtResource("14_egtg7")
+
+[node name="Spawn2" type="Node2D" parent="."]
+script = ExtResource("14_egtg7")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.114897, 0.114897, 0.114897, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="ysort/NavigationRegion2D/Objetos/Arbol2/Area2D" to="ysort/NavigationRegion2D/Objetos/Arbol2/Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="ysort/NavigationRegion2D/Objetos/Arbol2/Area2D" to="ysort/NavigationRegion2D/Objetos/Arbol2/Area2D" method="_on_body_exited"]

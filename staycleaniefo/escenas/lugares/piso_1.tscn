@@ -1182,6 +1182,32 @@ tracks/1/keys = {
 "method": &"visibilidad_npc"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ysort/jugador:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-500, 1103)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ysort/jugador")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["quieto_arriba"],
+"method": &"play_animation"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dsite"]
 resource_name = "cancha_tarde"
@@ -1623,9 +1649,6 @@ position = Vector2(-51, -1)
 [node name="ysort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("6_sxfv7")]
-position = Vector2(771, 44)
-
 [node name="Objetos" type="TileMapLayer" parent="ysort"]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD7//3/AQAAAAEAAABeAP3/AQAAAAEAAAAWAP3/AQAAAAEAAABHAP3/AQAAAAEAAAAOAPz/AQACAAEAAAA/APz/AQACAAEAAABZAPz/AQACAAEAAAD4//z/AQACAAEAAABxAP3/AQAAAAEAAADy/0IAAAAAAAAAAADe/z4AAAAAAAAAAADy/08AAAAAAAAAAADf/0sAAAAAAAAAAADe/1sAAQAFAAAAAADd/2gAAQAFAAAAAADb/1cAAQAEAAEAAADg/1cAAQAEAAEAABArABgAAgAAAAAAAACWAP3/AQAAAAEAAADm/2QAAQAEAAEAAADn/2gAAQAFAAAAAADu/2gAAQAEAAEAAADu/2wAAQAEAAEAAADu/3AAAQAEAAEAAADy/2kAAQABAAAAAADy/3AAAQABAAAAAAD1/2gAAQAEAAEAABD1/24AAQAEAAEAABDs/1oAAQAEAAEAAADs/18AAQAEAAEAAAD0/1oAAQAEAAEAABD0/18AAQAEAAEAABDw/10AAQABAAAAAADe/2QAAQAEAAEAABA=")
@@ -1682,6 +1705,9 @@ script = ExtResource("9_dsite")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Objetos/Arbol/Area2D"]
 position = Vector2(-1.5, -44)
 shape = SubResource("RectangleShape2D_h5byf")
+
+[node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("6_sxfv7")]
+position = Vector2(770, 38)
 
 [node name="Vendedor1" type="CharacterBody2D" parent="ysort"]
 position = Vector2(1355, 2217)

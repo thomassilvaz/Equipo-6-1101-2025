@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 
 var direction : Vector2
-const velocidad = 220
+const velocidad = 200
 
 var health: = 10000:
 	set(value):
@@ -44,14 +44,14 @@ func makepath():
 
 func take_damage():
 	var value: int
-	if randi() % 5 == 1:
-		value = 100
+	if randi() % 10 == 1:
+		value = 144
 	else:
-		value = 50
-	health -= 50
+		value = randi_range(50,100)
+	health -= value
 	var daño = damage.instantiate()
 	get_tree().current_scene.add_child(daño)
-	daño.global_position = self.global_position  # Set position after adding to scene
+	daño.global_position = self.global_position
 	daño.get_node("Label").text = str(value)
 
 

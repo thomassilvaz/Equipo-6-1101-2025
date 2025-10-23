@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://c1flcuqrhltd8"]
+[gd_scene load_steps=85 format=3 uid="uid://c1flcuqrhltd8"]
 
 [ext_resource type="Script" uid="uid://c0uj78soilr4a" path="res://scripts/personajes/muerte/muerte.gd" id="1_6utap"]
 [ext_resource type="Texture2D" uid="uid://byk7f0oc2ygtw" path="res://Imagenes/Personajes/boss/attacking.png" id="1_gdgv7"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://euc2pserknr5" path="res://scripts/personajes/muerte/SpawnMinion.gd" id="13_efshj"]
 [ext_resource type="PackedScene" uid="uid://cdhajc284njao" path="res://escenas/minion.tscn" id="14_jfmv1"]
 [ext_resource type="Script" uid="uid://ca8v5x466tbfd" path="res://scripts/personajes/muerte/Death.gd" id="15_efshj"]
+[ext_resource type="Texture2D" uid="uid://bex1mw5oapd67" path="res://Imagenes/Texturas/light.png" id="16_jfmv1"]
+[ext_resource type="Script" uid="uid://cn55p0uhepcg3" path="res://escenas/scythe_damage.gd" id="17_bsds6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfmv1"]
 size = Vector2(71.5, 117.5)
@@ -485,6 +487,26 @@ tracks/2/keys = {
 "method": &"sonido"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DamageRange")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"disable_attack"
+}, {
+"args": [],
+"method": &"enable_attack"
+}, {
+"args": [],
+"method": &"disable_attack"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_p8d0r"]
 resource_name = "attack_2"
@@ -524,8 +546,28 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": ["res://Audio/FX/slash2.mp3"],
+"args": ["res://Audio/FX/slash.mp3"],
 "method": &"sonido"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DamageRange")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"disable_attack"
+}, {
+"args": [],
+"method": &"enable_attack"
+}, {
+"args": [],
+"method": &"disable_attack"
 }]
 }
 
@@ -734,7 +776,26 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_duxle"]
-radius = 200.0
+radius = 333.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsds6"]
+bg_color = Color(0.517647, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duxle"]
+bg_color = Color(1, 0.8, 0.0941176, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t5uvq"]
+radius = 120.0
 
 [node name="Muerte" type="CharacterBody2D"]
 collision_layer = 2
@@ -747,7 +808,7 @@ shape = SubResource("RectangleShape2D_jfmv1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bsds6")
-animation = &"attack_2"
+animation = &"attack_1"
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -765,27 +826,30 @@ debug_color = Color(0, 0.6, 0.701961, 0.121569)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
-visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -284.0
-offset_top = -123.0
+offset_top = -47.0
 offset_right = 284.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("6_jomdm")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/background = SubResource("StyleBoxFlat_bsds6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_duxle")
 max_value = 10000.0
 value = 10000.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/ProgressBar"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = -47.0
-offset_right = 296.0
-offset_bottom = 32.0
+offset_top = -40.0
+offset_right = 294.0
+offset_bottom = 39.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("6_jomdm")
 theme_override_font_sizes/normal_font_size = 25
 text = "La Muerte
 "
@@ -850,7 +914,6 @@ text = "Debug"
 horizontal_alignment = 1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -860,5 +923,21 @@ autostart = true
 unique_name_in_owner = true
 volume_db = 1.0
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.815094, 0, 0.191287, 1)
+shadow_enabled = true
+texture = ExtResource("16_jfmv1")
+texture_scale = 1.5
+
+[node name="DamageRange" type="Area2D" parent="."]
+script = ExtResource("17_bsds6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageRange"]
+position = Vector2(0, -18)
+scale = Vector2(1.2, 0.8)
+shape = SubResource("CircleShape2D_t5uvq")
+
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="DamageRange" to="DamageRange" method="_on_body_entered"]
+[connection signal="body_exited" from="DamageRange" to="DamageRange" method="_on_body_exited"]

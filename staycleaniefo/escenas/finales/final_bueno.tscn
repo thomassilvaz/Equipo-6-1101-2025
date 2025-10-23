@@ -24,7 +24,7 @@ radial_velocity_min = -423.9
 radial_velocity_max = 347.83
 gravity = Vector3(0, 98, 0)
 
-[node name="Control" type="Control"]
+[node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

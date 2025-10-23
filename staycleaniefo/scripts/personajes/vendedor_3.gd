@@ -10,6 +10,11 @@ func play_animationplayer(anim_name: String):
 
 func _ready():
 	match get_tree().current_scene.name:
+		"piso1":
+			if Estados.decision_2 == "mala" and Estados.escena_divergente1:
+				global_position = Vector2(1574, 2203)
+			else:
+				global_position = Vector2(-205, -644)
 		"piso2":
 			if !Estados.decision2_tomada:
 				global_position = Vector2(2016, -41)

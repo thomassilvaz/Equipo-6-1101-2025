@@ -132,7 +132,7 @@ func apply_dialogue_line() -> void:
 		"Psicóloga Laura":
 			character_label.modulate = Color.CORNFLOWER_BLUE
 		_:
-			character_label.modulate = Color.GRAY
+			character_label.modulate = Color.WEB_GRAY
 
 
 	dialogue_label.hide()

@@ -45,14 +45,14 @@ func music_player():
 		match scene_name:
 			"piso1", "piso2", "salonprincipal", "porteria", "sala_profesores":
 				AudioPlayer.play_music("res://Audio/Musica/Tu Escuela.mp3")
-			#"salon":
-				#AudioPlayer.play_music("res://music/salon_theme.ogg")
 			"bathroom1":
 				AudioPlayer.stop_music()
 			_:
 				AudioPlayer.stop_music()
 	else:
-		if !scene_name == "Arena":
+		if scene_name == "Arena":
+			AudioPlayer.stop_music()
+		else:
 			AudioPlayer.play_music("res://Audio/Musica/Anticipacion.mp3")
 
 func _on_level_spawn(destino_tag: String):

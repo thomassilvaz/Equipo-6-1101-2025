@@ -8,7 +8,6 @@ func _ready():
 	await animation.animation_finished
 	set_physics_process(true)
 	animation.play("idle")
-	AudioPlayer.play_fx("res://Audio/FX/risa.mp3")
  
 func _physics_process(_delta):
 	var direction = player.position - position

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwafphfywbqsl"]
+[gd_scene load_steps=14 format=3 uid="uid://dwafphfywbqsl"]
 
 [ext_resource type="Script" uid="uid://bl4da1o28arga" path="res://scripts/personajes/muerte/bullet.gd" id="1_1dqwh"]
 [ext_resource type="Texture2D" uid="uid://cnfkm55miajqb" path="res://Imagenes/Texturas/ataque.png" id="2_blkrf"]
 [ext_resource type="AudioStream" uid="uid://b4c4atv8rg017" path="res://Audio/FX/ataque.mp3" id="3_mbwb3"]
+[ext_resource type="Texture2D" uid="uid://bex1mw5oapd67" path="res://Imagenes/Texturas/light.png" id="4_nlb16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbwb3"]
 atlas = ExtResource("2_blkrf")
@@ -108,8 +109,6 @@ frame = 1
 position = Vector2(-4, 26.5)
 shape = SubResource("RectangleShape2D_blkrf")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_t3gna")
@@ -118,5 +117,10 @@ libraries = {
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_mbwb3")
 volume_db = 5.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 0.456691, 0.722556, 1)
+shadow_enabled = true
+texture = ExtResource("4_nlb16")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

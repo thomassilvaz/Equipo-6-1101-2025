@@ -10,7 +10,10 @@ func _ready():
 				interactuable.set_deferred("disabled", true)
 		"piso1":
 			if Estados.introduccion:
-				global_position = Vector2(28, -719)
+				if Estados.decision_2 == "mala" and Estados.escena_divergente1:
+					global_position = Vector2(1462, 2237)
+				else:
+					global_position = Vector2(28, -719)
 			else:
 				global_position = Vector2(838, -103)
 		"piso2":

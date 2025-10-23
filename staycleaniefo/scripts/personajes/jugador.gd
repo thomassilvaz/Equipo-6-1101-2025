@@ -1,8 +1,11 @@
 extends CharacterBody2D
-
 class_name Jugador
+
+@export var damage: PackedScene
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactivo: Area2D = $Direccion/Interactivo
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 @export var sprite_hombre: SpriteFrames
 @export var sprite_mujer: SpriteFrames
@@ -20,6 +23,10 @@ var direccion_actual = "abajo"
 var skip_next_anim_update = false
 var walk_speed = 50
 var sprint_speed = 80
+var health: = 1000:
+	set(value):
+		health = value
+		progress_bar.value = value
 
 func _physics_process(_delta):
 	if not puede_mover:
@@ -90,7 +97,10 @@ func update_anim(direction: Vector2):
 				anim.play("mov_arriba")
 
 func _ready():
-	#genero_avatar()
+	if get_tree().current_scene.name == "Arena":
+		progress_bar.show()
+	else:
+		progress_bar.hide()
 	NavegacionManager.on_trigger_player_spawn.connect(_on_spawn)
 	match get_tree().current_scene.name:
 		"piso2":
@@ -138,3 +148,11 @@ func shoot():
 	bullet.position = global_position
 	bullet.direction = (get_global_mouse_position() - global_position).normalized()
 	get_tree().current_scene.call_deferred("add_child",bullet)
+
+func player_damage():
+	var value = randi_range(5, 20)
+	health -= value
+	var daño = damage.instantiate()
+	get_tree().current_scene.add_child(daño)
+	daño.global_position = self.global_position
+	daño.get_node("Label").text = str(value)
