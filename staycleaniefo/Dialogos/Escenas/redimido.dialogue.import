@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c8xm7r863urm0"
+path="res://.godot/imported/redimido.dialogue-8d822fe875d6945df07e4fb9fc9daa54.tres"
+
+[deps]
+
+source_file="res://Dialogos/Escenas/redimido.dialogue"
+dest_files=["res://.godot/imported/redimido.dialogue-8d822fe875d6945df07e4fb9fc9daa54.tres"]
+
+[params]
+
+defaults=true

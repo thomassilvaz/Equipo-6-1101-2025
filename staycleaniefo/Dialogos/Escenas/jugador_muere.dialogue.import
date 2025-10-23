@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d4da5s4c6in4g"
+path="res://.godot/imported/jugador_muere.dialogue-4e8ff7e9894762e1d4d63601e35d3b44.tres"
+
+[deps]
+
+source_file="res://Dialogos/Escenas/jugador_muere.dialogue"
+dest_files=["res://.godot/imported/jugador_muere.dialogue-4e8ff7e9894762e1d4d63601e35d3b44.tres"]
+
+[params]
+
+defaults=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://coqflip8v3627"]
+[gd_scene load_steps=43 format=4 uid="uid://coqflip8v3627"]
 
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="1_4sd3b"]
 [ext_resource type="Script" uid="uid://cr0w8nj5l1x4w" path="res://scripts/arena.gd" id="1_8ei8p"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c1e1e2v6u0b74" path="res://escenas/Daño.tscn" id="12_sjml3"]
 [ext_resource type="FontFile" uid="uid://boe65q6htbpaq" path="res://DTM-Mono.otf" id="13_ckx6j"]
 [ext_resource type="Script" uid="uid://daxjg7yvd0fmk" path="res://scripts/spawn_scythe.gd" id="14_egtg7"]
+[ext_resource type="Script" uid="uid://k8tc6hpiadpo" path="res://scripts/escenas/arena_oscuridad.gd" id="17_31640"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_31640"]
 polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -341,7 +342,7 @@ offset_bottom = -153.0
 
 [node name="Niebla" parent="ysort/jugador/Camera2D" index="2"]
 visible = true
-modulate = Color(1, 1, 1, 0.494118)
+modulate = Color(1, 1, 1, 0.282353)
 position = Vector2(-1.14441e-05, 8.5)
 scale = Vector2(1.93, 1.1225)
 
@@ -388,6 +389,7 @@ script = ExtResource("14_egtg7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.114897, 0.114897, 0.114897, 1)
+script = ExtResource("17_31640")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

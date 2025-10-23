@@ -1,0 +1,35 @@
+~ start
+Escuchas tu respiracíon agitada.
+
+Ronald: Vaya, Alex… Mírate, bro. Te dije que esto te haría “sentir vivo”, ¿no?
+Ronald: Y mírate ahora… más quieto que nunca.
+
+#play laugh
+
+Julián: Qué espectáculo, hermano. Tanto que decías que solo era “por una vez”.
+Julián: Y al final… resultaste ser el más fiel de todos. No fallaste ni una dosis.
+
+Karen: A mí me gustaba verte así… Cuando reías sin saber por qué, cuando ya no podías ni hablar bien.
+Karen: Era divertido. Hasta que dejaste de tener gracia.
+
+Ronald: Todos decían que ibas a terminar mal. Y tenían razón.
+Ronald: Pero, tranquilo, no estás solo… Nosotros también caímos, solo que aprendimos a arrastrar mejor.
+
+#play laugh
+
+Julián: Mira lo que queda de ti, Alex. Un cuerpo que respira, pero ya no vive.
+Julián: ¿Valió la pena juntarte con nosotros? No respondas… sabemos que no puedes.
+
+Karen: ¿Recuerdas cuando te dijimos que no pasaría nada? Y tú confiaste.
+Karen: Eso fue lo mejor de ti… la confianza. La que te hizo perderlo todo.
+
+Tu corazón late lentamente. Ronald se inclina frente a tí.
+
+Ronald: ¿Sabes qué es lo peor? Que ahora eres justo lo que siempre juraste no ser.
+Ronald: Uno más de nosotros. Uno menos en el mundo.
+
+Las voces se alejan.
+Silencio. El sonido del viento reemplaza las voces.
+do wait(1)
+No todos los enemigos llevan armas… [color=red]algunos te ofrecen una sonrisa[/color].
+=> END

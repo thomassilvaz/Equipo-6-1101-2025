@@ -30,3 +30,12 @@ func _on_diseño_mouse_entered() -> void:
 
 func _on_salir_mouse_entered() -> void:
 	AudioPlayer.play_fx("res://Audio/FX/boton_fx.mp3")
+
+
+func _on_redimido_pressed() -> void:
+	EfectoTransicion.transition()
+	await EfectoTransicion
+	get_tree().change_scene_to_file("res://escenas/finales/final_neutral.tscn")
+
+func _on_reintentar_pressed() -> void:
+	pass # Replace with function body.

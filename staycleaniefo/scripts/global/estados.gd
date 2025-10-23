@@ -1,8 +1,8 @@
 extends Node
 
-var contador: int = 0
+var contador: int = 0 #contador de reputacion
 
-var escuela_oscura: int = 0
+var escuela_oscura: int = 0 #contador de drogas consumidas para mostrar ciertos efectos
 var genero: String = "a"
 var nom: String = "Alexa"
 var escogio_genero: bool = false

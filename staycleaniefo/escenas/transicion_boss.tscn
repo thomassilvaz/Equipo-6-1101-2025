@@ -1,7 +1,8 @@
-[gd_scene load_steps=86 format=3 uid="uid://co24bpbynay20"]
+[gd_scene load_steps=91 format=3 uid="uid://co24bpbynay20"]
 
 [ext_resource type="Texture2D" uid="uid://mk3pwgpfycum" path="res://Imagenes/Personajes/estudiante4.png" id="1_8txn8"]
 [ext_resource type="Texture2D" uid="uid://bpuchjpnrosjc" path="res://Imagenes/Personajes/estudiante3.png" id="2_hhlkj"]
+[ext_resource type="Script" uid="uid://52nxnadhcui8" path="res://scripts/objetos/sprite.gd" id="2_kc7hv"]
 [ext_resource type="Texture2D" uid="uid://br1oigyaljdbp" path="res://Imagenes/Personajes/Mateo.png" id="3_kc7hv"]
 [ext_resource type="Texture2D" uid="uid://gg4xd5j4uo7b" path="res://Imagenes/Personajes/estudiante1.png" id="4_ce807"]
 [ext_resource type="Texture2D" uid="uid://dfu6p5pqrx017" path="res://Imagenes/Personajes/valeria.png" id="5_7dawr"]
@@ -761,39 +762,65 @@ border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 shadow_size = 10
 
+[sub_resource type="Animation" id="Animation_hhlkj"]
+resource_name = "muerto"
+length = 10.0
+
+[sub_resource type="Animation" id="Animation_kc7hv"]
+resource_name = "redimido"
+length = 10.0
+
+[sub_resource type="Animation" id="Animation_ce807"]
+resource_name = "bienvenida_boss"
+length = 10.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dawr"]
+_data = {
+&"bienvenida_boss": SubResource("Animation_ce807"),
+&"muerto": SubResource("Animation_hhlkj"),
+&"redimido": SubResource("Animation_kc7hv")
+}
+
 [node name="transicion_boss" type="Node2D"]
 
 [node name="Karen" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(785.64, 222.16)
 scale = Vector2(3.36, 3.36)
 sprite_frames = SubResource("SpriteFrames_mrqml")
 animation = &"quieto_abajo"
+script = ExtResource("2_kc7hv")
 
 [node name="Julián" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(385.64, 227.16)
 scale = Vector2(3.36, 3.36)
 sprite_frames = SubResource("SpriteFrames_51evt")
 animation = &"quieto_abajo"
 
 [node name="Mateo" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(384, 229)
 scale = Vector2(3.36, 3.36)
 sprite_frames = SubResource("SpriteFrames_d3qwj")
 animation = &"quieto_abajo"
 
 [node name="Ronald" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(593.64, 298.16)
 scale = Vector2(3.36, 3.36)
 sprite_frames = SubResource("SpriteFrames_dseke")
 animation = &"quieto_abajo"
 
 [node name="Valeria" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(784, 214)
 scale = Vector2(3.36, 3.36)
 sprite_frames = SubResource("SpriteFrames_affkl")
 animation = &"mov_abajo"
 
 [node name="PsicólogaLaura" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(592, 305)
 scale = Vector2(3.36, 3.36)
 sprite_frames = SubResource("SpriteFrames_oasa3")
@@ -831,13 +858,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 765.0
-offset_top = 337.0
-offset_right = 962.0
-offset_bottom = 431.0
+offset_left = 469.0
+offset_top = 471.0
+offset_right = 687.0
+offset_bottom = 565.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("8_6ybc2")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_3bxv3")
 text = "REDIRMIRSE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7dawr")
+}
+
+[connection signal="pressed" from="Control/reintentar" to="Control" method="_on_reintentar_pressed"]
+[connection signal="pressed" from="Control/redimido" to="Control" method="_on_redimido_pressed"]
