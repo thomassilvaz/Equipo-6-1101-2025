@@ -47,6 +47,13 @@ func music_player():
 		match scene_name:
 			"piso1", "piso2", "salonprincipal", "porteria", "sala_profesores":
 				AudioPlayer.play_music("res://Audio/Musica/Tu Escuela.mp3")
+			"transicion_boss":
+				if Estados.jugador_murio:
+					AudioPlayer.play_music("res://Audio/Musica/jugador_muere.mp3")
+				elif Estados.redimido:
+					AudioPlayer.play_music(["res://Audio/Musica/redimido.mp3", "res://Audio/Musica/redimido2.mp3"][randi() % 2])
+				else:
+					AudioPlayer.stop_music()
 			_:
 				AudioPlayer.stop_music()
 	else:

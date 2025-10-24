@@ -1,8 +1,8 @@
 extends Node
 
-var contador: int = -9 #contador de reputacion
+var contador: int = 0 #contador de reputacion
 
-var escuela_oscura: int = 2 #contador de drogas consumidas para mostrar ciertos efectos
+var escuela_oscura: int = 0 #contador de drogas consumidas para mostrar ciertos efectos
 var genero: String = "a" #usado en dialogo cuando se refiera al jugador
 var nom: String = "Alexa" #nombre prehecho del jugador
 var escogio_genero: bool = false #usado en menu (si es falso se escoge genero al azar)

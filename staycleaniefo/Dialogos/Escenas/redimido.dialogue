@@ -9,6 +9,8 @@ Valeria: Por fin, {{Estados.nom}}… Por fin elegiste escucharte a ti, y no a es
 Valeria: No fue fácil, lo sabemos… Pero cada paso que diste te trajo hasta aquí.
 Valeria: No necesitabas escapar. Solo necesitabas creer que podías salir.
 
+do Laura.fade_in()
+
 Psicóloga Laura: {{Estados.nom}}… lo que hiciste hoy fue más que ganar una pelea. Fue elegir vivir.
 Psicóloga Laura: Cada persona tiene su propio enemigo interno, pero tú… tú lo enfrentaste. Eso no te hace débil, te hace valiente.
 Psicóloga Laura: No todos logran salir antes de hundirse, pero tú lo hiciste. Y eso cambia todo.
