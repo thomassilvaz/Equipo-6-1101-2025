@@ -1,14 +1,14 @@
 extends Node
 
-var contador: int = 0 #contador de reputacion
+var contador: int = -9 #contador de reputacion
 
-var escuela_oscura: int = 0 #contador de drogas consumidas para mostrar ciertos efectos
-var genero: String = "a"
-var nom: String = "Alexa"
-var escogio_genero: bool = false
-var puede_disparar := false
+var escuela_oscura: int = 2 #contador de drogas consumidas para mostrar ciertos efectos
+var genero: String = "a" #usado en dialogo cuando se refiera al jugador
+var nom: String = "Alexa" #nombre prehecho del jugador
+var escogio_genero: bool = false #usado en menu (si es falso se escoge genero al azar)
+var puede_disparar := false #para que el jugador solo ataque en la arena
 
-#escenas_vistas
+#variables de escenas, para saber si han sido vistas
 var primera_clase: bool = false
 var introduccion: bool = false
 var segunda_decision: bool = false
@@ -31,7 +31,6 @@ var decision_5: String
 
 #eventos
 var vendedor_bath1: bool = false
-#var caminarconmateo1 := false
 var decision2_tomada: bool = false
 var decision3_tomada: bool = false
 var escogio_pareja: bool = false
@@ -44,8 +43,11 @@ var sustancia1: bool = false
 var sustancia2: bool = false
 var caf_interactuo_profe: bool = false
 var caf_valeria: bool = false
+var jugador_murio: bool = false
+var redimido: bool = false
+var murio_repetido: bool = false
 
-#sprites
+#sprites, para ser llamados mediante dialogos
 var profesor_andres: AnimatedSprite2D
 var psicologa_laura: AnimatedSprite2D
 var jugador: AnimatedSprite2D
@@ -56,6 +58,7 @@ var vendedora: AnimatedSprite2D
 var mateo: AnimatedSprite2D
 var valeria: AnimatedSprite2D
 
+#encuentra los sprites segun el nombre del nodo padre en cada escena
 func _find_sprites():
 	var tree = get_tree()
 	if !tree or tree.current_scene == null:
@@ -73,21 +76,27 @@ func _find_sprites():
 		vendedora = _get_sprite(escena, "Vendedora")
 		vendedor2 = _get_sprite(escena, "Vendedor2")
 
+#asigna el sprite a la variable
 func _get_sprite(escena, nombre):
 	var nodo_personaje = escena.find_child(nombre, true, false)
-	return nodo_personaje.get_node("AnimatedSprite2D") if nodo_personaje else null
+	if nodo_personaje and nodo_personaje.has_node("AnimatedSprite2D"):
+		return nodo_personaje.get_node("AnimatedSprite2D")
+	else:
+		return null
 
-
+#guarda las escenas vistas y posicion del jugador
 var game_data = {
 	"played_cutscenes": {},
 	"player_position": {"x": 0, "y": 0},
 }
 
+#llama a los sprites y carga el juego
 func _ready():
 	load_game()
 	get_tree().tree_changed.connect(_find_sprites)
 	_find_sprites()
 
+#actualiza el contador de reputacion visible
 func reputacion(valor: int):
 	if not jugador:
 		return
@@ -112,6 +121,7 @@ func reputacion(valor: int):
 	daño.position = puntaje.position + Vector2(150,100)
 	daño.text = str(valor)
 
+#activa pantalla completa
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
@@ -119,13 +129,16 @@ func _unhandled_input(_event: InputEvent) -> void:
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
+#marca escenas vistas y guarda
 func mark_cutscene_played(cutscene_id):
 	game_data["played_cutscenes"][cutscene_id] = true
 	save_game()
 
+#pregunta si la escena se ha visto
 func has_played_cutscene(cutscene_id):
 	return game_data["played_cutscenes"].get(cutscene_id, false)
 
+#guarda escenas vistas en json
 func save_game():
 	var json_string = JSON.stringify(game_data)
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
@@ -137,6 +150,7 @@ func save_game():
 	else:
 		push_error("Could not save game data.")
 
+#carga las escenas vistas
 func load_game():
 	if not FileAccess.file_exists("user://savegame.json"):
 		print("No save file found. Starting new game.")

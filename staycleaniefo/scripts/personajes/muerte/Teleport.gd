@@ -28,7 +28,10 @@ func sonido():
 	fx_player.play()
 
 func teleport():
-	owner.position = player.position + Vector2.RIGHT * 120
+	var random_angle = randf() * 2 * PI
+	# Create a vector from the angle
+	var random_direction = Vector2(cos(random_angle), sin(random_angle))
+	owner.position = player.position + random_direction * 120
 
 
 func transition():

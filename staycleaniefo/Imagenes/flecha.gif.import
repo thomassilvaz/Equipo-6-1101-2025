@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://e4xmuhpuvc1v"
+path="res://.godot/imported/flecha.gif-71bf598c1b41e8420b4983cbdf59b3e7.tres"
+
+[deps]
+
+source_file="res://Imagenes/flecha.gif"
+dest_files=["res://.godot/imported/flecha.gif-71bf598c1b41e8420b4983cbdf59b3e7.tres"]
+
+[params]
+

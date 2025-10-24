@@ -47,7 +47,7 @@ func take_damage():
 	if randi() % 10 == 1:
 		value = 144
 	else:
-		value = randi_range(50,100)
+		value = randi_range(300,2000)
 	health -= value
 	var daño = damage.instantiate()
 	get_tree().current_scene.add_child(daño)
@@ -57,3 +57,9 @@ func take_damage():
 
 func _on_timer_timeout() -> void:
 	makepath()
+
+func died():
+	EfectoTransicion.transition()
+	await EfectoTransicion.on_transition_finished
+	Estados.redimido = true
+	get_tree().change_scene_to_file("res://escenas/transicion_boss.tscn")

@@ -5,9 +5,6 @@ extends CharacterBody2D
 
 func _ready():
 	match get_tree().current_scene.name:
-		"bathroom2":
-			if !Estados.sustancia1:
-				interactuable.set_deferred("disabled", true)
 		"piso1":
 			if Estados.introduccion:
 				if Estados.decision_2 == "mala" and Estados.escena_divergente1:

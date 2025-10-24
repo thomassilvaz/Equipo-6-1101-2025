@@ -1,35 +1,46 @@
 ~ start
 Escuchas tu respiracíon agitada.
 
-Ronald: Vaya, Alex… Mírate, bro. Te dije que esto te haría “sentir vivo”, ¿no?
-Ronald: Y mírate ahora… más quieto que nunca.
+do Ronald.fade_in()
 
-#play laugh
+Ronald: Vaya, {{Estados.nom}}… Mírate, bro. Te dije que esto te haría “sentir vivo”, ¿no? [#voz=Ronald]
+Ronald: Y mírate ahora… más quieto que nunca.[#voz=Ronald]
 
-Julián: Qué espectáculo, hermano. Tanto que decías que solo era “por una vez”.
-Julián: Y al final… resultaste ser el más fiel de todos. No fallaste ni una dosis.
+do Julian.fade_in()
 
-Karen: A mí me gustaba verte así… Cuando reías sin saber por qué, cuando ya no podías ni hablar bien.
-Karen: Era divertido. Hasta que dejaste de tener gracia.
+Julián: Qué espectáculo, herman{{Estados.genero}}. Tanto que decías que solo era “por una vez”.[#voz=Julian]
+Julián: Y al final… resultaste ser el más fiel de todos. No fallaste ni una dosis.[#voz=Julian]
 
-Ronald: Todos decían que ibas a terminar mal. Y tenían razón.
-Ronald: Pero, tranquilo, no estás solo… Nosotros también caímos, solo que aprendimos a arrastrar mejor.
+do Karen.fade_in()
 
-#play laugh
+Karen: A mí me gustaba verte así… Cuando reías sin saber por qué, cuando ya no podías ni hablar bien.[#voz=Karen]
+Karen: Era divertido. Hasta que dejaste de tener gracia.[#voz=Karen]
 
-Julián: Mira lo que queda de ti, Alex. Un cuerpo que respira, pero ya no vive.
-Julián: ¿Valió la pena juntarte con nosotros? No respondas… sabemos que no puedes.
+Ronald: Todos decían que ibas a terminar mal. Y tenían razón.[#voz=Ronald]
+Ronald: Pero, tranquil{{Estados.genero}}, no estás sol{{Estados.genero}}… Nosotros también caímos, solo que aprendimos a arrastrar mejor.[#voz=Ronald]
 
-Karen: ¿Recuerdas cuando te dijimos que no pasaría nada? Y tú confiaste.
-Karen: Eso fue lo mejor de ti… la confianza. La que te hizo perderlo todo.
+Julián: Mira lo que queda de ti, {{Estados.nom}}. Un cuerpo que respira, pero ya no vive.[#voz=Julian]
+Julián: ¿Valió la pena juntarte con nosotros? No respondas… sabemos que no puedes.[#voz=Julian]
+
+do Julian.fade_out()
+
+Karen: ¿Recuerdas cuando te dijimos que no pasaría nada? Y tú confiaste.[#voz=Karen]
+Karen: Eso fue lo mejor de ti… la confianza. La que te hizo perderlo todo.[#voz=Karen]
+
+do Karen.fade_out()
 
 Tu corazón late lentamente. Ronald se inclina frente a tí.
 
-Ronald: ¿Sabes qué es lo peor? Que ahora eres justo lo que siempre juraste no ser.
-Ronald: Uno más de nosotros. Uno menos en el mundo.
+Ronald: ¿Sabes qué es lo peor? Que ahora eres justo lo que siempre juraste no ser.[#voz=Ronald]
+Ronald: Un{{Estados.genero}} más de nosotros. Un{{Estados.genero}} menos en el mundo.[#voz=Ronald]
+
+do wait(3)
+do Ronald.fade_out()
+do wait(1)
 
 Las voces se alejan.
 Silencio. El sonido del viento reemplaza las voces.
-do wait(1)
+do wait(2)
 No todos los enemigos llevan armas… [color=red]algunos te ofrecen una sonrisa[/color].
+set Estados.murio_repetido = true
 => END

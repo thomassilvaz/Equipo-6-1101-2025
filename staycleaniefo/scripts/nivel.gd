@@ -1,11 +1,11 @@
 extends Node2D
 
-var is_shader_applied = false
+var scene_name: String
 
 func _process(_delta: float) -> void:
-	if Estados.escuela_oscura >= 1:
+	if Estados.escuela_oscura > 0:
 		var tween = create_tween()
-		tween.tween_property(self, "modulate", Color("#c4d9e4"), 1.0)
+		tween.tween_property(self, "modulate", Color("#a0c0d0"), 1.0)
 	else:
 		self.modulate = Color.WHITE
 	
@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 		music_player()
 
 func _ready():
-	var scene_name = get_tree().current_scene.name
+	scene_name = get_tree().current_scene.name
 	print("Scene loaded: ", scene_name)
 	music_player()
 	
@@ -40,18 +40,25 @@ func _ready():
 					NavegacionManager.trigger_player_spawn(Vector2(-63,-34), "arriba")
 
 func music_player():
-	var scene_name = get_tree().current_scene.name
+	if get_tree().current_scene == null:
+		await get_tree().process_frame
+	scene_name = get_tree().current_scene.name
 	if Estados.escuela_oscura < 2:
 		match scene_name:
 			"piso1", "piso2", "salonprincipal", "porteria", "sala_profesores":
 				AudioPlayer.play_music("res://Audio/Musica/Tu Escuela.mp3")
-			"bathroom1":
-				AudioPlayer.stop_music()
 			_:
 				AudioPlayer.stop_music()
 	else:
 		if scene_name == "Arena":
 			AudioPlayer.stop_music()
+		if scene_name == "transicion_boss":
+			if Estados.jugador_murio:
+				AudioPlayer.play_music("res://Audio/Musica/jugador_muere.mp3")
+			elif Estados.redimido:
+				AudioPlayer.play_music(["res://Audio/Musica/redimido.mp3", "res://Audio/Musica/redimido2.mp3"][randi() % 2])
+			else:
+				AudioPlayer.stop_music()
 		else:
 			AudioPlayer.play_music("res://Audio/Musica/Anticipacion.mp3")
 

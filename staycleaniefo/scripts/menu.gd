@@ -33,9 +33,15 @@ func _on_salir_mouse_entered() -> void:
 
 
 func _on_redimido_pressed() -> void:
+	AudioPlayer.stop_music()
 	EfectoTransicion.transition()
-	await EfectoTransicion
+	await EfectoTransicion.on_transition_finished
 	get_tree().change_scene_to_file("res://escenas/finales/final_neutral.tscn")
 
 func _on_reintentar_pressed() -> void:
-	pass # Replace with function body.
+	AudioPlayer.stop_music()
+	EfectoTransicion.transition()
+	await EfectoTransicion.on_transition_finished
+	Estados.jugador_murio = false
+	Estados.escuela_oscura = 2
+	get_tree().change_scene_to_file("res://escenas/lugares/arena.tscn")

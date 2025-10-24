@@ -9,7 +9,7 @@ Karen: Lo vas a ver. O mejor, lo vas a sentir...[#voz=Karen]
 Karen te entrega algo envuelto.
 Ronald: Bienvenido a la verdadera IEFO. Ahora sí perteneces.[#voz=Ronald]
 Escuchas risas al fondo del grupo.
-La cancha se siente más oscura de lo normal.)
+La cancha se siente más oscura de lo normal.
 Karen: [wave amp=25 freq=5]Hmm.. ¿No te parece interesante? Yo se que se siente bien.[/wave][#voz=Karen]
 set Estados.escena_divergente2 = true
 set Estados.sustancia2 = true

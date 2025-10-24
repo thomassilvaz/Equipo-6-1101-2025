@@ -1,12 +1,17 @@
 ~ start
 La Soledad: Te alejaste de todos. Ahora no tienes a nadie. Este lugar es tuyo... solo tuyo.
 {{Estados.nom}}: Es verdad... me dejaron solo.
-Esuchas unas voces familiares.
+Escuhas unas voces familiares.
 "Aún estoy aquí si me necesitas. Pero tú decides."[#voz=Valeria]
 La Soledad: No contestes. Solo es lástima. Nadie te necesita.
 "El primer paso es aceptar que necesitas a otros." [#voz=Laura]
 La Soledad: ¡Cállate! Tú eliges la oscuridad o la mentira del consuelo.
 do wait(1)
-{{Estados.nom}}: Estoy perdido...
-[color=red]LA MUERTE[/color]: Y NO VAS A VOLVER A ENCONTRARLOS JAMÁS.[#voz=Andres][#voz=Julian]
+{{Estados.nom}}: Ya no los veo. Estoy perdido...
+do Muerte.fade_in()
+do wait(5)
+[color=red]La Muerte[/color]: Y NO VAS A VOLVER A ENCONTRARLOS JAMÁS.[#voz=Andres][#voz=Julian]
+do AudioPlayer.play_fx("res://Audio/FX/laugh1.ogg")
+do wait(3)
+do Muerte.hide()
 => END

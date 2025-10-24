@@ -18,7 +18,7 @@ class_name Jugador
 @export var mujer_enferma: SpriteFrames
 @export var mujer_enferma2: SpriteFrames
 
-var velocidad = 350 #normal: 250, combate: 350
+var velocidad = 800 #normal: 250, combate: 350
 var direccion_actual = "abajo"
 var skip_next_anim_update = false
 var walk_speed = 50
@@ -42,10 +42,15 @@ func _physics_process(_delta):
 		move_and_slide()
 		
 		genero_avatar()
-		#if Estados.escuela_oscura==2:
+		
+		#if Estados.escuela_oscura == 2:
 			#velocidad = 175
 		#else:
 			#velocidad = 250
+	
+	if progress_bar.value == 0:
+		Estados.jugador_murio = true
+		get_tree().change_scene_to_file("res://escenas/transicion_boss.tscn")
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):

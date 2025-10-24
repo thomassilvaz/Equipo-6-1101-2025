@@ -44,7 +44,7 @@ if Estados.sustancia1 or Estados.decision_3 == "mala":
 	do wait(3)
 	do Estados.profesor_andres.play("quieto_abajo_hablando")
 	if Estados.decision_2 == "mala":
-		Profesor Andrés: Ten cuidado con ellos, se mantienen [color=red]detrás de los árboles[/color] de la cancha.
+		Profesor Andrés: Ten cuidado con ellos, se mantienen [color=red]detrás de los árboles[/color] de la cancha.[#voz=Andres]
 	Profesor Andrés: {{Estados.nom}}, confío en harás una buena decisión.[#voz=Andres]
 	Profesor Andrés: ..Después de una visita a la psicóloga..[#voz=Andres]
 else:

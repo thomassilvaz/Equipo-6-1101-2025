@@ -34,6 +34,7 @@ do Estados.reputacion(-3)
 set Estados.escuela_oscura += 1
 set Estados.sustancia1 = true
 set Estados.escena_divergente1 = true
+do Estados.vendedora.get_parent().interactuable.set_deferred("disabled", false)
 => END
 
 ~ salon_principal

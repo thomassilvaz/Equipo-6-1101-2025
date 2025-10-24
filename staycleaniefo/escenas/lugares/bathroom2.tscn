@@ -382,7 +382,7 @@ tile_map_data = PackedByteArray("AAAEAPP/AAAAAAIAAAAEAOH/AAAAAAIAAAAEAOf/AAAAAAI
 tile_set = SubResource("TileSet_jkh4j")
 
 [node name="jugador" parent="ysort" groups=["Jugador"] instance=ExtResource("5_jkh4j")]
-position = Vector2(-138, -250)
+position = Vector2(-127, -253)
 
 [node name="Vendedora" type="CharacterBody2D" parent="ysort"]
 position = Vector2(-130, -358)

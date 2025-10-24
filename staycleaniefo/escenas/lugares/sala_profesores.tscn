@@ -310,7 +310,7 @@ script = ExtResource("10_584cg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Valeria"]
 sprite_frames = SubResource("SpriteFrames_kanqv")
-animation = &"mov_abajo"
+animation = &"quieto_abajo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ysort/Valeria"]
 position = Vector2(0, 39)
