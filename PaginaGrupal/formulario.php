@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+     
         :root {
             --primary-blue: #0056b3;
             --secondary-blue: #51a4e7;
@@ -26,6 +27,7 @@
             --pixel-shadow: 4px 4px 0 #000;
         }
         
+        /* Reset de estilos básicos */
         * {
             margin: 0;
             padding: 0;
@@ -33,6 +35,7 @@
             image-rendering: pixelated;
         }
         
+        /* Estilos del cuerpo de la página */
         body {
             min-height: 100vh;
             display: flex;
@@ -44,6 +47,7 @@
             overflow-x: hidden;
         }
         
+        /* Contenedor principal del formulario de registro */
         .register-container {
             width: 100%;
             max-width: 900px;
@@ -55,6 +59,7 @@
             min-height: 600px;
         }
         
+        /* Panel izquierdo con información y características */
         .register-header {
             flex: 1;
             background-color: var(--primary-blue);
@@ -67,6 +72,7 @@
             border-right: var(--pixel-border);
         }
         
+        /* Logo circular blanco con icono */
         .logo {
             width: 100px;
             height: 100px;
@@ -78,11 +84,13 @@
             border: var(--pixel-border);
         }
         
+        /* Icono dentro del logo */
         .logo i {
             font-size: 50px;
             color: var(--primary-blue);
         }
         
+        /* Título principal con animación de parpadeo */
         .register-header h1 {
             color: white;
             font-family: 'Press Start 2P', cursive;
@@ -92,6 +100,7 @@
             text-shadow: 2px 2px 0 #000;
         }
         
+        /* Texto descriptivo debajo del título */
         .register-header p {
             color: rgba(255, 255, 255, 0.9);
             font-size: 0.9rem;
@@ -100,11 +109,13 @@
             margin-bottom: 30px;
         }
         
+        /* Lista de características del sistema */
         .features {
             list-style: none;
             margin-top: 30px;
         }
         
+        /* Elementos de la lista de características */
         .features li {
             display: flex;
             align-items: center;
@@ -113,6 +124,7 @@
             font-size: 0.8rem;
         }
         
+        /* Iconos de las características */
         .features li i {
             margin-right: 10px;
             background: rgba(255, 255, 255, 0.2);
@@ -124,6 +136,7 @@
             border: var(--pixel-border);
         }
         
+        /* Panel derecho con el formulario de registro */
         .register-body {
             flex: 1.5;
             padding: 40px;
@@ -132,6 +145,7 @@
             justify-content: center;
         }
         
+        /* Título del formulario */
         .register-body h2 {
             color: var(--primary-blue);
             font-family: 'Press Start 2P', cursive;
@@ -140,37 +154,43 @@
             text-shadow: 1px 1px 0 #000;
         }
         
+        /* Descripción del formulario */
         .register-body p {
             color: var(--dark-text);
             font-size: 0.9rem;
             margin-bottom: 30px;
         }
         
+        /* Fila de campos del formulario */
         .form-row {
             display: flex;
             flex-wrap: wrap;
             margin: 0 -10px;
         }
         
+        /* Grupo individual de campos */
         .form-group {
             flex: 1 0 50%;
             padding: 0 10px;
             margin-bottom: 20px;
         }
         
+        /* Etiquetas de los campos */
         .form-group label {
             display: block;
             margin-bottom: 8px;
             color: var(--primary-blue);
             font-family: 'Press Start 2P', cursive;
-            font-size: 0.6rem;
+            fontSize: 0.6rem;
             text-shadow: 1px 1px 0 #000;
         }
         
+        /* Contenedor para inputs con iconos */
         .input-icon {
             position: relative;
         }
         
+        /* Iconos dentro de los inputs */
         .input-icon i {
             position: absolute;
             left: 15px;
@@ -180,6 +200,7 @@
             font-size: 16px;
         }
         
+        /* Campos de entrada de texto */
         .form-control {
             width: 100%;
             padding: 12px 15px 12px 45px;
@@ -191,11 +212,13 @@
             height: 45px;
         }
         
+        /* Estilo cuando el input está enfocado */
         .form-control:focus {
             border-color: var(--primary-blue);
             outline: none;
         }
         
+        /* Botón de registrar usuario */
         .btn-register {
             width: 100%;
             padding: 14px;
@@ -211,10 +234,12 @@
             text-shadow: 1px 1px 0 #000;
         }
         
+        /* Efecto hover del botón */
         .btn-register:hover {
             background: var(--secondary-blue);
         }
         
+        /* Enlace para ir al login */
         .login-link {
             text-align: center;
             margin-top: 20px;
@@ -222,6 +247,7 @@
             font-size: 0.8rem;
         }
         
+        /* Estilo del enlace de login */
         .login-link a {
             color: var(--primary-blue);
             text-decoration: none;
@@ -230,14 +256,17 @@
             transition: all 0.3s;
         }
         
+        /* Efecto hover del enlace de login */
         .login-link a:hover {
             color: var(--secondary-blue);
         }
         
+        /* Campo de PIN de administrador (oculto por defecto) */
         .admin-pin-field {
             display: none;
         }
         
+        /* Mensajes de alerta */
         .alert-message {
             padding: 10px;
             margin-top: 10px;
@@ -246,12 +275,14 @@
             border: var(--pixel-border);
         }
         
+        /* Estilo de alerta de error */
         .alert-error {
             background-color: #ffcccc;
             color: #990000;
             border-color: #990000;
         }
         
+        /* Esquinas decorativas amarillas */
         .pixel-corner {
             position: absolute;
             width: 16px;
@@ -260,36 +291,42 @@
             z-index: 10;
         }
         
+        /* Esquina superior izquierda */
         .pixel-corner-tl {
             top: -4px;
             left: -4px;
         }
         
+        /* Esquina superior derecha */
         .pixel-corner-tr {
             top: -4px;
             right: -4px;
         }
         
+        /* Esquina inferior izquierda */
         .pixel-corner-bl {
             bottom: -4px;
             left: -4px;
         }
         
+        /* Esquina inferior derecha */
         .pixel-corner-br {
             bottom: -4px;
             right: -4px;
         }
 
-        /* Animación de parpadeo */
+        /* Animación de parpadeo para el título */
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
         
+        /* Clase para aplicar la animación de parpadeo */
         .blink {
             animation: blink 1.5s infinite;
         }
         
+        /* Estilos responsive para tablets y móviles */
         @media (max-width: 768px) {
             .register-container {
                 flex-direction: column;
@@ -324,10 +361,12 @@
     </style>
 </head>
 <body>
+    <!-- Contenedor principal del registro -->
     <div class="register-container">
         <div class="pixel-corner pixel-corner-tl"></div>
         <div class="pixel-corner pixel-corner-tr"></div>
         
+        <!-- Panel izquierdo con información -->
         <div class="register-header">
             <div class="logo">
                 <i class="fas fa-school"></i>
@@ -335,6 +374,7 @@
             <h1 class="blink">STAY CLEAN</h1>
             <p>VIDEOJUEGO EDUCATIVO</p>
             
+            <!-- Lista de características -->
             <ul class="features">
                 <li><i class="fas fa-shield-alt"></i> SEGURO</li>
                 <li><i class="fas fa-graduation-cap"></i> EDUCATIVO</li>
@@ -342,11 +382,14 @@
             </ul>
         </div>
         
+        <!-- Panel derecho con formulario -->
         <div class="register-body">
             <h2>REGISTRO DE USUARIO</h2>
             <p>CREA UNA CUENTA PARA ACCEDER AL SISTEMA</p>
             
+            <!-- Formulario de registro -->
             <form action="codigo.php" method="post" id="registrationForm">
+                <!-- Primera fila de campos -->
                 <div class="form-row">
                     <div class="form-group">
                         <label>TIPO DE DOCUMENTO</label>
@@ -370,6 +413,7 @@
                     </div>
                 </div>
                 
+                <!-- Segunda fila de campos (nombres) -->
                 <div class="form-row">
                     <div class="form-group">
                         <label>PRIMER NOMBRE</label>
@@ -388,6 +432,7 @@
                     </div>
                 </div>
                 
+                <!-- Tercera fila de campos (apellidos) -->
                 <div class="form-row">
                     <div class="form-group">
                         <label>PRIMER APELLIDO</label>
@@ -406,6 +451,7 @@
                     </div>
                 </div>
                 
+                <!-- Cuarta fila de campos (contacto) -->
                 <div class="form-row">
                     <div class="form-group">
                         <label>TELÉFONO</label>
@@ -424,6 +470,7 @@
                     </div>
                 </div>
                 
+                <!-- Quinta fila de campos (rol y contraseña) -->
                 <div class="form-row">
                     <div class="form-group">
                         <label>ROL DEL USUARIO</label>
@@ -446,6 +493,7 @@
                     </div>
                 </div>
                 
+                <!-- Sexta fila de campos (confirmación y PIN admin) -->
                 <div class="form-row">
                     <div class="form-group">
                         <label>CONFIRMAR CONTRASEÑA</label>
@@ -455,6 +503,7 @@
                         </div>
                     </div>
                     
+                    <!-- Campo de PIN de administrador (oculto por defecto) -->
                     <div class="form-group admin-pin-field" id="adminPinField">
                         <label>PIN DE ADMINISTRADOR</label>
                         <div class="input-icon">
@@ -467,21 +516,25 @@
                     </div>
                 </div>
                 
+                <!-- Botón de enviar formulario -->
                 <button type="submit" name="btn_registrar" class="btn-register" id="submitButton">
                     <i class="fas fa-user-plus"></i> REGISTRAR USUARIO
                 </button>
                 
+                <!-- Enlace para ir al login -->
                 <div class="login-link">
                     ¿YA TIENES UNA CUENTA? <a href="index.php">INICIA SESION AQUi</a>
                 </div>
             </form>
         </div>
         
+        <!-- Esquinas decorativas inferiores -->
         <div class="pixel-corner pixel-corner-bl"></div>
         <div class="pixel-corner pixel-corner-br"></div>
     </div>
 
     <script>
+        // Script para manejar la validación del formulario de registro
         document.addEventListener('DOMContentLoaded', function() {
             const roleSelect = document.getElementById('userRole');
             const adminPinField = document.getElementById('adminPinField');
@@ -489,8 +542,8 @@
             const pinError = document.getElementById('pinError');
             const registrationForm = document.getElementById('registrationForm');
             
-            // PIN de administrador (deberías guardarlo de forma segura en un entorno real)
-            const ADMIN_PIN = "2024ADMIN"; // Cambia esto por un PIN seguro
+            // PIN de administrador 
+            const ADMIN_PIN = "2024ADMIN"; 
             
             // Mostrar u ocultar campo PIN según el rol seleccionado
             roleSelect.addEventListener('change', function() {
