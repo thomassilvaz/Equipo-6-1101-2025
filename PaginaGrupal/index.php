@@ -36,7 +36,7 @@ if (isset($_POST['btn_ingresar'])) {
 }
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -64,7 +64,7 @@ if (isset($_POST['btn_ingresar'])) {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            image-rendering: pixelated;
+            image-rendering: pixelated;   
         }
         
         body {
@@ -300,7 +300,7 @@ if (isset($_POST['btn_ingresar'])) {
             </div>
             <h1 class="blink">STAY CLEAN</h1>
             <p>VIDEOJUEGO EDUCATIVO</p>
-        </div>
+        </div> 
         
         <div class="login-body">
             <?php if (!empty($error_message)): ?>
