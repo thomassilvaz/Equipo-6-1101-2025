@@ -3,8 +3,13 @@ extends CharacterBody2D
 @onready var colision = $CollisionShape2D
 @onready var interactuable = $Interactuable/CollisionShape2D
 
+#funcion que al llamarse activa una animacion del sprite manualmente
+func play_animation(anim_name: String):
+	$AnimatedSprite2D.play(anim_name)
+
 var jugador_cerca := false
 
+#determina la posicion del personaje segun la escena y las condiciones activas
 func _ready():
 	match get_tree().current_scene.name:
 		"piso1":
@@ -26,9 +31,8 @@ func _ready():
 			else:
 				global_position = Vector2(1991, 183)
 				print("Vendedor está listo para decision 2")
-	
-	#visibilidad_npc(mostrar)
 
+#funcion que al llamarse determina si activar o desactivar por completo el personaje
 func visibilidad_npc(visibilidad: bool):
 	if visibilidad:
 		show()
@@ -39,13 +43,12 @@ func visibilidad_npc(visibilidad: bool):
 		colision.disabled = true
 		interactuable.disabled = true
 
-func play_animation(anim_name: String):
-	$AnimatedSprite2D.play(anim_name)
-		
+#deja al jugador interactuar con el npc al entrar al area
 func _on_interactuable_body_entered(body: Node2D) -> void:
 	if body is Jugador:
 		jugador_cerca = true
 
+#ya no le deje interactuar
 func _on_interactuable_body_exited(body: Node2D) -> void:
 	if body is Jugador:
 		jugador_cerca = false

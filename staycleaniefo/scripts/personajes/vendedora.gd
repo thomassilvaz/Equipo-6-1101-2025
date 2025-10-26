@@ -3,6 +3,11 @@ extends CharacterBody2D
 @onready var colision = $CollisionShape2D
 @onready var interactuable = $Interactuable/CollisionShape2D
 
+#funcion que al llamarse activa una animacion del sprite manualmente
+func play_animation(anim_name: String):
+	$AnimatedSprite2D.play(anim_name)
+
+#determina la posicion del personaje segun la escena y las condiciones activas
 func _ready():
 	match get_tree().current_scene.name:
 		"piso1":
@@ -22,8 +27,6 @@ func _ready():
 			else:
 				global_position = Vector2(28, -2000)
 
+#reactiva el dialogo del personaje
 func activar_dialogo():
 	interactuable.set_deferred("disabled", false)
-
-func play_animation(anim_name: String):
-	$AnimatedSprite2D.play(anim_name)

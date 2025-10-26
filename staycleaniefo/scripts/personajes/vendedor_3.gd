@@ -2,12 +2,15 @@ extends CharacterBody2D
 
 @onready var interactuable = $Interactuable/CollisionShape2D
 
+#funcion que al llamarse activa una animacion del sprite manualmente
 func play_animation(anim_name: String):
 	$AnimatedSprite2D.play(anim_name)
 
+#funcion que al llamarse activa una animacion de su animationplayer
 func play_animationplayer(anim_name: String):
 	$AnimationPlayer.play(anim_name)
 
+#determina la posicion del personaje segun la escena y las condiciones activas
 func _ready():
 	match get_tree().current_scene.name:
 		"piso1":
@@ -18,13 +21,3 @@ func _ready():
 		"piso2":
 			if !Estados.decision2_tomada:
 				global_position = Vector2(2016, -41)
-			#elif Estados.decision2_tomada:
-				#if Estados.decision_3 == "mala":
-					#if Estados.nom == "Alex":
-						#global_position = Vector2(1917, -41)
-
-
-#func decision2_mala():
-	#var tween = create_tween()
-	#tween.tween_property(self, "position", Vector2(1917, -41), 1.0)
-	#interactuable.disabled = true

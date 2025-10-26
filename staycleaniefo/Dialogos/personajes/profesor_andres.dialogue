@@ -8,7 +8,7 @@ if Estados.primera_clase:
 			- Si, ya tengo.
 			do Estados.profesor_andres.play("quieto_abajo_hablando")
 			Profesor Andrés: Ok, dame un momento y ya empezamos la clase.[#voz=Andres]
-			Profesor Andrés: [color=yellow] Esperame en tu puesto[/color].[#voz=Andres]
+			Profesor Andrés: [color=yellow]Esperame en tu puesto[/color].[#voz=Andres]
 			set Estados.empezar_primera_clase = true
 		else:
 			Profesor Andrés: Puedes hacerte con Mateo, y esta niña Valeria.[#voz=Andres]
