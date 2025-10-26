@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://co24bpbynay20"]
+[gd_scene load_steps=166 format=3 uid="uid://co24bpbynay20"]
 
 [ext_resource type="Texture2D" uid="uid://mk3pwgpfycum" path="res://Imagenes/Personajes/estudiante4.png" id="1_8txn8"]
 [ext_resource type="Script" uid="uid://xexwbe4hrydl" path="res://scripts/escenas/transicion_boss.gd" id="1_kc7hv"]
@@ -18,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://w6tj306f442o" path="res://Imagenes/Personajes/boss/summon.png" id="13_3bxv3"]
 [ext_resource type="Resource" uid="uid://3audr1rolrq4" path="res://Dialogos/muerte.dialogue" id="16_q616p"]
 [ext_resource type="Resource" uid="uid://c8xm7r863urm0" path="res://Dialogos/Escenas/redimido.dialogue" id="18_brqyo"]
+[ext_resource type="Texture2D" uid="uid://d2wwjjm5c58gi" path="res://Imagenes/Texturas/muerte_h.png" id="19_affkl"]
+[ext_resource type="Texture2D" uid="uid://cswh4qt45erdu" path="res://Imagenes/Texturas/muerte_m.png" id="20_oasa3"]
+[ext_resource type="Script" uid="uid://c43ghojm5ne16" path="res://scripts/escenas/transicion_clase.gd" id="21_oasa3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_chxva"]
 atlas = ExtResource("1_8txn8")
@@ -1203,6 +1206,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(232, 662)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animacion_murio:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transicion/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ce807"]
 resource_name = "bienvenida_boss"
@@ -1224,7 +1251,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hhlkj"]
 resource_name = "muerto"
-length = 6.0
+length = 10.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1232,9 +1259,12 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"animacion_murio"
+}, {
 "args": [ExtResource("11_ce807")],
 "method": &"trigger_dialogue"
 }]
@@ -1246,10 +1276,34 @@ tracks/1/path = NodePath("Control/HBoxContainer:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 4, 4.5, 4.83333, 5.13333, 5.46667),
+"times": PackedFloat32Array(0, 8, 8.5, 8.83333, 9.13333, 9.46667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(232, 662), Vector2(232, 662), Vector2(232, 421), Vector2(232, 452), Vector2(232, 445), Vector2(232, 452)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animacion_murio:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transicion/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_kc7hv"]
@@ -1284,7 +1338,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_7dawr"]
 resource_name = "reintentar"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1292,10 +1346,36 @@ tracks/0/path = NodePath("Control/HBoxContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.833333, 1.13333, 1.46667),
+"times": PackedFloat32Array(2, 2.5, 2.83333, 3.13333, 3.46667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(232, 662), Vector2(232, 421), Vector2(232, 452), Vector2(232, 445), Vector2(232, 452)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animacion_murio:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animacion_murio"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7dawr"]
@@ -1306,6 +1386,61 @@ _data = {
 &"redimido": SubResource("Animation_kc7hv"),
 &"reintentar": SubResource("Animation_7dawr")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bxv3"]
+atlas = ExtResource("19_affkl")
+region = Rect2(0, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q616p"]
+atlas = ExtResource("19_affkl")
+region = Rect2(770, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brqyo"]
+atlas = ExtResource("19_affkl")
+region = Rect2(1540, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uri0"]
+atlas = ExtResource("20_oasa3")
+region = Rect2(0, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6ua7"]
+atlas = ExtResource("20_oasa3")
+region = Rect2(770, 0, 768, 432)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh7rm"]
+atlas = ExtResource("20_oasa3")
+region = Rect2(1540, 0, 768, 432)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccq6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bxv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q616p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brqyo")
+}],
+"loop": false,
+"name": &"hombre",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uri0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6ua7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh7rm")
+}],
+"loop": false,
+"name": &"mujer",
+"speed": 8.0
+}]
 
 [node name="transicion_boss" type="Node2D"]
 script = ExtResource("1_kc7hv")
@@ -1406,7 +1541,7 @@ theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_3bxv3")
 text = "CONTINUAR"
 
-[node name="salir" type="Button" parent="Control/HBoxContainer"]
+[node name="rendirse" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("8_6ybc2")
 theme_override_font_sizes/font_size = 35
@@ -1418,5 +1553,39 @@ libraries = {
 &"": SubResource("AnimationLibrary_7dawr")
 }
 
+[node name="animacion_murio" type="AnimatedSprite2D" parent="."]
+position = Vector2(577.889, 325.5)
+scale = Vector2(1.50231, 1.50231)
+sprite_frames = SubResource("SpriteFrames_ccq6q")
+animation = &"hombre"
+
+[node name="Transicion" type="Control" parent="."]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 40.0
+script = ExtResource("21_oasa3")
+
+[node name="Label" type="Label" parent="Transicion"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 98.0
+offset_top = 195.0
+offset_right = 1012.0
+offset_bottom = 434.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_6ybc2")
+theme_override_font_sizes/font_size = 50
+text = "ALGUNOS TE OFRECEN UNA SONRISA"
+
 [connection signal="pressed" from="Control/redimido" to="Control" method="_on_redimido_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/reintentar" to="Control" method="_on_reintentar_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/rendirse" to="Control" method="_on_rendirse_pressed"]

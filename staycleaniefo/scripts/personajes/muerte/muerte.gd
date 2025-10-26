@@ -47,7 +47,7 @@ func take_damage():
 	if randi() % 10 == 1:
 		value = 144
 	else:
-		value = randi_range(300,2000)
+		value = randi_range(50,100)
 	health -= value
 	var daño = damage.instantiate()
 	get_tree().current_scene.add_child(daño)

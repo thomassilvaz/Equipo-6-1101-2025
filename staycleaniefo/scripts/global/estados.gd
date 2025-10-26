@@ -3,12 +3,12 @@ extends Node
 var contador: int = 0 #contador de reputacion
 
 var escuela_oscura: int = 0 #contador de drogas consumidas para mostrar ciertos efectos
-var genero: String = "a" #usado en dialogo cuando se refiera al jugador
-var nom: String = "Alexa" #nombre prehecho del jugador
+var genero: String = "o" #usado en dialogo cuando se refiera al jugador
+var nom: String = "Alex" #nombre prehecho del jugador
 var escogio_genero: bool = false #usado en menu (si es falso se escoge genero al azar)
 var puede_disparar := false #para que el jugador solo ataque en la arena
 
-#variables de escenas, para saber si han sido vistas
+#variables de escenas, para marcar si han sido vistas
 var primera_clase: bool = false
 var introduccion: bool = false
 var segunda_decision: bool = false

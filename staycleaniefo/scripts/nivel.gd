@@ -51,23 +51,24 @@ func music_player():
 				if Estados.jugador_murio:
 					AudioPlayer.play_music("res://Audio/Musica/jugador_muere.mp3")
 				elif Estados.redimido:
-					AudioPlayer.play_music(["res://Audio/Musica/redimido.mp3", "res://Audio/Musica/redimido2.mp3"][randi() % 2])
+					AudioPlayer.play_music("res://Audio/Musica/redimido.mp3")
 				else:
 					AudioPlayer.stop_music()
 			_:
 				AudioPlayer.stop_music()
 	else:
-		if scene_name == "Arena":
-			AudioPlayer.stop_music()
-		if scene_name == "transicion_boss":
-			if Estados.jugador_murio:
-				AudioPlayer.play_music("res://Audio/Musica/jugador_muere.mp3")
-			elif Estados.redimido:
-				AudioPlayer.play_music(["res://Audio/Musica/redimido.mp3", "res://Audio/Musica/redimido2.mp3"][randi() % 2])
-			else:
+		match scene_name:
+			"Arena":
 				AudioPlayer.stop_music()
-		else:
-			AudioPlayer.play_music("res://Audio/Musica/Anticipacion.mp3")
+			"transicion_boss":
+				if Estados.jugador_murio:
+					AudioPlayer.play_music("res://Audio/Musica/jugador_muere.mp3")
+				elif Estados.redimido:
+					AudioPlayer.play_music("res://Audio/Musica/redimido.mp3")
+				else:
+					AudioPlayer.stop_music()
+			_:
+				AudioPlayer.play_music("res://Audio/Musica/Anticipacion.mp3")
 
 func _on_level_spawn(destino_tag: String):
 	var puerta_path = "Puertas/Puerta_" + destino_tag

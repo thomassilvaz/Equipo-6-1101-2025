@@ -1,11 +1,13 @@
 extends CollisionShape2D
 
+#activa o desactiva la escena segun si se tomo la decision
 func _ready():
 	if Estados.decision3_tomada == true:
 		set_deferred("disabled", false)
 	else:
 		set_deferred("disabled", true)
 
+#cambia a otra escena segun la decision y genero del jugador
 func cambiar_escena():
 	EfectoTransicion.transition()
 	await EfectoTransicion.on_transition_finished
