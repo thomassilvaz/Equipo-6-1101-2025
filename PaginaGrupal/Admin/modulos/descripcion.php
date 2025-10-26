@@ -1,33 +1,53 @@
+
 <center>
     <div class="descripcion-container">
+        <!-- ENCABEZADO PRINCIPAL -->
         <div class="descripcion-header">
+            <!-- Título principal con efecto de parpadeo -->
             <h1 class="titulo-principal blink">DESCRIPCIÓN DEL PROYECTO STAY CLEAN</h1>
+            
+            <!-- Divisor decorativo con icono de gamepad -->
             <div class="header-divider">
                 <div class="divider-line"></div>
                 <i class="fas fa-gamepad"></i>
                 <div class="divider-line"></div>
             </div>
+            
+            <!-- Subtítulo descriptivo -->
             <p class="subtitulo">UN VIDEOJUEGO EDUCATIVO PARA LA PREVENCIÓN DE DROGAS</p>
         </div>
         
+        <!-- CONTENIDO PRINCIPAL -->
         <div class="descripcion-content">
+            
+            <!-- SECCIÓN: ¿QUÉ ES STAY CLEAN? -->
             <div class="card-horizontal glitch">
+                <!-- Esquinas decorativas superiores -->
                 <div class="pixel-corner pixel-corner-tl"></div>
                 <div class="pixel-corner pixel-corner-tr"></div>
+                
+                <!-- Icono de la sección -->
                 <div class="card-icon">
                     <i class="fas fa-gamepad"></i>
                 </div>
+                
+                <!-- Contenido descriptivo -->
                 <div class="card-content">
                     <h2>¿QUÉ ES STAY CLEAN?</h2>
                     <p>Stay Clean es un videojuego educativo RPG desarrollado por estudiantes de 11°1 de la Institución Educativa Federico Ozanam. 
                     Nuestro objetivo es concientizar a los estudiantes sobre los riesgos del consumo de sustancias psicoactivas a través de una experiencia interactiva, 
                     atractiva y reflexiva.</p>
                 </div>
+                
+                <!-- Esquinas decorativas inferiores -->
                 <div class="pixel-corner pixel-corner-bl"></div>
                 <div class="pixel-corner pixel-corner-br"></div>
             </div>
             
+            <!-- GRID DE CARACTERÍSTICAS PRINCIPALES -->
             <div class="feature-grid">
+                
+                <!-- CARACTERÍSTICA 1: Enfoque Educativo -->
                 <div class="feature-card glitch">
                     <div class="pixel-corner pixel-corner-tl"></div>
                     <div class="pixel-corner pixel-corner-tr"></div>
@@ -40,6 +60,7 @@
                     <div class="pixel-corner pixel-corner-br"></div>
                 </div>
                 
+                <!-- CARACTERÍSTICA 2: Decisiones con Consecuencias -->
                 <div class="feature-card glitch">
                     <div class="pixel-corner pixel-corner-tl"></div>
                     <div class="pixel-corner pixel-corner-tr"></div>
@@ -52,6 +73,7 @@
                     <div class="pixel-corner pixel-corner-br"></div>
                 </div>
                 
+                <!-- CARACTERÍSTICA 3: Personajes Reales -->
                 <div class="feature-card glitch">
                     <div class="pixel-corner pixel-corner-tl"></div>
                     <div class="pixel-corner pixel-corner-tr"></div>
@@ -65,25 +87,34 @@
                 </div>
             </div>
             
+            <!-- SECCIÓN DE OBJETIVO PRINCIPAL -->
             <div class="objetivo-section">
                 <div class="pixel-corner pixel-corner-tl"></div>
                 <div class="pixel-corner pixel-corner-tr"></div>
+                
+                <!-- Contenido del objetivo -->
                 <div class="objetivo-content">
                     <h2>OBJETIVO PRINCIPAL</h2>
                     <p>Reducir la tasa de consumo de sustancias psicoactivas entre estudiantes mediante una herramienta innovadora que combate la desinformación y fortalece la toma de decisiones responsables.</p>
                 </div>
+                
+                <!-- Imagen/avatar del objetivo -->
                 <div class="objetivo-image">
                     <div class="pixel-avatar">
                         <i class="fas fa-user-graduate"></i>
                     </div>
                 </div>
+                
                 <div class="pixel-corner pixel-corner-bl"></div>
                 <div class="pixel-corner pixel-corner-br"></div>
             </div>
             
+            <!-- SECCIÓN DE CARACTERÍSTICAS CLAVE -->
             <div class="caracteristicas-container">
                 <h2>CARACTERÍSTICAS CLAVE</h2>
                 <div class="timeline">
+                    
+                    <!-- CARACTERÍSTICA 1: Narrativa Inmersiva -->
                     <div class="timeline-item glitch">
                         <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="timeline-icon">
@@ -96,6 +127,7 @@
                         <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
+                    <!-- CARACTERÍSTICA 2: Accesible -->
                     <div class="timeline-item glitch">
                         <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="timeline-icon">
@@ -108,6 +140,7 @@
                         <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
+                    <!-- CARACTERÍSTICA 3: Sistema de Progreso -->
                     <div class="timeline-item glitch">
                         <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="timeline-icon">
@@ -120,6 +153,7 @@
                         <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
+                    <!-- CARACTERÍSTICA 4: Logros Educativos -->
                     <div class="timeline-item glitch">
                         <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="timeline-icon">
@@ -134,9 +168,12 @@
                 </div>
             </div>
             
+            <!-- SECCIÓN DE IMPACTO ESPERADO -->
             <div class="impacto-section">
                 <h2>IMPACTO ESPERADO</h2>
                 <div class="impacto-grid">
+                    
+                    <!-- MÉTRICA 1: Reducción de curiosidad -->
                     <div class="impacto-card glitch">
                         <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="impacto-number">70%</div>
@@ -144,6 +181,7 @@
                         <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
+                    <!-- MÉTRICA 2: Aumento de conocimiento -->
                     <div class="impacto-card glitch">
                         <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="impacto-number">85%</div>
@@ -151,6 +189,7 @@
                         <div class="pixel-corner pixel-corner-br"></div>
                     </div>
                     
+                    <!-- MÉTRICA 3: Mejora de habilidades -->
                     <div class="impacto-card glitch">
                         <div class="pixel-corner pixel-corner-tl"></div>
                         <div class="impacto-number">90%</div>
@@ -160,6 +199,7 @@
                 </div>
             </div>
             
+            <!-- SECCIÓN DEL EQUIPO DESARROLLADOR -->
             <div class="equipo-section">
                 <div class="pixel-corner pixel-corner-tl"></div>
                 <div class="pixel-corner pixel-corner-tr"></div>
@@ -172,19 +212,24 @@
     </div>
 </center>
 
+
 <style>
+    
 :root {
-    --primary-blue: #0056b3;    /* Azul institucional principal */
-    --secondary-blue: #51a4e7;  /* Azul institucional secundario */
-    --accent-yellow: #ffc107;   /* Amarillo para acentos */
-    --light-gray: #f8f9fa;      /* Fondo claro */
-    --dark-text: #212529;       /* Texto oscuro */
-    --white: #ffffff;           /* Blanco */
-    --pixel-border: 4px solid #000;
-    --pixel-shadow: 4px 4px 0 #000;
+    /* Define colores y estilos base para toda la página */
+    --primary-blue: #0056b3;    
+    --secondary-blue: #51a4e7;  
+    --accent-yellow: #ffc107;  
+    --light-gray: #f8f9fa;      
+    --dark-text: #212529;       
+    --white: #ffffff;           
+    --pixel-border: 4px solid #000;  
+    --pixel-shadow: 4px 4px 0 #000;  
 }
 
+
 .descripcion-container {
+    /* Crea el contenedor principal con fondo de cuadrícula azul sutil */
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 20px;
@@ -195,13 +240,16 @@
     background-size: 20px 20px;
 }
 
+
 .descripcion-header {
+    /* Centra el contenido del encabezado */
     text-align: center;
     margin-bottom: 50px;
     position: relative;
 }
 
 .titulo-principal {
+    /* Estiliza el título principal con efecto pixelado y parpadeo */
     color: var(--primary-blue);
     font-size: 1.8rem;
     margin-bottom: 15px;
@@ -217,6 +265,7 @@
 }
 
 .header-divider {
+    /* Crea la línea divisoria con icono central */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -240,6 +289,7 @@
 }
 
 .subtitulo {
+    /* Estiliza el subtítulo con bordes pixelados */
     font-size: 1.2rem;
     color: var(--secondary-blue);
     max-width: 700px;
@@ -252,7 +302,9 @@
     display: inline-block;
 }
 
+
 .card-horizontal {
+    /* Crea una tarjeta horizontal con icono y contenido */
     display: flex;
     align-items: center;
     background: white;
@@ -270,6 +322,7 @@
 }
 
 .card-icon {
+    /* Estiliza el icono grande de la tarjeta */
     flex: 0 0 120px;
     height: 100%;
     background: var(--primary-blue);
@@ -283,6 +336,7 @@
 }
 
 .card-content {
+    /* Estiliza el área de contenido de la tarjeta */
     padding: 30px;
     flex: 1;
 }
@@ -303,6 +357,7 @@
 }
 
 .feature-grid {
+    /* Crea un grid responsive de 3 columnas */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -310,6 +365,7 @@
 }
 
 .feature-card {
+    /* Estiliza cada tarjeta de características individual */
     background: white;
     border: var(--pixel-border);
     padding: 30px;
@@ -326,6 +382,7 @@
 }
 
 .feature-icon {
+    /* Estiliza los iconos circulares de las características */
     width: 80px;
     height: 80px;
     background: #e6f0fa;
@@ -360,7 +417,9 @@
     font-family: 'Silkscreen', cursive;
 }
 
+
 .objetivo-section {
+    /* Crea una sección con fondo azul dividida en dos partes */
     display: flex;
     background-color: var(--primary-blue);
     border: var(--pixel-border);
@@ -371,6 +430,7 @@
 }
 
 .objetivo-content {
+    /* Estiliza el área de texto del objetivo */
     flex: 1;
     padding: 40px;
     color: white;
@@ -392,6 +452,7 @@
 }
 
 .objetivo-image {
+    /* Estiliza el área de la imagen/avatar */
     flex: 1;
     display: flex;
     align-items: center;
@@ -402,6 +463,7 @@
 }
 
 .pixel-avatar {
+    /* Crea un avatar cuadrado con patrón pixelado */
     width: 200px;
     height: 200px;
     background-color: var(--secondary-blue);
@@ -433,6 +495,7 @@
 }
 
 .caracteristicas-container {
+    /* Contenedor de la sección de características clave */
     margin-bottom: 50px;
 }
 
@@ -454,6 +517,7 @@
 }
 
 .timeline {
+    /* Crea una línea de tiempo vertical */
     position: relative;
     max-width: 800px;
     margin: 0 auto;
@@ -471,6 +535,7 @@
 }
 
 .timeline-item {
+    /* Estiliza cada elemento de la línea de tiempo */
     display: flex;
     margin-bottom: 40px;
     position: relative;
@@ -486,6 +551,7 @@
 }
 
 .timeline-icon {
+    /* Estiliza los iconos de la línea de tiempo */
     flex: 0 0 60px;
     height: 60px;
     background: white;
@@ -501,6 +567,7 @@
 }
 
 .timeline-content {
+    /* Estiliza el contenido de cada item del timeline */
     flex: 1;
     background: white;
     padding: 25px;
@@ -521,7 +588,9 @@
     font-family: 'Silkscreen', cursive;
 }
 
+
 .impacto-section {
+    /* Contenedor de la sección de métricas de impacto */
     margin-bottom: 50px;
 }
 
@@ -540,6 +609,7 @@
 }
 
 .impacto-grid {
+    /* Grid para las tarjetas de métricas */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
@@ -548,6 +618,7 @@
 }
 
 .impacto-card {
+    /* Estiliza cada tarjeta de métrica */
     background: white;
     border: var(--pixel-border);
     padding: 30px 20px;
@@ -563,6 +634,7 @@
 }
 
 .impacto-number {
+    /* Estiliza los números grandes de las métricas */
     font-size: 3rem;
     font-weight: 700;
     color: var(--primary-blue);
@@ -572,6 +644,7 @@
 }
 
 .impacto-label {
+    /* Estiliza las etiquetas de las métricas */
     font-size: 1rem;
     color: #333;
     line-height: 1.5;
@@ -579,6 +652,7 @@
 }
 
 .equipo-section {
+    /* Crea la sección final sobre el equipo */
     background: #e6f0fa;
     border: var(--pixel-border);
     padding: 40px;
@@ -605,8 +679,9 @@
     font-family: 'Silkscreen', cursive;
 }
 
-/* Efectos especiales 8-bit */
+/* ===== ELEMENTOS DECORATIVOS ===== */
 .pixel-corner {
+    /* Crea las esquinas amarillas decorativas */
     position: absolute;
     width: 16px;
     height: 16px;
@@ -641,6 +716,7 @@
 }
 
 .blink {
+    /* Aplica animación de parpadeo */
     animation: blink 1.5s infinite;
 }
 
@@ -655,11 +731,15 @@
 }
 
 .glitch:hover {
+    /* Aplica efecto glitch al hacer hover */
     animation: glitch 0.3s infinite;
 }
 
-/* Responsive */
+
+
+/* Tablets y dispositivos medianos */
 @media (max-width: 768px) {
+    /* Adapta el diseño para tablets */
     .card-horizontal {
         flex-direction: column;
     }
@@ -699,7 +779,9 @@
     }
 }
 
+/* Dispositivos móviles pequeños */
 @media (max-width: 480px) {
+    /* Adapta el diseño para móviles pequeños */
     .titulo-principal {
         font-size: 1.2rem;
     }
@@ -714,17 +796,16 @@
 }
 </style>
 
+
 <script>
 // Efecto de sonido para interacciones (opcional)
 document.querySelectorAll('.glitch').forEach(element => {
     element.addEventListener('mouseenter', function() {
-        // Podrías agregar un sonido de videojuego aquí
-        // new Audio('sounds/hover.wav').play();
+       
     });
     
     element.addEventListener('click', function() {
-        // Podrías agregar un sonido de selección aquí
-        // new Audio('sounds/select.wav').play();
+
     });
 });
 </script>
