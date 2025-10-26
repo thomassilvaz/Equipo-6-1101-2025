@@ -43,7 +43,7 @@
 [ext_resource type="Script" uid="uid://c834pqvd8ytg5" path="res://scripts/escenas/sala_profesores.gd" id="35_h84rr"]
 [ext_resource type="Resource" uid="uid://brcf0ns3ip3y4" path="res://Dialogos/Interactuables/sala_profesores.dialogue" id="35_whkc7"]
 [ext_resource type="Texture2D" uid="uid://qvpuaerwb10g" path="res://Imagenes/baldi.png" id="42_h84rr"]
-[ext_resource type="Script" uid="uid://clwi5kfnc6bnl" path="res://scripts/ee.gd" id="43_1ot5e"]
+[ext_resource type="Script" uid="uid://clwi5kfnc6bnl" path="res://scripts/baldi_ee.gd" id="43_1ot5e"]
 [ext_resource type="Script" uid="uid://cb4jhx7plt540" path="res://scripts/escenas/despues_charla.gd" id="45_0vnbq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_whkc7"]
