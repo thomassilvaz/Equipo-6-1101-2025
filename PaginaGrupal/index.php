@@ -47,13 +47,7 @@ if (isset($_POST['btn_ingresar'])) {
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <!-- =============================== -->
-<!-- ESTE BLOQUE HACE QUE: -->
-<!-- - Aparezcan 3 columnas con iconos -->
-<!-- - Cada tarjeta tenga un borde suave -->
-<!-- - Los iconos se vean arriba del texto -->
-<!-- - Las tarjetas tengan sombra al pasar el mouse -->
-<!-- =============================== -->
+
     <style>
         :root {
             --primary-blue: #0056b3;
