@@ -961,7 +961,7 @@ destino_puerta_tag = "salida"
 spawn_direccion = "arriba"
 
 [node name="CollisionShape2D" parent="Puertas/Puerta_salonp" index="0"]
-position = Vector2(-0.0334473, -0.0296718)
+position = Vector2(0.334478, 8.35806)
 
 [node name="Spawn" parent="Puertas/Puerta_salonp" index="1"]
 position = Vector2(0.334447, -29.2532)
@@ -992,8 +992,8 @@ destino_puerta_tag = "introduccion"
 spawn_direccion = "arriba"
 
 [node name="CollisionShape2D" parent="Puertas/Puerta_introduccion" index="0"]
-position = Vector2(0.389118, 2.99374)
-scale = Vector2(2.47118, 0.298667)
+position = Vector2(-0.778227, 3.32638)
+scale = Vector2(2.62682, 0.335257)
 
 [node name="Spawn" parent="Puertas/Puerta_introduccion" index="1"]
 position = Vector2(0.389111, 3.57585)
