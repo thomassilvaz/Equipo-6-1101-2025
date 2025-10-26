@@ -2,16 +2,18 @@ extends Node2D
 
 var scene_name: String
 
+#detecta en cada fotograma si el jugador ha consumido algo
 func _process(_delta: float) -> void:
 	if Estados.escuela_oscura > 0:
 		var tween = create_tween()
-		tween.tween_property(self, "modulate", Color("#a0c0d0"), 1.0)
+		tween.tween_property(self, "modulate", Color("#a0c0d0"), 1.0) #la escuela cambia de color gradualmente
 	else:
-		self.modulate = Color.WHITE
+		self.modulate = Color.WHITE #por si caso alguno reduce de valor
 	
 	if Estados.escuela_oscura == 2:
-		music_player()
+		music_player() #llama manualmente la funcion para cambiar la musica en tiempo real
 
+#detecta la escena actual
 func _ready():
 	scene_name = get_tree().current_scene.name
 	print("Scene loaded: ", scene_name)
@@ -22,6 +24,7 @@ func _ready():
 	else:
 		return
 	
+	#activa eventos especiales en ciertas escenas segun las condicion cumplidas
 	match scene_name:
 		"piso2":
 			if Estados.sustancia1 and !Estados.duda:
@@ -39,6 +42,7 @@ func _ready():
 				if Estados.decision_3 == "mala":
 					NavegacionManager.trigger_player_spawn(Vector2(-63,-34), "arriba")
 
+#funcion encargada de activar la musica de cada escena 2D
 func music_player():
 	if get_tree().current_scene == null:
 		await get_tree().process_frame
@@ -51,23 +55,24 @@ func music_player():
 				if Estados.jugador_murio:
 					AudioPlayer.play_music("res://Audio/Musica/jugador_muere.mp3")
 				elif Estados.redimido:
-					AudioPlayer.play_music(["res://Audio/Musica/redimido.mp3", "res://Audio/Musica/redimido2.mp3"][randi() % 2])
+					AudioPlayer.play_music("res://Audio/Musica/redimido.mp3")
 				else:
 					AudioPlayer.stop_music()
 			_:
 				AudioPlayer.stop_music()
 	else:
-		if scene_name == "Arena":
-			AudioPlayer.stop_music()
-		if scene_name == "transicion_boss":
-			if Estados.jugador_murio:
-				AudioPlayer.play_music("res://Audio/Musica/jugador_muere.mp3")
-			elif Estados.redimido:
-				AudioPlayer.play_music(["res://Audio/Musica/redimido.mp3", "res://Audio/Musica/redimido2.mp3"][randi() % 2])
-			else:
+		match scene_name:
+			"Arena":
 				AudioPlayer.stop_music()
-		else:
-			AudioPlayer.play_music("res://Audio/Musica/Anticipacion.mp3")
+			"transicion_boss":
+				if Estados.jugador_murio:
+					AudioPlayer.play_music("res://Audio/Musica/jugador_muere.mp3")
+				elif Estados.redimido:
+					AudioPlayer.play_music("res://Audio/Musica/redimido.mp3")
+				else:
+					AudioPlayer.stop_music()
+			_:
+				AudioPlayer.play_music("res://Audio/Musica/Anticipacion.mp3")
 
 func _on_level_spawn(destino_tag: String):
 	var puerta_path = "Puertas/Puerta_" + destino_tag

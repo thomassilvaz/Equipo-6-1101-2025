@@ -2,6 +2,7 @@ extends RichTextLabel
 
 @export var restador: PackedScene
 
+#funcion encargada de cambiar el color del contador de reputacion segun su valor
 func _ready() -> void:
 	var cont = Estados.contador
 	text = str(cont)

@@ -1,5 +1,6 @@
 extends Control
 
+#controla la visibilidad de la pantalla negra segun las condiciones de la escena
 func _ready() -> void:
 	if get_tree().current_scene.name == "piso2" and Estados.decision3_tomada:
 		if Estados.sustancia1 or Estados.charla_con_valeria:

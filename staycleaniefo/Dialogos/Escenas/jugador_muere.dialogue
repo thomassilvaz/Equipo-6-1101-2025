@@ -3,8 +3,8 @@ Escuchas tu respiracíon agitada.
 
 do Ronald.fade_in()
 
-Ronald: Vaya, {{Estados.nom}}… Mírate, bro. Te dije que esto te haría “sentir vivo”, ¿no? [#voz=Ronald]
-Ronald: Y mírate ahora… más quieto que nunca.[#voz=Ronald]
+Ronald: Vaya, {{Estados.nom}}… Mírate. Te dije que esto te haría “sentir viv{{Estados.genero}}”, ¿no? [#voz=Ronald]
+Ronald: Y mírate ahora… más quiet{{Estados.genero}} que nunca.[#voz=Ronald]
 
 do Julian.fade_in()
 
@@ -41,6 +41,6 @@ do wait(1)
 Las voces se alejan.
 Silencio. El sonido del viento reemplaza las voces.
 do wait(2)
-No todos los enemigos llevan armas… [color=red]algunos te ofrecen una sonrisa[/color].
+No todos los enemigos llevan armas…
 set Estados.murio_repetido = true
 => END

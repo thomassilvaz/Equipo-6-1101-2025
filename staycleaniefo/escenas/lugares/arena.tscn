@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://coqflip8v3627"]
+[gd_scene load_steps=45 format=4 uid="uid://coqflip8v3627"]
 
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="1_4sd3b"]
 [ext_resource type="Script" uid="uid://cr0w8nj5l1x4w" path="res://scripts/arena.gd" id="1_8ei8p"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dc87cpfikb1gq" path="res://Audio/Musica/LaMuerte.mp3" id="12_dgqfl"]
 [ext_resource type="PackedScene" uid="uid://c1e1e2v6u0b74" path="res://escenas/Daño.tscn" id="12_sjml3"]
 [ext_resource type="FontFile" uid="uid://boe65q6htbpaq" path="res://DTM-Mono.otf" id="13_ckx6j"]
+[ext_resource type="Script" uid="uid://dgc3tvhdxnv0s" path="res://scripts/tutorial_boss.gd" id="14_dx600"]
 [ext_resource type="Script" uid="uid://daxjg7yvd0fmk" path="res://scripts/spawn_scythe.gd" id="14_egtg7"]
 [ext_resource type="Script" uid="uid://k8tc6hpiadpo" path="res://scripts/escenas/arena_oscuridad.gd" id="17_31640"]
 
@@ -126,8 +127,8 @@ texture = ExtResource("4_qojdx")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-87.5, 3.5, 4.5, -29.5, 93.5, 52.5, -85.5, 50.5)
 0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(3.5, -28.5, 96.5, 8.5, 92.5, 51.5)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ckx6j"]
-polygon = PackedVector2Array(-59.2698, -5.08027, 57.5763, -3.95132, 62.6566, 64.9145, -63.7855, 64.35)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tqp6e"]
+polygon = PackedVector2Array(57.9908, 63.4075, 61.8144, 62.7703, 62.133, 37.2798, 57.6722, 25.1718, -58.3094, 24.8532, -62.4516, 38.2357, -62.4516, 63.7262, -58.3094, 63.7262, -58.3094, 43.971, -2.23042, 43.971, -2.23042, 63.4075, 1.91179, 63.4075, 1.91179, 43.971, 57.9908, 43.6524)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31640"]
 texture = ExtResource("5_sbn8r")
@@ -143,15 +144,18 @@ texture_region_size = Vector2i(128, 128)
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-53.625, -29.9171, 56.4474, -29.9171, 56.4474, 33.8684, -54.1895, 34.4329)
 6:0/0 = 0
 0:1/0 = 0
-0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ckx6j")
+0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_tqp6e")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64.35, 29.9171, 64.35, 28.7882, 64.35, 64.35, -64.35, 63.2211)
 1:1/0 = 0
 2:1/0 = 0
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28.2237, 7.90264, 29.9171, 5.64474, 27.0947, 44.5934, -27.6592, 45.7224)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ylcga"]
-polygon = PackedVector2Array(-165.5, 62, -155.5, 63, -121.5, 37, 128.5, 35, 156.5, 63, 163.5, 63, 164.5, 1, -165.5, 1)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cvugq"]
+polygon = PackedVector2Array(-165.391, 62.0921, -155.795, 66.0434, -156.359, -2.82237, -165.955, -2.82237)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_87i7n"]
+polygon = PackedVector2Array(154.666, 63.7855, 163.697, 64.9145, 164.262, -0.564476, 154.666, -1.12895)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dx600"]
 texture = ExtResource("6_8ei8p")
@@ -159,7 +163,8 @@ texture_region_size = Vector2i(128, 128)
 0:0/size_in_atlas = Vector2i(3, 1)
 0:0/0 = 0
 0:0/0/y_sort_origin = -20
-0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ylcga")
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_cvugq")
+0:0/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_87i7n")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(130.001, 36.0053, 154.855, 64.0448, 164.095, 63.7262, 164.262, -2.82237, -165.955, -5.08027, -166.52, 63.2211, -152.972, 64.35, -127.007, 36.1263)
 
 [sub_resource type="TileSet" id="TileSet_dta0b"]
@@ -361,6 +366,7 @@ offset_top = -216.0
 offset_right = 212.0
 offset_bottom = -141.0
 alignment = 1
+script = ExtResource("14_dx600")
 
 [node name="Label" type="Label" parent="ysort/jugador/VBoxContainer"]
 z_index = 3

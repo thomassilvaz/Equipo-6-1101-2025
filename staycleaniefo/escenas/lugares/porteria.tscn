@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bdyg28ciuwu2d"]
+[gd_scene load_steps=28 format=4 uid="uid://bdyg28ciuwu2d"]
 
 [ext_resource type="Script" uid="uid://dnwrc2q5fpbsr" path="res://scripts/nivel.gd" id="1_a455t"]
 [ext_resource type="Texture2D" uid="uid://d3rb8yimfxck7" path="res://Imagenes/Texturas/pasillo1.png" id="2_idsxw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://bom45u3y0qyjr" path="res://Dialogos/personajes/portero.dialogue" id="11_ruxvm"]
 [ext_resource type="Resource" uid="uid://dm8jl07l08p4c" path="res://Dialogos/test_puerta.dialogue" id="11_x0ttr"]
 [ext_resource type="Texture2D" uid="uid://e4xmuhpuvc1v" path="res://Imagenes/flecha.gif" id="12_bxpn3"]
+[ext_resource type="FontFile" uid="uid://boe65q6htbpaq" path="res://DTM-Mono.otf" id="13_8j774"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1dusw"]
 texture = ExtResource("2_idsxw")
@@ -186,6 +187,18 @@ debug_color = Color(0.972028, 0, 0.443895, 0.42)
 position = Vector2(0, -80)
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("12_bxpn3")
+
+[node name="Label" type="Label" parent="ysort/Portero/Flecha"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -183.333
+offset_top = -316.667
+offset_right = 199.667
+offset_bottom = -25.6667
+theme_override_fonts/font = ExtResource("13_8j774")
+theme_override_font_sizes/font_size = 120
+text = "Enter
+"
+horizontal_alignment = 1
 
 [node name="Colisiones" type="StaticBody2D" parent="."]
 

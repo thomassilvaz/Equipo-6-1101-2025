@@ -1,5 +1,6 @@
 extends Area2D
 
+#activa la animacion que termina la clase y cambia la escena posteriormente
 func _on_body_entered(body: Node2D) -> void:
 	if body is Jugador:
 		if Estados.empezar_primera_clase and !Estados.primera_clase_hecha:

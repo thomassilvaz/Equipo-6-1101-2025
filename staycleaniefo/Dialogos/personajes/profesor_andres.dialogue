@@ -8,7 +8,7 @@ if Estados.primera_clase:
 			- Si, ya tengo.
 			do Estados.profesor_andres.play("quieto_abajo_hablando")
 			Profesor Andrés: Ok, dame un momento y ya empezamos la clase.[#voz=Andres]
-			Profesor Andrés: [color=yellow] Esperame en tu puesto[/color].[#voz=Andres]
+			Profesor Andrés: [color=yellow]Esperame en tu puesto[/color].[#voz=Andres]
 			set Estados.empezar_primera_clase = true
 		else:
 			Profesor Andrés: Puedes hacerte con Mateo, y esta niña Valeria.[#voz=Andres]
@@ -34,7 +34,7 @@ if Estados.primera_clase:
 ~ cafeteria
 do Estados.profesor_andres.play("quieto_abajo_hablando")
 do Estados.jugador.play("quieto_arriba")
-if Estados.sustancia1 or Estados.decision_3 == "mala":
+if Estados.sustancia1 or Estados.decision_2 == "mala":
 	Profesor Andrés: Hmm, hola {{Estados.nom}}.[#voz=Andres]
 	Profesor Andrés: No te ves en buena condición.[#voz=Andres]
 	Profesor Andrés: ¿Te estás dejando manipular de los indisciplinados de clase?[#voz=Andres]
@@ -46,7 +46,7 @@ if Estados.sustancia1 or Estados.decision_3 == "mala":
 	if Estados.decision_2 == "mala":
 		Profesor Andrés: Ten cuidado con ellos, se mantienen [color=red]detrás de los árboles[/color] de la cancha.[#voz=Andres]
 	Profesor Andrés: {{Estados.nom}}, confío en harás una buena decisión.[#voz=Andres]
-	Profesor Andrés: ..Después de una visita a la psicóloga..[#voz=Andres]
+	Profesor Andrés: ...Después de una visita a la psicóloga...[#voz=Andres]
 else:
 	Profesor Andrés: Buenas tardes {{Estados.nom}}. ¿Cómod{{Estados.genero}} en tu nuevo grupo?[#voz=Andres]
 	Profesor Andrés: Bueno, Vi tu decisión. No todos eligen bien cuando nadie los mira.[#voz=Andres]

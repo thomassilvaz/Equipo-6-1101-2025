@@ -1,25 +1,25 @@
 ~ start
 do Mateo.fade_in()
-Mateo: Lo hiciste, {{Estados.nom}}. No te rendiste. No dejaste que ellos ganaran esta vez.
-Mateo: Sabía que aún quedaba algo de ti ahí dentro.
+Mateo: Lo hiciste, {{Estados.nom}}. No te rendiste. No dejaste que ellos ganaran esta vez.[#voz=Mateo]
+Mateo: Sabía que aún quedaba algo de ti ahí dentro.[#voz=Mateo]
 
 do Valeria.fade_in()
 
-Valeria: Por fin, {{Estados.nom}}… Por fin elegiste escucharte a ti, y no a esas voces que solo querían verte caer.
-Valeria: No fue fácil, lo sabemos… Pero cada paso que diste te trajo hasta aquí.
-Valeria: No necesitabas escapar. Solo necesitabas creer que podías salir.
+Valeria: Por fin, {{Estados.nom}}… Por fin elegiste escucharte a ti, y no a esas voces que solo querían verte caer.[#voz=Valeria]
+Valeria: No fue fácil, lo sabemos… Pero cada paso que diste te trajo hasta aquí.[#voz=Valeria]
+Valeria: No necesitabas escapar. Solo necesitabas creer que podías salir.[#voz=Valeria]
 
 do Laura.fade_in()
 
-Psicóloga Laura: {{Estados.nom}}… lo que hiciste hoy fue más que ganar una pelea. Fue elegir vivir.
-Psicóloga Laura: Cada persona tiene su propio enemigo interno, pero tú… tú lo enfrentaste. Eso no te hace débil, te hace valiente.
-Psicóloga Laura: No todos logran salir antes de hundirse, pero tú lo hiciste. Y eso cambia todo.
+Psicóloga Laura: {{Estados.nom}}… lo que hiciste hoy fue más que ganar una pelea. Fue elegir vivir.[#voz=Laura]
+Psicóloga Laura: Cada persona tiene su propio enemigo interno, pero tú… tú lo enfrentaste. Eso no te hace débil, te hace valiente.[#voz=Laura]
+Psicóloga Laura: No todos logran salir antes de hundirse, pero tú lo hiciste. Y eso cambia todo.[#voz=Laura]
 
-Mateo: ¿Ves? No necesitabas nada más que a ti mism{{Estados.genero}}. Ni pastillas, ni humo, ni promesas vacías. Solo valor.
-Mateo: Y ya eres libre.
+Mateo: ¿Ves? No necesitabas nada más que a ti mism{{Estados.genero}}. Ni pastillas, ni humo, ni promesas vacías. Solo valor.[#voz=Mateo]
+Mateo: Y ya eres libre.[#voz=Mateo]
 
-Psicóloga Laura: Recuerda esto, {{Estados.nom}}… Las tentaciones volverán, las voces también.
-Psicóloga Laura: Pero esta vez sabrás qué responderles… Incluso sin decir una sola palabra.
+Psicóloga Laura: Recuerda esto, {{Estados.nom}}… Las tentaciones volverán, las voces también.[#voz=Laura]
+Psicóloga Laura: Pero esta vez sabrás qué responderles… Incluso sin decir una sola palabra.[#voz=Laura]
 
 do Laura.fade_out()
 
@@ -28,11 +28,11 @@ Los observas y respiras hondo. Decides dar un paso adelante.
 do Valeria.fade_out()
 do wait(5)
 
-Mateo: Bienvenido de vuelta, amig{{Estados.genero}}. El mundo todavía te espera.
+Mateo: Bienvenido de vuelta, amig{{Estados.genero}}. El mundo todavía te espera.[#voz=Mateo]
 
 do Mateo.fade_out()
 
-do wait(3)
+do wait(5)
 
-La verdadera victoria no fue vencer al enemigo… [color=green]fue volver a ser tú mism{{Estados.genero}}.[/color]
+La verdadera victoria no fue vencer al enemigo… [color=green]fue reconocer el valor que tiene tu vida.[/color]
 => END

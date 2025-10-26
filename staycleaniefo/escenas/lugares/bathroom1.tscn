@@ -700,6 +700,7 @@ animation = &"quieto_abajo"
 
 [node name="Vendedor2" type="CharacterBody2D" parent="ysort"]
 position = Vector2(-255, -332)
+scale = Vector2(1.15606, 1.15606)
 script = ExtResource("12_75jbr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ysort/Vendedor2"]
