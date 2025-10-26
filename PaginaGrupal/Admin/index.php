@@ -1,7 +1,9 @@
 <?php
 session_start();
+
+// Verifica si existe una sesión de usuario activa
 if (isset($_SESSION['user'])){
-    // Obtener información del usuario de la sesión (simulado)
+    // Obtener información del usuario de la sesión 
     $nombre_usuario = $_SESSION['user']['nombre'] ?? 'Usuario';
     $rol_usuario = $_SESSION['user']['rol'] ?? 'Invitado';
 ?>
@@ -16,17 +18,17 @@ if (isset($_SESSION['user'])){
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Manteniendo los estilos de SB Admin 2 para compatibilidad con módulos -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <style>
+     
         :root {
-            --primary-blue: #0056b3;    /* Azul institucional principal */
-            --secondary-blue: #51a4e7;  /* Azul institucional secundario */
-            --accent-yellow: #ffc107;   /* Amarillo para acentos */
-            --light-gray: #f8f9fa;      /* Fondo claro */
-            --dark-text: #212529;       /* Texto oscuro */
-            --white: #ffffff;           /* Blanco */
+            --primary-blue: #0056b3;    
+            --secondary-blue: #51a4e7;  
+            --accent-yellow: #ffc107;   
+            --light-gray: #f8f9fa;      
+            --dark-text: #212529;       
+            --white: #ffffff;           
             --pixel-border: 4px solid #000;
             --pixel-shadow: 4px 4px 0 #000;
         }
@@ -38,6 +40,7 @@ if (isset($_SESSION['user'])){
             image-rendering: pixelated;
         }
         
+        /* Estilos del cuerpo de la página con fondo de cuadrícula */
         body {
             background-color: #f0f4f8;
             color: var(--dark-text);
@@ -49,6 +52,7 @@ if (isset($_SESSION['user'])){
             background-size: 20px 20px;
         }
         
+        /* Contenedor principal del dashboard */
         .dashboard-container {
             display: grid;
             grid-template-columns: 250px 1fr;
@@ -69,6 +73,7 @@ if (isset($_SESSION['user'])){
             box-shadow: var(--pixel-shadow);
         }
         
+        /* logo en el sidebar */
         .brand {
             padding: 0 20px 20px;
             text-align: center;
@@ -76,6 +81,7 @@ if (isset($_SESSION['user'])){
             margin-bottom: 10px;
         }
         
+        /* Icono del proyecto*/
         .brand-icon {
             font-size: 2.5rem;
             margin-bottom: 10px;
@@ -92,11 +98,13 @@ if (isset($_SESSION['user'])){
             text-shadow: 2px 2px 0 #000;
         }
         
+        /* Menú del sidebar */
         .sidebar-menu {
             list-style: none;
             margin-top: 30px;
         }
         
+        /* Elementos del menú */
         .menu-item {
             padding: 12px 20px;
             transition: all 0.3s;
@@ -105,11 +113,13 @@ if (isset($_SESSION['user'])){
             font-size: 0.7rem;
         }
         
+        /* Estados de los elementos del menú */
         .menu-item:hover, .menu-item.active {
             background-color: rgba(255, 255, 255, 0.1);
             border-left: 4px solid var(--accent-yellow);
         }
         
+        /* Enlaces del menú */
         .menu-item a {
             color: var(--white);
             text-decoration: none;
@@ -118,6 +128,7 @@ if (isset($_SESSION['user'])){
             font-weight: 600;
         }
         
+        /* Iconos del menú */
         .menu-item i {
             margin-right: 12px;
             font-size: 1.1rem;
@@ -125,6 +136,7 @@ if (isset($_SESSION['user'])){
             text-align: center;
         }
         
+        /* Submenús desplegables */
         .submenu {
             list-style: none;
             margin-left: 30px;
@@ -132,21 +144,24 @@ if (isset($_SESSION['user'])){
             display: none;
         }
         
+        /* Mostrar submenú cuando el elemento padre está activo */
         .menu-item.active .submenu {
             display: block;
         }
         
+        /* Elementos del submenú */
         .submenu-item {
             padding: 8px 0;
             font-size: 0.6rem;
         }
         
+        /* Enlaces del submenú */
         .submenu-item a {
             font-weight: 400;
             opacity: 0.9;
         }
         
-        /* Main Content */
+        /* Contenido principal */
         .main-content {
             grid-column: 2;
             padding: 20px 30px;
@@ -167,6 +182,7 @@ if (isset($_SESSION['user'])){
             position: relative;
         }
         
+        /* Efecto de sombra para el header */
         .header::before {
             content: "";
             position: absolute;
@@ -178,6 +194,7 @@ if (isset($_SESSION['user'])){
             z-index: -1;
         }
         
+        /* Título del header */
         .header-title h1 {
             color: var(--white);
             font-size: 1.8rem;
@@ -186,17 +203,20 @@ if (isset($_SESSION['user'])){
             text-shadow: 2px 2px 0 #000;
         }
         
+        /* Subtítulo del header */
         .header-title p {
             color: #e9ecef;
             font-size: 1rem;
             font-family: 'Silkscreen', cursive;
         }
         
+        /* Información del usuario en el header */
         .user-info {
             display: flex;
             align-items: center;
         }
         
+        /* Imagen del usuario */
         .user-info img {
             width: 40px;
             height: 40px;
@@ -206,10 +226,12 @@ if (isset($_SESSION['user'])){
             image-rendering: pixelated;
         }
         
+        /* Detalles del usuario */
         .user-details span {
             display: block;
         }
         
+        /* Nombre del usuario */
         .user-name {
             font-weight: 600;
             color: var(--accent-yellow);
@@ -217,13 +239,14 @@ if (isset($_SESSION['user'])){
             font-size: 0.7rem;
         }
         
+        /* Rol del usuario */
         .user-role {
             font-size: 0.85rem;
             color: #e9ecef;
             font-family: 'Silkscreen', cursive;
         }
         
-        /* Dashboard Grid estilo 8-bit */
+        /* Grid del dashboard estilo 8-bit */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -231,6 +254,7 @@ if (isset($_SESSION['user'])){
             margin-bottom: 30px;
         }
         
+        /* Tarjetas del dashboard */
         .card {
             background: var(--white);
             border: var(--pixel-border);
@@ -241,11 +265,13 @@ if (isset($_SESSION['user'])){
             background-color: #fff;
         }
         
+        /* Efecto hover de las tarjetas */
         .card:hover {
             transform: translate(-4px, -4px);
             box-shadow: 8px 8px 0 #000;
         }
         
+        /* Cabecera de las tarjetas */
         .card-header {
             background: var(--primary-blue);
             color: var(--white);
@@ -256,6 +282,7 @@ if (isset($_SESSION['user'])){
             font-size: 0.8rem;
         }
         
+        /* Título de la cabecera de tarjetas */
         .card-header h3 {
             font-size: 1.1rem;
             display: flex;
@@ -263,22 +290,26 @@ if (isset($_SESSION['user'])){
             text-shadow: 1px 1px 0 #000;
         }
         
+        /* Iconos en la cabecera de tarjetas */
         .card-header i {
             margin-right: 10px;
             font-size: 1.2rem;
         }
         
+        /* Cuerpo de las tarjetas */
         .card-body {
             padding: 25px 20px;
             font-family: 'Silkscreen', cursive;
         }
         
+        /* Grid de estadísticas */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
         
+        /* Cajas de estadísticas */
         .stat-box {
             text-align: center;
             padding: 15px;
@@ -287,6 +318,7 @@ if (isset($_SESSION['user'])){
             position: relative;
         }
         
+        /* Efecto de sombra para las cajas de estadísticas */
         .stat-box::before {
             content: "";
             position: absolute;
@@ -299,6 +331,7 @@ if (isset($_SESSION['user'])){
             opacity: 0.3;
         }
         
+        /* Números en las estadísticas */
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
@@ -308,12 +341,13 @@ if (isset($_SESSION['user'])){
             text-shadow: 1px 1px 0 #000;
         }
         
+        /* Etiquetas de las estadísticas */
         .stat-label {
             font-size: 0.9rem;
             color: #6c757d;
         }
         
-        /* Project Overview estilo 8-bit */
+        /* Sección de descripción del proyecto estilo 8-bit */
         .project-overview {
             background-color: var(--primary-blue);
             color: var(--white);
@@ -325,6 +359,7 @@ if (isset($_SESSION['user'])){
             box-shadow: var(--pixel-shadow);
         }
         
+        /* Efecto de sombra para la descripción del proyecto */
         .project-overview::before {
             content: "";
             position: absolute;
@@ -337,6 +372,7 @@ if (isset($_SESSION['user'])){
             opacity: 0.2;
         }
         
+        /* Título del proyecto */
         .project-title {
             font-size: 1.8rem;
             margin-bottom: 15px;
@@ -347,6 +383,7 @@ if (isset($_SESSION['user'])){
             color: var(--accent-yellow);
         }
         
+        /* Subtítulo del proyecto */
         .project-subtitle {
             font-size: 1.1rem;
             margin-bottom: 25px;
@@ -356,6 +393,7 @@ if (isset($_SESSION['user'])){
             font-family: 'Press Start 2P', cursive;
         }
         
+        /* Descripción del proyecto */
         .project-description {
             max-width: 800px;
             margin-bottom: 30px;
@@ -366,6 +404,7 @@ if (isset($_SESSION['user'])){
             font-family: 'Silkscreen', cursive;
         }
         
+        /* Estadísticas del proyecto */
         .project-stats {
             display: flex;
             gap: 30px;
@@ -374,6 +413,7 @@ if (isset($_SESSION['user'])){
             z-index: 2;
         }
         
+        /* Cajas de estadísticas del proyecto */
         .project-stat {
             text-align: center;
             border: 4px dotted var(--accent-yellow);
@@ -381,6 +421,7 @@ if (isset($_SESSION['user'])){
             background-color: rgba(0, 0, 0, 0.2);
         }
         
+        /* Números en las estadísticas del proyecto */
         .project-stat-number {
             font-size: 2.2rem;
             font-weight: 700;
@@ -389,17 +430,19 @@ if (isset($_SESSION['user'])){
             text-shadow: 2px 2px 0 #000;
         }
         
+        /* Etiquetas de las estadísticas del proyecto */
         .project-stat-label {
             font-size: 0.95rem;
             opacity: 0.9;
             font-family: 'Silkscreen', cursive;
         }
         
-        /* Team Section estilo 8-bit */
+        /* Sección del equipo */
         .team-section {
             margin-top: 40px;
         }
         
+        /* Título de sección */
         .section-title {
             color: var(--primary-blue);
             font-size: 1.5rem;
@@ -411,12 +454,14 @@ if (isset($_SESSION['user'])){
             text-shadow: 2px 2px 0 #000;
         }
         
+        /* Grid del equipo */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
         
+        /* Miembros del equipo */
         .team-member {
             background: var(--white);
             border: var(--pixel-border);
@@ -427,11 +472,13 @@ if (isset($_SESSION['user'])){
             position: relative;
         }
         
+        /* Efecto hover de los miembros del equipo */
         .team-member:hover {
             transform: translate(-4px, -4px);
             box-shadow: 8px 8px 0 #000;
         }
         
+        /* Foto del miembro del equipo */
         .member-photo {
             width: 100%;
             height: 200px;
@@ -445,6 +492,7 @@ if (isset($_SESSION['user'])){
             image-rendering: pixelated;
         }
         
+        /* Patrón de cuadrícula para las fotos */
         .member-photo::before {
             content: "";
             position: absolute;
@@ -462,10 +510,12 @@ if (isset($_SESSION['user'])){
             opacity: 0.1;
         }
         
+        /* Información del miembro del equipo */
         .member-info {
             padding: 20px;
         }
         
+        /* Nombre del miembro del equipo */
         .member-name {
             font-weight: 700;
             color: var(--primary-blue);
@@ -475,6 +525,7 @@ if (isset($_SESSION['user'])){
             text-shadow: 1px 1px 0 #000;
         }
         
+        /* Rol del miembro del equipo */
         .member-role {
             color: #6c757d;
             font-size: 0.9rem;
@@ -482,6 +533,7 @@ if (isset($_SESSION['user'])){
             font-family: 'Silkscreen', cursive;
         }
         
+        /* Contacto del miembro del equipo */
         .member-contact {
             display: flex;
             justify-content: center;
@@ -489,6 +541,7 @@ if (isset($_SESSION['user'])){
             margin-top: 15px;
         }
         
+        /* Iconos de contacto */
         .contact-icon {
             width: 36px;
             height: 36px;
@@ -502,6 +555,7 @@ if (isset($_SESSION['user'])){
             border: var(--pixel-border);
         }
         
+        /* Efecto hover de los iconos de contacto */
         .contact-icon:hover {
             background: var(--primary-blue);
             color: var(--white);
@@ -519,6 +573,7 @@ if (isset($_SESSION['user'])){
             font-family: 'Silkscreen', cursive;
         }
         
+        /* Logo en el footer */
         .footer-logo {
             color: var(--primary-blue);
             font-weight: 700;
@@ -526,7 +581,7 @@ if (isset($_SESSION['user'])){
             font-family: 'Press Start 2P', cursive;
         }
         
-        /* Efectos especiales 8-bit */
+        /* Esquinas decorativas estilo pixel */
         .pixel-corner {
             position: absolute;
             width: 16px;
@@ -535,26 +590,31 @@ if (isset($_SESSION['user'])){
             z-index: 10;
         }
         
+        /* Esquina superior izquierda */
         .pixel-corner-tl {
             top: -4px;
             left: -4px;
         }
         
+        /* Esquina superior derecha */
         .pixel-corner-tr {
             top: -4px;
             right: -4px;
         }
         
+        /* Esquina inferior izquierda */
         .pixel-corner-bl {
             bottom: -4px;
             left: -4px;
         }
         
+        /* Esquina inferior derecha */
         .pixel-corner-br {
             bottom: -4px;
             right: -4px;
         }
         
+        /* Patrón de cuadrícula para efectos visuales */
         .pixel-grid {
             position: absolute;
             top: 0;
@@ -568,7 +628,7 @@ if (isset($_SESSION['user'])){
             pointer-events: none;
         }
         
-        /* Responsive */
+        /* Estilos responsive para tablets */
         @media (max-width: 992px) {
             .dashboard-container {
                 grid-template-columns: 1fr;
@@ -585,6 +645,7 @@ if (isset($_SESSION['user'])){
             }
         }
         
+        /* Estilos responsive para móviles */
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
@@ -610,7 +671,7 @@ if (isset($_SESSION['user'])){
             }
         }
         
-        /* Manteniendo estilos de SB Admin 2 para compatibilidad */
+        /* Área de contenido para compatibilidad con módulos */
         .content-area {
             background: white;
             padding: 20px;
@@ -619,6 +680,7 @@ if (isset($_SESSION['user'])){
             position: relative;
         }
         
+        /* Efecto de sombra para el área de contenido */
         .content-area::before {
             content: "";
             position: absolute;
@@ -636,6 +698,7 @@ if (isset($_SESSION['user'])){
             50% { opacity: 0.5; }
         }
         
+        /* Clase para aplicar animación de parpadeo */
         .blink {
             animation: blink 1.5s infinite;
         }
@@ -650,6 +713,7 @@ if (isset($_SESSION['user'])){
             100% { transform: translate(0); }
         }
         
+        /* Clase para aplicar efecto glitch */
         .glitch:hover {
             animation: glitch 0.3s infinite;
         }
@@ -665,8 +729,9 @@ window.onpopstate = function() {
 </script>
 
 <body>
+    <!-- Contenedor principal del dashboard -->
     <div class="dashboard-container">
-        <!-- Sidebar -->
+        <!-- Sidebar de navegación -->
         <aside class="sidebar">
             <div class="brand">
                 <div class="brand-icon">
@@ -675,9 +740,13 @@ window.onpopstate = function() {
                 <div class="brand-text">Stay Clean, IEFO</div>
             </div>
             
+            <!-- Menú de navegación -->
             <ul class="sidebar-menu">
                 <?php
+                // Obtener el módulo actual o establecer 'inicio' como predeterminado
                 $current_mod = isset($_GET['mod']) ? $_GET['mod'] : 'inicio';
+                
+                // Definir elementos del menú
                 $menu_items = [
                     'inicio' => ['icon' => 'fas fa-home', 'name' => 'Inicio'],
                     'descripcion' => ['icon' => 'fas fa-info-circle', 'name' => 'Descripción'],
@@ -694,9 +763,9 @@ window.onpopstate = function() {
                     'comentarios' => ['icon' => 'fas fa-comments', 'name' => 'Comentarios'],
                     'descarga' => ['icon' => 'fas fa-download', 'name' => 'Descargas'],
                     'cerrar_sesion' => ['icon' => 'fas fa-sign-out-alt', 'name' => 'Cerrar sesión'],
-
                 ];
                 
+                // Generar menú dinámicamente
                 foreach ($menu_items as $mod => $item) {
                     $is_active = ($mod == $current_mod) || isset($item['submenu']) && in_array($current_mod, array_keys($item['submenu']));
                     $has_submenu = isset($item['submenu']);
@@ -707,6 +776,7 @@ window.onpopstate = function() {
                     echo '<span>' . $item['name'] . '</span>';
                     echo '</a>';
                     
+                    // Generar submenú si existe
                     if ($has_submenu) {
                         echo '<ul class="submenu">';
                         foreach ($item['submenu'] as $submod => $subname) {
@@ -724,9 +794,9 @@ window.onpopstate = function() {
             </ul>
         </aside>
         
-        <!-- Main Content -->
+        <!-- Contenido principal -->
         <main class="main-content">
-            <!-- Header -->
+            <!-- Header de la página -->
             <header class="header">
                 <div class="pixel-corner pixel-corner-tl"></div>
                 <div class="pixel-corner pixel-corner-tr"></div>
@@ -742,10 +812,11 @@ window.onpopstate = function() {
             <div class="content-area">
                 <div class="pixel-grid"></div>
                 <?php
+                // Cargar contenido según el módulo seleccionado
                 if(!isset($_GET['mod']) || $_GET['mod'] == "inicio") {
                     // Vista de inicio con el dashboard
                 ?>
-                <!-- Project Overview -->
+                <!-- Descripción general del proyecto -->
                 <section class="project-overview">
                     <div class="pixel-corner pixel-corner-tl"></div>
                     <div class="pixel-corner pixel-corner-tr"></div>
@@ -772,7 +843,7 @@ window.onpopstate = function() {
                     <div class="pixel-corner pixel-corner-br"></div>
                 </section>
                 
-                <!-- Stats Grid -->
+                <!-- Grid de información del dashboard -->
                 <div class="dashboard-grid">
                     <div class="card">
                         <div class="pixel-corner pixel-corner-tl"></div>
@@ -795,7 +866,6 @@ window.onpopstate = function() {
                         <div class="pixel-corner pixel-corner-bl"></div>
                         <div class="pixel-corner pixel-corner-br"></div>
                     </div>
-                    
                     
                     <div class="card">
                         <div class="pixel-corner pixel-corner-tl"></div>
@@ -822,7 +892,7 @@ window.onpopstate = function() {
                     </div>
                 </div>
                 
-                <!-- Team Section -->
+                <!-- Sección del equipo de investigación -->
                 <section class="team-section">
                     <h3 class="section-title">EQUIPO DE INVESTIGACIÓN</h3>
                     
@@ -923,7 +993,7 @@ window.onpopstate = function() {
                 ?>
             </div>
             
-            <!-- Footer -->
+            <!-- Footer de la página -->
             <footer class="footer">
                 <p>&copy; <?php echo date('Y'); ?> <span class="footer-logo">Stay Clean, IEFO</span> - Institución Educativa Federico Ozanam</p>
                 <p>Tecnología e Investigación | Todos los derechos reservados</p>
@@ -931,7 +1001,7 @@ window.onpopstate = function() {
         </main>
     </div>
 
-    <!-- Manteniendo scripts originales para compatibilidad -->
+    <!-- Scripts para compatibilidad con SB Admin 2 -->
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -943,7 +1013,7 @@ window.onpopstate = function() {
     <script src="js/sb-admin-2.min.js"></script>
 
     <script>
-        // Toggle submenus
+        // Mostrar/ocultar submenús al hacer clic
         document.querySelectorAll('.menu-item').forEach(item => {
             if (item.querySelector('.submenu')) {
                 item.addEventListener('click', function(e) {
@@ -954,16 +1024,13 @@ window.onpopstate = function() {
             }
         });
         
-        // Efecto de sonido para interacciones
         document.querySelectorAll('.menu-item, .card, .team-member, .contact-icon').forEach(element => {
             element.addEventListener('mouseenter', function() {
-                // Podrías agregar un sonido de videojuego aquí
-                // new Audio('sounds/hover.wav').play();
+
             });
             
             element.addEventListener('click', function() {
-                // Podrías agregar un sonido de selección aquí
-                // new Audio('sounds/select.wav').play();
+               
             });
         });
         
@@ -977,6 +1044,7 @@ window.onpopstate = function() {
 
 <?php
 } else {
+    // Redirigir al login si no hay sesión activa
     echo "<script>window.location='../index.php';</script>";
 }
 ?>
