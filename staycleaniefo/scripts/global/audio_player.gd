@@ -63,7 +63,7 @@ func play_music_og(path: String):
 		player.play()
 		current_music_path = path
 
-#para la musica sin desvanecido
+#desactiva la musica sin desvanecido
 func stop_music_og():
 	player.stop()
 	current_music_path = ""
