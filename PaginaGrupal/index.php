@@ -36,7 +36,7 @@ if (isset($_POST['btn_ingresar'])) {
 }
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -47,7 +47,13 @@ if (isset($_POST['btn_ingresar'])) {
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+ <!-- =============================== -->
+<!-- ESTE BLOQUE HACE QUE: -->
+<!-- - Aparezcan 3 columnas con iconos -->
+<!-- - Cada tarjeta tenga un borde suave -->
+<!-- - Los iconos se vean arriba del texto -->
+<!-- - Las tarjetas tengan sombra al pasar el mouse -->
+<!-- =============================== -->
     <style>
         :root {
             --primary-blue: #0056b3;
@@ -64,7 +70,7 @@ if (isset($_POST['btn_ingresar'])) {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            image-rendering: pixelated;
+            image-rendering: pixelated;   
         }
         
         body {
@@ -300,7 +306,7 @@ if (isset($_POST['btn_ingresar'])) {
             </div>
             <h1 class="blink">STAY CLEAN</h1>
             <p>VIDEOJUEGO EDUCATIVO</p>
-        </div>
+        </div> 
         
         <div class="login-body">
             <?php if (!empty($error_message)): ?>
