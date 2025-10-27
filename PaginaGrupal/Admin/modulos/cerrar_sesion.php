@@ -86,6 +86,5 @@ ob_end_clean();
 </html>
 
 <?php 
-// Cierra el script de forma segura para evitar ejecución adicional
 exit(); 
 ?>
