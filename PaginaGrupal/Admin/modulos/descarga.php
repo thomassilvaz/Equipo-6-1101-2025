@@ -93,8 +93,8 @@
                     <p style="margin-bottom: 10px; display: flex; align-items: center; color: #555; font-family: 'Silkscreen', cursive;"><i class="fas fa-database" style="margin-right: 10px; width: 20px; color: var(--primary-blue);"></i> Tamaño: 85 MB</p>
                     <p style="margin-bottom: 0; display: flex; align-items: center; color: #555; font-family: 'Silkscreen', cursive;"><i class="fas fa-calendar" style="margin-right: 10px; width: 20px; color: var(--primary-blue);"></i> Actualizado: 15/09/2025</p>
                 </div>
-                <!-- Botón de descarga (debes reemplazar el # por el enlace real al .exe) -->
-                <a href="#" class="btn-descarga glitch" style="display: inline-block; background: var(--primary-blue); color: white; padding: 12px 20px; border: var(--pixel-border); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: var(--pixel-shadow); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000;">
+                <!-- Botón de descarga  -->
+                <a href="https://gamejolt.com/games/staycleaniefo/1027027" class="btn-descarga glitch" style="display: inline-block; background: var(--primary-blue); color: white; padding: 12px 20px; border: var(--pixel-border); text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: var(--pixel-shadow); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000;">
                     <i class="fas fa-download" style="margin-right: 10px;"></i> Descargar para Windows
                 </a>
             </div>
