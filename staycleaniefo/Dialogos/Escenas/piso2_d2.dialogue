@@ -54,7 +54,7 @@ match Estados.decision_1:
 			Mateo: .{{Estados.nom}}?[next=auto][#voz=Mateo]
 			do Estados.mateo.play("quieto_abajo")
 			
-			Ronald: Entonces ahora, [color=yellow]en la tarde, detrás de árbol[/color].[#voz=Ronald]
+			Ronald: Entonces ahora, [color=yellow]en la tarde, detrás del árbol[/color].[#voz=Ronald]
 			Ronald: Allá te esperamos.[#voz=Ronald]
 			set Estados.decision_2 = "mala"
 set Estados.segunda_decision = true

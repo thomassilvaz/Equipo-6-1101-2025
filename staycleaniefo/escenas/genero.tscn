@@ -51,11 +51,13 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = 167.0
-offset_bottom = 218.0
+offset_left = 6.0
+offset_top = 165.0
+offset_right = 6.0
+offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 400
+theme_override_constants/separation = 420
 alignment = 1
 
 [node name="hombre" type="Button" parent="VBoxContainer"]
@@ -63,15 +65,14 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_51dtd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7r87")
-text = "CHICO
-"
+text = "ALEX"
 
 [node name="mujer" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_51dtd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7r87")
-text = "CHICA
+text = "ALEXA
 "
 
 [node name="VBoxContainer2" type="HBoxContainer" parent="."]
