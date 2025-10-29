@@ -1,17 +1,20 @@
 <?php
+// Incluir archivo de conexión a la base de datos
 include '../conexion.php';
 
+// Función para redireccionar usando JavaScript
 function redirect($url) {
     echo "<script>window.location.href='$url';</script>";
     exit();
 }
 
-// Procesamiento de CRUD
+// Procesamiento de CRUD - Crear comentario
 if(isset($_POST['crear_comentario'])) {
     $texto = $conexion->real_escape_string($_POST['texto']);
     $usuario_doc = is_array($_SESSION['user']) ? $_SESSION['user']['doc'] : $_SESSION['user'];
     $parent_id = isset($_POST['parent_id']) ? intval($_POST['parent_id']) : NULL;
     
+    // Insertar nuevo comentario en la base de datos
     $sql = "INSERT INTO comentarios (texto, usuario_doc, parent_id) VALUES ('$texto', $usuario_doc, " . ($parent_id ? $parent_id : 'NULL') . ")";
     if($conexion->query($sql)) {
         redirect("index.php?mod=comentarios");
@@ -24,14 +27,14 @@ if(isset($_POST['reaccionar'])) {
     $tipo = $conexion->real_escape_string($_POST['tipo']);
     $usuario_doc = is_array($_SESSION['user']) ? $_SESSION['user']['doc'] : $_SESSION['user'];
     
-    // Verificar si ya existe una reacción
+    // Verificar si ya existe una reacción del usuario en este comentario
     $check_sql = "SELECT id, tipo FROM reacciones WHERE usuario_doc = $usuario_doc AND comentario_id = $comentario_id";
     $result = $conexion->query($check_sql);
     
     if($result->num_rows > 0) {
         $reaccion = $result->fetch_assoc();
         if($reaccion['tipo'] == $tipo) {
-            // Eliminar reacción si es la misma
+            // Eliminar reacción si es la misma (toggle)
             $sql = "DELETE FROM reacciones WHERE id = " . $reaccion['id'];
         } else {
             // Actualizar reacción si es diferente
@@ -46,10 +49,12 @@ if(isset($_POST['reaccionar'])) {
     redirect("index.php?mod=comentarios");
 }
 
+// Procesamiento de eliminación de comentario
 if(isset($_GET['eliminar'])) {
     $id = intval($_GET['eliminar']);
     $usuario_doc = is_array($_SESSION['user']) ? $_SESSION['user']['doc'] : $_SESSION['user'];
     
+    // Solo permite eliminar comentarios propios
     $sql = "DELETE FROM comentarios WHERE id = $id AND usuario_doc = $usuario_doc";
     if($conexion->query($sql)) {
         redirect("index.php?mod=comentarios");
@@ -86,14 +91,15 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     $margin_left = $nivel * 30;
     $border_class = $nivel > 0 ? 'comentario-respuesta' : '';
     
-    // Obtener respuestas
+    // Obtener respuestas de este comentario
     $respuestas = obtenerRespuestas($conexion, $com['id'], $usuario_actual);
     $tiene_respuestas = $respuestas->num_rows > 0;
     
-    // Determinar clases para botones de like/dislike
+    // Determinar clases para botones de like/dislike basado en la reacción actual
     $like_class = ($com['mi_reaccion'] == 'like') ? 'btn-like-active' : 'btn-like';
     $dislike_class = ($com['mi_reaccion'] == 'dislike') ? 'btn-dislike-active' : 'btn-dislike';
     
+    // Inicio del contenedor del comentario
     echo '<div class="comentario-item ' . $border_class . '" style="margin-left: ' . $margin_left . 'px;">';
     echo '<div class="pixel-corner pixel-corner-tl"></div>';
     echo '<div class="pixel-corner pixel-corner-tr"></div>';
@@ -109,7 +115,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     echo '<span class="comentario-fecha"><i class="fas fa-clock"></i>' . date('d/m/Y H:i', strtotime($com['fecha'])) . '</span>';
     echo '</div>';
     
-    // Botones de acción (eliminar) para el propietario
+    // Botones de acción (eliminar) solo para el propietario del comentario
     if($usuario_actual == $com['usuario_doc']): 
         echo '<div class="comentario-acciones">';
         echo '<a href="?mod=comentarios&eliminar=' . $com['id'] . '"';
@@ -125,6 +131,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     echo '</div>';
     echo '</div>';
     
+    // Texto del comentario
     echo '<div class="comentario-texto">' . nl2br(htmlspecialchars($com['texto'])) . '</div>';
     
     // Controles de like/dislike y responder
@@ -145,13 +152,13 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     echo '</button>';
     echo '</form>';
     
-    // Botón para responder
+    // Botón para responder al comentario
     echo '<button class="btn-responder" data-comentario-id="' . $com['id'] . '">';
     echo '<i class="fas fa-reply"></i> Responder';
     echo '</button>';
     echo '</div>';
     
-    // Formulario para responder (oculto inicialmente)
+    // Formulario para responder
     echo '<div class="respuesta-form" id="respuesta-form-' . $com['id'] . '" style="display: none;">';
     echo '<form method="POST">';
     echo '<input type="hidden" name="parent_id" value="' . $com['id'] . '">';
@@ -168,7 +175,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     echo '<div class="pixel-corner pixel-corner-br"></div>';
     echo '</div>';
     
-    // Mostrar respuestas
+    // Mostrar respuestas recursivamente
     if($tiene_respuestas) {
         while($respuesta = $respuestas->fetch_assoc()) {
             mostrarComentario($respuesta, $conexion, $nivel + 1);
@@ -177,7 +184,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
 }
 ?>
 
-<!-- Contenedor principal con estilo 8-bit -->
+<!-- Contenedor principal del módulo de comentarios con estilo 8-bit -->
 <div class="comentarios-module">
     <!-- Header de la sección -->
     <div class="section-header">
@@ -191,7 +198,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
         <div class="pixel-corner pixel-corner-br"></div>
     </div>
 
-    <!-- Formulario para nuevo comentario -->
+    <!-- Formulario para nuevo comentario principal -->
     <div class="nuevo-comentario-card card">
         <div class="pixel-corner pixel-corner-tl"></div>
         <div class="pixel-corner pixel-corner-tr"></div>
@@ -214,7 +221,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
         <div class="pixel-corner pixel-corner-br"></div>
     </div>
 
-    <!-- Lista de comentarios -->
+    <!-- Lista de comentarios existentes -->
     <div class="comentarios-lista">
         <h3 class="subsection-title">
             <i class="fas fa-comment-dots"></i> COMENTARIOS RECIENTES
@@ -227,6 +234,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
                 <?php endwhile; ?>
             </div>
         <?php else: ?>
+            <!-- Mensaje cuando no hay comentarios -->
             <div class="no-comentarios card">
                 <div class="pixel-corner pixel-corner-tl"></div>
                 <div class="pixel-corner pixel-corner-tr"></div>
@@ -242,7 +250,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     </div>
 </div>
 
-<!-- Modal de confirmación estilo 8-bit -->
+<!-- Mensaje de confirmación para eliminar comentario -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-pixel">
@@ -272,11 +280,10 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
 </div>
 
 <style>
-/* Estilos específicos para el módulo de comentarios */
 .comentarios-module {
     padding: 0 10px;
 }
-
+/* Estilos para el encabezado de la sección de comentarios */
 .section-header {
     background: var(--primary-blue);
     color: var(--white);
@@ -287,6 +294,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     box-shadow: var(--pixel-shadow);
 }
 
+/* Título principal de la sección con estilo de videojuego */
 .section-title {
     font-size: 1.8rem;
     margin-bottom: 10px;
@@ -298,12 +306,14 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 15px;
 }
 
+/* Subtítulo descriptivo de la sección */
 .section-subtitle {
     font-size: 1rem;
     opacity: 0.9;
     font-family: 'Silkscreen', cursive;
 }
 
+/* Título de subsección para lista de comentarios */
 .subsection-title {
     color: var(--primary-blue);
     font-size: 1.3rem;
@@ -317,7 +327,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 10px;
 }
 
-/* Formularios */
+/* Campos de formulario con estilo pixel */
 .form-control-pixel {
     width: 100%;
     padding: 12px 15px;
@@ -328,12 +338,14 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     box-shadow: inset 2px 2px 0 #0000001a;
 }
 
+/* Efecto de focus para campos de formulario */
 .form-control-pixel:focus {
     outline: none;
     background-color: var(--white);
     box-shadow: inset 2px 2px 0 var(--primary-blue);
 }
 
+/* Etiquetas de formulario */
 .form-label {
     display: block;
     margin-bottom: 8px;
@@ -343,7 +355,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     font-size: 0.8rem;
 }
 
-/* Botones */
+/* Botón principal para publicar comentarios */
 .btn-publicar {
     background-color: var(--primary-blue);
     color: white;
@@ -359,6 +371,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 8px;
 }
 
+/* Efecto hover para botón publicar */
 .btn-publicar:hover {
     background-color: var(--secondary-blue);
     transform: translate(-2px, -2px);
@@ -366,6 +379,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     color: white;
 }
 
+/* Botón secundario para cancelar acciones */
 .btn-cancelar {
     background-color: var(--light-gray);
     color: var(--dark-text);
@@ -381,13 +395,14 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 5px;
 }
 
+/* Efecto hover para botón cancelar */
 .btn-cancelar:hover {
     background-color: #e9ecef;
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 #000;
 }
 
-/* Comentarios */
+/* Contenedor individual para cada comentario */
 .comentario-item {
     background: var(--white);
     border: var(--pixel-border);
@@ -398,16 +413,19 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     transition: all 0.3s;
 }
 
+/* Efecto hover para items de comentario */
 .comentario-item:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 #000;
 }
 
+/* Estilo especial para comentarios que son respuestas */
 .comentario-respuesta {
     background-color: #f8f9fa;
     border-left: 4px solid var(--secondary-blue);
 }
 
+/* Encabezado del comentario con información del usuario */
 .comentario-header {
     display: flex;
     align-items: flex-start;
@@ -415,6 +433,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     margin-bottom: 15px;
 }
 
+/* Avatar estilo pixel con iniciales del usuario */
 .avatar-pixel {
     width: 50px;
     height: 50px;
@@ -430,10 +449,12 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     flex-shrink: 0;
 }
 
+/* Contenedor de información del comentario */
 .comentario-info {
     flex-grow: 1;
 }
 
+/* Metadatos del comentario (autor y fecha) */
 .comentario-meta {
     display: flex;
     justify-content: space-between;
@@ -441,6 +462,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     margin-bottom: 5px;
 }
 
+/* Nombre del autor del comentario */
 .comentario-autor {
     font-weight: bold;
     color: var(--primary-blue);
@@ -448,6 +470,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     font-size: 0.8rem;
 }
 
+/* Fecha de publicación del comentario */
 .comentario-fecha {
     color: #6c757d;
     font-size: 0.8rem;
@@ -457,6 +480,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 5px;
 }
 
+/* Área de texto del comentario */
 .comentario-texto {
     margin-bottom: 15px;
     line-height: 1.6;
@@ -466,17 +490,19 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     border: 2px solid #e9ecef;
 }
 
+/* Contenedor para botones de acciones inferiores */
 .comentario-acciones-inferiores {
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
+/* Formulario inline para reacciones */
 .form-reaccion {
     display: inline;
 }
 
-/* Botones de reacción */
+/* Botones base para like, dislike y responder */
 .btn-like, .btn-dislike, .btn-responder {
     background-color: var(--light-gray);
     color: var(--dark-text);
@@ -491,11 +517,13 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 5px;
 }
 
+/* Efecto hover para botones de interacción */
 .btn-like:hover, .btn-dislike:hover, .btn-responder:hover {
     transform: translate(-1px, -1px);
     box-shadow: 2px 2px 0 #000;
 }
 
+/* Estado activo para botón de like */
 .btn-like-active {
     background-color: var(--primary-blue);
     color: white;
@@ -510,6 +538,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 5px;
 }
 
+/* Estado activo para botón de dislike */
 .btn-dislike-active {
     background-color: #dc3545;
     color: white;
@@ -524,6 +553,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 5px;
 }
 
+/* Botón para eliminar comentario */
 .btn-eliminar {
     color: #dc3545;
     background: none;
@@ -533,12 +563,13 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     transition: all 0.3s;
 }
 
+/* Efecto hover para botón eliminar */
 .btn-eliminar:hover {
     transform: scale(1.1);
     color: #bd2130;
 }
 
-/* Formulario de respuesta */
+/* Formulario para responder a comentarios */
 .respuesta-form {
     background-color: #f1f3f4;
     padding: 15px;
@@ -547,6 +578,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     position: relative;
 }
 
+/* Contenedor para acciones del formulario */
 .form-actions {
     display: flex;
     justify-content: flex-end;
@@ -554,30 +586,33 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     margin-top: 10px;
 }
 
-/* Sin comentarios */
+/* Estado cuando no hay comentarios */
 .no-comentarios {
     text-align: center;
     padding: 40px 20px;
 }
 
+/* Icono para estado sin comentarios */
 .no-comentarios-icon {
     font-size: 3rem;
     color: #6c757d;
     margin-bottom: 15px;
 }
 
+/* Título para estado sin comentarios */
 .no-comentarios h4 {
     color: var(--primary-blue);
     font-family: 'Press Start 2P', cursive;
     margin-bottom: 10px;
 }
 
+/* Texto descriptivo para estado sin comentarios */
 .no-comentarios p {
     font-family: 'Silkscreen', cursive;
     color: #6c757d;
 }
 
-/* Modal personalizado */
+/* Modal personalizado con estilo pixel */
 .modal-pixel {
     border: var(--pixel-border);
     box-shadow: var(--pixel-shadow);
@@ -585,6 +620,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     background: white;
 }
 
+/* Encabezado del modal */
 .modal-header {
     background: var(--primary-blue);
     color: white;
@@ -592,6 +628,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     border-bottom: var(--pixel-border);
 }
 
+/* Título del modal */
 .modal-header .modal-title {
     font-family: 'Press Start 2P', cursive;
     font-size: 0.9rem;
@@ -601,11 +638,13 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 10px;
 }
 
+/* Cuerpo del modal */
 .modal-body {
     padding: 20px;
     font-family: 'Silkscreen', cursive;
 }
 
+/* Pie del modal con botones de acción */
 .modal-footer {
     padding: 15px 20px;
     border-top: 2px dotted #dee2e6;
@@ -614,6 +653,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     gap: 10px;
 }
 
+/* Botón de confirmación para eliminar */
 .btn-eliminar-confirm {
     background-color: #dc3545;
     color: white;
@@ -629,6 +669,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     box-shadow: var(--pixel-shadow);
 }
 
+/* Efecto hover para botón de confirmación de eliminación */
 .btn-eliminar-confirm:hover {
     background-color: #bd2130;
     transform: translate(-2px, -2px);
@@ -637,7 +678,7 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     text-decoration: none;
 }
 
-/* Responsive */
+/* Media queries para diseño responsive en dispositivos móviles */
 @media (max-width: 768px) {
     .comentario-header {
         flex-direction: column;
@@ -665,11 +706,12 @@ function mostrarComentario($com, $conexion, $nivel = 0) {
     }
 }
 
-/* Efectos especiales */
+/* Animación de efecto glitch para elementos interactivos */
 .comentario-item.glitch:hover {
     animation: glitch 0.3s infinite;
 }
 
+/* Definición de la animación glitch */
 @keyframes glitch {
     0% { transform: translate(0); }
     20% { transform: translate(-2px, 2px); }

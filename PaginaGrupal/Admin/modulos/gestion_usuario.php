@@ -1,24 +1,28 @@
 <?php
-// Procesar eliminación de usuario
+// Procesar eliminación de usuario cuando se presiona el botón "btn_eliminar"
 if(isset($_POST['btn_eliminar'])){
-    include "../conexion.php";
-    $doc = $_POST['doc'];
+    include "../conexion.php";  // Incluir archivo de conexión a la base de datos
+    $doc = $_POST['doc'];  // Obtener el documento del usuario a eliminar
 
+    // Ejecutar consulta para eliminar usuario de la base de datos
     $eliminar = mysqli_query($conexion, "DELETE FROM usuarios WHERE `usuarios`.`doc` = $doc") or die($conexion."Error al eliminar!");
 
+    // Mostrar mensaje de éxito con estilo 8-bit
     echo '<div class="alert alert-success alert-dismissible fade show animated fadeIn" role="alert" style="border: var(--pixel-border); background-color: #d4edda; color: #155724; font-family: \'Silkscreen\', cursive; box-shadow: var(--pixel-shadow);">
             <i class="fas fa-check-circle mr-2"></i>Usuario eliminado con éxito!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
           </div>';
+    // Redirigir después de 1.5 segundos a la gestión de usuarios
     echo "<script>setTimeout(function() { window.location='index.php?mod=gestion_usuario'; }, 1500);</script>";
 }
 
-// Procesar actualización de usuario
+// Procesar actualización de usuario cuando se presiona el botón "btn_actualizar"
 if(isset($_POST['btn_actualizar'])){
-    include "../conexion.php";
+    include "../conexion.php";  // Incluir archivo de conexión a la base de datos
     
+    // Obtener todos los datos del formulario de actualización
     $doc = $_POST['doc_modificar'];
     $nombre1 = $_POST['txt-pn'];
     $nombre2 = $_POST['txt-sn'];
@@ -27,6 +31,7 @@ if(isset($_POST['btn_actualizar'])){
     $telefono = $_POST['txt-tel'];
     $email = $_POST['txt-cr'];
     
+    // Ejecutar consulta para actualizar los datos del usuario
     $actualizar = mysqli_query($conexion, "UPDATE usuarios SET 
         PNombre = '$nombre1',
         SNombre = '$nombre2',
@@ -36,26 +41,33 @@ if(isset($_POST['btn_actualizar'])){
         email = '$email'
         WHERE doc = '$doc'") or die($conexion."Error al actualizar");
     
+    // Mostrar mensaje de éxito
     echo '<div class="alert alert-success alert-dismissible fade show animated fadeIn" role="alert" style="border: var(--pixel-border); background-color: #d4edda; color: #155724; font-family: \'Silkscreen\', cursive; box-shadow: var(--pixel-shadow);">
             <i class="fas fa-check-circle mr-2"></i>Usuario actualizado con éxito!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
           </div>';
+    // Redirigir después de 1.5 segundos
     echo "<script>setTimeout(function() { window.location='index.php?mod=gestion_usuario'; }, 1500);</script>";
 }
 ?>
 
+<!-- Contenedor principal de la página -->
 <div class="container-fluid">
+    <!-- Título principal de la página -->
     <h1 class="h3 mb-4 text-gray-800" style="color: var(--primary-blue); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; border: var(--pixel-border); background-color: var(--white); padding: 15px; box-shadow: var(--pixel-shadow);">
         <i class="fas fa-users mr-2"></i>Gestión de Usuarios
     </h1>
 
+    <!-- Tarjeta de búsqueda de usuarios -->
     <div class="card shadow mb-4 glitch" style="border-radius: 0; border: var(--pixel-border); background-color: white; box-shadow: var(--pixel-shadow); position: relative;">
         <div class="pixel-corner pixel-corner-tl"></div>
         <div class="pixel-corner pixel-corner-tr"></div>
+        <!-- Encabezado de la tarjeta de búsqueda -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="background: var(--primary-blue); border-bottom: var(--pixel-border);">
             <h6 class="m-0 font-weight-bold text-white" style="font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; color: var(--accent-yellow) !important;"><i class="fas fa-search mr-2"></i>Buscar Usuarios</h6>
+            <!-- Menú desplegable de opciones -->
             <div class="dropdown no-arrow">
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-white"></i>
@@ -69,6 +81,7 @@ if(isset($_POST['btn_actualizar'])){
                 </div>
             </div>
         </div>
+        <!-- Cuerpo de la tarjeta con formulario de búsqueda -->
         <div class="card-body">
             <form action="index.php?mod=gestion_usuario" method="post">
                 <div class="input-group search-container">
@@ -89,25 +102,32 @@ if(isset($_POST['btn_actualizar'])){
     </div>
 
     <?php
+    // Procesar búsqueda cuando se presiona el botón "btn_buscar"
     if(isset($_POST['btn_buscar'])){
-        include "../conexion.php";
-        $dato = $_POST['txt_nom'];
+        include "../conexion.php";  // Incluir archivo de conexión
+        $dato = $_POST['txt_nom'];  // Obtener dato de búsqueda
 
+        // Consultar usuarios que coincidan con el nombre
         $consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE PNombre LIKE '$dato%'") or die($conexion."Error en la consulta.");
      
+        // Si se encontraron resultados
         if(mysqli_num_rows($consulta) > 0){
     ?>
+    <!-- Tarjeta para mostrar resultados de búsqueda -->
     <div class="card shadow mb-4 glitch" style="border-radius: 0; border: var(--pixel-border); background-color: white; box-shadow: var(--pixel-shadow); position: relative;">
         <div class="pixel-corner pixel-corner-tl"></div>
         <div class="pixel-corner pixel-corner-tr"></div>
+        <!-- Encabezado de resultados -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="background: var(--primary-blue); border-bottom: var(--pixel-border);">
             <h6 class="m-0 font-weight-bold text-white" style="font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; color: var(--accent-yellow) !important;"><i class="fas fa-list mr-2"></i>Resultados de la Búsqueda</h6>
         </div>
+        <!-- Cuerpo con tabla de resultados -->
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0" style="border: var(--pixel-border); font-family: 'Silkscreen', cursive;">
                     <thead>
                         <tr class="table-header" style="background: var(--primary-blue); color: white;">
+                            <!-- Encabezados de la tabla -->
                             <th style="border: var(--pixel-border); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000;"><i class="fas fa-id-card mr-1"></i> Tipo documento</th>
                             <th style="border: var(--pixel-border); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000;"><i class="fas fa-fingerprint mr-1"></i> Documento</th>
                             <th style="border: var(--pixel-border); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000;"><i class="fas fa-user mr-1"></i> Primer nombre</th>
@@ -122,9 +142,11 @@ if(isset($_POST['btn_actualizar'])){
                     </thead>
                     <tbody>
                         <?php
+                        // Recorrer cada usuario encontrado y mostrar en la tabla
                         while($row = mysqli_fetch_array($consulta)){
                         ?>
                         <tr class="table-row animated fadeIn" style="border: var(--pixel-border);">
+                            <!-- Datos del usuario -->
                             <td style="border: var(--pixel-border);"><?php echo $row['tipo_documento'] ?></td>
                             <td style="border: var(--pixel-border);"><span class="badge badge-primary" style="background: var(--primary-blue); border: var(--pixel-border); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; border-radius: 0; padding: 5px 10px;"><?php echo $row['doc'] ?></span></td>
                             <td style="border: var(--pixel-border);"><?php echo $row['PNombre'] ?></td>
@@ -135,6 +157,7 @@ if(isset($_POST['btn_actualizar'])){
                             <td style="border: var(--pixel-border);"><?php echo $row['tel'] ?></td>
                             <td style="border: var(--pixel-border);">
                                 <?php 
+                                // Asignar clase de color según el rol del usuario
                                 $rol_class = '';
                                 switch($row['Id_rol']) {
                                     case 1: $rol_class = 'badge-danger'; break;
@@ -145,14 +168,17 @@ if(isset($_POST['btn_actualizar'])){
                                 ?>
                                 <span class="badge <?php echo $rol_class; ?>" style="border: var(--pixel-border); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; border-radius: 0; padding: 5px 10px;"><?php echo $row['Id_rol'] ?></span>
                             </td>
+                            <!-- Botones de acción -->
                             <td style="border: var(--pixel-border);">
                                 <div class="d-flex action-buttons">
+                                    <!-- Formulario para modificar usuario -->
                                     <form action="index.php?mod=gestion_usuario" method="post" class="mr-2">
                                         <input type="hidden" name="doc" value="<?php echo $row['doc']; ?>">
                                         <button type="submit" name="btn_modificar" class="btn btn-primary btn-circle btn-sm action-btn edit-btn glitch" title="Editar usuario" style="background: var(--secondary-blue); border: var(--pixel-border); border-radius: 0; width: 35px; height: 35px; box-shadow: var(--pixel-shadow);">    
                                             <i class="fas fa-edit"></i>
                                         </button>
                                     </form>
+                                    <!-- Botón para eliminar usuario (abre modal) -->
                                     <button type="button" class="btn btn-danger btn-circle btn-sm action-btn delete-btn delete-trigger glitch" 
                                             data-doc="<?php echo $row['doc']; ?>" 
                                             data-name="<?php echo $row['PNombre'] . ' ' . $row['PApellido']; ?>"
@@ -175,11 +201,13 @@ if(isset($_POST['btn_actualizar'])){
     </div>
     <?php
         } else {
+            // Mostrar mensaje si no se encontraron resultados
             echo '<div class="alert alert-warning animated fadeIn" style="border: var(--pixel-border); background-color: #fff3cd; color: #856404; font-family: \'Silkscreen\', cursive; box-shadow: var(--pixel-shadow);">
                     <i class="fas fa-exclamation-triangle mr-2"></i>No se encontraron resultados para su búsqueda
                   </div>';
         }
     } else {
+        // Mostrar mensaje inicial para buscar usuarios
         echo '<div class="alert alert-info animated fadeIn" style="border: var(--pixel-border); background-color: #d1ecf1; color: #0c5460; font-family: \'Silkscreen\', cursive; box-shadow: var(--pixel-shadow);">
                 <i class="fas fa-info-circle mr-2"></i>Ingrese un nombre para buscar usuarios en el sistema
               </div>';
@@ -187,16 +215,18 @@ if(isset($_POST['btn_actualizar'])){
     ?>
 </div>
 
-<!-- Modal de Confirmación de Eliminación -->
+<!-- Mendaje de Confirmación de Eliminación -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" style="border: var(--pixel-border); box-shadow: var(--pixel-shadow); font-family: 'Silkscreen', cursive;">
+            <!-- Encabezado del mensaje -->
             <div class="modal-header" style="background: var(--primary-blue); border-bottom: var(--pixel-border);">
                 <h5 class="modal-title" id="deleteModalLabel" style="font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; color: var(--accent-yellow);"><i class="fas fa-exclamation-triangle text-warning mr-2"></i>Confirmar Eliminación</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <!-- Cuerpo del mensaje con información de confirmación -->
             <div class="modal-body">
                 <div class="text-center mb-4">
                     <div class="delete-icon-container" style="display: inline-block; width: 70px; height: 70px; background: rgba(220, 53, 69, 0.1); border: var(--pixel-border); display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
@@ -206,10 +236,12 @@ if(isset($_POST['btn_actualizar'])){
                 <p>¿Estás seguro de que deseas eliminar al usuario <strong id="userName"></strong>?</p>
                 <p class="text-danger"><i class="fas fa-exclamation-circle mr-1"></i>Esta acción no se puede deshacer.</p>
             </div>
+            <!-- Pie del mensaje con botones de acción -->
             <div class="modal-footer" style="border-top: var(--pixel-border);">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background: #6c757d; border: var(--pixel-border); border-radius: 0; font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; box-shadow: var(--pixel-shadow);">
                     <i class="fas fa-times mr-1"></i> Cancelar
                 </button>
+                <!-- Formulario para eliminar usuario -->
                 <form id="deleteForm" method="post" action="index.php?mod=gestion_usuario">
                     <input type="hidden" name="doc" id="docToDelete">
                     <button type="submit" name="btn_eliminar" class="btn btn-danger glitch" style="background: #dc3545; border: var(--pixel-border); border-radius: 0; font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; box-shadow: var(--pixel-shadow);">
@@ -222,14 +254,18 @@ if(isset($_POST['btn_actualizar'])){
 </div>
 
 <?php
+// Procesar modificación de usuario cuando se presiona el botón "btn_modificar"
 if(isset($_POST['btn_modificar'])){
-    include "../conexion.php";
-    $doc = $_POST['doc'];
+    include "../conexion.php";  // Incluir archivo de conexión
+    $doc = $_POST['doc'];  // Obtener documento del usuario a modificar
 
+    // Consultar datos del usuario específico
     $consulta2 = mysqli_query($conexion, "SELECT * FROM usuarios WHERE doc = '$doc'") or die($conexion."Error en la consulta.");
     while($row2 = mysqli_fetch_array($consulta2)){
 ?>
+<!-- Contenedor para el formulario de modificación -->
 <div class="container-fluid animated fadeIn">
+    <!-- Encabezado con título y botón de volver -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800" style="color: var(--primary-blue); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; border: var(--pixel-border); background-color: var(--white); padding: 15px; box-shadow: var(--pixel-shadow);">
             <i class="fas fa-user-edit mr-2"></i>Modificar Usuario
@@ -242,19 +278,23 @@ if(isset($_POST['btn_modificar'])){
         </a>
     </div>
     
+    <!-- Formulario de modificación de usuario -->
     <div class="row">
         <div class="col-xl-10 col-lg-12 mx-auto">
             <div class="card shadow mb-4 glitch" style="border-radius: 0; border: var(--pixel-border); background-color: white; box-shadow: var(--pixel-shadow); position: relative;">
                 <div class="pixel-corner pixel-corner-tl"></div>
                 <div class="pixel-corner pixel-corner-tr"></div>
+                <!-- Encabezado del formulario -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" style="background: var(--primary-blue); border-bottom: var(--pixel-border);">
                     <h6 class="m-0 font-weight-bold text-white" style="font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; color: var(--accent-yellow) !important;"><i class="fas fa-user-cog mr-2"></i>EDITAR INFORMACIÓN DE USUARIO</h6>
                 </div>
                 
+                <!-- Cuerpo del formulario -->
                 <div class="card-body">
                     <form class="user" action="index.php?mod=gestion_usuario" method="post">
                         <input type="hidden" name="doc_modificar" value="<?php echo $row2['doc']; ?>">
                         
+                        <!-- Sección de información de identificación -->
                         <div class="row mb-4">
                             <div class="col-md-12">
                                 <div class="form-section-title" style="background: var(--primary-blue); color: white; padding: 12px 20px; border: var(--pixel-border); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; margin-bottom: 20px;">
@@ -264,7 +304,7 @@ if(isset($_POST['btn_modificar'])){
                         </div>
                         
                         <div class="row">
-                            <!-- Tipo de Documento (no editable) -->
+                            <!-- Tipo de Documento  -->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label style="font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000; color: var(--primary-blue);"><i class="fas fa-address-card mr-1"></i> Tipo de Documento</label>
@@ -282,7 +322,7 @@ if(isset($_POST['btn_modificar'])){
                                 </div>
                             </div>
             
-                            <!-- Número de Identificación -->
+                            <!-- Número de Identificación  -->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label style="font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-shadow: 1px 1px 0 #000; color: var(--primary-blue);"><i class="fas fa-fingerprint mr-1"></i> Número de Identificación</label>
@@ -293,6 +333,7 @@ if(isset($_POST['btn_modificar'])){
                             </div>
                         </div>
                         
+                        <!-- Sección de información personal -->
                         <div class="row mb-4 mt-4">
                             <div class="col-md-12">
                                 <div class="form-section-title" style="background: var(--primary-blue); color: white; padding: 12px 20px; border: var(--pixel-border); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; margin-bottom: 20px;">
@@ -301,7 +342,7 @@ if(isset($_POST['btn_modificar'])){
                             </div>
                         </div>
         
-                        <!-- Nombres -->
+                        <!-- Campos de nombres -->
                         <div class="row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <div class="form-group">
@@ -321,7 +362,7 @@ if(isset($_POST['btn_modificar'])){
                             </div>
                         </div>
         
-                        <!-- Apellidos -->
+                        <!-- Campos de apellidos -->
                         <div class="row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <div class="form-group">
@@ -341,6 +382,7 @@ if(isset($_POST['btn_modificar'])){
                             </div>
                         </div>
                         
+                        <!-- Sección de información de contacto -->
                         <div class="row mb-4 mt-4">
                             <div class="col-md-12">
                                 <div class="form-section-title" style="background: var(--primary-blue); color: white; padding: 12px 20px; border: var(--pixel-border); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; margin-bottom: 20px;">
@@ -349,7 +391,7 @@ if(isset($_POST['btn_modificar'])){
                             </div>
                         </div>
         
-                        <!-- Contacto -->
+                        <!-- Campos de contacto -->
                         <div class="row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <div class="form-group">
@@ -369,6 +411,7 @@ if(isset($_POST['btn_modificar'])){
                             </div>
                         </div>
                         
+                        <!-- Sección de información de acceso -->
                         <div class="row mb-4 mt-4">
                             <div class="col-md-12">
                                 <div class="form-section-title" style="background: var(--primary-blue); color: white; padding: 12px 20px; border: var(--pixel-border); font-family: 'Press Start 2P', cursive; text-shadow: 2px 2px 0 #000; margin-bottom: 20px;">
@@ -377,7 +420,7 @@ if(isset($_POST['btn_modificar'])){
                             </div>
                         </div>
         
-                        <!-- Rol del Usuario (no editable) -->
+                        <!-- Rol del Usuario  -->
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -423,6 +466,7 @@ if(isset($_POST['btn_modificar'])){
 ?>
 
 <style>
+
 :root {
     --primary-blue: #0056b3;
     --secondary-blue: #51a4e7;
@@ -432,6 +476,7 @@ if(isset($_POST['btn_modificar'])){
     --pixel-shadow: 4px 4px 0 #000;
 }
 
+/* Esquinas decorativas estilo pixel */
 .pixel-corner {
     position: absolute;
     width: 16px;
@@ -440,6 +485,7 @@ if(isset($_POST['btn_modificar'])){
     z-index: 10;
 }
 
+/* Posicionamiento de esquinas */
 .pixel-corner-tl {
     top: -4px;
     left: -4px;
@@ -460,6 +506,7 @@ if(isset($_POST['btn_modificar'])){
     right: -4px;
 }
 
+/* Animación de efecto glitch */
 @keyframes glitch {
     0% { transform: translate(0); }
     20% { transform: translate(-2px, 2px); }
@@ -469,10 +516,12 @@ if(isset($_POST['btn_modificar'])){
     100% { transform: translate(0); }
 }
 
+/* Aplicar animación glitch al hacer hover */
 .glitch:hover {
     animation: glitch 0.0s infinite;
 }
 
+/* Efectos para campos de formulario al enfocar */
 .form-control:focus {
     border-color: var(--primary-blue) !important;
     box-shadow: 6px 6px 0 #000 !important;
@@ -480,19 +529,23 @@ if(isset($_POST['btn_modificar'])){
     outline: none;
 }
 
+/* Efectos hover para botones */
 .btn-primary:hover, .btn-danger:hover, .btn-secondary:hover {
     transform: translate(-4px, -4px);
     box-shadow: 8px 8px 0 #000 !important;
 }
 
+/* Efectos para botones de acción */
 .action-btn:hover {
     transform: scale(1.1);
 }
 
+/* Efecto hover para filas de tabla */
 .table-row:hover {
     background-color: rgba(0, 86, 179, 0.05);
 }
 
+/* Animación de fadeIn */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -507,6 +560,7 @@ if(isset($_POST['btn_modificar'])){
     animation-name: fadeIn;
 }
 
+/* Estilos responsive para dispositivos móviles */
 @media (max-width: 768px) {
     .action-buttons {
         flex-direction: column;
@@ -520,24 +574,28 @@ if(isset($_POST['btn_modificar'])){
 </style>
 
 <script>
+// Script para manejar la interacción del mensaje de eliminación
 document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar todos los botones de eliminar
     const deleteButtons = document.querySelectorAll('.delete-trigger');
     const deleteForm = document.getElementById('deleteForm');
     const docToDelete = document.getElementById('docToDelete');
     const userName = document.getElementById('userName');
     const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
     
+    // Agregar evento click a cada botón de eliminar
     deleteButtons.forEach(button => {
         button.addEventListener('click', function() {
+            // Obtener datos del usuario a eliminar
             const doc = this.getAttribute('data-doc');
             const name = this.getAttribute('data-name');
             docToDelete.value = doc;
             userName.textContent = name;
-            deleteModal.show();
+            deleteModal.show();  // Mostrar mensaje de confirmación
         });
     });
     
-    // Efectos de animación para las filas de la tabla
+    // Aplicar animaciones a las filas de la tabla
     const tableRows = document.querySelectorAll('.table-row');
     tableRows.forEach((row, index) => {
         row.style.animationDelay = `${index * 0.05}s`;
